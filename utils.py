@@ -1,15 +1,9 @@
-
-# coding: utf-8
-
-# In[15]:
-
-
 import pandas as pd
 import numpy as np
+import time 
 
-
-# In[77]:
-
+from sklearn.model_selection import train_test_split
+from itertools import zip_longest
 
 def one_hot_encode(X):
     """
@@ -58,21 +52,74 @@ def one_hot_decode(X):
         dna_sequences.append("".join(dna_sequence))
     return np.array(dna_sequences)
 
-def train_test_split(X, train_test_ratio = 0.8, shuffle = False): 
-    """ splits data into train and test groups """
-    assert(len(X) > 0 and 0 <= train_test_ratio and train_test_ratio <= 1)
-    if shuffle: 
-        np.random.shuffle(X)
-    train_size = int(len(X) * 0.8)
-    return X[0:train_size, :], X[train_size:, :]
+def normalize(X): 
+    """ normalize an array """
+    return (X - X.mean()) / X.std()
+        
     
-    
-    
-def load_gfp_data(gfp_data_path = "./data/gfp_data.csv", train_test_ratio = 0.8, shuffle = False):
+def load_gfp_data(gfp_data_path = "./data/gfp_data.csv", x_feature = "nucSequence", y_feature = "medianBrightness", normalize_y = True, test_size = 0.2, shuffle = False):
     """ one hot encodes gfp data into train and test set"""
     df = pd.read_csv(gfp_data_path, index_col = 0)
-    one_hot_matrix = one_hot_encode(df["nucSequence"].values)  
-    return train_test_split(one_hot_matrix, 
-                            train_test_ratio = train_test_ratio, 
-                            shuffle = shuffle)
+    X = one_hot_encode(df[x_feature].values)
+    y = df[y_feature].values
+    if normalize_y: 
+        y = normalize(y)
+    return train_test_split(X, y, test_size = test_size, shuffle = shuffle)
+ 
+def count_substring_mismatch(s1, s2): 
+    """ returns the number of misaligned pairs within strings s1 and s2"""
+    return sum([i != j for i, j in zip_longest(s1, s2)])
+   
+def generate_random_gfp_data_mutations(num_of_mutations_lst, num_per_mutation_count = 1000): 
+    """
+    Input: num_of_mutations_lst is a list defining the count of mutations from the base sequence we want, 
+           num_per_mutation_count is an int defining how many of each mutation count do we want. Often set to the test size
+    Output: a pandas dataframe comprised of two columns: the number of mutations and the mutation dna sequence
+    """
+    start_time = time.time()
+    total_data_points = len(num_of_mutations_lst) * num_per_mutation_count
+    assert(total_data_points < 200000)
+    wild_type_sequence = pd.read_csv("./data/gfp_data.csv")["nucSequence"].values[0]
+    wild_type_lst = list(wild_type_sequence)
+    mutation_lst = np.vstack([wild_type_lst] * total_data_points)
+    mutation_count_lst = np.array([[mutation_count for _ in range(num_per_mutation_count)] for mutation_count in num_of_mutations_lst]).flatten()
+    """
+    np.testing.assert_array_equal(mutation_lst[0], mutation_lst[1000])
+    np.testing.assert_array_equal(mutation_lst[0], wild_type_lst)
+    assert(len(mutation_lst) == total_data_points and len(mutation_count_lst) == len(mutation_lst))
+    assert(mutation_count_lst[0] == 1 and mutation_count_lst[num_per_mutation_count] == 2 and mutation_count_lst[num_per_mutation_count - 1] == 1)
+    """
+    bases = "ACTG"
+    index = list(range(0, 4))
+    base_index_map = dict(zip(bases, index))
+    index_base_map = dict(zip(index, bases))
 
+    for i, mutation_count in enumerate(mutation_count_lst):   
+        mutation_index = np.random.choice(len(wild_type_sequence), mutation_count, replace = False).tolist()
+        for j in mutation_index: 
+            k = base_index_map[mutation_lst[i, j]]
+            new_index = (k + np.random.randint(1, 4)) % 4
+            mutation_lst[i, j] = index_base_map[new_index] 
+    mutation_sequence_lst = np.array(["".join(lst) for lst in mutation_lst])
+    mutated_df = pd.DataFrame.from_dict({'mutation_count' : mutation_count_lst, 'mutation_sequence' : mutation_sequence_lst})
+    print(time.time() - start_time)
+    return mutated_df
+        
+def save_gfp_data(X_train, X_test, y_train, y_test): 
+    np.save("./data/gfp_x_train.npy", X_train)
+    np.save("./data/gfp_x_test.npy", X_test)
+    np.save("./data/gfp_y_train.npy", y_train)
+    np.save("./data/gfp_y_test.npy", y_test)
+    
+def load_saved_gfp_data(): 
+    X_train = np.load("./data/gfp_x_train.npy")
+    X_test = np.load("./data/gfp_x_test.npy")
+    y_train = np.load("./data/gfp_y_train.npy")
+    y_test = np.load("./data/gfp_y_test.npy")
+    return X_train, X_test, y_train, y_test
+
+def save_mutated_gfp_data(mutated_df): 
+    mutated_df.to_csv("./data/mutated_df.csv", index = None)
+    
+def load_saved_mutated_gfp_data(): 
+    return pd.read_csv("./data/mutated_df.csv")
