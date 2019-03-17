@@ -1,30 +1,12 @@
 import pandas as pd
 import numpy as np
 import time 
-import pixiedust
+import argparse
 
 from pomegranate import State, DiscreteDistribution, HiddenMarkovModel
 from sklearn.model_selection import train_test_split
 from utils import *
 from hmm import GenerativeHMM, hmm_amino_acid_args
-
-print("Loading data...")
-start_time = time.time()
-X_train, X_test, y_train, y_test = load_gfp_data("./data/gfp_amino_acid_")
-mutated_df = load_saved_mutated_gfp_data()
-print("Finished loading data in {0:.2f} seconds".format(time.time() - start_time))
-
-
-# In[3]:
-
-
-wild_type_amino_acid = get_wild_type_amino_acid_sequence()
-assert(X_train[0] == wild_type_amino_acid)
-assert(count_substring_mismatch(wild_type_amino_acid, X_train[1000]) == 8)
-assert(count_substring_mismatch(wild_type_amino_acid, mutated_df["mutated_amino_acid_sequence"].values[0]) == 1)
-
-
-# In[5]:
 
 
 def get_data(X_train, length, n = 100, random=True): 
@@ -48,36 +30,16 @@ def sample_and_score(hmm, wild_type, n = 100, length = 100, file = None):
     print("Example sequence {0}".format(samples[np.random.randint(0, n)]), file = file)
     return average_diff
 
-small_length, medium_length, large_length = 15, len(wild_type_amino_acid) // 4, len(wild_type_amino_acid)
-small_X = get_data(X_train, small_length, 100)
-medium_X = get_data(X_train, medium_length, 100)
-large_X = get_data(X_train, large_length, 100)
-
-
-# In[6]:
-
-
-diffs = [count_substring_mismatch(i, wild_type_amino_acid[0:small_length]) for i in small_X]
-print("Small diffs:", diffs)
-diffs = [count_substring_mismatch(i, wild_type_amino_acid[0:medium_length]) for i in medium_X]
-print("Medium diffs:", diffs)
-diffs = [count_substring_mismatch(i, wild_type_amino_acid[0:large_length]) for i in large_X]
-print("Large diffs:", diffs)
-
-
-# In[19]:
-
-
-def train_and_save_hmm(args):
+def train_and_save_hmm(X, args):
     start_time = time.time()
     hmm = GenerativeHMM(args)
-    hmm.fit(small_X)
+    hmm.fit(X)
     log_path = "./logs/{0}.txt".format(hmm.name)
     logger = open(log_path, "w")
     print("Finished training in {:.2f} seconds".format(time.time() - start_time), file = logger)
     print("HMM Parameters:", file = logger)
     print(hmm.get_args(), file = logger)
-    sample_and_score(hmm, wild_type_amino_acid[0:small_length], 100, small_length, file = logger)
+    sample_and_score(hmm, wild_type_amino_acid[0:wild_type_length], 100, wild_type_length, file = logger)
     model_path = "./models/{0}.json".format(hmm.name)
     hmm.save_model(model_path)
     cached_hmm = GenerativeHMM(args)
@@ -92,36 +54,28 @@ def train_and_save_hmm(args):
         print("Error in loading {0} hmm".format(hmm.name))
         logger.close()
 
-def get_small_args():
-    base_args = hmm_amino_acid_args()
-    base_args["name"] = "amino_acid_small"
-    base_args["max_iterations"] = 100
-    base_args["hidden_size"] = 50
-    base_args["n_jobs"] = 5
-    return base_args
+def get_args(parser_args):
+    args = hmm_amino_acid_args()
+    args["n_jobs"] = parser_args.n_jobs
+    args["hidden_size"] = parser_args.hidden_size
+    args["max_iterations"] = parser_args.max_iterations
+    args["name"] = parser_args.name
+    return args
 
+parser = argparse.ArgumentParser(description='Process the arguments for the HMM Model')
+parser.add_argument("-nj", "--n_jobs", default=5, required=False, help="number of jobs/cpus to train the hmm", type=int)
+parser.add_argument("-hi", "--hidden_size", default=50, required=False, help="hidden_size of hmm", type=int)
+parser.add_argument("-ma", "--max_iterations", default=100, required=False, help="max iterations to run the hmm model", type=int)
+parser.add_argument("-nu", "--num_sequences", default=100, required=False, help="number of sequences used to train the hmm", type=int)
+parser.add_argument("-na", "--name", default="base", required=False, help="name of hmm model", type=str)
+parser_args = parser.parse_args()
 
-# In[20]:
+X_train, X_test, y_train, y_test = load_gfp_data("./data/gfp_amino_acid_")
+wild_type_amino_acid = get_wild_type_amino_acid_sequence()
+wild_type_length = len(wild_type_amino_acid)
+X = get_data(X_train, wild_type_length, parser_args.num_sequences)
+assert(X_train[0] == wild_type_amino_acid)
+assert(count_substring_mismatch(wild_type_amino_acid, X_train[1000]) == 8)
 
-
-train_and_save_hmm(get_small_args())
-
-
-# In[ ]:
-
-
-10, 100 sequences, 100 iterations, 100 sequences. 
-10, 200, 1e8, 100 sequences, 
-10, 200, 1000, 100 sequences. 
-10, 500, 1000, 100 sequences. 
-10, 200, 1000, 10000 seqeunces. 
-
-
-## Fit 3 types.
-## Fit small data -> large data. 
-## Fit with different hidden sizes 10, 50, 200. 
-## fit until it 1e8, 1e2 iterations
-## all with more cores 5
-## record times of all these. 
-
-
+args = get_args(parser_args)
+train_and_save_hmm(X, args)
