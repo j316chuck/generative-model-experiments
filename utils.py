@@ -5,7 +5,7 @@ import time
 from sklearn.model_selection import train_test_split
 from itertools import zip_longest
 from Bio.Data import CodonTable
-from Bio.Seq import translate
+from Bio.Seq import translate, IUPAC
 
 def normalize(X): 
     """ normalize an array """
