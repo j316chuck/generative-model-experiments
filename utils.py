@@ -7,7 +7,6 @@ from itertools import zip_longest
 from Bio.Data import CodonTable
 from Bio.Seq import translate
 
-
 def normalize(X): 
     """ normalize an array """
     return (X - X.mean()) / X.std()
@@ -18,6 +17,9 @@ def get_wild_type_dna_sequence():
 def dna_to_amino_acid(dna_seq):
     return translate(dna_seq)
 
+def get_all_amino_acids(): 
+    return "*" + IUPAC.protein.letters
+    
 def get_wild_type_amino_acid_sequence(): 
     return dna_to_amino_acid(get_wild_type_dna_sequence())
 
