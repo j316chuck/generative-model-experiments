@@ -1,0 +1,6 @@
+Finished training in 21.65 seconds
+HMM Parameters:
+{'name': 'amino_acid_small', 'hidden_size': 50, 'max_iterations': 100, 'n_jobs': 5, 'batch_size': 5, 'epoch': 2, 'char_to_int': {'*': 0, 'A': 1, 'C': 2, 'D': 3, 'E': 4, 'F': 5, 'G': 6, 'H': 7, 'I': 8, 'K': 9, 'L': 10, 'M': 11, 'N': 12, 'P': 13, 'Q': 14, 'R': 15, 'S': 16, 'T': 17, 'V': 18, 'W': 19, 'Y': 20}, 'build_from_samples': False}
+Average difference: 0.08, or 0.01 mismatches per letter
+Example sequence SKGEELFTGVVPILV
+Successfully finished training and saving amino_acid_small hmm!
