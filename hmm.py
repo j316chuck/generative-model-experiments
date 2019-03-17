@@ -1,29 +1,11 @@
-
-# coding: utf-8
-
-# ## Imports
-
-# In[1]:
-
-
 import pandas as pd
 import numpy as np
 import time 
 import json
-
-get_ipython().run_line_magic('load_ext', 'autoreload')
-get_ipython().run_line_magic('autoreload', '2')
-
 from pomegranate import State, DiscreteDistribution, HiddenMarkovModel
 from sklearn.model_selection import train_test_split
 from utils import *
 from Bio.Alphabet import IUPAC
-
-
-# ## Models
-
-# In[8]:
-
 
 class GenerativeHMM(): 
     
@@ -141,11 +123,6 @@ class GenerativeHMM():
         self.model = HiddenMarkovModel.from_json(json_model)
 
 
-# ## Model Functions
-
-# In[7]:
-
-
 def hmm_base_args(): 
     return {
         "name" : "base HMM",
@@ -171,181 +148,3 @@ def hmm_amino_acid_args():
     assert(amino_acids == "*" + IUPAC.protein.letters) #*ACDEFGHIKLMNPQRSTVWY
     args["char_to_int"] = dict(zip(amino_acids, indexes))
     return args
-    
-
-
-# ## Tests
-
-# In[17]:
-
-
-def test_fit_dna_hmm(X_train_sequences): 
-    args = hmm_base_args()
-    hmm = GenerativeHMM(args)
-    hmm.fit(X_train_sequences)
-    args["max_iterations"] = 20
-    args["n_jobs"] = 5
-    hmm = GenerativeHMM(args)
-    hmm.fit(X_train_sequences)
-    assert(hmm.char_to_int == {"A" : 0, "C" : 1, "T" : 2, "G" : 3})
-    assert(hmm.indexes == sorted(list(range(4))))
-    assert(hmm.vocabulary == list("ACTG"))
-    
-def test_fit_amino_acid_hmm(X_train_sequences):
-    args = hmm_amino_acid_args()
-    hmm = GenerativeHMM(args)
-    hmm.fit(X_train_sequences)
-    args["max_iterations"] = 20
-    args["n_jobs"] = 5
-    hmm = GenerativeHMM(args)
-    hmm.fit(X_train_sequences)
-    amino_acid_alphabet = get_all_amino_acids()
-    assert(hmm.char_to_int == dict(zip(amino_acid_alphabet, list(range(len(amino_acid_alphabet))))))
-    assert(hmm.indexes == sorted(list(range(len(amino_acid_alphabet)))))
-    assert(hmm.vocabulary == list(amino_acid_alphabet))
-    
-def test_sample_and_predict_dna_hmm(x_train_sequences): 
-    args = hmm_base_args()
-    hmm = GenerativeHMM(args)
-    hmm.fit(x_train_sequences, verbose=False)
-    seq1, seq2 = tuple(hmm.sample(2, 714))
-    np.testing.assert_almost_equal(hmm.model.probability(seq1), np.e ** hmm.predict([list(seq1)]))
-    total = 0
-    for i in "ACTG": 
-        for j in "ACTG": 
-            for k in "ACTG":
-                codon = i + j + k
-                np.testing.assert_almost_equal(hmm.model.probability(codon), np.e ** hmm.predict([list(codon)]))
-                total += np.e ** hmm.predict([list(codon)])
-    np.testing.assert_almost_equal(1, total)
-    
-def test_sample_and_predict_amino_acid_hmm(x_train_sequences): 
-    args = hmm_amino_acid_args()
-    hmm = GenerativeHMM(args)
-    hmm.fit(x_train_sequences, verbose=False)
-    wild_type_amino_acid = get_wild_type_amino_acid_sequence()
-    seq1, seq2 = tuple(hmm.sample(2, len(wild_type_amino_acid)))
-    print("{0} amino acids away from wild type!".format(count_substring_mismatch(seq1, 
-                                                            wild_type_amino_acid)))
-    np.testing.assert_almost_equal(hmm.model.probability(seq1), np.e ** hmm.predict([list(seq1)]))
-    total = 0
-    amino_acid_alphabet = get_all_amino_acids()
-    for i in amino_acid_alphabet: 
-        for j in amino_acid_alphabet: 
-            amino_acid = i + j
-            np.testing.assert_almost_equal(hmm.model.probability(amino_acid), np.e ** hmm.predict([list(amino_acid)]))
-            total += np.e ** hmm.predict([list(amino_acid)])
-    np.testing.assert_almost_equal(total, 1)   
-    
-def test_fit_dna_hmm_from_samples(X_train_sequences): 
-    args = hmm_build_from_samples_args()
-    hmm = GenerativeHMM(args, X_train_sequences)
-    #test max iterations and n_jobs 
-    args["max_iterations"] = 20
-    args["n_jobs"] = 5
-    hmm = GenerativeHMM(args, X_train_sequences)
-    assert(hmm.char_to_int == {"A" : 0, "C" : 1, "T" : 2, "G" : 3})
-    assert(hmm.indexes == sorted(list(range(4))))
-    assert(hmm.vocabulary == list("ACTG"))
-
-def test_fit_dna_hmm_weights(X_train_sequences):
-    args = hmm_base_args()
-    weights = np.identity(4)
-    weights = np.vstack([weights, [0.25, 0.25, 0.25, 0.25]])
-    for weight in weights:
-        counts = {"A" : 0, "C" : 0, "T" : 0, "G" : 0}
-        hmm = GenerativeHMM(args)
-        hmm.fit(X_train_sequences, weight, verbose=False)
-        json_model = json.loads(hmm.model.to_json())
-        for state in json_model["states"]: 
-            if state is not None and state["distribution"] is not None:
-                mp = state["distribution"]["parameters"][0]
-                for k, v in mp.items(): 
-                    counts[k] = counts[k] + v
-        print("Weights:", weight, "\nCounts:", counts)    
-        
-
-def test_fit_dna_hmm_from_samples_weights(X_train_sequences):
-    args = hmm_build_from_samples_args()
-    weights = np.identity(4)
-    weights = np.vstack([weights, [0.25, 0.25, 0.25, 0.25]])
-    for weight in weights: 
-        counts = {"A" : 0, "C" : 0, "T" : 0, "G" : 0}
-        hmm = GenerativeHMM(args, X_train_sequences, weight, verbose=False)
-        json_model = json.loads(hmm.model.to_json())
-        for state in json_model["states"]: 
-            if state is not None and state["distribution"] is not None:
-                mp = state["distribution"]["parameters"][0]
-                for k, v in mp.items(): 
-                    counts[k] = counts[k] + v
-        print("Weights:", weight, "\nCounts:", counts) 
-        
-def test_save_and_load_hmm(X_train_sequences, amino_acid = True): 
-    if amino_acid:
-        args = hmm_amino_acid_args()
-    else:
-        args = hmm_base_args()
-    hmm = GenerativeHMM(args)
-    hmm.fit(X_train_sequences, verbose=False)
-    hmm.save_model("./models/test.json")
-    cached_hmm = GenerativeHMM(args)
-    cached_hmm.load_model("./models/test.json")
-    for i in "ACTG": 
-        for j in "ACTG": 
-            for k in "ACTG":
-                codon = i + j + k
-                np.testing.assert_almost_equal(hmm.predict([list(codon)]), cached_hmm.predict([list(codon)]))
-
-
-# In[18]:
-
-
-test_fit_amino_acid_hmm(test_amino_acid_sequences)
-test_sample_and_predict_amino_acid_hmm(test_amino_acid_sequences)
-test_save_and_load_hmm(test_amino_acid_sequences)
-
-
-# In[19]:
-
-
-test_fit_dna_hmm(test_dna_sequences)
-test_sample_and_predict_dna_hmm(test_dna_sequences)
-test_fit_dna_hmm_from_samples(test_dna_sequences)
-test_save_and_load_hmm(test_dna_sequences)
-
-synthetic_data = np.array([["A", "A", "A", "T"], ["C", "C", "C", "G"], ["T", "T", "T", "A"], ["G", "G", "G", "C"]])
-test_fit_dna_hmm_weights(synthetic_data)
-test_fit_dna_hmm_from_samples_weights(synthetic_data)
-
-
-# ## Code
-
-# In[10]:
-
-
-print("Loading data...")
-start_time = time.time()
-X_train, X_test, y_train, y_test = load_gfp_data("./data/gfp_dna_") #./data/gfp_dna_
-mutated_df = load_saved_mutated_gfp_data()
-assert(X_train[0] == get_wild_type_dna_sequence())
-assert(count_substring_mismatch(X_train[999], get_wild_type_dna_sequence()) == 3)
-print("Finished loading data in {0:.2f} seconds".format(time.time() - start_time))
-
-base_args = hmm_base_args()
-build_from_samples_args = hmm_build_from_samples_args()
-test_dna_sequences = np.array([list(seq) for seq in X_train[0:100]])
-
-
-# In[11]:
-
-
-print("Loading data...")
-start_time = time.time()
-X_train, X_test, y_train, y_test = load_gfp_data("./data/gfp_amino_acid_") #./data/gfp_amino_acid_
-assert(X_train[0] == get_wild_type_amino_acid_sequence())
-assert(count_substring_mismatch(X_train[999], get_wild_type_amino_acid_sequence()) == 3)
-print("Finished loading data in {0:.2f} seconds".format(time.time() - start_time))
-
-base_amino_acid_args = hmm_amino_acid_args()
-test_amino_acid_sequences = np.array([list(seq) for seq in X_train[0:100]])
-
