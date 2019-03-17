@@ -33,6 +33,7 @@ class GenerativeHMM():
         args.build_from_samples : boolean
             build model from samples
         """
+        self.args = args
         self.name = args["name"]
         self.hidden_size = args["hidden_size"]
         self.max_iterations = args["max_iterations"]
@@ -76,7 +77,10 @@ class GenerativeHMM():
         np.testing.assert_almost_equal(starts.sum(), 1)
         np.testing.assert_array_almost_equal(np.ones(self.hidden_size), trans_mat.sum(axis = 1))
         self.model = HiddenMarkovModel.from_matrix(trans_mat, distributions, starts)
-
+        
+    def get_args(self): 
+        return self.args
+        
     def fit(self, x_train, weights=None, verbose=True):
         """
         Fits the model on an HMM with self.hidden_size
@@ -121,7 +125,6 @@ class GenerativeHMM():
         with open(path, 'r') as f:
             json_model = json.load(f)
         self.model = HiddenMarkovModel.from_json(json_model)
-
 
 def hmm_base_args(): 
     return {
