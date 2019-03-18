@@ -10,6 +10,9 @@ from hmm import GenerativeHMM, hmm_amino_acid_args
 
 
 def get_data(X_train, length, n = 100, random=True): 
+    """
+    gets n random sequences of size length from the dataset X_train
+    """
     if not random: 
         data = X_train[0:length]
     else: 
