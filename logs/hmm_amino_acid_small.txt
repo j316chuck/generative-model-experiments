@@ -4,3 +4,5 @@ HMM Parameters:
 Average difference: 0.08, or 0.01 mismatches per letter
 Example sequence SKGEELFTGVVPILV
 Successfully finished training and saving amino_acid_small hmm!
+
+## Print out probabilities. 
