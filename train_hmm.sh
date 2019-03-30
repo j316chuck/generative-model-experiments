@@ -1,13 +1,15 @@
-#!bin/bash
+#!/bin/bash -l
 
+#SBATCH --qos=debug
+#SBATCH --nodes=4
+#SBATCH --job-name=hmm_debug_trial
+#SBATCH --time=00:10:00
+#SBATCH --output=./logs/%j.txt
+#SBATCH --account=m2871
 
-git clone https://github.com/j316chuck/generative-model-experiments.git
-cd generative-model-experiments
-mkdir models
-
-python3 hmm_experiments.py --n_jobs 10 --hidden_size 100 --max_iterations 100 --num_sequences 100 --name "hmm_amino_acid_hidden_100"
-python3 hmm_experiments.py --n_jobs 10 --hidden_size 200 --max_iterations 1000 --num_sequences 100 --name "hmm_amino_acid_hidden_200"
-python3 hmm_experiments.py --n_jobs 10 --hidden_size 200 --max_iterations 1e8 --num_sequences 100 --name "hmm_amino_acid_hidden_200_iter_inf"
-python3 hmm_experiments.py --n_jobs 10 --hidden_size 500 --max_iterations 1000 --num_sequences 100 --name "hmm_amino_acid_hidden_500"
-python3 hmm_experiments.py --n_jobs 10 --hidden_size 200 --max_iterations 1000 --num_sequences 10000 --name "hmm_amino_acid_hidden_200_seq_10000"
+srun -n 10  python3 hmm_experiments.py --n_jobs 10 --hidden_size 10 --max_iterations 100 --num_sequences 100 --name "hmm_amino_acid_hidden_10" &
+srun -n 10 python3 hmm_experiments.py --n_jobs 10 --hidden_size 20 --max_iterations 1000 --num_sequences 100 --name "hmm_amino_acid_hidden_20" & 
+srun -n 10 python3 hmm_experiments.py --n_jobs 10 --hidden_size 20 --max_iterations 1e8 --num_sequences 100 --name "hmm_amino_acid_hidden_20_iter_inf" & 
+srun -n 10 python3 hmm_experiments.py --n_jobs 10 --hidden_size 50 --max_iterations 1000 --num_sequences 100 --name "hmm_amino_acid_hidden_50" & 
+wait
 
