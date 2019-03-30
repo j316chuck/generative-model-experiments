@@ -1,0 +1,3 @@
+Training RNN
+Model Description: name: rnn_test_large_sample, layers 2, hidden size 200, lr 0.005, epochs 10
+Sampled sequences SKGEELFTGV SIGEVLFDGV PQGATPKHHG
