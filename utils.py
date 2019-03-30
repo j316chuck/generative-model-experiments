@@ -1,11 +1,13 @@
 import pandas as pd
 import numpy as np
 import time 
+import torch 
 
 from sklearn.model_selection import train_test_split
 from itertools import zip_longest
 from Bio.Data import CodonTable
 from Bio.Seq import translate, IUPAC
+
 
 def normalize(X): 
     """ normalize an array """
@@ -141,3 +143,15 @@ def one_hot_decode_dna_sequence(X):
                 dna_sequence.append("G")
         dna_sequences.append("".join(dna_sequence))
     return np.array(dna_sequences)
+
+def string_to_tensor(string, character_to_int):
+    tensor = torch.zeros(len(string)).long()
+    for i, c in enumerate(string): 
+        tensor[i] = character_to_int[c]
+    return tensor
+
+def string_to_numpy(string, character_to_int):
+    arr = np.zeros(len(string))
+    for i, c in enumerate(string): 
+        arr[i] = character_to_int[c]
+    return arr
