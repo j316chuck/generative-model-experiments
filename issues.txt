@@ -1,0 +1,19 @@
+
+    1. HMM Implementation Issues
+        1. add in batch_size later
+        2. separate function to load data and then run the data. 
+          1. add five fold cv later. 
+          2. when adding random data generation you can also modify every single data point… Do later? 
+        3. there seems to be a difference between fitting from sample and fitting just generically. 
+        4.  Also, the load and dump is different from loads and dumps in json. 
+          1. More importantly, the ordering of the json file changes but the results of the model does not. 
+        5. not complete testing but good enough. maybe use fit instead of from samples just in case
+        6. the probabilities become -inf or 0 if the model hasn’t seen it before should we make count 0. 
+        7. try from samples if fit is wrong. 
+      1. add the one hot encoding of amino acid sequences later. 
+      2. Add super class for all 3 models later. 
+      3. Gradient descent on HMM
+    2. RNN implementation
+      1. we can add in samples of batch size and evaluation later
+      2. add in more logging abilities/step size  + learning ratechanger 
+      3. a little concerning for bg samples where log probability doesn’t match
