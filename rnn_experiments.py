@@ -75,6 +75,7 @@ Loading Data
 wild_type = get_wild_type_amino_acid_sequence()
 seq_length = len(wild_type)
 X_train, X_test, y_train, y_test = load_gfp_data(os.path.join('./data', args["dataset"]))
+print(len(X_train))
 char_to_int = dict(zip(args["vocabulary"], range(len(args["vocabulary"]))))
 dataloader = get_dataloader(X_train, length = seq_length, character_to_int = char_to_int, n = args["num_data"], batch_size = args["batch_size"], shuffle = True, random = True)
 
