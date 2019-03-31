@@ -1,0 +1,30 @@
+Traceback (most recent call last):
+  File "rnn_experiments.py", line 3, in <module>
+    import unidecode
+ModuleNotFoundError: No module named 'unidecode'
+Traceback (most recent call last):
+  File "rnn_experiments.py", line 3, in <module>
+    import unidecode
+ModuleNotFoundError: No module named 'unidecode'
+Traceback (most recent call last):
+  File "rnn_experiments.py", line 3, in <module>
+    import unidecode
+ModuleNotFoundError: No module named 'unidecode'
+Traceback (most recent call last):
+Traceback (most recent call last):
+  File "rnn_experiments.py", line 3, in <module>
+    import unidecode
+ModuleNotFoundError: No module named 'unidecode'
+  File "rnn_experiments.py", line 3, in <module>
+    import unidecode
+ModuleNotFoundError: No module named 'unidecode'
+srun: error: nid00087: task 0: Exited with exit code 1
+srun: Terminating job step 12832184.1
+srun: error: nid00088: task 0: Exited with exit code 1
+srun: Terminating job step 12832184.2
+srun: error: nid03251: task 0: Exited with exit code 1
+srun: Terminating job step 12832184.3
+srun: error: nid03351: task 0: Exited with exit code 1
+srun: Terminating job step 12832184.4
+srun: error: nid00041: task 0: Exited with exit code 1
+srun: Terminating job step 12832184.0

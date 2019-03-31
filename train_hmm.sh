@@ -6,7 +6,6 @@
 #SBATCH --time=00:10:00
 #SBATCH --output=./logs/hmm_sample.txt
 #SBATCH --account=m2871
-#SBATCH --constraint=haswell
 
 srun -N 1 -n 1 python3 hmm_experiments.py --n_jobs 1 --hidden_size 25 --max_iterations 100 --num_sequences 100 --length 25 --name "hmm_sample_1" &
 srun -N 1 -n 24 python3 hmm_experiments.py --n_jobs 1 --hidden_size 25 --max_iterations 100 --num_sequences 100 --length 25 --name "hmm_sample_2" & 

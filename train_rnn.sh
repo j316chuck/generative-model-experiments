@@ -4,7 +4,6 @@
 #SBATCH -t 0:30:00
 #SBATCH -J rnn_sample
 #SBATCH -o ./logs/rnn_sample.txt
-#SBATCH --constraint=haswell 
 
 srun -N 1 python3 rnn_experiments.py --model rnn --default 0 --dataset gfp_amino_acid_ --name rnn_test_sample_1 --layers 2 --hidden_size 200 --learning_rate 0.005 --epochs 10 --num_data 120 --batch_size 10 &
 srun -N 1 python3 rnn_experiments.py --model rnn --default 0 --dataset gfp_amino_acid_ --name rnn_test_sample_2 --layers 8 --hidden_size 200 --learning_rate 0.005 --epochs 10 --num_data 120 --batch_size 10 &

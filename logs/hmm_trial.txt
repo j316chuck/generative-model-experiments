@@ -1,0 +1,24 @@
+Traceback (most recent call last):
+  File "hmm_experiments.py", line 7, in <module>
+    from pomegranate import State, DiscreteDistribution, HiddenMarkovModel
+ModuleNotFoundError: No module named 'pomegranate'
+Traceback (most recent call last):
+  File "hmm_experiments.py", line 7, in <module>
+    from pomegranate import State, DiscreteDistribution, HiddenMarkovModel
+ModuleNotFoundError: No module named 'pomegranate'
+Traceback (most recent call last):
+  File "hmm_experiments.py", line 7, in <module>
+    from pomegranate import State, DiscreteDistribution, HiddenMarkovModel
+ModuleNotFoundError: No module named 'pomegranate'
+Traceback (most recent call last):
+  File "hmm_experiments.py", line 7, in <module>
+    from pomegranate import State, DiscreteDistribution, HiddenMarkovModel
+ModuleNotFoundError: No module named 'pomegranate'
+srun: error: nid03179: task 0: Exited with exit code 1
+srun: Terminating job step 12832183.3
+srun: error: nid02390: task 0: Exited with exit code 1
+srun: Terminating job step 12832183.1
+srun: error: nid02855: task 0: Exited with exit code 1
+srun: error: nid02299: task 0: Exited with exit code 1
+srun: Terminating job step 12832183.2
+srun: Terminating job step 12832183.0

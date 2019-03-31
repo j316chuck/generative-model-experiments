@@ -12,7 +12,20 @@
       1. add the one hot encoding of amino acid sequences later. 
       2. Add super class for all 3 models later. 
       3. Gradient descent on HMM
+      4. HMM trials: 
+	 hmm_sample_1 : 5 seconds, 0.65 mismatches, seemed to have little imrovement. clearly -n 1 means 1 job
+	 hmm_sample_2 : -n 24 does not mean run 24 times had same results, seemed to fit really well..., 8 seconds 
+	hmm_sample_3 : -c 24 did not run
+	hmm_sample_4 : --n_jobs 24 95.33 seconds. 0.08 so took longer per run... training 0.93 mismatches...222.02 mismatche
     2. RNN implementation
       1. we can add in samples of batch size and evaluation later
       2. add in more logging abilities/step size  + learning ratechanger 
-      3. a little concerning for bg samples where log probability doesn’t match
+      3. a little concerning for bg samples where log probability doesn't match
+      4. RNN generic python rnn_experiments runs in 70 seconds on edison and generates samples correctly, (rnn_test_sample_1),
+	rnn_test_sample_2: 8 lstm layers, takes 254 seconds or 4x as long and does not converge to correct distribution 
+	rnn_test_sample_4: batch size 40, runs in 35 seconds, 224 mismatches and loss is a little bit higher. but yeah... runs twice as fast. 
+	rnn_test_sample_5: hidden size 800 * 4, runs in 1066 seconds or 15x slower. so its an n^2 rate slower. surprisingly/unsurprisingly increasing hidden state results in best generated sequences 
+	rnn_test_sample_6: small model, hidden size 100, layers 1, loss a little higher, ran in 23 seconds. 
+	
+
+
