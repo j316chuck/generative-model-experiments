@@ -1,0 +1,175 @@
+srun: error: Unable to create step for job 20136787: More processors requested than permitted
+Traceback (most recent call last):
+  File "hmm_experiments.py", line 89, in <module>
+    train_and_save_hmm(X, args)
+  File "hmm_experiments.py", line 52, in train_and_save_hmm
+    cached_hmm.load_model(model_path)
+  File "/global/u1/c/ctang33/generative-model-experiments/hmm.py", line 126, in load_model
+    json_model = json.load(f)
+  File "/global/homes/c/ctang33/.conda/envs/myenv/lib/python3.6/json/__init__.py", line 299, in load
+    parse_constant=parse_constant, object_pairs_hook=object_pairs_hook, **kw)
+  File "/global/homes/c/ctang33/.conda/envs/myenv/lib/python3.6/json/__init__.py", line 354, in loads
+    return _default_decoder.decode(s)
+  File "/global/homes/c/ctang33/.conda/envs/myenv/lib/python3.6/json/decoder.py", line 339, in decode
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+  File "/global/homes/c/ctang33/.conda/envs/myenv/lib/python3.6/json/decoder.py", line 357, in raw_decode
+    raise JSONDecodeError("Expecting value", s, err.value) from None
+json.decoder.JSONDecodeError: Expecting value: line 1 column 1 (char 0)
+Traceback (most recent call last):
+  File "hmm_experiments.py", line 89, in <module>
+    train_and_save_hmm(X, args)
+  File "hmm_experiments.py", line 52, in train_and_save_hmm
+    cached_hmm.load_model(model_path)
+  File "/global/u1/c/ctang33/generative-model-experiments/hmm.py", line 126, in load_model
+    json_model = json.load(f)
+  File "/global/homes/c/ctang33/.conda/envs/myenv/lib/python3.6/json/__init__.py", line 299, in load
+    parse_constant=parse_constant, object_pairs_hook=object_pairs_hook, **kw)
+  File "/global/homes/c/ctang33/.conda/envs/myenv/lib/python3.6/json/__init__.py", line 354, in loads
+    return _default_decoder.decode(s)
+  File "/global/homes/c/ctang33/.conda/envs/myenv/lib/python3.6/json/decoder.py", line 339, in decode
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+  File "/global/homes/c/ctang33/.conda/envs/myenv/lib/python3.6/json/decoder.py", line 357, in raw_decode
+    raise JSONDecodeError("Expecting value", s, err.value) from None
+json.decoder.JSONDecodeError: Expecting value: line 1 column 1 (char 0)
+Traceback (most recent call last):
+  File "hmm_experiments.py", line 89, in <module>
+    train_and_save_hmm(X, args)
+  File "hmm_experiments.py", line 52, in train_and_save_hmm
+    cached_hmm.load_model(model_path)
+  File "/global/u1/c/ctang33/generative-model-experiments/hmm.py", line 126, in load_model
+    json_model = json.load(f)
+  File "/global/homes/c/ctang33/.conda/envs/myenv/lib/python3.6/json/__init__.py", line 299, in load
+    parse_constant=parse_constant, object_pairs_hook=object_pairs_hook, **kw)
+  File "/global/homes/c/ctang33/.conda/envs/myenv/lib/python3.6/json/__init__.py", line 354, in loads
+    return _default_decoder.decode(s)
+  File "/global/homes/c/ctang33/.conda/envs/myenv/lib/python3.6/json/decoder.py", line 342, in decode
+    raise JSONDecodeError("Extra data", s, end)
+json.decoder.JSONDecodeError: Extra data: line 1 column 116011 (char 116010)
+Traceback (most recent call last):
+  File "hmm_experiments.py", line 89, in <module>
+    train_and_save_hmm(X, args)
+  File "hmm_experiments.py", line 52, in train_and_save_hmm
+    cached_hmm.load_model(model_path)
+  File "/global/u1/c/ctang33/generative-model-experiments/hmm.py", line 126, in load_model
+    json_model = json.load(f)
+  File "/global/homes/c/ctang33/.conda/envs/myenv/lib/python3.6/json/__init__.py", line 299, in load
+    parse_constant=parse_constant, object_pairs_hook=object_pairs_hook, **kw)
+  File "/global/homes/c/ctang33/.conda/envs/myenv/lib/python3.6/json/__init__.py", line 354, in loads
+    return _default_decoder.decode(s)
+  File "/global/homes/c/ctang33/.conda/envs/myenv/lib/python3.6/json/decoder.py", line 342, in decode
+    raise JSONDecodeError("Extra data", s, end)
+json.decoder.JSONDecodeError: Extra data: line 1 column 115341 (char 115340)
+Traceback (most recent call last):
+  File "hmm_experiments.py", line 89, in <module>
+    train_and_save_hmm(X, args)
+  File "hmm_experiments.py", line 52, in train_and_save_hmm
+    cached_hmm.load_model(model_path)
+  File "/global/u1/c/ctang33/generative-model-experiments/hmm.py", line 126, in load_model
+    json_model = json.load(f)
+  File "/global/homes/c/ctang33/.conda/envs/myenv/lib/python3.6/json/__init__.py", line 299, in load
+    parse_constant=parse_constant, object_pairs_hook=object_pairs_hook, **kw)
+  File "/global/homes/c/ctang33/.conda/envs/myenv/lib/python3.6/json/__init__.py", line 354, in loads
+    return _default_decoder.decode(s)
+  File "/global/homes/c/ctang33/.conda/envs/myenv/lib/python3.6/json/decoder.py", line 342, in decode
+    raise JSONDecodeError("Extra data", s, end)
+json.decoder.JSONDecodeError: Extra data: line 1 column 115341 (char 115340)
+Traceback (most recent call last):
+  File "hmm_experiments.py", line 89, in <module>
+    train_and_save_hmm(X, args)
+  File "hmm_experiments.py", line 52, in train_and_save_hmm
+    cached_hmm.load_model(model_path)
+  File "/global/u1/c/ctang33/generative-model-experiments/hmm.py", line 126, in load_model
+    json_model = json.load(f)
+  File "/global/homes/c/ctang33/.conda/envs/myenv/lib/python3.6/json/__init__.py", line 299, in load
+    parse_constant=parse_constant, object_pairs_hook=object_pairs_hook, **kw)
+  File "/global/homes/c/ctang33/.conda/envs/myenv/lib/python3.6/json/__init__.py", line 354, in loads
+    return _default_decoder.decode(s)
+  File "/global/homes/c/ctang33/.conda/envs/myenv/lib/python3.6/json/decoder.py", line 342, in decode
+    raise JSONDecodeError("Extra data", s, end)
+json.decoder.JSONDecodeError: Extra data: line 1 column 115341 (char 115340)
+Traceback (most recent call last):
+  File "hmm_experiments.py", line 89, in <module>
+    train_and_save_hmm(X, args)
+  File "hmm_experiments.py", line 52, in train_and_save_hmm
+    cached_hmm.load_model(model_path)
+  File "/global/u1/c/ctang33/generative-model-experiments/hmm.py", line 126, in load_model
+    json_model = json.load(f)
+  File "/global/homes/c/ctang33/.conda/envs/myenv/lib/python3.6/json/__init__.py", line 299, in load
+    parse_constant=parse_constant, object_pairs_hook=object_pairs_hook, **kw)
+  File "/global/homes/c/ctang33/.conda/envs/myenv/lib/python3.6/json/__init__.py", line 354, in loads
+    return _default_decoder.decode(s)
+  File "/global/homes/c/ctang33/.conda/envs/myenv/lib/python3.6/json/decoder.py", line 342, in decode
+    raise JSONDecodeError("Extra data", s, end)
+json.decoder.JSONDecodeError: Extra data: line 1 column 115341 (char 115340)
+Traceback (most recent call last):
+  File "hmm_experiments.py", line 89, in <module>
+    train_and_save_hmm(X, args)
+  File "hmm_experiments.py", line 52, in train_and_save_hmm
+    cached_hmm.load_model(model_path)
+  File "/global/u1/c/ctang33/generative-model-experiments/hmm.py", line 126, in load_model
+    json_model = json.load(f)
+  File "/global/homes/c/ctang33/.conda/envs/myenv/lib/python3.6/json/__init__.py", line 299, in load
+    parse_constant=parse_constant, object_pairs_hook=object_pairs_hook, **kw)
+  File "/global/homes/c/ctang33/.conda/envs/myenv/lib/python3.6/json/__init__.py", line 354, in loads
+    return _default_decoder.decode(s)
+  File "/global/homes/c/ctang33/.conda/envs/myenv/lib/python3.6/json/decoder.py", line 342, in decode
+    raise JSONDecodeError("Extra data", s, end)
+json.decoder.JSONDecodeError: Extra data: line 1 column 115341 (char 115340)
+Traceback (most recent call last):
+  File "hmm_experiments.py", line 89, in <module>
+    train_and_save_hmm(X, args)
+  File "hmm_experiments.py", line 52, in train_and_save_hmm
+    cached_hmm.load_model(model_path)
+  File "/global/u1/c/ctang33/generative-model-experiments/hmm.py", line 126, in load_model
+    json_model = json.load(f)
+  File "/global/homes/c/ctang33/.conda/envs/myenv/lib/python3.6/json/__init__.py", line 299, in load
+    parse_constant=parse_constant, object_pairs_hook=object_pairs_hook, **kw)
+  File "/global/homes/c/ctang33/.conda/envs/myenv/lib/python3.6/json/__init__.py", line 354, in loads
+    return _default_decoder.decode(s)
+  File "/global/homes/c/ctang33/.conda/envs/myenv/lib/python3.6/json/decoder.py", line 342, in decode
+    raise JSONDecodeError("Extra data", s, end)
+json.decoder.JSONDecodeError: Extra data: line 1 column 115341 (char 115340)
+Traceback (most recent call last):
+  File "hmm_experiments.py", line 89, in <module>
+    train_and_save_hmm(X, args)
+  File "hmm_experiments.py", line 52, in train_and_save_hmm
+    cached_hmm.load_model(model_path)
+  File "/global/u1/c/ctang33/generative-model-experiments/hmm.py", line 126, in load_model
+    json_model = json.load(f)
+  File "/global/homes/c/ctang33/.conda/envs/myenv/lib/python3.6/json/__init__.py", line 299, in load
+    parse_constant=parse_constant, object_pairs_hook=object_pairs_hook, **kw)
+  File "/global/homes/c/ctang33/.conda/envs/myenv/lib/python3.6/json/__init__.py", line 354, in loads
+    return _default_decoder.decode(s)
+  File "/global/homes/c/ctang33/.conda/envs/myenv/lib/python3.6/json/decoder.py", line 342, in decode
+    raise JSONDecodeError("Extra data", s, end)
+json.decoder.JSONDecodeError: Extra data: line 1 column 115341 (char 115340)
+Traceback (most recent call last):
+  File "hmm_experiments.py", line 89, in <module>
+    train_and_save_hmm(X, args)
+  File "hmm_experiments.py", line 52, in train_and_save_hmm
+    cached_hmm.load_model(model_path)
+  File "/global/u1/c/ctang33/generative-model-experiments/hmm.py", line 126, in load_model
+    json_model = json.load(f)
+  File "/global/homes/c/ctang33/.conda/envs/myenv/lib/python3.6/json/__init__.py", line 299, in load
+    parse_constant=parse_constant, object_pairs_hook=object_pairs_hook, **kw)
+  File "/global/homes/c/ctang33/.conda/envs/myenv/lib/python3.6/json/__init__.py", line 354, in loads
+    return _default_decoder.decode(s)
+  File "/global/homes/c/ctang33/.conda/envs/myenv/lib/python3.6/json/decoder.py", line 342, in decode
+    raise JSONDecodeError("Extra data", s, end)
+json.decoder.JSONDecodeError: Extra data: line 1 column 115341 (char 115340)
+Traceback (most recent call last):
+  File "hmm_experiments.py", line 89, in <module>
+    train_and_save_hmm(X, args)
+  File "hmm_experiments.py", line 52, in train_and_save_hmm
+    cached_hmm.load_model(model_path)
+  File "/global/u1/c/ctang33/generative-model-experiments/hmm.py", line 126, in load_model
+    json_model = json.load(f)
+  File "/global/homes/c/ctang33/.conda/envs/myenv/lib/python3.6/json/__init__.py", line 299, in load
+    parse_constant=parse_constant, object_pairs_hook=object_pairs_hook, **kw)
+  File "/global/homes/c/ctang33/.conda/envs/myenv/lib/python3.6/json/__init__.py", line 354, in loads
+    return _default_decoder.decode(s)
+  File "/global/homes/c/ctang33/.conda/envs/myenv/lib/python3.6/json/decoder.py", line 342, in decode
+    raise JSONDecodeError("Extra data", s, end)
+json.decoder.JSONDecodeError: Extra data: line 1 column 115341 (char 115340)
+srun: error: nid00600: tasks 2-3,8-11,15,17-19,22-23: Exited with exit code 1
+srun: Terminating job step 20136787.1

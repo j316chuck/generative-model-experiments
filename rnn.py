@@ -1,3 +1,5 @@
+import matplotlib
+matplotlib.use('Agg')
 import unidecode
 import string
 import random
