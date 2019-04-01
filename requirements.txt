@@ -16,6 +16,6 @@ tensorboard==1.10.0
 tensorflow==1.10.0
 tensorflow-metadata==0.12.1
 tensorflow-probability==0.6.0
-torch==0.4.0
-torchsummary==1.5.1
-torchvision==0.2.1
+corchsummary==1.5.1
+torch==1.0.1.post2
+torchvision==0.2.2.post3
