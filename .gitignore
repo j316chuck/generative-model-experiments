@@ -1,8 +1,9 @@
 data/*
+.idea/*
+models/*
 models/rnn_test_sample_5/*
 models/rnn_converge/*
 models/rnn_trial_1/*
-models/*
 __pycache__/*
 .ipynb_checkpoints/*
 .DS_store
