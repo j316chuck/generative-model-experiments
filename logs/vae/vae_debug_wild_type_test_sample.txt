@@ -1,0 +1,948 @@
+BCE Loss:  tensor(349931.8438, grad_fn=<BinaryCrossEntropyBackward>) KLD Loss: tensor(5.9449, grad_fn=<MulBackward0>)
+DEBUG>>>>>>
+Sample generated sequence: SKGEELFTGAVPILVELDGDVNGHKFSVSGEGEGDATYGKLTLKFICTTGKLPVPWPTLVTTLSYGVQCFSRYPDHMKQHDFFKSAMPEGYVQERTIFFKDDGNYKTRAEVKFEGDTLVNRIELKGIDFKEDGNILGHKLEYNYNSHNVYIMADKQKNGIKVNFKIRHNIEDGSVQLADHYQQNTPIGDGPVLLPDNHYLSTQSALSKDPNEYRDHMVLLEFVTAAGITHGMDELYK*
+Average mismatches from the wild type: 5.9
+DEBUG<<<<<
+BCE Loss:  tensor(211523.6562, grad_fn=<BinaryCrossEntropyBackward>) KLD Loss: tensor(2829.3760, grad_fn=<MulBackward0>)
+DEBUG>>>>>>
+Sample generated sequence: SKGEELFTGVVPILVELDGDVNGHKFSVSGEGEGDATYGKLTLKFICTTGKLPVPWPTLVTTLSYGVQCFSRYPDHMKQHDFFKSAMPEGYVQERTIFFKDDGNYKTRAEVKFEGDTLVNRIELKGIDFKEDGNILGHKLEYNYNSHNVYIMADKQKNGIKVNFKIRHNIEDGSVQLADHYQQNTPIGDGPVLLPDNHYLSTQSALSKDPNEKRDHMVLLEFVTAAGITHGMDELYK*
+Average mismatches from the wild type: 0.0
+DEBUG<<<<<
+BCE Loss:  tensor(22983.7188, grad_fn=<BinaryCrossEntropyBackward>) KLD Loss: tensor(13344.0029, grad_fn=<MulBackward0>)
+DEBUG>>>>>>
+Sample generated sequence: SKGEELFTGVVPILVELDGDVNGHKFSVSGEGEGDATYGKLTLKFICTTGKLPVPWPTLVTTLSYGVQCFSRYPDHMKQHDFFKSAMPEGYVQERTIFFKDDGNYKTRAEVKFEGDTLVNRIELKGIDFKEDGNILGHKLEYNYNSHNVYIMADKQKNGIKVNFKIRHNIEDGSVQLADHYQQNTPIGDGPVLLPDNHYLSTQSALSKDPNEKRDHMVLLEFVTAAGITHGMDELYK*
+Average mismatches from the wild type: 0.0
+DEBUG<<<<<
+BCE Loss:  tensor(3643.0718, grad_fn=<BinaryCrossEntropyBackward>) KLD Loss: tensor(38569.0273, grad_fn=<MulBackward0>)
+DEBUG>>>>>>
+Sample generated sequence: SKGEELFTGVVPILVELDGDVNGHKFSVSGEGEGDATYGKLTLKFICTTGKLPVPWPTLVTTLSYGVQCFSRYPDHMKQHDFFKSAMPEGYVQERTIFFKDDGNYKTRAEVKFEGDTLVNRIELKGIDFKEDGNILGHKLEYNYNSHNVYIMADKQKNGIKVNFKIRHNIEDGSVQLADHYQQNTPIGDGPVLLPDNHYLSTQSALSKDPNEKRDHMVLLEFVTAAGITHGMDELYK*
+Average mismatches from the wild type: 0.0
+DEBUG<<<<<
+BCE Loss:  tensor(5960.8296, grad_fn=<BinaryCrossEntropyBackward>) KLD Loss: tensor(51802.4961, grad_fn=<MulBackward0>)
+DEBUG>>>>>>
+Sample generated sequence: SKGEELFTGVVPILVELDGDVNGHKFSVSGEGEGDATYGKLTLKFICTTGKLPVPWPTLVTTLSYGVQCFSRYPDHMKQHDFFKSAMPEGYVQERTIFFKDDGNYKTRAEVKFEGDTLVNRIELKGIDFKEDGNILGHKLEYNYNSHNVYIMADKQKNGIKVNFKIRHNIEDGSVQLADHYQQNTPIGDGPVLLPDNHYLSTQSALSKDPNEKRDHMVLLEFVTAAGITHGMDELYK*
+Average mismatches from the wild type: 0.0
+DEBUG<<<<<
+BCE Loss:  tensor(6041.2261, grad_fn=<BinaryCrossEntropyBackward>) KLD Loss: tensor(46943.8906, grad_fn=<MulBackward0>)
+DEBUG>>>>>>
+Sample generated sequence: SKGEELFTGVVPILVELDGDVNGHKFSVSGEGEGDATYGKLTLKFICTTGKLPVPWPTLVTTLSYGVQCFSRYPDHMKQHDFFKSAMPEGYVQERTIFFKDDGNYKTRAEVKFEGDTLVNRIELKGIDFKEDGNILGHKLEYNYNSHNVYIMADKQKNGIKVNFKIRHNIEDGSVQLADHYQQNTPIGDGPVLLPDNHYLSTQSALSKDPNEKRDHMVLLEFVTAAGITHGMDELYK*
+Average mismatches from the wild type: 0.0
+DEBUG<<<<<
+BCE Loss:  tensor(6166.9038, grad_fn=<BinaryCrossEntropyBackward>) KLD Loss: tensor(33429.4805, grad_fn=<MulBackward0>)
+DEBUG>>>>>>
+Sample generated sequence: SKGEELFTGVVPILVELDGDVNGHKFSVSGEGEGDATYGKLTLKFICTTGKLPVPWPTLVTTLSYGVQCFSRYPDHMKQHDFFKSAMPEGYVQERTIFFKDDGNYKTRAEVKFEGDTLVNRIELKGIDFKEDGNILGHKLEYNYNSHNVYIMADKQKNGIKVNFKIRHNIEDGSVQLADHYQQNTPIGDGPVLLPDNHYLSTQSALSKDPNEKRDHMVLLEFVTAAGITHGMDELYK*
+Average mismatches from the wild type: 0.0
+DEBUG<<<<<
+BCE Loss:  tensor(5210.8569, grad_fn=<BinaryCrossEntropyBackward>) KLD Loss: tensor(20642.7324, grad_fn=<MulBackward0>)
+DEBUG>>>>>>
+Sample generated sequence: SKGEELFTGVVPILVELDGDVNGHKFSVSGEGEGDATYGKLTLKFICTTGKLPVPWPTLVTTLSYGVQCFSRYPDHMKQHDFFKSAMPEGYVQERTIFFKDDGNYKTRAEVKFEGDTLVNRIELKGIDFKEDGNILGHKLEYNYNSHNVYIMADKQKNGIKVNFKIRHNIEDGSVQLADHYQQNTPIGDGPVLLPDNHYLSTQSALSKDPNEKRDHMVLLEFVTAAGITHGMDELYK*
+Average mismatches from the wild type: 0.0
+DEBUG<<<<<
+BCE Loss:  tensor(3641.3730, grad_fn=<BinaryCrossEntropyBackward>) KLD Loss: tensor(11382.4443, grad_fn=<MulBackward0>)
+DEBUG>>>>>>
+Sample generated sequence: SKGEELFTGVVPILVELDGDVNGHKFSVSGEGEGDATYGKLTLKFICTTGKLPVPWPTLVTTLSYGVQCFSRYPDHMKQHDFFKSAMPEGYVQERTIFFKDDGNYKTRAEVKFEGDTLVNRIELKGIDFKEDGNILGHKLEYNYNSHNVYIMADKQKNGIKVNFKIRHNIEDGSVQLADHYQQNTPIGDGPVLLPDNHYLSTQSALSKDPNEKRDHMVLLEFVTAAGITHGMDELYK*
+Average mismatches from the wild type: 0.0
+DEBUG<<<<<
+BCE Loss:  tensor(2631.7573, grad_fn=<BinaryCrossEntropyBackward>) KLD Loss: tensor(5742.3101, grad_fn=<MulBackward0>)
+DEBUG>>>>>>
+Sample generated sequence: SKGEELFTGVVPILVELDGDVNGHKFSVSGEGEGDATYGKLTLKFICTTGKLPVPWPTLVTTLSYGVQCFSRYPDHMKQHDFFKSAMPEGYVQERTIFFKDDGNYKTRAEVKFEGDTLVNRIELKGIDFKEDGNILGHKLEYNYNSHNVYIMADKQKNGIKVNFKIRHNIEDGSVQLADHYQQNTPIGDGPVLLPDNHYLSTQSALSKDPNEKRDHMVLLEFVTAAGITHGMDELYK*
+Average mismatches from the wild type: 0.0
+DEBUG<<<<<
+BCE Loss:  tensor(16.3594, grad_fn=<BinaryCrossEntropyBackward>) KLD Loss: tensor(28.0873, grad_fn=<MulBackward0>)
+BCE Loss:  tensor(71.8434, grad_fn=<BinaryCrossEntropyBackward>) KLD Loss: tensor(27.3995, grad_fn=<MulBackward0>)
+BCE Loss:  tensor(124.0433, grad_fn=<BinaryCrossEntropyBackward>) KLD Loss: tensor(25.8808, grad_fn=<MulBackward0>)
+<====> Epoch: 1. Average loss: 842.4269. Time: 1.17 seconds
+Sample generated sequence: SKGEELFTGVVPILVELDGDVNGHKFSVSGEGEGDATYGKLTLKFICTTGKLPVPWPTLVTTLSYGVQCFSRYPDHMKQHDFFKSAMPEGYVQERTIFFKDDGNYKTRAEVKFEGDTLVNRIELKGIDFKEDGNILGHKLEYNYNSHNVYIMADKQKNGIKVNFKIRHNIEDGSVQLADHYQQNTPIGDGPVLLPDNHYLSTQSALSKDPNEKRDHMVLLEFVTAAGITHGMDELYK*
+Average mismatches from the wild type: 0.0
+wild type elbo prob: 44.446746826171875. 3 mutations elbo prob: 99.24293518066406. 10 mutations elbo prob: 149.9241485595703.
+BCE Loss:  tensor(6585.4111) KLD Loss: tensor(2698.1106)
+BCE Loss:  tensor(6775.4521) KLD Loss: tensor(2696.9185)
+BCE Loss:  tensor(6472.0698) KLD Loss: tensor(2701.0186)
+BCE Loss:  tensor(6246.0483) KLD Loss: tensor(2710.5640)
+BCE Loss:  tensor(6172.7812) KLD Loss: tensor(2705.7366)
+BCE Loss:  tensor(6295.4712) KLD Loss: tensor(2705.0957)
+BCE Loss:  tensor(6441.4180) KLD Loss: tensor(2692.6890)
+BCE Loss:  tensor(6790.3545) KLD Loss: tensor(2694.1655)
+BCE Loss:  tensor(6495.3525) KLD Loss: tensor(2702.6587)
+BCE Loss:  tensor(6568.2676) KLD Loss: tensor(2702.1057)
+Test set loss: 91.8517 Average Mismatches: 3.9000 Wild Type Mismatches 0.0000 <====> 
+
+BCE Loss:  tensor(3355.5500, grad_fn=<BinaryCrossEntropyBackward>) KLD Loss: tensor(2769.0679, grad_fn=<MulBackward0>)
+BCE Loss:  tensor(11262.6816, grad_fn=<BinaryCrossEntropyBackward>) KLD Loss: tensor(1661.0485, grad_fn=<MulBackward0>)
+BCE Loss:  tensor(7403.3604, grad_fn=<BinaryCrossEntropyBackward>) KLD Loss: tensor(1740.3029, grad_fn=<MulBackward0>)
+BCE Loss:  tensor(3563.5037, grad_fn=<BinaryCrossEntropyBackward>) KLD Loss: tensor(2219.7217, grad_fn=<MulBackward0>)
+BCE Loss:  tensor(2614.2239, grad_fn=<BinaryCrossEntropyBackward>) KLD Loss: tensor(2824.8123, grad_fn=<MulBackward0>)
+BCE Loss:  tensor(2779.0828, grad_fn=<BinaryCrossEntropyBackward>) KLD Loss: tensor(3326.4438, grad_fn=<MulBackward0>)
+BCE Loss:  tensor(2687.2515, grad_fn=<BinaryCrossEntropyBackward>) KLD Loss: tensor(3563.3503, grad_fn=<MulBackward0>)
+BCE Loss:  tensor(3598.8726, grad_fn=<BinaryCrossEntropyBackward>) KLD Loss: tensor(3449.9434, grad_fn=<MulBackward0>)
+BCE Loss:  tensor(3459.5190, grad_fn=<BinaryCrossEntropyBackward>) KLD Loss: tensor(3117.5693, grad_fn=<MulBackward0>)
+BCE Loss:  tensor(2675.3452, grad_fn=<BinaryCrossEntropyBackward>) KLD Loss: tensor(2610.4434, grad_fn=<MulBackward0>)
+BCE Loss:  tensor(0.2483, grad_fn=<BinaryCrossEntropyBackward>) KLD Loss: tensor(21.5550, grad_fn=<MulBackward0>)
+BCE Loss:  tensor(56.8311, grad_fn=<BinaryCrossEntropyBackward>) KLD Loss: tensor(20.5058, grad_fn=<MulBackward0>)
+BCE Loss:  tensor(190.5009, grad_fn=<BinaryCrossEntropyBackward>) KLD Loss: tensor(19.7775, grad_fn=<MulBackward0>)
+<====> Epoch: 2. Average loss: 70.6821. Time: 3.07 seconds
+Sample generated sequence: SKGEELFTGVVPILVELDGDVNGHKFSVSGEGEGDATYGKLTLKFICTTGKLPVPWPTLVTTLSYGVQCFSRYPDHMKQHDFFKSAMPEGYVQERTIFFKDDGNYKTRAEVKFEGDTLVNRIELKGIDFKEDGNILGHKLEYNYNSHNVYIMADKQKNGIKVNFKIRHNIEDGSVQLADHYQQNTPIGDGPVLLPDNHYLSTQSALSKDPNEKRDHMVLLEFVTAAGITHGMDELYK*
+Average mismatches from the wild type: 0.0
+wild type elbo prob: 21.80330467224121. 3 mutations elbo prob: 77.33696746826172. 10 mutations elbo prob: 210.2784423828125.
+BCE Loss:  tensor(6896.0317) KLD Loss: tensor(2021.4897)
+BCE Loss:  tensor(6883.2856) KLD Loss: tensor(2025.9407)
+BCE Loss:  tensor(6898.8330) KLD Loss: tensor(2035.8373)
+BCE Loss:  tensor(6804.1895) KLD Loss: tensor(2034.1456)
+BCE Loss:  tensor(6955.8472) KLD Loss: tensor(2031.3657)
+BCE Loss:  tensor(6699.1670) KLD Loss: tensor(2038.8511)
+BCE Loss:  tensor(6992.0894) KLD Loss: tensor(2032.2456)
+BCE Loss:  tensor(6657.3457) KLD Loss: tensor(2031.0446)
+BCE Loss:  tensor(7059.3735) KLD Loss: tensor(2028.7836)
+BCE Loss:  tensor(6647.4565) KLD Loss: tensor(2025.6372)
+Test set loss: 88.7990 Average Mismatches: 3.2000 Wild Type Mismatches 0.0000 <====> 
+
+BCE Loss:  tensor(2567.7590, grad_fn=<BinaryCrossEntropyBackward>) KLD Loss: tensor(2079.5498, grad_fn=<MulBackward0>)
+BCE Loss:  tensor(2489.2898, grad_fn=<BinaryCrossEntropyBackward>) KLD Loss: tensor(1573.0184, grad_fn=<MulBackward0>)
+BCE Loss:  tensor(2377.1091, grad_fn=<BinaryCrossEntropyBackward>) KLD Loss: tensor(1158.1437, grad_fn=<MulBackward0>)
+BCE Loss:  tensor(2450.6221, grad_fn=<BinaryCrossEntropyBackward>) KLD Loss: tensor(829.8259, grad_fn=<MulBackward0>)
+BCE Loss:  tensor(2047.8547, grad_fn=<BinaryCrossEntropyBackward>) KLD Loss: tensor(628.4473, grad_fn=<MulBackward0>)
+BCE Loss:  tensor(3054.6558, grad_fn=<BinaryCrossEntropyBackward>) KLD Loss: tensor(472.1932, grad_fn=<MulBackward0>)
+BCE Loss:  tensor(3294.4307, grad_fn=<BinaryCrossEntropyBackward>) KLD Loss: tensor(398.8297, grad_fn=<MulBackward0>)
+BCE Loss:  tensor(3369.8987, grad_fn=<BinaryCrossEntropyBackward>) KLD Loss: tensor(366.0969, grad_fn=<MulBackward0>)
+BCE Loss:  tensor(2841.7231, grad_fn=<BinaryCrossEntropyBackward>) KLD Loss: tensor(386.9799, grad_fn=<MulBackward0>)
+BCE Loss:  tensor(2718.3691, grad_fn=<BinaryCrossEntropyBackward>) KLD Loss: tensor(417.2878, grad_fn=<MulBackward0>)
+BCE Loss:  tensor(7.4424, grad_fn=<BinaryCrossEntropyBackward>) KLD Loss: tensor(5.0270, grad_fn=<MulBackward0>)
+BCE Loss:  tensor(46.5394, grad_fn=<BinaryCrossEntropyBackward>) KLD Loss: tensor(4.6530, grad_fn=<MulBackward0>)
+BCE Loss:  tensor(150.9456, grad_fn=<BinaryCrossEntropyBackward>) KLD Loss: tensor(4.6198, grad_fn=<MulBackward0>)
+<====> Epoch: 3. Average loss: 35.5221. Time: 4.89 seconds
+Sample generated sequence: SKGEELFTGVVPILVELDGDVNGHKFSVSGEGEGDATYGKLTLKFICTTGKLPVPWPTLVTTLSYGVQCFSRYPDHMKQHDFFKSAMPEGYVQERTIFFKDDGNYKTRAEVKFEGDTLVNRIELKGIDFKEDGNILGHKLEYNYNSHNVYIMADKQKNGIKVNFKIRHNIEDGSVQLADHYQQNTPIGDGPVLLPDNHYLSTQSALSKDPNEKRDHMVLLEFVTAAGITHGMDELYK*
+Average mismatches from the wild type: 0.0
+wild type elbo prob: 12.469376564025879. 3 mutations elbo prob: 51.192474365234375. 10 mutations elbo prob: 155.5654296875.
+BCE Loss:  tensor(5791.5537) KLD Loss: tensor(463.1017)
+BCE Loss:  tensor(6081.9326) KLD Loss: tensor(455.5677)
+BCE Loss:  tensor(6212.0693) KLD Loss: tensor(455.5265)
+BCE Loss:  tensor(5469.3613) KLD Loss: tensor(457.9991)
+BCE Loss:  tensor(5873.4448) KLD Loss: tensor(467.6010)
+BCE Loss:  tensor(5367.1343) KLD Loss: tensor(462.4643)
+BCE Loss:  tensor(6116.3101) KLD Loss: tensor(458.4257)
+BCE Loss:  tensor(6029.7568) KLD Loss: tensor(457.2134)
+BCE Loss:  tensor(5896.6855) KLD Loss: tensor(458.0721)
+BCE Loss:  tensor(5760.8276) KLD Loss: tensor(459.4273)
+Test set loss: 63.1945 Average Mismatches: 4.1000 Wild Type Mismatches 0.0000 <====> 
+
+BCE Loss:  tensor(2156.1836, grad_fn=<BinaryCrossEntropyBackward>) KLD Loss: tensor(483.8033, grad_fn=<MulBackward0>)
+BCE Loss:  tensor(2651.6072, grad_fn=<BinaryCrossEntropyBackward>) KLD Loss: tensor(537.9026, grad_fn=<MulBackward0>)
+BCE Loss:  tensor(2502.5894, grad_fn=<BinaryCrossEntropyBackward>) KLD Loss: tensor(604.5551, grad_fn=<MulBackward0>)
+BCE Loss:  tensor(1846.7374, grad_fn=<BinaryCrossEntropyBackward>) KLD Loss: tensor(680.9369, grad_fn=<MulBackward0>)
+BCE Loss:  tensor(2167.8704, grad_fn=<BinaryCrossEntropyBackward>) KLD Loss: tensor(723.6142, grad_fn=<MulBackward0>)
+BCE Loss:  tensor(2600.3831, grad_fn=<BinaryCrossEntropyBackward>) KLD Loss: tensor(741.3789, grad_fn=<MulBackward0>)
+BCE Loss:  tensor(2022.5017, grad_fn=<BinaryCrossEntropyBackward>) KLD Loss: tensor(752.0008, grad_fn=<MulBackward0>)
+BCE Loss:  tensor(2021.0251, grad_fn=<BinaryCrossEntropyBackward>) KLD Loss: tensor(729.7141, grad_fn=<MulBackward0>)
+BCE Loss:  tensor(2503.0608, grad_fn=<BinaryCrossEntropyBackward>) KLD Loss: tensor(677.1903, grad_fn=<MulBackward0>)
+BCE Loss:  tensor(2131.7893, grad_fn=<BinaryCrossEntropyBackward>) KLD Loss: tensor(637.1494, grad_fn=<MulBackward0>)
+BCE Loss:  tensor(7.3183, grad_fn=<BinaryCrossEntropyBackward>) KLD Loss: tensor(6.0108, grad_fn=<MulBackward0>)
+BCE Loss:  tensor(51.6246, grad_fn=<BinaryCrossEntropyBackward>) KLD Loss: tensor(5.5627, grad_fn=<MulBackward0>)
+BCE Loss:  tensor(167.8396, grad_fn=<BinaryCrossEntropyBackward>) KLD Loss: tensor(5.5176, grad_fn=<MulBackward0>)
+<====> Epoch: 4. Average loss: 29.1720. Time: 6.74 seconds
+Sample generated sequence: SKGEELFTGVVPILVELDGDVNGHKFSVSGEGEGDATYGKLTLKFICTTGKLPVPWPTLVTTLSYGVQCFSRYPDHMKQHDFFKSAMPEGYVQERTIFFKDDGNYKTRAEVKFEGDTLVNRIELKGIDFKEDGNILGHKLEYNYNSHNVYIMADKQKNGIKVNFKIRHNIEDGSVQLADHYQQNTPIGDGPVLLPDNHYLSTQSALSKDPNEKRDHMVLLEFVTAAGITHGMDELYK*
+Average mismatches from the wild type: 0.0
+wild type elbo prob: 13.329071998596191. 3 mutations elbo prob: 57.18730163574219. 10 mutations elbo prob: 173.35716247558594.
+BCE Loss:  tensor(5885.6167) KLD Loss: tensor(545.7302)
+BCE Loss:  tensor(5763.3555) KLD Loss: tensor(544.4981)
+BCE Loss:  tensor(5925.9058) KLD Loss: tensor(544.6036)
+BCE Loss:  tensor(5874.2583) KLD Loss: tensor(541.9408)
+BCE Loss:  tensor(6350.2817) KLD Loss: tensor(540.6689)
+BCE Loss:  tensor(5781.7798) KLD Loss: tensor(552.3582)
+BCE Loss:  tensor(5747.3799) KLD Loss: tensor(544.3815)
+BCE Loss:  tensor(6069.6060) KLD Loss: tensor(537.7505)
+BCE Loss:  tensor(5826.8521) KLD Loss: tensor(545.5538)
+BCE Loss:  tensor(6567.5205) KLD Loss: tensor(539.8248)
+Test set loss: 65.2299 Average Mismatches: 4.7000 Wild Type Mismatches 0.0000 <====> 
+
+BCE Loss:  tensor(2061.1104, grad_fn=<BinaryCrossEntropyBackward>) KLD Loss: tensor(568.8160, grad_fn=<MulBackward0>)
+BCE Loss:  tensor(2157.3525, grad_fn=<BinaryCrossEntropyBackward>) KLD Loss: tensor(510.1696, grad_fn=<MulBackward0>)
+BCE Loss:  tensor(2213.8525, grad_fn=<BinaryCrossEntropyBackward>) KLD Loss: tensor(451.2090, grad_fn=<MulBackward0>)
+BCE Loss:  tensor(2134.3660, grad_fn=<BinaryCrossEntropyBackward>) KLD Loss: tensor(418.0542, grad_fn=<MulBackward0>)
+BCE Loss:  tensor(2936.9583, grad_fn=<BinaryCrossEntropyBackward>) KLD Loss: tensor(379.9930, grad_fn=<MulBackward0>)
+BCE Loss:  tensor(2406.3965, grad_fn=<BinaryCrossEntropyBackward>) KLD Loss: tensor(373.7619, grad_fn=<MulBackward0>)
+BCE Loss:  tensor(2548.8958, grad_fn=<BinaryCrossEntropyBackward>) KLD Loss: tensor(377.5047, grad_fn=<MulBackward0>)
+BCE Loss:  tensor(2388.6294, grad_fn=<BinaryCrossEntropyBackward>) KLD Loss: tensor(392.1555, grad_fn=<MulBackward0>)
+BCE Loss:  tensor(2137.2578, grad_fn=<BinaryCrossEntropyBackward>) KLD Loss: tensor(424.7556, grad_fn=<MulBackward0>)
+BCE Loss:  tensor(2038.8053, grad_fn=<BinaryCrossEntropyBackward>) KLD Loss: tensor(457.6687, grad_fn=<MulBackward0>)
+BCE Loss:  tensor(1.9981, grad_fn=<BinaryCrossEntropyBackward>) KLD Loss: tensor(5.1934, grad_fn=<MulBackward0>)
+BCE Loss:  tensor(44.6695, grad_fn=<BinaryCrossEntropyBackward>) KLD Loss: tensor(4.8872, grad_fn=<MulBackward0>)
+BCE Loss:  tensor(187.6483, grad_fn=<BinaryCrossEntropyBackward>) KLD Loss: tensor(4.7705, grad_fn=<MulBackward0>)
+<====> Epoch: 5. Average loss: 27.3777. Time: 8.64 seconds
+Sample generated sequence: SKGEELFTGVVPILVELDGDVNGHKFSVSGEGEGDATYGKLTLKFICTTGKLPVPWPTLVTTLSYGVQCFSRYPDHMKQHDFFKSAMPEGYVQERTIFFKDDGNYKTRAEVKFEGDTLVNRIELKGIDFKEDGNILGHKLEYNYNSHNVYIMADKQKNGIKVNFKIRHNIEDGSVQLADHYQQNTPIGDGPVLLPDNHYLSTQSALSKDPNEKRDHMVLLEFVTAAGITHGMDELYK*
+Average mismatches from the wild type: 0.0
+wild type elbo prob: 7.191468238830566. 3 mutations elbo prob: 49.55668640136719. 10 mutations elbo prob: 192.41883850097656.
+BCE Loss:  tensor(6070.7500) KLD Loss: tensor(457.2825)
+BCE Loss:  tensor(5818.2822) KLD Loss: tensor(460.6197)
+BCE Loss:  tensor(5850.4761) KLD Loss: tensor(457.9726)
+BCE Loss:  tensor(5477.8384) KLD Loss: tensor(468.3580)
+BCE Loss:  tensor(6151.9141) KLD Loss: tensor(461.2435)
+BCE Loss:  tensor(6059.9390) KLD Loss: tensor(459.4468)
+BCE Loss:  tensor(5888.7559) KLD Loss: tensor(459.8784)
+BCE Loss:  tensor(5550.4761) KLD Loss: tensor(460.9991)
+BCE Loss:  tensor(5556.2388) KLD Loss: tensor(468.8
+wild type elbo prob: 4.193830490112305. 3 mutations elbo prob: 54.1092529296875. 10 mutations elbo prob: 190.69424438476562.
+Test set loss: 62.9186 Average Mismatches: 3.6000 Wild Type Mismatches 0.0000 <====> 
+
+<====> Epoch: 24. Average loss: 22.2472. Time: 51.79 seconds
+Sample generated sequence: SKGEELFTGVVPILVELDGDVNGHKFSVSGEGEGDATYGKLTLKFICTTGKLPVPWPTLVTTLSYGVQCFSRYPDHMKQHDFFKSAMPEGYVQERTIFFKDDGNYKTRAEVKFEGDTLVNRIELKGIDFKEDGNILGHKLEYNYNSHNVYIMADKQKNGIKVNFKIRHNIEDGSVQLADHYQQNTPIGDGPVLLPDNHYLSTQSALSKDPNEKRDHMVLLEFVTAAGITHGMDELYK*
+Average mismatches from the wild type: 0.1
+wild type elbo prob: 3.8734781742095947. 3 mutations elbo prob: 53.237060546875. 10 mutations elbo prob: 150.3704071044922.
+Test set loss: 59.1423 Average Mismatches: 4.9000 Wild Type Mismatches 0.1000 <====> 
+
+<====> Epoch: 25. Average loss: 21.7923. Time: 53.77 seconds
+Sample generated sequence: SKGEELFTGVVPILVELDGDVNGHKFSVSGEGEGDATYGKLTLKFIRTTGKLPVPWPTLVTTLSYGVQCFSRYPDHMKQHDFFKSAMPEGYVQERTIFFKDDGNYKTRAEVKFEGDTLVNRIELKGIDFKEDGNILGHKLEYNYNSHNVYIMADKQKNGIKVNFKIRHNIEDGSVQLADHYQQNTPIGDGPVLLPDNHYLSTQSALSKDPNEKRDHMVLLEFVTAAGITHGMDELYK*
+Average mismatches from the wild type: 0.4
+wild type elbo prob: 12.301538467407227. 3 mutations elbo prob: 50.86342239379883. 10 mutations elbo prob: 176.7499542236328.
+Test set loss: 59.0949 Average Mismatches: 3.9000 Wild Type Mismatches 0.0000 <====> 
+
+<====> Epoch: 26. Average loss: 21.8538. Time: 55.74 seconds
+Sample generated sequence: SKGEELFTGVVPILVELDGDVNGHKFSVSGEGEGDATYGKLTLKFICTTGKLPVPWPTLVTTLSYGVQCFSRYPDHMKQHDFFKSAMPEGYVQERTIFFKDDGNYKTRAEVKFEGDTLVNRIELKGIDFKEDGNILGHKLEYNYNSHNVYIMADKQKNGIKVNFKIRHNIEDGSVQLADHYQQNTPIGDGPVLLPDNHYLSTQSALSKDPNEKRDHMVLLEFVTAAGITHGMDELYK*
+Average mismatches from the wild type: 0.3
+wild type elbo prob: 7.074400901794434. 3 mutations elbo prob: 72.97755432128906. 10 mutations elbo prob: 191.01255798339844.
+Test set loss: 60.4370 Average Mismatches: 4.7000 Wild Type Mismatches 0.0000 <====> 
+
+<====> Epoch: 27. Average loss: 21.5382. Time: 57.83 seconds
+Sample generated sequence: SKGEELFTGVVPILVELDGDVNGHKFSVSGEGEGDATYGKLTLKFICTTGKLPVPWPTLVTTLSYGVQCFSRYPDHMKQHDFFKSAMPEGYVQERTIFFKDDGNYKTRAEVKFEGDTLVNRIELKGIDFKEDGNILGHKLEYNYNSHNVYIMADKQKNGIKVNFKIRHNIEDGSVQLADHYQQNTPIGDGPVLLPDNHYLSTQSALSKDPNEKRDHMVLLEFVTAAGITHGMDELYK*
+Average mismatches from the wild type: 0.1
+wild type elbo prob: 5.256917476654053. 3 mutations elbo prob: 63.76531982421875. 10 mutations elbo prob: 176.2145233154297.
+Test set loss: 59.9610 Average Mismatches: 3.5000 Wild Type Mismatches 0.0000 <====> 
+
+nsor(409.6057)
+BCE Loss:  tensor(5842.9292) KLD Loss: tensor(411.8373)
+BCE Loss:  tensor(5838.0923) KLD Loss: tensor(403.7380)
+BCE Loss:  tensor(5481.6528) KLD Loss: tensor(407.1149)
+Test set loss: 61.0609 Average Mismatches: 3.7000 Wild Type Mismatches 0.0000 <====> 
+
+BCE Loss:  tensor(2317.7075, grad_fn=<BinaryCrossEntropyBackward>) KLD Loss: tensor(428.0572, grad_fn=<MulBackward0>)
+BCE Loss:  tensor(2106.3542, grad_fn=<BinaryCrossEntropyBackward>) KLD Loss: tensor(418.9011, grad_fn=<MulBackward0>)
+BCE Loss:  tensor(1784.3538, grad_fn=<BinaryCrossEntropyBackward>) KLD Loss: tensor(418.0616, grad_fn=<MulBackward0>)
+BCE Loss:  tensor(2505.2417, grad_fn=<BinaryCrossEntropyBackward>) KLD Loss: tensor(396.9886, grad_fn=<MulBackward0>)
+BCE Loss:  tensor(2039.0580, grad_fn=<BinaryCrossEntropyBackward>) KLD Loss: tensor(408.3454, grad_fn=<MulBackward0>)
+BCE Loss:  tensor(2379.0015, grad_fn=<BinaryCrossEntropyBackward>) KLD Loss: tensor(398.9671, grad_fn=<MulBackward0>)
+BCE Loss:  tensor(2085.7827, grad_fn=<BinaryCrossEntropyBackward>) KLD Loss: tensor(411.6237, grad_fn=<MulBackward0>)
+BCE Loss:  tensor(1820.0203, grad_fn=<BinaryCrossEntropyBackward>) KLD Loss: tensor(417.3458, grad_fn=<MulBackward0>)
+BCE Loss:  tensor(2362.2805, grad_fn=<BinaryCrossEntropyBackward>) KLD Loss: tensor(406.7862, grad_fn=<MulBackward0>)
+BCE Loss:  tensor(2018.0702, grad_fn=<BinaryCrossEntropyBackward>) KLD Loss: tensor(414.8009, grad_fn=<MulBackward0>)
+BCE Loss:  tensor(8.5071, grad_fn=<BinaryCrossEntropyBackward>) KLD Loss: tensor(4.5145, grad_fn=<MulBackward0>)
+BCE Loss:  tensor(47.0854, grad_fn=<BinaryCrossEntropyBackward>) KLD Loss: tensor(4.2214, grad_fn=<MulBackward0>)
+BCE Loss:  tensor(125.5975, grad_fn=<BinaryCrossEntropyBackward>) KLD Loss: tensor(4.1451, grad_fn=<MulBackward0>)
+<====> Epoch: 7. Average loss: 25.5377. Time: 12.41 seconds
+Sample generated sequence: SKGEELFTGVVPILVELDGDVNGHKFSVSGEGEGDATYGKLTLKFICTTGKLPVPWPTLVTTLSYGVQCFSRYPDHMKQHDFFKSAMPEGYVQERTIFFKDDGNYKTRAEVKFEGDTLVNRIELKGIDFKEDGNILGHKLEYNYNSHNVYIMADKQKNGIKVNFKIRHNIEDGSVQLADHYQQNTPIGDGPVLLPDNHYLSTQSALSKDPNEKRDHMVLLEFVTAAGITHGMDELYK*
+Average mismatches from the wild type: 0.0
+wild type elbo prob: 13.021636962890625. 3 mutations elbo prob: 51.30681228637695. 10 mutations elbo prob: 129.74252319335938.
+BCE Loss:  tensor(6043.0142) KLD Loss: tensor(381.8045)
+BCE Loss:  tensor(5911.7505) KLD Loss: tensor(380.7482)
+BCE Loss:  tensor(5714.3813) KLD Loss: tensor(384.4932)
+BCE Loss:  tensor(5801.7744) KLD Loss: tensor(390.8799)
+BCE Loss:  tensor(5245.4639) KLD Loss: tensor(398.2537)
+BCE Loss:  tensor(5486.4995) KLD Loss: tensor(389.0760)
+BCE Loss:  tensor(6225.7871) KLD Loss: tensor(384.7322)
+BCE Loss:  tensor(5693.7954) KLD Loss: tensor(386.6122)
+BCE Loss:  tensor(5949.0156) KLD Loss: tensor(384.5643)
+BCE Loss:  tensor(5814.9121) KLD Loss: tensor(386.2213)
+Test set loss: 61.7538 Average Mismatches: 4.9000 Wild Type Mismatches 0.0000 <====> 
+
+BCE Loss:  tensor(2756.1394, grad_fn=<BinaryCrossEntropyBackward>) KLD Loss: tensor(397.8763, grad_fn=<MulBackward0>)
+BCE Loss:  tensor(1624.2238, grad_fn=<BinaryCrossEntropyBackward>) KLD Loss: tensor(419.7734, grad_fn=<MulBackward0>)
+BCE Loss:  tensor(2215.5291, grad_fn=<BinaryCrossEntropyBackward>) KLD Loss: tensor(396.1078, grad_fn=<MulBackward0>)
+BCE Loss:  tensor(1981.7350, grad_fn=<BinaryCrossEntropyBackward>) KLD Loss: tensor(395.0201, grad_fn=<MulBackward0>)
+BCE Loss:  tensor(1776.8640, grad_fn=<BinaryCrossEntropyBackward>) KLD Loss: tensor(395.5428, grad_fn=<MulBackward0>)
+BCE Loss:  tensor(2184.0369, grad_fn=<BinaryCrossEntropyBackward>) KLD Loss: tensor(388.9820, grad_fn=<MulBackward0>)
+BCE Loss:  tensor(2746.9348, grad_fn=<BinaryCrossEntropyBackward>) KLD Loss: tensor(375.2427, grad_fn=<MulBackward0>)
+BCE Loss:  tensor(2108.6201, grad_fn=<BinaryCrossEntropyBackward>) KLD Loss: tensor(394.2743, grad_fn=<MulBackward0>)
+BCE Loss:  tensor(2289.4463, grad_fn=<BinaryCrossEntropyBackward>) KLD Loss: tensor(394.2181, grad_fn=<MulBackward0>)
+BCE Loss:  tensor(1768.7665, grad_fn=<BinaryCrossEntropyBackward>) KLD Loss: tensor(414.1760, grad_fn=<MulBackward0>)
+BCE Loss:  tensor(4.9997, grad_fn=<BinaryCrossEntropyBackward>) KLD Loss: tensor(4.5970, grad_fn=<MulBackward0>)
+BCE Loss:  tensor(46.6442, grad_fn=<BinaryCrossEntropyBackward>) KLD Loss: tensor(4.2628, grad_fn=<MulBackward0>)
+BCE Loss:  tensor(142.1625, grad_fn=<BinaryCrossEntropyBackward>) KLD Loss: tensor(4.2212, grad_fn=<MulBackward0>)
+<====> Epoch: 8. Average loss: 25.4235. Time: 14.22 seconds
+Sample generated sequence: SKGEELFTGVVPILVELDGDVNGHKFSVSGEGEGDATYGKLTLKFICTTGKLPVPWPTLVTTLSYGVQCFSRYPDHMKQHDFFKSAMPEGYVQERTIFFKDDGNYKTRAEVKFEGDTLVNRIELKGIDFKEDGNILGHKLEYNYNSHNVYIMADKQKNGIKVNFKIRHNIEDGSVQLADHYQQNTPIGDGPVLLPDNHYLSTQSALSKDPNEKRDHMVLLEFVTAAGITHGMDELYK*
+Average mismatches from the wild type: 0.0
+wild type elbo prob: 9.596725463867188. 3 mutations elbo prob: 50.90700149536133. 10 mutations elbo prob: 146.38369750976562.
+BCE Loss:  tensor(5823.7202) KLD Loss: tensor(391.6132)
+BCE Loss:  tensor(5511.5215) KLD Loss: tensor(399.9604)
+BCE Loss:  tensor(5536.3340) KLD Loss: tensor(386.8965)
+BCE Loss:  tensor(5526.7207) KLD Loss: tensor(391.1754)
+BCE Loss:  tensor(5903.2783) KLD Loss: tensor(383.0665)
+BCE Loss:  tensor(6135.8208) KLD Loss: tensor(382.5211)
+BCE Loss:  tensor(6787.7471) KLD Loss: tensor(380.6858)
+BCE Loss:  tensor(5605.3618) KLD Loss: tensor(391.3210)
+BCE Loss:  tensor(5524.3193) KLD Loss: tensor(389.2267)
+BCE Loss:  tensor(5941.7168) KLD Loss: tensor(385.2823)
+Test set loss: 62.1783 Average Mismatches: 3.3000 Wild Type Mismatches 0.0000 <====> 
+
+BCE Loss:  tensor(1715.4584, grad_fn=<BinaryCrossEntropyBackward>) KLD Loss: tensor(424.3369, grad_fn=<MulBackward0>)
+BCE Loss:  tensor(2276.7371, grad_fn=<BinaryCrossEntropyBackward>) KLD Loss: tensor(410.0030, grad_fn=<MulBackward0>)
+BCE Loss:  tensor(1821.0768, grad_fn=<BinaryCrossEntropyBackward>) KLD Loss: tensor(418.7990, grad_fn=<MulBackward0>)
+BCE Loss:  tensor(2084.5808, grad_fn=<BinaryCrossEntropyBackward>) KLD Loss: tensor(410.3077, grad_fn=<MulBackward0>)
+BCE Loss:  tensor(2430.5012, grad_fn=<BinaryCrossEntropyBackward>) KLD Loss: tensor(400.3788, grad_fn=<MulBackward0>)
+BCE Loss:  tensor(2125.3254, grad_fn=<BinaryCrossEntropyBackward>) KLD Loss: tensor(405.7738, grad_fn=<MulBackward0>)
+BCE Loss:  tensor(2456.8987, grad_fn=<BinaryCrossEntropyBackward>) KLD Loss: tensor(397.7200, grad_fn=<MulBackward0>)
+BCE Loss:  tensor(1915.9321, grad_fn=<BinaryCrossEntropyBackward>) KLD Loss: tensor(410.0146, grad_fn=<MulBackward0>)
+BCE Loss:  tensor(1824.3424, grad_fn=<BinaryCrossEntropyBackward>) KLD Loss: tensor(407.5625, grad_fn=<MulBackward0>)
+BCE Loss:  tensor(2366.4968, grad_fn=<BinaryCrossEntropyBackward>) KLD Loss: tensor(381.5670, grad_fn=<MulBackward0>)
+BCE Loss:  tensor(23.3433, grad_fn=<BinaryCrossEntropyBackward>) KLD Loss: tensor(4.2212, grad_fn=<MulBackward0>)
+BCE Loss:  tensor(51.9035, grad_fn=<BinaryCrossEntropyBackward>) KLD Loss: tensor(3.8779, grad_fn=<MulBackward0>)
+BCE Loss:  tensor(176.7871, grad_fn=<BinaryCrossEntropyBackward>) KLD Loss: tensor(3.8777, grad_fn=<MulBackward0>)
+<====> Epoch: 9. Average loss: 25.0838. Time: 16.04 seconds
+Sample generated sequence: SKGEELFTGVVPILVELDGDVNGHKFSVSGEGEGDATYGKLTLKFICTTGKLPVPWPTLVTTLSYGVQCFSRYPDHMKQHDFFKSAMPEGYVQERTIFFKDDGNYKTRAEVKFEGDTLVNRIELKGIDFKEDGNILGHKLEYNYNSHNVYIMADKQKNGIKVNFKIRHNIEDGSVQLADHYQQNTPIGDGPVLLPDNHYLSTQSALSKDPNEKRDHMVLLEFVTAAGITHGMDELYK*
+Average mismatches from the wild type: 0.0
+wild type elbo prob: 27.56446647644043. 3 mutations elbo prob: 55.78139877319336. 10 mutations elbo prob: 180.664794921875.
+BCE Loss:  tensor(5350.7593) KLD Loss: tensor(352.6306)
+BCE Loss:  tensor(5612.0781) KLD Loss: tensor(354.4006)
+BCE Loss:  tensor(5971.7646) KLD Loss: tensor(351.4219)
+BCE Loss:  tensor(6137.3442) KLD Loss: tensor(345.8145)
+BCE Loss:  tensor(5444.1636) KLD Loss: tensor(356.8716)
+BCE Loss:  tensor(5515.4863) KLD Loss: tensor(352.3434)
+BCE Loss:  tensor(5908.6338) KLD Loss: tensor(346.1492)
+BCE Loss:  tensor(5670.5415) KLD Loss: tensor(345.7550)
+BCE Loss:  tensor(5938.3203) KLD Loss: tensor(343.2224)
+BCE Loss:  tensor(5583.8696) KLD Loss: tensor(357.3767)
+Test set loss: 60.6389 Average Mismatches: 4.0000 Wild Type Mismatches 0.0000 <====> 
+
+BCE Loss:  tensor(2045.1615, grad_fn=<BinaryCrossEntropyBackward>) KLD Loss: tensor(377.1647, grad_fn=<MulBackward0>)
+BCE Loss:  tensor(2183.6416, grad_fn=<BinaryCrossEntropyBackward>) KLD Loss: tensor(365.1667, grad_fn=<MulBackward0>)
+BCE Loss:  tensor(1908.1428, grad_fn=<BinaryCrossEntropyBackward>) KLD Loss: tensor(364.3344, grad_fn=<MulBackward0>)
+BCE Loss:  tensor(1955.9409, grad_fn=<BinaryCrossEntropyBackward>) KLD Loss: tensor(355.8202, grad_fn=<MulBackward0>)
+BCE Loss:  tensor(2252.6958, grad_fn=<BinaryCrossEntropyBackward>) KLD Loss: tensor(345.7030, grad_fn=<MulBackward0>)
+BCE Loss:  tensor(2833.7168, grad_fn=<BinaryCrossEntropyBackward>) KLD Loss: tensor(323.7359, grad_fn=<MulBackward0>)
+BCE Loss:  tensor(1922.3192, grad_fn=<BinaryCrossEntropyBackward>) KLD Loss: tensor(340.2068, grad_fn=<MulBackward0>)
+BCE Loss:  tensor(2002.8708, grad_fn=<BinaryCrossEntropyBackward>) KLD Loss: tensor(346.8475, grad_fn=<MulBackward0>)
+BCE Loss:  tensor(2157.6201, grad_fn=<BinaryCrossEntropyBackward>) KLD Loss: tensor(355.9755, grad_fn=<MulBackward0>)
+BCE Loss:  tensor(1844.4200, grad_fn=<BinaryCrossEntropyBackward>) KLD Loss: tensor(378.4085, grad_fn=<MulBackward0>)
+BCE Loss:  tensor(1.7833, grad_fn=<BinaryCrossEntropyBackward>) KLD Loss: tensor(4.3461, grad_fn=<MulBackward0>)
+BCE Loss:  tensor(48.4970, grad_fn=<BinaryCrossEntropyBackward>) KLD Loss: tensor(3.9343, grad_fn=<MulBackward0>)
+BCE Loss:  tensor(190.9126, grad_fn=<BinaryCrossEntropyBackward>) KLD Loss: tensor(3.9928, grad_fn=<MulBackward0>)
+<====> Epoch: 10. Average loss: 24.6599. Time: 17.88 seconds
+Sample generated sequence: SKGEELFTGVVPILVELDGDVNGHKFSVSGEGEGDATYGKLTLKFICTTGKLPVPWPTLVTTLSYGVQCFSRYPDHMKQHDFFKSAMPEGYVQERTIFFKDDGNYKTRAEVKFEGDTLVNRIELKGIDFKEDGNILGHKLEYNYNSHNVYIMADKQKNGIKVNFKIRHNIEDGSVQLADHYQQNTPIGDGPVLLPDNHYLSTQSALSKDPNEKRDHMVLLEFVTAAGITHGMDELYK*
+Average mismatches from the wild type: 0.0
+wild type elbo prob: 6.129393577575684. 3 mutations elbo prob: 52.431365966796875. 10 mutations elbo prob: 194.9053192138672.
+BCE Loss:  tensor(5525.6406) KLD Loss: tensor(361.1877)
+BCE Loss:  tensor(5837.2402) KLD Loss: tensor(352.9054)
+BCE Loss:  tensor(5616.6626) KLD Loss: tensor(356.0736)
+BCE Loss:  tensor(6013.3550) KLD Loss: tensor(347.9588)
+BCE Loss:  tensor(5545.8633) KLD Loss: tensor(363.3787)
+BCE Loss:  tensor(5785.3247) KLD Loss: tensor(361.0851)
+BCE Loss:  tensor(5511.5259) KLD Loss: tensor(357.4625)
+BCE Loss:  tensor(6432.4136) KLD Loss: tensor(351.3362)
+BCE Loss:  tensor(5392.9429) KLD Loss: tensor(363.1789)
+BCE Loss:  tensor(5754.9912) KLD Loss: tensor(357.1551)
+Test set loss: 60.9877 Average Mismatches: 4.2000 Wild Type Mismatches 0.0000 <====> 
+
+finished saving model
+BCE Loss:  tensor(1909.4475, grad_fn=<BinaryCrossEntropyBackward>) KLD Loss: tensor(390.0731, grad_fn=<MulBackward0>)
+BCE Loss:  tensor(1896.2446, grad_fn=<BinaryCrossEntropyBackward>) KLD Loss: tensor(400.5269, grad_fn=<MulBackward0>)
+BCE Loss:  tensor(2056.0813, grad_fn=<BinaryCrossEntropyBackward>) KLD Loss: tensor(394.0405, grad_fn=<MulBackward0>)
+BCE Loss:  tensor(1956.1255, grad_fn=<BinaryCrossEntropyBackward>) KLD Loss: tensor(393.8076, grad_fn=<MulBackward0>)
+BCE Loss:  tensor(2309.3845, grad_fn=<BinaryCrossEntropyBackward>) KLD Loss: tensor(379.6788, grad_fn=<MulBackward0>)
+BCE Loss:  tensor(2051.8962, grad_fn=<BinaryCrossEntropyBackward>) KLD Loss: tensor(372.2384, grad_fn=<MulBackward0>)
+BCE Loss:  tensor(1812.2015, grad_fn=<BinaryCrossEntropyBackward>) KLD Loss: tensor(364.5962, grad_fn=<MulBackward0>)
+BCE Loss:  tensor(2214.9346, grad_fn=<BinaryCrossEntropyBackward>) KLD Loss: tensor(346.8101, grad_fn=<MulBackward0>)
+BCE Loss:  tensor(2461.4668, grad_fn=<BinaryCrossEntropyBackward>) KLD Loss: tensor(336.1775, grad_fn=<MulBackward0>)
+BCE Loss:  tensor(2213.9785, grad_fn=<BinaryCrossEntropyBackward>) KLD Loss: tensor(334.0775, grad_fn=<MulBackward0>)
+BCE Loss:  tensor(1.5916, grad_fn=<BinaryCrossEntropyBackward>) KLD Loss: tensor(3.7853, grad_fn=<MulBackward0>)
+BCE Loss:  tensor(47.1984, grad_fn=<BinaryCrossEntropyBackward>) KLD Loss: tensor(3.3966, grad_fn=<MulBackward0>)
+BCE Loss:  tensor(153.7259, grad_fn=<BinaryCrossEntropyBackward>) KLD Loss: tensor(3.4774, grad_fn=<MulBackward0>)
+<====> Epoch: 11. Average loss: 24.5938. Time: 19.82 seconds
+Sample generated sequence: SKGEELFTGVVPILVELDGDVNGHKFSVSGEGEGDATYGKLTLKFICTTGKLPVPWPTLVTTLSYGVQCFSRYPDHMKQHDFFKSAMPEGYVQERTIFFKDDGNYKTRAEVKFEGDTLVNRIELKGIDFKEDGNILGHKLEYNYNSHNVYIMADKQKNGIKVNFKIRHNIEDGSVQLADHYQQNTPIGDGPVLLPDNHYLSTQSALSKDPNEKRDHMVLLEFVTAAGITHGMDELYK*
+Average mismatches from the wild type: 0.0
+wild type elbo prob: 5.376993656158447. 3 mutations elbo prob: 50.59505844116211. 10 mutations elbo prob: 157.20333862304688.
+BCE Loss:  tensor(5626.0674) KLD Loss: tensor(302.3994)
+BCE Loss:  tensor(5736.8994) KLD Loss: tensor(305.7254)
+BCE Loss:  tensor(5946.7407) KLD Loss: tensor(298.8239)
+BCE Loss:  tensor(5957.3467) KLD Loss: tensor(297.9553)
+BCE Loss:  tensor(5321.4053) KLD Loss: tensor(306.9581)
+BCE Loss:  tensor(5597.8721) KLD Loss: tensor(316.9499)
+BCE Loss:  tensor(5708.6895) KLD Loss: tensor(306.6874)
+BCE Loss:  tensor(5492.5654) KLD Loss: tensor(306.8635)
+BCE Loss:  tensor(5639.9341) KLD Loss: tensor(298.9639)
+BCE Loss:  tensor(5953.9009) KLD Loss: tensor(308.6056)
+Test set loss: 60.0314 Average Mismatches: 2.8000 Wild Type Mismatches 0.0000 <====> 
+
+BCE Loss:  tensor(2055.2871, grad_fn=<BinaryCrossEntropyBackward>) KLD Loss: tensor(334.9910, grad_fn=<MulBackward0>)
+BCE Loss:  tensor(1993.3682, grad_fn=<BinaryCrossEntropyBackward>) KLD Loss: tensor(342.1945, grad_fn=<MulBackward0>)
+BCE Loss:  tensor(1805.7831, grad_fn=<BinaryCrossEntropyBackward>) KLD Loss: tensor(358.1069, grad_fn=<MulBackward0>)
+BCE Loss:  tensor(2653.4456, grad_fn=<BinaryCrossEntropyBackward>) KLD Loss: tensor(361.4749, grad_fn=<MulBackward0>)
+BCE Loss:  tensor(1750.6040, grad_fn=<BinaryCrossEntropyBackward>) KLD Loss: tensor(400.2634, grad_fn=<MulBackward0>)
+BCE Loss:  tensor(2329.6082, grad_fn=<BinaryCrossEntropyBackward>) KLD Loss: tensor(394.6608, grad_fn=<MulBackward0>)
+BCE Loss:  tensor(2022.7284, grad_fn=<BinaryCrossEntropyBackward>) KLD Loss: tensor(410.5755, grad_fn=<MulBackward0>)
+BCE Loss:  tensor(1760.0645, grad_fn=<BinaryCrossEntropyBackward>) KLD Loss: tensor(409.7269, grad_fn=<MulBackward0>)
+BCE Loss:  tensor(2026.8423, grad_fn=<BinaryCrossEntropyBackward>) KLD Loss: tensor(398.0126, grad_fn=<MulBackward0>)
+BCE Loss:  tensor(2528.4900, grad_fn=<BinaryCrossEntropyBackward>) KLD Loss: tensor(358.0243, grad_fn=<MulBackward0>)
+BCE Loss:  tensor(1.9988, grad_fn=<BinaryCrossEntropyBackward>) KLD Loss: tensor(4.0838, grad_fn=<MulBackward0>)
+BCE Loss:  tensor(47.8096, grad_fn=<BinaryCrossEntropyBackward>) KLD Loss: tensor(3.6677, grad_fn=<MulBackward0>)
+BCE Loss:  tensor(180.8712, grad_fn=<BinaryCrossEntropyBackward>) KLD Loss: tensor(3.7539, grad_fn=<MulBackward0>)
+<====> Epoch: 12. Average loss: 24.6943. Time: 21.69 seconds
+Sample generated sequence: SKGEELFTGVVPILVELDGDVNGHKFSVSGEGEGDATYGKLTLKFICTTGKLPVPWPTLVTTLSYGVQCFSRYPDHMKQHDFFKSAMPEGYVQERTIFFKDDGNYKTRAEVKFEGDTLVNRIELKGIDFKEDGNILGHKLEYNYNSHNVYIMADKQKNGIKVNFKIRHNIEDGSVQLADHYQQNTPIGDGPVLLPDNHYLSTQSALSKDPNEKRDHMVLLEFVTAAGITHGMDELYK*
+Average mismatches from the wild type: 0.0
+wild type elbo prob: 6.0825700759887695. 3 mutations elbo prob: 51.47727966308594. 10 mutations elbo prob: 184.62515258789062.
+BCE Loss:  tensor(5779.5854) KLD Loss: tensor(326.2567)
+BCE Loss:  tensor(5721.8853) KLD Loss: tensor(324.8496)
+BCE Loss:  tensor(5999.6328) KLD Loss: tensor(322.9757)
+BCE Loss:  tensor(5703.5786) KLD Loss: tensor(334.9398)
+BCE Loss:  tensor(5825.8706) KLD Loss: tensor(330.5550)
+BCE Loss:  tensor(5586.1035) KLD Loss: tensor(325.8721)
+BCE Loss:  tensor(5569.0898) KLD Loss: tensor(330.8037)
+BCE Loss:  tensor(5611.7241) KLD Loss: tensor(335.9805)
+BCE Loss:  tensor(5523.1284) KLD Loss: tensor(326.3752)
+BCE Loss:  tensor(5527.7085) KLD Loss: tensor(332.1556)
+Test set loss: 60.1391 Average Mismatches: 4.0000 Wild Type Mismatches 0.0000 <====> 
+
+BCE Loss:  tensor(2084.8625, grad_fn=<BinaryCrossEntropyBackward>) KLD Loss: tensor(357.5413, grad_fn=<MulBackward0>)
+BCE Loss:  tensor(1835.0414, grad_fn=<BinaryCrossEntropyBackward>) KLD Loss: tensor(355.9249, grad_fn=<MulBackward0>)
+BCE Loss:  tensor(2182.6211, grad_fn=<BinaryCrossEntropyBackward>) KLD Loss: tensor(334.2858, grad_fn=<MulBackward0>)
+BCE Loss:  tensor(2220.9001, grad_fn=<BinaryCrossEntropyBackward>) KLD Loss: tensor(321.1302, grad_fn=<MulBackward0>)
+BCE Loss:  tensor(2258.3650, grad_fn=<BinaryCrossEntropyBackward>) KLD Loss: tensor(315.7039, grad_fn=<MulBackward0>)
+BCE Loss:  tensor(1649.7952, grad_fn=<BinaryCrossEntropyBackward>) KLD Loss: tensor(327.1660, grad_fn=<MulBackward0>)
+BCE Loss:  tensor(1989.5647, grad_fn=<BinaryCrossEntropyBackward>) KLD Loss: tensor(312.9572, grad_fn=<MulBackward0>)
+BCE Loss:  tensor(2057.5576, grad_fn=<BinaryCrossEntropyBackward>) KLD Loss: tensor(306.1591, grad_fn=<MulBackward0>)
+BCE Loss:  tensor(2219.0381, grad_fn=<BinaryCrossEntropyBackward>) KLD Loss: tensor(300.3700, grad_fn=<MulBackward0>)
+BCE Loss:  tensor(2150.6274, grad_fn=<BinaryCrossEntropyBackward>) KLD Loss: tensor(300.5547, grad_fn=<MulBackward0>)
+BCE Loss:  tensor(18.5113, grad_fn=<BinaryCrossEntropyBackward>) KLD Loss: tensor(3.4469, grad_fn=<MulBackward0>)
+BCE Loss:  tensor(47.2142, grad_fn=<BinaryCrossEntropyBackward>) KLD Loss: tensor(3.0253, grad_fn=<MulBackward0>)
+BCE Loss:  tensor(187.8977, grad_fn=<BinaryCrossEntropyBackward>) KLD Loss: tensor(3.1641, grad_fn=<MulBackward0>)
+<====> Epoch: 13. Average loss: 23.8802. Time: 23.55 seconds
+Sample generated sequence: SKGEELFTGVVPILVELDGDVNGHKFSVSGEGEGDATYGKLTLKFICTTGKLPVPWPTLVTTLSYGVQCFSRYPDHMKQHDFFKSAMPEGYVQERTIFFKDDGNYKTRAEVKFEGDTLVNRIELKGIDFKEDGNILGHKLEYNYNSHNVYIMADKQKNGIKVNFKIRHNIEDGSVQLADHYQQNTPIGDGPVLLPDNHYLSTQSALSKDPNEKRDHMVLLEFVTAAGITHGMDELYK*
+Average mismatches from the wild type: 0.0
+wild type elbo prob: 21.95819854736328. 3 mutations elbo prob: 50.239559173583984. 10 mutations elbo prob: 191.06175231933594.
+BCE Loss:  tensor(5538.3843) KLD Loss: tensor(278.4431)
+BCE Loss:  tensor(5710.0757) KLD Loss: tensor(259.6495)
+BCE Loss:  tensor(5417.6270) KLD Loss: tensor(277.1870)
+BCE Loss:  tensor(5626.4688) KLD Loss: tensor(274.7429)
+BCE Loss:  tensor(5961.4194) KLD Loss: tensor(260.5742)
+BCE Loss:  tensor(5701.1226) KLD Loss: tensor(269.4736)
+BCE Loss:  tensor(5386.4380) KLD Loss: tensor(279.1853)
+BCE Loss:  tensor(5954.3257) KLD Loss: tensor(265.3344)
+BCE Loss:  tensor(5657.7969) KLD Loss: tensor(273.6401)
+BCE Loss:  tensor(5649.7266) KLD Loss: tensor(277.4202)
+Test set loss: 59.3190 Average Mismatches: 3.8000 Wild Type Mismatches 0.0000 <====> 
+
+BCE Loss:  tensor(2348.3857, grad_fn=<BinaryCrossEntropyBackward>) KLD Loss: tensor(293.2337, grad_fn=<MulBackward0>)
+BCE Loss:  tensor(1998.2296, grad_fn=<BinaryCrossEntropyBackward>) KLD Loss: tensor(297.3772, grad_fn=<MulBackward0>)
+BCE Loss:  tensor(2026.1206, grad_fn=<BinaryCrossEntropyBackward>) KLD Loss: tensor(303.1798, grad_fn=<MulBackward0>)
+BCE Loss:  tensor(1685.9069, grad_fn=<BinaryCrossEntropyBackward>) KLD Loss: tensor(319.1315, grad_fn=<MulBackward0>)
+BCE Loss:  tensor(1883.8774, grad_fn=<BinaryCrossEntropyBackward>) KLD Loss: tensor(320.4680, grad_fn=<MulBackward0>)
+BCE Loss:  tensor(2287.4463, grad_fn=<BinaryCrossEntropyBackward>) KLD Loss: tensor(311.2166, grad_fn=<MulBackward0>)
+BCE Loss:  tensor(2006.5779, grad_fn=<BinaryCrossEntropyBackward>) KLD Loss: tensor(321.7318, grad_fn=<MulBackward0>)
+BCE Loss:  tensor(2404.7847, grad_fn=<BinaryCrossEntropyBackward>) KLD Loss: tensor(313.9333, grad_fn=<MulBackward0>)
+BCE Loss:  tensor(2164.0754, grad_fn=<BinaryCrossEntropyBackward>) KLD Loss: tensor(310.7555, grad_fn=<MulBackward0>)
+BCE Loss:  tensor(1898.5626, grad_fn=<BinaryCrossEntropyBackward>) KLD Loss: tensor(310.2752, grad_fn=<MulBackward0>)
+BCE Loss:  tensor(1.0667, grad_fn=<BinaryCrossEntropyBackward>) KLD Loss: tensor(3.4486, grad_fn=<MulBackward0>)
+BCE Loss:  tensor(46.6111, grad_fn=<BinaryCrossEntropyBackward>) KLD Loss: tensor(2.9837, grad_fn=<MulBackward0>)
+BCE Loss:  tensor(192.5462, grad_fn=<BinaryCrossEntropyBackward>) KLD Loss: tensor(3.1643, grad_fn=<MulBackward0>)
+<====> Epoch: 14. Average loss: 23.8053. Time: 25.39 seconds
+Sample generated sequence: SKGEELFTGVVPILVELDGDVNGHKFSVSGEGEGDATYGKLTLKFICTTGKLPVPWPTLVTTLSYGVQCFSRYPDHMKQHDFFKSAMPEGYVQERTIFFKDDGNYKTRAEVKFEGDTLVNRIELKGIDFKEDGNILGHKLEYNYNSHNVYIMADKQKNGIKVNFKIRHNIEDGSVQLADHYQQNTPIGDGPVLLPDNHYLSTQSALSKDPNEKRDHMVLLEFVTAAGITHGMDELYK*
+Average mismatches from the wild type: 0.1
+wild type elbo prob: 4.515227317810059. 3 mutations elbo prob: 49.594818115234375. 10 mutations elbo prob: 195.7105712890625.
+BCE Loss:  tensor(5716.7915) KLD Loss: tensor(273.8258)
+BCE Loss:  tensor(5742.0205) KLD Loss: tensor(267.3664)
+BCE Loss:  tensor(6035.1157) KLD Loss: tensor(258.6822)
+BCE Loss:  tensor(5404.1646) KLD Loss: tensor(271.4556)
+BCE Loss:  tensor(5281.2544) KLD Loss: tensor(272.8219)
+BCE Loss:  tensor(5694.6006) KLD Loss: tensor(262.8329)
+BCE Loss:  tensor(5723.0513) KLD Loss: tensor(263.9056)
+BCE Loss:  tensor(5883.7681) KLD Loss: tensor(268.3537)
+BCE Loss:  tensor(5782.7510) KLD Loss: tensor(272.0860)
+BCE Loss:  tensor(5796.4033) KLD Loss: tensor(269.6799)
+Test set loss: 59.7409 Average Mismatches: 4.4000 Wild Type Mismatches 0.0000 <====> 
+
+BCE Loss:  tensor(1872.5803, grad_fn=<BinaryCrossEntropyBackward>) KLD Loss: tensor(303.4909, grad_fn=<MulBackward0>)
+BCE Loss:  tensor(1834.3339, grad_fn=<BinaryCrossEntropyBackward>) KLD Loss: tensor(300.4093, grad_fn=<MulBackward0>)
+BCE Loss:  tensor(1874.7480, grad_fn=<BinaryCrossEntropyBackward>) KLD Loss: tensor(293.1018, grad_fn=<MulBackward0>)
+BCE Loss:  tensor(1721.6096, grad_fn=<BinaryCrossEntropyBackward>) KLD Loss: tensor(294.9567, grad_fn=<MulBackward0>)
+BCE Loss:  tensor(2400.4714, grad_fn=<BinaryCrossEntropyBackward>) KLD Loss: tensor(278.3156, grad_fn=<MulBackward0>)
+BCE Loss:  tensor(2156.8276, grad_fn=<BinaryCrossEntropyBackward>) KLD Loss: tensor(278.6913, grad_fn=<MulBackward0>)
+BCE Loss:  tensor(1737.8252, grad_fn=<BinaryCrossEntropyBackward>) KLD Loss: tensor(287.1555, grad_fn=<MulBackward0>)
+BCE Loss:  tensor(1820.6782, grad_fn=<BinaryCrossEntropyBackward>) KLD Loss: tensor(282.4838, grad_fn=<MulBackward0>)
+BCE Loss:  tensor(2263.4080, grad_fn=<BinaryCrossEntropyBackward>) KLD Loss: tensor(272.0744, grad_fn=<MulBackward0>)
+BCE Loss:  tensor(2670.8113, grad_fn=<BinaryCrossEntropyBackward>) KLD Loss: tensor(256.8926, grad_fn=<MulBackward0>)
+BCE Loss:  tensor(4.8314, grad_fn=<BinaryCrossEntropyBackward>) KLD Loss: tensor(3.1198, grad_fn=<MulBackward0>)
+BCE Loss:  tensor(48.0953, grad_fn=<BinaryCrossEntropyBackward>) KLD Loss: tensor(2.6533, grad_fn=<MulBackward0>)
+BCE Loss:  tensor(195.8375, grad_fn=<BinaryCrossEntropyBackward>) KLD Loss: tensor(2.8606, grad_fn=<MulBackward0>)
+<====> Epoch: 15. Average loss: 23.2009. Time: 27.22 seconds
+Sample generated sequence: SKGEELFTGVVPILVELDGDVNGHKFSVSGEGEGDATYGKLTLKFICTTGKLPVPWPTLVTTLSYGVQCFSRYPDHMKQHDFFKSAMPEGYVQERTIFFKDDGNYKTRAEVKFEGDTLVNRIELKGIDFKEDGNILGHKLEYNYNSHNVYIMADKQKNGIKVNFKIRHNIEDGSVQLADHYQQNTPIGDGPVLLPDNHYLSTQSALSKDPNEKRDHMVLLEFVTAAGITHGMDELYK*
+Average mismatches from the wild type: 0.0
+wild type elbo prob: 7.951182842254639. 3 mutations elbo prob: 50.748573303222656. 10 mutations elbo prob: 198.69815063476562.
+BCE Loss:  tensor(6086.2422) KLD Loss: tensor(233.1721)
+BCE Loss:  tensor(5813.8213) KLD Loss: tensor(237.4940)
+BCE Loss:  tensor(5636.7324) KLD Loss: tensor(237.1272)
+BCE Loss:  tensor(5860.5371) KLD Loss: tensor(235.3355)
+BCE Loss:  tensor(5873.0933) KLD Loss: tensor(236.6665)
+BCE Loss:  tensor(5619.3198) KLD Loss: tensor(236.9258)
+BCE Loss:  tensor(5468.3198) KLD Loss: tensor(237.8380)
+BCE Loss:  tensor(5839.2720) KLD Loss: tensor(234.7909)
+BCE Loss:  tensor(5633.3618) KLD Loss: tensor(240.0919)
+BCE Loss:  tensor(5610.2266) KLD Loss: tensor(238.0567)
+Test set loss: 59.8084 Average Mismatches: 3.3000 Wild Type Mismatches 0.0000 <====> 
+
+BCE Loss:  tensor(1803.0127, grad_fn=<BinaryCrossEntropyBackward>) KLD Loss: tensor(270.2612, grad_fn=<MulBackward0>)
+BCE Loss:  tensor(1878.6267, grad_fn=<BinaryCrossEntropyBackward>) KLD Loss: tensor(265.1320, grad_fn=<MulBackward0>)
+BCE Loss:  tensor(2094.9060, grad_fn=<BinaryCrossEntropyBackward>) KLD Loss: tensor(246.5749, grad_fn=<MulBackward0>)
+BCE Loss:  tensor(2027.9531, grad_fn=<BinaryCrossEntropyBackward>) KLD Loss: tensor(247.3505, grad_fn=<MulBackward0>)
+BCE Loss:  tensor(2478.8196, grad_fn=<BinaryCrossEntropyBackward>) KLD Loss: tensor(234.9214, grad_fn=<MulBackward0>)
+BCE Loss:  tensor(1914.6326, grad_fn=<BinaryCrossEntropyBackward>) KLD Loss: tensor(253.5334, grad_fn=<MulBackward0>)
+BCE Loss:  tensor(2001.1740, grad_fn=<BinaryCrossEntropyBackward>) KLD Loss: tensor(260.4278, grad_fn=<MulBackward0>)
+BCE Loss:  tensor(2231.7683, grad_fn=<BinaryCrossEntropyBackward>) KLD Loss: tensor(262.4029, grad_fn=<MulBackward0>)
+BCE Loss:  tensor(2006.6321, grad_fn=<BinaryCrossEntropyBackward>) KLD Loss: tensor(272.6826, grad_fn=<MulBackward0>)
+BCE Loss:  tensor(2054.1626, grad_fn=<BinaryCrossEntropyBackward>) KLD Loss: tensor(275.7150, grad_fn=<MulBackward0>)
+BCE Loss:  tensor(2.0653, grad_fn=<BinaryCrossEntropyBackward>) KLD Loss: tensor(3.2174, grad_fn=<MulBackward0>)
+BCE Loss:  tensor(50.5031, grad_fn=<BinaryCrossEntropyBackward>) KLD Loss: tensor(2.7144, grad_fn=<MulBackward0>)
+BCE Loss:  tensor(229.1683, grad_fn=<BinaryCrossEntropyBackward>) KLD Loss: tensor(2.9503, grad_fn=<MulBackward0>)
+<====> Epoch: 16. Average loss: 23.0807. Time: 29.15 seconds
+Sample generated sequence: SKGEELFTGVVPILVELDGDVNGHKFSVSGEGEGDATYGKLTLKFICTTGKLPVPWPTLVTTLSYGVQCFSRYPDHMKQHDFFKSAMPEGYVQERTIFFKDDGNYKTRAEVKFEGDTLVNRIELKGIDFKEDGNILGHKLEYNYNSHNVYIMADKQKNGIKVNFKIRHNIEDGSVQLADHYQQNTPIGDGPVLLPDNHYLSTQSALSKDPNEKRDHMVLLEFVTAAGITHGMDELYK*
+Average mismatches from the wild type: 0.0
+wild type elbo prob: 5.282683372497559. 3 mutations elbo prob: 53.21745300292969. 10 mutations elbo prob: 232.11863708496094.
+BCE Loss:  tensor(5814.3721) KLD Loss: tensor(236.1464)
+BCE Loss:  tensor(5692.6304) KLD Loss: tensor(237.9918)
+BCE Loss:  tensor(5930.4399) KLD Loss: tensor(239.7281)
+BCE Loss:  tensor(5815.1226) KLD Loss: tensor(239.4824)
+BCE Loss:  tensor(6459.8452) KLD Loss: tensor(239.2698)
+BCE Loss:  tensor(5727.0234) KLD Loss: tensor(244.4629)
+BCE Loss:  tensor(5506.4395) KLD Loss: tensor(248.0485)
+BCE Loss:  tensor(5665.5063) KLD Loss: tensor(243.4653)
+BCE Loss:  tensor(5712.6670) KLD Loss: tensor(242.8297)
+BCE Loss:  tensor(5710.4902) KLD Loss: tensor(236.1298)
+Test set loss: 60.4421 Average Mismatches: 3.1000 Wild Type Mismatches 0.0000 <====> 
+
+BCE Loss:  tensor(1915.3234, grad_fn=<BinaryCrossEntropyBackward>) KLD Loss: tensor(274.9052, grad_fn=<MulBackward0>)
+BCE Loss:  tensor(1960.2377, grad_fn=<BinaryCrossEntropyBackward>) KLD Loss: tensor(268.4936, grad_fn=<MulBackward0>)
+BCE Loss:  tensor(1831.8381, grad_fn=<BinaryCrossEntropyBackward>) KLD Loss: tensor(270.7250, grad_fn=<MulBackward0>)
+BCE Loss:  tensor(1740.5481, grad_fn=<BinaryCrossEntropyBackward>) KLD Loss: tensor(262.7947, grad_fn=<MulBackward0>)
+BCE Loss:  tensor(2023.2200, grad_fn=<BinaryCrossEntropyBackward>) KLD Loss: tensor(248.8833, grad_fn=<MulBackward0>)
+BCE Loss:  tensor(2353.8645, grad_fn=<BinaryCrossEntropyBackward>) KLD Loss: tensor(233.9936, grad_fn=<MulBackward0>)
+BCE Loss:  tensor(1741.3811, grad_fn=<BinaryCrossEntropyBackward>) KLD Loss: tensor(244.5537, grad_fn=<MulBackward0>)
+BCE Loss:  tensor(2239.8950, grad_fn=<BinaryCrossEntropyBackward>) KLD Loss: tensor(229.8474, grad_fn=<MulBackward0>)
+BCE Loss:  tensor(2166.7007, grad_fn=<BinaryCrossEntropyBackward>) KLD Loss: tensor(227.5030, grad_fn=<MulBackward0>)
+BCE Loss:  tensor(2418.1147, grad_fn=<BinaryCrossEntropyBackward>) KLD Loss: tensor(226.1612, grad_fn=<MulBackward0>)
+BCE Loss:  tensor(1.4520, grad_fn=<BinaryCrossEntropyBackward>) KLD Loss: tensor(3.0845, grad_fn=<MulBackward0>)
+BCE Loss:  tensor(48.1560, grad_fn=<BinaryCrossEntropyBackward>) KLD Loss: tensor(2.6777, grad_fn=<MulBackward0>)
+BCE Loss:  tensor(189.5624, grad_fn=<BinaryCrossEntropyBackward>) KLD Loss: tensor(2.8307, grad_fn=<MulBackward0>)
+<====> Epoch: 17. Average loss: 22.8790. Time: 31.11 seconds
+Sample generated sequence: SKGEELFTGVVPILVELDGDVNGHKFSVSGEGEGDATYGKLTLKFICTTGKLPVPWPTLVTTLSYGVQCFSRYPDHMKQHDFFKSAMPEGYVQERTIFFKDDGNYKTRAEVKFEGDTLVNRIELKGIDFKEDGNILGHKLEYNYNSHNVYIMADKQKNGIKVNFKIRHNIEDGSVQLADHYQQNTPIGDGPVLLPDNHYLSTQSALSKDPNEKRDHMVLLEFVTAAGITHGMDELYK*
+Average mismatches from the wild type: 0.0
+wild type elbo prob: 4.536447048187256. 3 mutations elbo prob: 50.83372497558594. 10 mutations elbo prob: 192.39303588867188.
+BCE Loss:  tensor(5850.8726) KLD Loss: tensor(220.3718)
+BCE Loss:  tensor(5984.5142) KLD Loss: tensor(219.5040)
+BCE Loss:  tensor(5802.7236) KLD Loss: tensor(232.1579)
+BCE Loss:  tensor(5774.1582) KLD Loss: tensor(228.3823)
+BCE Loss:  tensor(5794.0781) KLD Loss: tensor(221.6414)
+BCE Loss:  tensor(6086.3047) KLD Loss: tensor(225.6894)
+BCE Loss:  tensor(5605.5576) KLD Loss: tensor(230.5216)
+BCE Loss:  tensor(5454.0327) KLD Loss: tensor(233.2114)
+BCE Loss:  tensor(5954.9497) KLD Loss: tensor(229.4124)
+BCE Loss:  tensor(5766.6816) KLD Loss: tensor(228.5730)
+Test set loss: 60.3433 Average Mismatches: 3.7000 Wild Type Mismatches 0.0000 <====> 
+
+BCE Loss:  tensor(2554.2827, grad_fn=<BinaryCrossEntropyBackward>) KLD Loss: tensor(244.0067, grad_fn=<MulBackward0>)
+BCE Loss:  tensor(2029.0325, grad_fn=<BinaryCrossEntropyBackward>) KLD Loss: tensor(289.1427, grad_fn=<MulBackward0>)
+BCE Loss:  tensor(1652.6051, grad_fn=<BinaryCrossEntropyBackward>) KLD Loss: tensor(328.1958, grad_fn=<MulBackward0>)
+BCE Loss:  tensor(1383.1857, grad_fn=<BinaryCrossEntropyBackward>) KLD Loss: tensor(346.8266, grad_fn=<MulBackward0>)
+BCE Loss:  tensor(1930.6624, grad_fn=<BinaryCrossEntropyBackward>) KLD Loss: tensor(333.7954, grad_fn=<MulBackward0>)
+BCE Loss:  tensor(2336.0730, grad_fn=<BinaryCrossEntropyBackward>) KLD Loss: tensor(307.3965, grad_fn=<MulBackward0>)
+BCE Loss:  tensor(1980.7649, grad_fn=<BinaryCrossEntropyBackward>) KLD Loss: tensor(299.4738, grad_fn=<MulBackward0>)
+BCE Loss:  tensor(1634.1454, grad_fn=<BinaryCrossEntropyBackward>) KLD Loss: tensor(286.1728, grad_fn=<MulBackward0>)
+BCE Loss:  tensor(2306.9575, grad_fn=<BinaryCrossEntropyBackward>) KLD Loss: tensor(242.3232, grad_fn=<MulBackward0>)
+BCE Loss:  tensor(2104.1770, grad_fn=<BinaryCrossEntropyBackward>) KLD Loss: tensor(232.3954, grad_fn=<MulBackward0>)
+BCE Loss:  tensor(12.4107, grad_fn=<BinaryCrossEntropyBackward>) KLD Loss: tensor(2.6019, grad_fn=<MulBackward0>)
+BCE Loss:  tensor(53.6971, grad_fn=<BinaryCrossEntropyBackward>) KLD Loss: tensor(2.2795, grad_fn=<MulBackward0>)
+BCE Loss:  tensor(174.5984, grad_fn=<BinaryCrossEntropyBackward>) KLD Loss: tensor(2.3888, grad_fn=<MulBackward0>)
+<====> Epoch: 18. Average loss: 22.8216. Time: 33.17 seconds
+Sample generated sequence: SKGEELFTGVVPILVELDGDVNGHKFSVSGEGEGDATYGKLTLKFICTTGKLPVPWPTLVTTLSYGVQCFSRYPDHMKQHDFFKSAMPEGYVQERTIFFKDDGNYKTRAEVKFEGDTLVNRIELKGIDFKEDGNILGHKLEYNYNSHNVYIMADKQKNGIKVNFKIRHNIEDGSVQLADHYQQNTPIGDGPVLLPDNHYLSTQSALSKDPNEKRDHMVLLEFVTAAGITHGMDELYK*
+Average mismatches from the wild type: 0.1
+wild type elbo prob: 15.012587547302246. 3 mutations elbo prob: 55.976593017578125. 10 mutations elbo prob: 176.9872283935547.
+BCE Loss:  tensor(5706.5605) KLD Loss: tensor(187.0509)
+BCE Loss:  tensor(5523.5908) KLD Loss: tensor(192.3701)
+BCE Loss:  tensor(5259.8828) KLD Loss: tensor(193.2221)
+BCE Loss:  tensor(5857.6641) KLD Loss: tensor(186.0056)
+BCE Loss:  tensor(5800.5308) KLD Loss: tensor(180.7612)
+BCE Loss:  tensor(5441.1064) KLD Loss: tensor(193.1241)
+BCE Loss:  tensor(5684.8628) KLD Loss: tensor(188.0036)
+BCE Loss:  tensor(5471.9346) KLD Loss: tensor(185.5719)
+BCE Loss:  tensor(5662.3359) KLD Loss: tensor(185.8479)
+BCE Loss:  tensor(5647.7129) KLD Loss: tensor(189.2505)
+Test set loss: 57.9374 Average Mismatches: 3.6000 Wild Type Mismatches 0.0000 <====> 
+
+BCE Loss:  tensor(2031.9086, grad_fn=<BinaryCrossEntropyBackward>) KLD Loss: tensor(216.3569, grad_fn=<MulBackward0>)
+BCE Loss:  tensor(2195.0676, grad_fn=<BinaryCrossEntropyBackward>) KLD Loss: tensor(203.6777, grad_fn=<MulBackward0>)
+BCE Loss:  tensor(2004.0925, grad_fn=<BinaryCrossEntropyBackward>) KLD Loss: tensor(202.4904, grad_fn=<MulBackward0>)
+BCE Loss:  tensor(2099.3430, grad_fn=<BinaryCrossEntropyBackward>) KLD Loss: tensor(203.7576, grad_fn=<MulBackward0>)
+BCE Loss:  tensor(2393.3391, grad_fn=<BinaryCrossEntropyBackward>) KLD Loss: tensor(199.0163, grad_fn=<MulBackward0>)
+BCE Loss:  tensor(1847.0022, grad_fn=<BinaryCrossEntropyBackward>) KLD Loss: tensor(220.6673, grad_fn=<MulBackward0>)
+BCE Loss:  tensor(1940.0033, grad_fn=<BinaryCrossEntropyBackward>) KLD Loss: tensor(235.4627, grad_fn=<MulBackward0>)
+BCE Loss:  tensor(1663.8672, grad_fn=<BinaryCrossEntropyBackward>) KLD Loss: tensor(252.2106, grad_fn=<MulBackward0>)
+BCE Loss:  tensor(1995.7014, grad_fn=<BinaryCrossEntropyBackward>) KLD Loss: tensor(244.6426, grad_fn=<MulBackward0>)
+BCE Loss:  tensor(2240.0903, grad_fn=<BinaryCrossEntropyBackward>) KLD Loss: tensor(244.1264, grad_fn=<MulBackward0>)
+BCE Loss:  tensor(1.5845, grad_fn=<BinaryCrossEntropyBackward>) KLD Loss: tensor(2.9936, grad_fn=<MulBackward0>)
+BCE Loss:  tensor(55.4647, grad_fn=<BinaryCrossEntropyBackward>) KLD Loss: tensor(2.6401, grad_fn=<MulBackward0>)
+BCE Loss:  tensor(172.2841, grad_fn=<BinaryCrossEntropyBackward>) KLD Loss: tensor(2.7422, grad_fn=<MulBackward0>)
+<====> Epoch: 19. Average loss: 22.6328. Time: 35.27 seconds
+Sample generated sequence: SKGEELFTGVVPILVELDGDVNGHKFSVSGEGEGDATYGKLTLKFICTTGKLPVPWPTLVTTLSYGVQCFSRYPDHMKQHDFFKSAMPEGYVQERTIFFKDDGNYKTRAEVKFEGDTLVNRIELKGIDFKEDGNILGHKLEYNYNSHNVYIMADKQKNGIKVNFKIRHNIEDGSVQLADHYQQNTPIGDGPVLLPDNHYLSTQSALSKDPNEKRDHMVLLEFVTAAGITHGMDELYK*
+Average mismatches from the wild type: 0.0
+wild type elbo prob: 4.578136920928955. 3 mutations elbo prob: 58.104740142822266. 10 mutations elbo prob: 175.02633666992188.
+BCE Loss:  tensor(6185.9678) KLD Loss: tensor(208.6760)
+BCE Loss:  tensor(5475.4067) KLD Loss: tensor(214.8860)
+BCE Loss:  tensor(6062.3442) KLD Loss: tensor(212.6512)
+BCE Loss:  tensor(5591.9644) KLD Loss: tensor(219.2670)
+BCE Loss:  tensor(6123.2529) KLD Loss: tensor(211.4531)
+BCE Loss:  tensor(5935.7720) KLD Loss: tensor(217.5766)
+BCE Loss:  tensor(5433.5435) KLD Loss: tensor(222.6924)
+BCE Loss:  tensor(5906.9258) KLD Loss: tensor(215.8796)
+BCE Loss:  tensor(6051.5522) KLD Loss: tensor(209.0933)
+BCE Loss:  tensor(5665.5161) KLD Loss: tensor(221.9111)
+Test set loss: 60.5863 Average Mismatches: 3.8000 Wild Type Mismatches 0.0000 <====> 
+
+BCE Loss:  tensor(2233.1990, grad_fn=<BinaryCrossEntropyBackward>) KLD Loss: tensor(238.5182, grad_fn=<MulBackward0>)
+BCE Loss:  tensor(1619.1620, grad_fn=<BinaryCrossEntropyBackward>) KLD Loss: tensor(259.5913, grad_fn=<MulBackward0>)
+BCE Loss:  tensor(1931.1121, grad_fn=<BinaryCrossEntropyBackward>) KLD Loss: tensor(247.3266, grad_fn=<MulBackward0>)
+BCE Loss:  tensor(2058.5396, grad_fn=<BinaryCrossEntropyBackward>) KLD Loss: tensor(234.5508, grad_fn=<MulBackward0>)
+BCE Loss:  tensor(2124.1038, grad_fn=<BinaryCrossEntropyBackward>) KLD Loss: tensor(226.3734, grad_fn=<MulBackward0>)
+BCE Loss:  tensor(1991.4437, grad_fn=<BinaryCrossEntropyBackward>) KLD Loss: tensor(225.3630, grad_fn=<MulBackward0>)
+BCE Loss:  tensor(1863.4551, grad_fn=<BinaryCrossEntropyBackward>) KLD Loss: tensor(224.4557, grad_fn=<MulBackward0>)
+BCE Loss:  tensor(2337.6887, grad_fn=<BinaryCrossEntropyBackward>) KLD Loss: tensor(210.6557, grad_fn=<MulBackward0>)
+BCE Loss:  tensor(1965.0715, grad_fn=<BinaryCrossEntropyBackward>) KLD Loss: tensor(222.9621, grad_fn=<MulBackward0>)
+BCE Loss:  tensor(2062.7622, grad_fn=<BinaryCrossEntropyBackward>) KLD Loss: tensor(228.6964, grad_fn=<MulBackward0>)
+BCE Loss:  tensor(0.6085, grad_fn=<BinaryCrossEntropyBackward>) KLD Loss: tensor(2.7754, grad_fn=<MulBackward0>)
+BCE Loss:  tensor(48.6850, grad_fn=<BinaryCrossEntropyBackward>) KLD Loss: tensor(2.4533, grad_fn=<MulBackward0>)
+BCE Loss:  tensor(175.0625, grad_fn=<BinaryCrossEntropyBackward>) KLD Loss: tensor(2.5414, grad_fn=<MulBackward0>)
+<====> Epoch: 20. Average loss: 22.5050. Time: 37.37 seconds
+Sample generated sequence: SKGEELFTGVVPILVELDGDVNGHKFSVSGEGEGDATYGKLTLKFICTTGKLPVPWPTLVTTLSYGVQCFSRYPDHMKQHDFFKSAMPEGYVQERTIFFKDDGNYKTRAEVKFEGDTLVNRIELKGIDFKEDGNILGHKLEYNYNSHNVYIMADKQKNGIKVNFKIRHNIEDGSVQLADHYQQNTPIGDGPVLLPDNHYLSTQSALSKDPNEKRDHMVLLEFVTAAGITHGMDELYK*
+Average mismatches from the wild type: 0.3
+wild type elbo prob: 3.3838770389556885. 3 mutations elbo prob: 51.13833999633789. 10 mutations elbo prob: 177.60394287109375.
+BCE Loss:  tensor(6188.0459) KLD Loss: tensor(198.7800)
+BCE Loss:  tensor(6056.2559) KLD Loss: tensor(194.9834)
+BCE Loss:  tensor(5578.2822) KLD Loss: tensor(206.3483)
+BCE Loss:  tensor(5936.4463) KLD Loss: tensor(197.7368)
+BCE Loss:  tensor(5939.3818) KLD Loss: tensor(189.1293)
+BCE Loss:  tensor(6039.5928) KLD Loss: tensor(198.6259)
+BCE Loss:  tensor(5748.8730) KLD Loss: tensor(194.8535)
+BCE Loss:  tensor(5808.5098) KLD Loss: tensor(197.7415)
+BCE Loss:  tensor(5774.0859) KLD Loss: tensor(197.7309)
+BCE Loss:  tensor(5448.1050) KLD Loss: tensor(196.9023)
+Test set loss: 60.4904 Average Mismatches: 4.0000 Wild Type Mismatches 0.0000 <====> 
+
+finished saving model
+BCE Loss:  tensor(1900.0017, grad_fn=<BinaryCrossEntropyBackward>) KLD Loss: tensor(229.1392, grad_fn=<MulBackward0>)
+BCE Loss:  tensor(1975.1002, grad_fn=<BinaryCrossEntropyBackward>) KLD Loss: tensor(226.4245, grad_fn=<MulBackward0>)
+BCE Loss:  tensor(2152.8669, grad_fn=<BinaryCrossEntropyBackward>) KLD Loss: tensor(216.6288, grad_fn=<MulBackward0>)
+BCE Loss:  tensor(1941.7744, grad_fn=<BinaryCrossEntropyBackward>) KLD Loss: tensor(213.2603, grad_fn=<MulBackward0>)
+BCE Loss:  tensor(2043.3839, grad_fn=<BinaryCrossEntropyBackward>) KLD Loss: tensor(205.0692, grad_fn=<MulBackward0>)
+BCE Loss:  tensor(1779.6693, grad_fn=<BinaryCrossEntropyBackward>) KLD Loss: tensor(206.7099, grad_fn=<MulBackward0>)
+BCE Loss:  tensor(1998.8215, grad_fn=<BinaryCrossEntropyBackward>) KLD Loss: tensor(204.3450, grad_fn=<MulBackward0>)
+BCE Loss:  tensor(2003.8226, grad_fn=<BinaryCrossEntropyBackward>) KLD Loss: tensor(206.1747, grad_fn=<MulBackward0>)
+BCE Loss:  tensor(2149.2939, grad_fn=<BinaryCrossEntropyBackward>) KLD Loss: tensor(205.7776, grad_fn=<MulBackward0>)
+BCE Loss:  tensor(1833.6840, grad_fn=<BinaryCrossEntropyBackward>) KLD Loss: tensor(218.7549, grad_fn=<MulBackward0>)
+BCE Loss:  tensor(2.9829, grad_fn=<BinaryCrossEntropyBackward>) KLD Loss: tensor(2.7058, grad_fn=<MulBackward0>)
+BCE Loss:  tensor(54.0015, grad_fn=<BinaryCrossEntropyBackward>) KLD Loss: tensor(2.3841, grad_fn=<MulBackward0>)
+BCE Loss:  tensor(217.7047, grad_fn=<BinaryCrossEntropyBackward>) KLD Loss: tensor(2.4775, grad_fn=<MulBackward0>)
+<====> Epoch: 21. Average loss: 21.9107. Time: 39.51 seconds
+Sample generated sequence: SKGEELFTGVVPILVELDGDVNGHKFSVSGEGEGDATYGKLTLKFICTTGKLPVPWPTLVTTLSYGVQCFSRYPDHMKQHDFFKSAMPEGYVQERTIFFKDDGNYKTRAEVKFEGDTLVNRIELKGIDFKEDGNILGHKLEYNYNSHNVYIMADKQKNGIKVNFKIRHNIEDGSVQLADHYQQNTPIGDGPVLLPDNHYLSTQSALSKDPNEKRDHMVLLEFVTAAGITHGMDELYK*
+Average mismatches from the wild type: 0.0
+wild type elbo prob: 5.68879508972168. 3 mutations elbo prob: 56.38556671142578. 10 mutations elbo prob: 220.18218994140625.
+BCE Loss:  tensor(5893.1763) KLD Loss: tensor(185.1430)
+BCE Loss:  tensor(5698.9185) KLD Loss: tensor(187.9949)
+BCE Loss:  tensor(5720.9805) KLD Loss: tensor(194.2024)
+BCE Loss:  tensor(5523.8813) KLD Loss: tensor(193.2976)
+BCE Loss:  tensor(6054.8730) KLD Loss: tensor(185.7281)
+BCE Loss:  tensor(5887.6323) KLD Loss: tensor(200.7214)
+BCE Loss:  tensor(5764.6611) KLD Loss: tensor(186.4512)
+BCE Loss:  tensor(5565.2168) KLD Loss: tensor(193.0070)
+BCE Loss:  tensor(6083.7466) KLD Loss: tensor(190.1371)
+BCE Loss:  tensor(5663.4297) KLD Loss: tensor(194.1845)
+Test set loss: 59.7674 Average Mismatches: 3.7000 Wild Type Mismatches 0.0000 <====> 
+
+BCE Loss:  tensor(1950.4601, grad_fn=<BinaryCrossEntropyBackward>) KLD Loss: tensor(225.6731, grad_fn=<MulBackward0>)
+BCE Loss:  tensor(1655.9064, grad_fn=<BinaryCrossEntropyBackward>) KLD Loss: tensor(235.4267, grad_fn=<MulBackward0>)
+BCE Loss:  tensor(1830.3704, grad_fn=<BinaryCrossEntropyBackward>) KLD Loss: tensor(232.5051, grad_fn=<MulBackward0>)
+BCE Loss:  tensor(2146.0403, grad_fn=<BinaryCrossEntropyBackward>) KLD Loss: tensor(223.8767, grad_fn=<MulBackward0>)
+BCE Loss:  tensor(1808.5775, grad_fn=<BinaryCrossEntropyBackward>) KLD Loss: tensor(229.2246, grad_fn=<MulBackward0>)
+BCE Loss:  tensor(1555.7191, grad_fn=<BinaryCrossEntropyBackward>) KLD Loss: tensor(230.4076, grad_fn=<MulBackward0>)
+BCE Loss:  tensor(2260.8059, grad_fn=<BinaryCrossEntropyBackward>) KLD Loss: tensor(201.9432, grad_fn=<MulBackward0>)
+BCE Loss:  tensor(2149.2483, grad_fn=<BinaryCrossEntropyBackward>) KLD Loss: tensor(194.5056, grad_fn=<MulBackward0>)
+BCE Loss:  tensor(2290.7222, grad_fn=<BinaryCrossEntropyBackward>) KLD Loss: tensor(186.4150, grad_fn=<MulBackward0>)
+BCE Loss:  tensor(2359.1448, grad_fn=<BinaryCrossEntropyBackward>) KLD Loss: tensor(180.4664, grad_fn=<MulBackward0>)
+BCE Loss:  tensor(8.7373, grad_fn=<BinaryCrossEntropyBackward>) KLD Loss: tensor(2.2852, grad_fn=<MulBackward0>)
+BCE Loss:  tensor(51.1292, grad_fn=<BinaryCrossEntropyBackward>) KLD Loss: tensor(1.9786, grad_fn=<MulBackward0>)
+BCE Loss:  tensor(151.4763, grad_fn=<BinaryCrossEntropyBackward>) KLD Loss: tensor(2.0872, grad_fn=<MulBackward0>)
+<====> Epoch: 22. Average loss: 22.1474. Time: 41.69 seconds
+Sample generated sequence: SKGEELFTGVVPILVELDGDVNGHKFSVSGEGEGDATYGKLTLKFIRTTGKLPVPWPTLVTTLSYGVQCFSRYPDHMKQHDFFKSAMPEGYVQERTIFFKDDGNYKTRAEVKFEGDTLVNRIELKGIDFKEDGNILGHKLEYNYNSHNVYIMADKQKNGIKVNFKIRHNIEDGSVQLADHYQQNTPIGDGPVLLPDNHYLSTQSALSKDPNEKRDHMVLLEFVTAAGITHGMDELYK*
+Average mismatches from the wild type: 0.3
+wild type elbo prob: 11.022503852844238. 3 mutations elbo prob: 53.10779571533203. 10 mutations elbo prob: 153.56346130371094.
+BCE Loss:  tensor(5634.8330) KLD Loss: tensor(154.6372)
+BCE Loss:  tensor(5346.4761) KLD Loss: tensor(162.6700)
+BCE Loss:  tensor(5662.5635) KLD Loss: tensor(155.5030)
+BCE Loss:  tensor(5872.8574) KLD Loss: tensor(156.8585)
+BCE Loss:  tensor(5718.2246) KLD Loss: tensor(153.2079)
+BCE Loss:  tensor(5493.6416) KLD Loss: tensor(158.7285)
+BCE Loss:  tensor(5733.8198) KLD Loss: tensor(154.0606)
+BCE Loss:  tensor(5772.0771) KLD Loss: tensor(153.6937)
+BCE Loss:  tensor(5905.2061) KLD Loss: tensor(161.2819)
+BCE Loss:  tensor(6202.1353) KLD Loss: tensor(150.0756)
+Test set loss: 58.9026 Average Mismatches: 4.2000 Wild Type Mismatches 0.0000 <====> 
+
+BCE Loss:  tensor(1864.5562, grad_fn=<BinaryCrossEntropyBackward>) KLD Loss: tensor(183.7291, grad_fn=<MulBackward0>)
+BCE Loss:  tensor(1712.4755, grad_fn=<BinaryCrossEntropyBackward>) KLD Loss: tensor(194.1597, grad_fn=<MulBackward0>)
+BCE Loss:  tensor(2081.2227, grad_fn=<BinaryCrossEntropyBackward>) KLD Loss: tensor(192.0818, grad_fn=<MulBackward0>)
+BCE Loss:  tensor(1953.4799, grad_fn=<BinaryCrossEntropyBackward>) KLD Loss: tensor(210.3077, grad_fn=<MulBackward0>)
+BCE Loss:  tensor(1944.4741, grad_fn=<BinaryCrossEntropyBackward>) KLD Loss: tensor(216.0296, grad_fn=<MulBackward0>)
+BCE Loss:  tensor(1818.1869, grad_fn=<BinaryCrossEntropyBackward>) KLD Loss: tensor(219.4961, grad_fn=<MulBackward0>)
+BCE Loss:  tensor(2172.1501, grad_fn=<BinaryCrossEntropyBackward>) KLD Loss: tensor(209.2090, grad_fn=<MulBackward0>)
+BCE Loss:  tensor(2433.6099, grad_fn=<BinaryCrossEntropyBackward>) KLD Loss: tensor(190.6964, grad_fn=<MulBackward0>)
+BCE Loss:  tensor(1917.7952, grad_fn=<BinaryCrossEntropyBackward>) KLD Loss: tensor(193.4654, grad_fn=<MulBackward0>)
+BCE Loss:  tensor(2046.4153, grad_fn=<BinaryCrossEntropyBackward>) KLD Loss: tensor(188.9144, grad_fn=<MulBackward0>)
+BCE Loss:  tensor(1.3710, grad_fn=<BinaryCrossEntropyBackward>) KLD Loss: tensor(2.2758, grad_fn=<MulBackward0>)
+BCE Loss:  tensor(55.6888, grad_fn=<BinaryCrossEntropyBackward>) KLD Loss: tensor(1.9648, grad_fn=<MulBackward0>)
+BCE Loss:  tensor(148.4234, grad_fn=<BinaryCrossEntropyBackward>) KLD Loss: tensor(2.0806, grad_fn=<MulBackward0>)
+<====> Epoch: 23. Average loss: 21.9425. Time: 44.00 seconds
+Sample generated sequence: SKGEELFTGVVPILVELDGDVNGHKFSVSGEGEGDATYGKLTLKFICTTGKLPVPWPTLVTTLSYGVQCFSRYPDHMKQHDFFKSAMPEGYVQERTIFFKDDGNYKTRAEVKFEGDTLVNRIELKGIDFKEDGNILGHKLEYNYNSHNVYIMADKQKNGIKVNFKIRHNIEDGSVQLADHYQQNTPIGDGPVLLPDNHYLSTQSALSKDPNEKRDHMVLLEFVTAAGITHGMDELYK*
+Average mismatches from the wild type: 0.2
+wild type elbo prob: 3.646782398223877. 3 mutations elbo prob: 57.6536750793457. 10 mutations elbo prob: 150.5040740966797.
+BCE Loss:  tensor(5453.0073) KLD Loss: tensor(157.5452)
+BCE Loss:  tensor(5819.5918) KLD Loss: tensor(152.2168)
+BCE Loss:  tensor(5698.0166) KLD Loss: tensor(153.7234)
+BCE Loss:  tensor(5718.9287) KLD Loss: tensor(153.1365)
+BCE Loss:  tensor(6004.0298) KLD Loss: tensor(149.8585)
+BCE Loss:  tensor(6017.1641) KLD Loss: tensor(151.3756)
+BCE Loss:  tensor(5416.8599) KLD Loss: tensor(161.9732)
+BCE Loss:  tensor(5343.0278) KLD Loss: tensor(159.8017)
+BCE Loss:  tensor(5474.2070) KLD Loss: tensor(159.7197)
+BCE Loss:  tensor(5857.3105) KLD Loss: tensor(151.5012)
+Test set loss: 58.3530 Average Mismatches: 3.7000 Wild Type Mismatches 0.0000 <====> 
+
+BCE Loss:  tensor(1599.2627, grad_fn=<BinaryCrossEntropyBackward>) KLD Loss: tensor(194.8301, grad_fn=<MulBackward0>)
+BCE Loss:  tensor(2482.4128, grad_fn=<BinaryCrossEntropyBackward>) KLD Loss: tensor(170.3719, grad_fn=<MulBackward0>)
+BCE Loss:  tensor(1799.1134, grad_fn=<BinaryCrossEntropyBackward>) KLD Loss: tensor(182.5407, grad_fn=<MulBackward0>)
+BCE Loss:  tensor(1946.0354, grad_fn=<BinaryCrossEntropyBackward>) KLD Loss: tensor(174.7069, grad_fn=<MulBackward0>)
+BCE Loss:  tensor(1826.2255, grad_fn=<BinaryCrossEntropyBackward>) KLD Loss: tensor(177.4281, grad_fn=<MulBackward0>)
+BCE Loss:  tensor(2029.7163, grad_fn=<BinaryCrossEntropyBackward>) KLD Loss: tensor(173.9601, grad_fn=<MulBackward0>)
+BCE Loss:  tensor(2084.9846, grad_fn=<BinaryCrossEntropyBackward>) KLD Loss: tensor(176.9807, grad_fn=<MulBackward0>)
+BCE Loss:  tensor(1916.6077, grad_fn=<BinaryCrossEntropyBackward>) KLD Loss: tensor(186.5195, grad_fn=<MulBackward0>)
+BCE Loss:  tensor(2141.8889, grad_fn=<BinaryCrossEntropyBackward>) KLD Loss: tensor(185.9978, grad_fn=<MulBackward0>)
+BCE Loss:  tensor(1778.1653, grad_fn=<BinaryCrossEntropyBackward>) KLD Loss: tensor(191.2023, grad_fn=<MulBackward0>)
+BCE Loss:  tensor(2.9442, grad_fn=<BinaryCrossEntropyBackward>) KLD Loss: tensor(2.2557, grad_fn=<MulBackward0>)
+BCE Loss:  tensor(53.9435, grad_fn=<BinaryCrossEntropyBackward>) KLD Loss: tensor(1.9277, grad_fn=<MulBackward0>)
+BCE Loss:  tensor(229.0391, grad_fn=<BinaryCrossEntropyBackward>) KLD Loss: tensor(2.0582, grad_fn=<MulBackward0>)
+<====> Epoch: 24. Average loss: 21.4190. Time: 46.34 seconds
+Sample generated sequence: SKGEELFTGVVPILVELDGDVNGHKFSVSGEGEGDATYGKLTLKFICTTGKLPVPWPTLVTTLSYGVQCFSRYPDHMKQHDFFKSAMPEGYVQERTIFFKDDGNYKTRAEVKFEGDTLVNRIELKGIDFKEDGNILGHKLEYNYNSHNVYIMADKQKNGIKVNFKIRHNIEDGSVQLADHYQQNTPIGDGPVLLPDNHYLSTQSALSKDPNEKRDHMVLLEFVTAAGITHGMDELYK*
+Average mismatches from the wild type: 0.2
+wild type elbo prob: 5.199920654296875. 3 mutations elbo prob: 55.87120819091797. 10 mutations elbo prob: 231.09725952148438.
+BCE Loss:  tensor(5744.1782) KLD Loss: tensor(145.9351)
+BCE Loss:  tensor(5909.2759) KLD Loss: tensor(147.6584)
+BCE Loss:  tensor(5365.9688) KLD Loss: tensor(143.9855)
+BCE Loss:  tensor(5909.6929) KLD Loss: tensor(146.2139)
+BCE Loss:  tensor(5883.9722) KLD Loss: tensor(152.2478)
+BCE Loss:  tensor(5858.9561) KLD Loss: tensor(155.0366)
+BCE Loss:  tensor(5452.6045) KLD Loss: tensor(154.8985)
+BCE Loss:  tensor(5825.4282) KLD Loss: tensor(147.7363)
+BCE Loss:  tensor(5885.1572) KLD Loss: tensor(149.4335)
+BCE Loss:  tensor(5827.3247) KLD Loss: tensor(152.1302)
+Test set loss: 59.1578 Average Mismatches: 4.6000 Wild Type Mismatches 0.0000 <====> 
+
+BCE Loss:  tensor(1875.0193, grad_fn=<BinaryCrossEntropyBackward>) KLD Loss: tensor(179.6413, grad_fn=<MulBackward0>)
+BCE Loss:  tensor(2248.5566, grad_fn=<BinaryCrossEntropyBackward>) KLD Loss: tensor(164.7111, grad_fn=<MulBackward0>)
+BCE Loss:  tensor(2259.9124, grad_fn=<BinaryCrossEntropyBackward>) KLD Loss: tensor(157.5234, grad_fn=<MulBackward0>)
+BCE Loss:  tensor(1837.6647, grad_fn=<BinaryCrossEntropyBackward>) KLD Loss: tensor(164.5990, grad_fn=<MulBackward0>)
+BCE Loss:  tensor(1886.7245, grad_fn=<BinaryCrossEntropyBackward>) KLD Loss: tensor(168.3435, grad_fn=<MulBackward0>)
+BCE Loss:  tensor(1780.6056, grad_fn=<BinaryCrossEntropyBackward>) KLD Loss: tensor(177.4377, grad_fn=<MulBackward0>)
+BCE Loss:  tensor(1990.9498, grad_fn=<BinaryCrossEntropyBackward>) KLD Loss: tensor(182.3020, grad_fn=<MulBackward0>)
+BCE Loss:  tensor(2079.7517, grad_fn=<BinaryCrossEntropyBackward>) KLD Loss: tensor(185.3397, grad_fn=<MulBackward0>)
+BCE Loss:  tensor(1752.5094, grad_fn=<BinaryCrossEntropyBackward>) KLD Loss: tensor(193.3157, grad_fn=<MulBackward0>)
+BCE Loss:  tensor(1982.3813, grad_fn=<BinaryCrossEntropyBackward>) KLD Loss: tensor(185.6307, grad_fn=<MulBackward0>)
+BCE Loss:  tensor(1.4869, grad_fn=<BinaryCrossEntropyBackward>) KLD Loss: tensor(2.3089, grad_fn=<MulBackward0>)
+BCE Loss:  tensor(56.0363, grad_fn=<BinaryCrossEntropyBackward>) KLD Loss: tensor(1.9864, grad_fn=<MulBackward0>)
+BCE Loss:  tensor(167.5800, grad_fn=<BinaryCrossEntropyBackward>) KLD Loss: tensor(2.1080, grad_fn=<MulBackward0>)
+<====> Epoch: 25. Average loss: 21.4529. Time: 48.89 seconds
+Sample generated sequence: SKGEELFTGVVPILVELDGDVNGHKFSVSGEGEGDATYGKLTLKFICTTGKLPVPWPTLVTTLSYGVQCFSRYPDHMKQHDFFKSAMPEGYVQERTIFFKDDGNYKTRAEVKFEGDTLVNRIELKGIDFKEDGNILGHKLEYNYNSHNVYIMADKQKNGIKVNFKIRHNIEDGSVQLADHYQQNTPIGDGPVLLPDNHYLSTQSALSKDPNEKRDHMVLLEFVTAAGITHGMDELYK*
+Average mismatches from the wild type: 0.1
+wild type elbo prob: 3.7958621978759766. 3 mutations elbo prob: 58.02265167236328. 10 mutations elbo prob: 169.68804931640625.
+BCE Loss:  tensor(5921.1357) KLD Loss: tensor(152.6257)
+BCE Loss:  tensor(5492.4404) KLD Loss: tensor(151.8182)
+BCE Loss:  tensor(6001.2104) KLD Loss: tensor(156.8106)
+BCE Loss:  tensor(5882.3818) KLD Loss: tensor(150.8647)
+BCE Loss:  tensor(6047.2520) KLD Loss: tensor(150.9799)
+BCE Loss:  tensor(5428.6787) KLD Loss: tensor(162.1572)
+BCE Loss:  tensor(5921.2388) KLD Loss: tensor(149.8691)
+BCE Loss:  tensor(5646.1001) KLD Loss: tensor(159.0650)
+BCE Loss:  tensor(5904.2422) KLD Loss: tensor(155.5527)
+BCE Loss:  tensor(5915.5000) KLD Loss: tensor(159.1583)
+Test set loss: 59.7091 Average Mismatches: 3.9000 Wild Type Mismatches 0.0000 <====> 
+
+BCE Loss:  tensor(1798.0540, grad_fn=<BinaryCrossEntropyBackward>) KLD Loss: tensor(188.8085, grad_fn=<MulBackward0>)
+BCE Loss:  tensor(1982.3960, grad_fn=<BinaryCrossEntropyBackward>) KLD Loss: tensor(174.5420, grad_fn=<MulBackward0>)
+BCE Loss:  tensor(2159.7656, grad_fn=<BinaryCrossEntropyBackward>) KLD Loss: tensor(171.6505, grad_fn=<MulBackward0>)
+BCE Loss:  tensor(2000.1758, grad_fn=<BinaryCrossEntropyBackward>) KLD Loss: tensor(168.6916, grad_fn=<MulBackward0>)
+BCE Loss:  tensor(1811.4949, grad_fn=<BinaryCrossEntropyBackward>) KLD Loss: tensor(161.7608, grad_fn=<MulBackward0>)
+BCE Loss:  tensor(1535.7738, grad_fn=<BinaryCrossEntropyBackward>) KLD Loss: tensor(160.7675, grad_fn=<MulBackward0>)
+BCE Loss:  tensor(2073.5942, grad_fn=<BinaryCrossEntropyBackward>) KLD Loss: tensor(153.1505, grad_fn=<MulBackward0>)
+BCE Loss:  tensor(1897.4315, grad_fn=<BinaryCrossEntropyBackward>) KLD Loss: tensor(154.3776, grad_fn=<MulBackward0>)
+BCE Loss:  tensor(2087.0605, grad_fn=<BinaryCrossEntropyBackward>) KLD Loss: tensor(158.6539, grad_fn=<MulBackward0>)
+BCE Loss:  tensor(2374.2761, grad_fn=<BinaryCrossEntropyBackward>) KLD Loss: tensor(161.0379, grad_fn=<MulBackward0>)
+BCE Loss:  tensor(1.0907, grad_fn=<BinaryCrossEntropyBackward>) KLD Loss: tensor(2.1359, grad_fn=<MulBackward0>)
+BCE Loss:  tensor(56.2913, grad_fn=<BinaryCrossEntropyBackward>) KLD Loss: tensor(1.8322, grad_fn=<MulBackward0>)
+BCE Loss:  tensor(206.4111, grad_fn=<BinaryCrossEntropyBackward>) KLD Loss: tensor(1.9476, grad_fn=<MulBackward0>)
+<====> Epoch: 26. Average loss: 21.3735. Time: 51.05 seconds
+Sample generated sequence: SKGEELFTGVVPILVELDGDVNGHKFSVSGEGEGDATYGKLTLKFIRTTGKLPVPWPTLVTTLSYGVQCFSRYPDHMKQHDFFKSAMPEGYVQERTIFFKDDGNYKTRAEVKFEGDTLVNRIELKGIDFKEDGNILGHKLEYNYNSHNVYIMADKQKNGIKVNFKIRHNIEDGSVQLADHYQQNTPIGDGPVLLPDNHYLSTQSALSKDPNEKRDHMVLLEFVTAAGITHGMDELYK*
+Average mismatches from the wild type: 0.6
+wild type elbo prob: 3.226585865020752. 3 mutations elbo prob: 58.123477935791016. 10 mutations elbo prob: 208.35870361328125.
+BCE Loss:  tensor(6101.7153) KLD Loss: tensor(136.4268)
+BCE Loss:  tensor(5541.4468) KLD Loss: tensor(142.1623)
+BCE Loss:  tensor(5632.2656) KLD Loss: tensor(142.6599)
+BCE Loss:  tensor(5927.3091) KLD Loss: tensor(145.2458)
+BCE Loss:  tensor(5700.4692) KLD Loss: tensor(144.0272)
+BCE Loss:  tensor(5732.9517) KLD Loss: tensor(147.1189)
+BCE Loss:  tensor(5753.7778) KLD Loss: tensor(138.0656)
+BCE Loss:  tensor(5636.6128) KLD Loss: tensor(141.7658)
+BCE Loss:  tensor(6037.8828) KLD Loss: tensor(141.6668)
+BCE Loss:  tensor(5923.5161) KLD Loss: tensor(140.4985)
+Test set loss: 59.4076 Average Mismatches: 3.0000 Wild Type Mismatches 0.0000 <====> 
+
+BCE Loss:  tensor(2302.4097, grad_fn=<BinaryCrossEntropyBackward>) KLD Loss: tensor(160.6738, grad_fn=<MulBackward0>)
+BCE Loss:  tensor(1711.8490, grad_fn=<BinaryCrossEntropyBackward>) KLD Loss: tensor(180.0701, grad_fn=<MulBackward0>)
+BCE Loss:  tensor(2095.5095, grad_fn=<BinaryCrossEntropyBackward>) KLD Loss: tensor(167.8119, grad_fn=<MulBackward0>)
+BCE Loss:  tensor(1746.2516, grad_fn=<BinaryCrossEntropyBackward>) KLD Loss: tensor(176.9923, grad_fn=<MulBackward0>)
+BCE Loss:  tensor(1751.1656, grad_fn=<BinaryCrossEntropyBackward>) KLD Loss: tensor(171.6517, grad_fn=<MulBackward0>)
+BCE Loss:  tensor(1646.3302, grad_fn=<BinaryCrossEntropyBackward>) KLD Loss: tensor(171.7547, grad_fn=<MulBackward0>)
+BCE Loss:  tensor(1986.3828, grad_fn=<BinaryCrossEntropyBackward>) KLD Loss: tensor(162.4682, grad_fn=<MulBackward0>)
+BCE Loss:  tensor(1891.8810, grad_fn=<BinaryCrossEntropyBackward>) KLD Loss: tensor(163.0670, grad_fn=<MulBackward0>)
+BCE Loss:  tensor(2141.9954, grad_fn=<BinaryCrossEntropyBackward>) KLD Loss: tensor(158.4810, grad_fn=<MulBackward0>)
+BCE Loss:  tensor(2135.0166, grad_fn=<BinaryCrossEntropyBackward>) KLD Loss: tensor(152.3711, grad_fn=<MulBackward0>)
+BCE Loss:  tensor(1.6984, grad_fn=<BinaryCrossEntropyBackward>) KLD Loss: tensor(1.9654, grad_fn=<MulBackward0>)
+BCE Loss:  tensor(64.9698, grad_fn=<BinaryCrossEntropyBackward>) KLD Loss: tensor(1.6699, grad_fn=<MulBackward0>)
+BCE Loss:  tensor(198.9377, grad_fn=<BinaryCrossEntropyBackward>) KLD Loss: tensor(1.7868, grad_fn=<MulBackward0>)
+<====> Epoch: 27. Average loss: 21.0741. Time: 53.12 seconds
+Sample generated sequence: SKGEELFTGVVPILVELDGDVNGHKFSVSGEGEGDATYGKLTLKFICTTGKLPVPWPTLVTTLSYGVQCFSRYPDHMKQHDFFKSAMPEGYVQERTIFFKDDGNYKTRAEVKFEGDTLVNRIELKGIDFKEDGNILGHKLEYNYNSHNVYIMADKQKNGIKVNFKIRHNIEDGSVQLADHYQQNTPIGDGPVLLPDNHYLSTQSALSKDPNEKRDHMVLLEFVTAAGITHGMDELYK*
+Average mismatches from the wild type: 0.3
+wild type elbo prob: 3.663799285888672. 3 mutations elbo prob: 66.63971710205078. 10 mutations elbo prob: 200.7244873046875.
+BCE Loss:  tensor(5700.1196) KLD Loss: tensor(125.8811)
+BCE Loss:  tensor(5587.9355) KLD Loss: tensor(128.1636)
+BCE Loss:  tensor(5709.2046) KLD Loss: tensor(120.9635)
+BCE Loss:  tensor(5747.5132) KLD Loss: tensor(131.8818)
+BCE Loss:  tensor(6128.8901) KLD Loss: tensor(124.8635)
+BCE Loss:  tensor(6060.4492) KLD Loss: tensor(127.4009)
+BCE Loss:  tensor(5791.7695) KLD Loss: tensor(124.1349)
+BCE Loss:  tensor(5586.1011) KLD Loss: tensor(126.6963)
+BCE Loss:  tensor(5666.1382) KLD Loss: tensor(127.7376)
+BCE Loss:  tensor(5312.4062) KLD Loss: tensor(129.9144)
+Test set loss: 58.5582 Average Mismatches: 3.8000 Wild Type Mismatches 0.0000 <====> 
+
+BCE Loss:  tensor(2219.6077, grad_fn=<BinaryCrossEntropyBackward>) KLD Loss: tensor(147.4911, grad_fn=<MulBackward0>)
+BCE Loss:  tensor(1764.6333, grad_fn=<BinaryCrossEntropyBackward>) KLD Loss: tensor(154.7668, grad_fn=<MulBackward0>)
+BCE Loss:  tensor(2049.3425, grad_fn=<BinaryCrossEntropyBackward>) KLD Loss: tensor(143.5788, grad_fn=<MulBackward0>)
+BCE Loss:  tensor(1728.5344, grad_fn=<BinaryCrossEntropyBackward>) KLD Loss: tensor(156.3128, grad_fn=<MulBackward0>)
+BCE Loss:  tensor(2090.1895, grad_fn=<BinaryCrossEntropyBackward>) KLD Loss: tensor(145.3703, grad_fn=<MulBackward0>)
+BCE Loss:  tensor(1879.1353, grad_fn=<BinaryCrossEntropyBackward>) KLD Loss: tensor(155.1647, grad_fn=<MulBackward0>)
+BCE Loss:  tensor(1935.5226, grad_fn=<BinaryCrossEntropyBackward>) KLD Loss: tensor(153.2784, grad_fn=<MulBackward0>)
+BCE Loss:  tensor(2016.5837, grad_fn=<BinaryCrossEntropyBackward>) KLD Loss: tensor(155.5922, grad_fn=<MulBackward0>)
+BCE Loss:  tensor(1857.3123, grad_fn=<BinaryCrossEntropyBackward>) KLD Loss: tensor(157.6438, grad_fn=<MulBackward0>)
+BCE Loss:  tensor(1756.1022, grad_fn=<BinaryCrossEntropyBackward>) KLD Loss: tensor(154.8479, grad_fn=<MulBackward0>)
+BCE Loss:  tensor(3.8526, grad_fn=<BinaryCrossEntropyBackward>) KLD Loss: tensor(1.8957, grad_fn=<MulBackward0>)
+BCE Loss:  tensor(63.8465, grad_fn=<BinaryCrossEntropyBackward>) KLD Loss: tensor(1.6038, grad_fn=<MulBackward0>)
+BCE Loss:  tensor(200.0497, grad_fn=<BinaryCrossEntropyBackward>) KLD Loss: tensor(1.7221, grad_fn=<MulBackward0>)
+<====> Epoch: 28. Average loss: 20.8210. Time: 55.30 seconds
+Sample generated sequence: SKGEELFTGVVPILVELDGDVNGHKFSVSGEGEGDATYGKLTLKFICTTGKLPVPWPTLVTTLSYGVQCFSRYPDHMKQHDFFKSAMPEGYVQERTIFFKDDGNYKTRAEVKFEGDTLVNRIELKGIDFKEDGNILGHKLEYNYNSHNVYIMADKQKNGIKVNFKIRHNIEDGSVQLADHYQQNTPIGDGPVLLPDNHYLSTQSALSKDPNEKRDHMVLLEFVTAAGITHGMDELYK*
+Average mismatches from the wild type: 0.1
+wild type elbo prob: 5.74824333190918. 3 mutations elbo prob: 65.45026397705078. 10 mutations elbo prob: 201.7717742919922.
+BCE Loss:  tensor(5638.6719) KLD Loss: tensor(124.1768)
+BCE Loss:  tensor(5788.8682) KLD Loss: tensor(115.2619)
+BCE Loss:  tensor(5642.4106) KLD Loss: tensor(123.6934)
+BCE Loss:  tensor(6016.7285) KLD Loss: tensor(119.7313)
+BCE Loss:  tensor(6128.5742) KLD Loss: tensor(113.3650)
+BCE Loss:  tensor(5719.0283) KLD Loss: tensor(120.9644)
+BCE Loss:  tensor(5576.7446) KLD Loss: tensor(125.2768)
+BCE Loss:  tensor(5578.8198) KLD Loss: tensor(124.4507)
+BCE Loss:  tensor(5453.2524) KLD Loss: tensor(118.5548)
+BCE Loss:  tensor(5753.5864) KLD Loss: tensor(118.8805)
+Test set loss: 58.5010 Average Mismatches: 3.5000 Wild Type Mismatches 0.0000 <====> 
+
+BCE Loss:  tensor(1989.8085, grad_fn=<BinaryCrossEntropyBackward>) KLD Loss: tensor(144.9600, grad_fn=<MulBackward0>)
+BCE Loss:  tensor(2076.6355, grad_fn=<BinaryCrossEntropyBackward>) KLD Loss: tensor(142.9359, grad_fn=<MulBackward0>)
+BCE Loss:  tensor(2095.0164, grad_fn=<BinaryCrossEntropyBackward>) KLD Loss: tensor(144.6662, grad_fn=<MulBackward0>)
+BCE Loss:  tensor(1868.5051, grad_fn=<BinaryCrossEntropyBackward>) KLD Loss: tensor(147.4101, grad_fn=<MulBackward0>)
+BCE Loss:  tensor(1874.8398, grad_fn=<BinaryCrossEntropyBackward>) KLD Loss: tensor(144.4744, grad_fn=<MulBackward0>)
+BCE Loss:  tensor(2004.2644, grad_fn=<BinaryCrossEntropyBackward>) KLD Loss: tensor(146.6968, grad_fn=<MulBackward0>)
+BCE Loss:  tensor(1878.2742, grad_fn=<BinaryCrossEntropyBackward>) KLD Loss: tensor(146.8049, grad_fn=<MulBackward0>)
+BCE Loss:  tensor(2251.4189, grad_fn=<BinaryCrossEntropyBackward>) KLD Loss: tensor(140.5275, grad_fn=<MulBackward0>)
+BCE Loss:  tensor(1850.3011, grad_fn=<BinaryCrossEntropyBackward>) KLD Loss: tensor(148.3948, grad_fn=<MulBackward0>)
+BCE Loss:  tensor(1375.3314, grad_fn=<BinaryCrossEntropyBackward>) KLD Loss: tensor(158.5884, grad_fn=<MulBackward0>)
+BCE Loss:  tensor(1.1763, grad_fn=<BinaryCrossEntropyBackward>) KLD Loss: tensor(1.8770, grad_fn=<MulBackward0>)
+BCE Loss:  tensor(61.0649, grad_fn=<BinaryCrossEntropyBackward>) KLD Loss: tensor(1.5863, grad_fn=<MulBackward0>)
+BCE Loss:  tensor(149.9203, grad_fn=<BinaryCrossEntropyBackward>) KLD Loss: tensor(1.7041, grad_fn=<MulBackward0>)
+<====> Epoch: 29. Average loss: 20.7299. Time: 57.26 seconds
+Sample generated sequence: SKGEELFTGVVPILVELDGDVNGHKFSVSGEGEGDATYGKLTLKFIRTTGKLPVPWPTLVTTLSYGVQCFSRYPDHMKQHDFFKSAMPEGYVQERTIFFKDDGNYKTRAEVKFEGDTLVNRIELKGIDFKEDGNILGHKLEYNYNSHNVYIMADKQKNGIKVNFKIRHNIEDGSVQLADHYQQNTPIGDGPVLLPDNHYLSTQSALSKDPNEKRDHMVLLEFVTAAGITHGMDELYK*
+Average mismatches from the wild type: 0.1
+wild type elbo prob: 3.0533204078674316. 3 mutations elbo prob: 62.65121841430664. 10 mutations elbo prob: 151.6243896484375.
+BCE Loss:  tensor(6207.9248) KLD Loss: tensor(115.9548)
+BCE Loss:  tensor(5577.9980) KLD Loss: tensor(121.4143)
+BCE Loss:  tensor(5638.0298) KLD Loss: tensor(121.0298)
+BCE Loss:  tensor(5834.7598) KLD Loss: tensor(119.4828)
+BCE Loss:  tensor(5452.1758) KLD Loss: tensor(123.6286)
+BCE Loss:  tensor(5378.6431) KLD Loss: tensor(119.0476)
+BCE Loss:  tensor(5723.3530) KLD Loss: tensor(118.5326)
+BCE Loss:  tensor(6235.4292) KLD Loss: tensor(118.9303)
+BCE Loss:  tensor(5627.9380) KLD Loss: tensor(121.4038)
+BCE Loss:  tensor(5734.9004) KLD Loss: tensor(120.8637)
+Test set loss: 58.6114 Average Mismatches: 3.5000 Wild Type Mismatches 0.0000 <====> 
+
+BCE Loss:  tensor(1688.1176, grad_fn=<BinaryCrossEntropyBackward>) KLD Loss: tensor(150.1869, grad_fn=<MulBackward0>)
+BCE Loss:  tensor(1778.7449, grad_fn=<BinaryCrossEntropyBackward>) KLD Loss: tensor(147.8686, grad_fn=<MulBackward0>)
+BCE Loss:  tensor(2131.3660, grad_fn=<BinaryCrossEntropyBackward>) KLD Loss: tensor(136.4546, grad_fn=<MulBackward0>)
+BCE Loss:  tensor(1838.8700, grad_fn=<BinaryCrossEntropyBackward>) KLD Loss: tensor(141.0619, grad_fn=<MulBackward0>)
+BCE Loss:  tensor(1746.3329, grad_fn=<BinaryCrossEntropyBackward>) KLD Loss: tensor(140.5677, grad_fn=<MulBackward0>)
+BCE Loss:  tensor(2147.3958, grad_fn=<BinaryCrossEntropyBackward>) KLD Loss: tensor(132.3707, grad_fn=<MulBackward0>)
+BCE Loss:  tensor(1985.7340, grad_fn=<BinaryCrossEntropyBackward>) KLD Loss: tensor(139.4540, grad_fn=<MulBackward0>)
+BCE Loss:  tensor(1433.8311, grad_fn=<BinaryCrossEntropyBackward>) KLD Loss: tensor(151.4061, grad_fn=<MulBackward0>)
+BCE Loss:  tensor(2182.6711, grad_fn=<BinaryCrossEntropyBackward>) KLD Loss: tensor(140.4615, grad_fn=<MulBackward0>)
+BCE Loss:  tensor(2193.7798, grad_fn=<BinaryCrossEntropyBackward>) KLD Loss: tensor(142.2446, grad_fn=<MulBackward0>)
+BCE Loss:  tensor(1.9582, grad_fn=<BinaryCrossEntropyBackward>) KLD Loss: tensor(1.8075, grad_fn=<MulBackward0>)
+BCE Loss:  tensor(63.5288, grad_fn=<BinaryCrossEntropyBackward>) KLD Loss: tensor(1.5172, grad_fn=<MulBackward0>)
+BCE Loss:  tensor(162.0319, grad_fn=<BinaryCrossEntropyBackward>) KLD Loss: tensor(1.6385, grad_fn=<MulBackward0>)
+<====> Epoch: 30. Average loss: 20.5489. Time: 59.10 seconds
+Sample generated sequence: SKGEELFTGVVPILVELDGDVNGHKFSVSGEGEGDATYGKLTLKFIRTTGKLPVPWPTLVTTLSYGVQCFSRYPDHMKQHDFFKSAMPEGYVQERTIFFKDDGNYKTRAEVKFEGDTLVNRIELKGIDFKEDGNILGHKLEYNYNSHNVYIMADKQKNGIKVNFKIRHNIEDGSVQLADHYQQNTPIGDGPVLLPDNHYLSTQSALSKDPNEKRDHMVLLEFVTAAGITHGMDELYK*
+Average mismatches from the wild type: 0.3
+wild type elbo prob: 3.7656497955322266. 3 mutations elbo prob: 65.04605865478516. 10 mutations elbo prob: 163.67044067382812.
+BCE Loss:  tensor(5981.0688) KLD Loss: tensor(113.2463)
+BCE Loss:  tensor(5708.7529) KLD Loss: tensor(114.8349)
+BCE Loss:  tensor(5559.2446) KLD Loss: tensor(113.1250)
+BCE Loss:  tensor(5524.4473) KLD Loss: tensor(119.5684)
+BCE Loss:  tensor(5976.9419) KLD Loss: tensor(107.8320)
+BCE Loss:  tensor(5494.9146) KLD Loss: tensor(116.7882)
+BCE Loss:  tensor(5705.7900) KLD Loss: tensor(114.8433)
+BCE Loss:  tensor(5832.8496) KLD Loss: tensor(116.4559)
+BCE Loss:  tensor(5984.1978) KLD Loss: tensor(113.3831)
+BCE Loss:  tensor(5704.9507) KLD Loss: tensor(111.7530)
+Test set loss: 58.6150 Average Mismatches: 5.2000 Wild Type Mismatches 0.0000 <====> 
+
+finished saving model
+VAE(
+  (fc1): Linear(in_features=4998, out_features=400, bias=True)
+  (fc21): Linear(in_features=400, out_features=20, bias=True)
+  (fc22): Linear(in_features=400, out_features=20, bias=True)
+  (fc3): Linear(in_features=20, out_features=400, bias=True)
+  (fc4): Linear(in_features=400, out_features=4998, bias=True)
+)
+VAE(
+  (fc1): Linear(in_features=4998, out_features=400, bias=True)
+  (fc21): Linear(in_features=400, out_features=20, bias=True)
+  (fc22): Linear(in_features=400, out_features=20, bias=True)
+  (fc3): Linear(in_features=20, out_features=400, bias=True)
+  (fc4): Linear(in_features=400, out_features=4998, bias=True)
+)
+BCE Loss:  tensor(5813.0317, grad_fn=<BinaryCrossEntropyBackward>) KLD Loss: tensor(105.0938, grad_fn=<MulBackward0>)
+BCE Loss:  tensor(5813.0317, grad_fn=<BinaryCrossEntropyBackward>) KLD Loss: tensor(105.0938, grad_fn=<MulBackward0>)
+BCE Loss:  tensor(5837.2607, grad_fn=<BinaryCrossEntropyBackward>) KLD Loss: tensor(118.7725, grad_fn=<MulBackward0>)
+BCE Loss:  tensor(5837.2607, grad_fn=<BinaryCrossEntropyBackward>) KLD Loss: tensor(118.7725, grad_fn=<MulBackward0>)
+BCE Loss:  tensor(5856.7368, grad_fn=<BinaryCrossEntropyBackward>) KLD Loss: tensor(112.1053, grad_fn=<MulBackward0>)
+BCE Loss:  tensor(5856.7368, grad_fn=<BinaryCrossEntropyBackward>) KLD Loss: tensor(112.1053, grad_fn=<MulBackward0>)
+BCE Loss:  tensor(5826.7930, grad_fn=<BinaryCrossEntropyBackward>) KLD Loss: tensor(109.1981, grad_fn=<MulBackward0>)
+BCE Loss:  tensor(5826.7930, grad_fn=<BinaryCrossEntropyBackward>) KLD Loss: tensor(109.1981, grad_fn=<MulBackward0>)
+BCE Loss:  tensor(5681.3354, grad_fn=<BinaryCrossEntropyBackward>) KLD Loss: tensor(117.4903, grad_fn=<MulBackward0>)
+BCE Loss:  tensor(5681.3354, grad_fn=<BinaryCrossEntropyBackward>) KLD Loss: tensor(117.4903, grad_fn=<MulBackward0>)
+BCE Loss:  tensor(5718.0820, grad_fn=<BinaryCrossEntropyBackward>) KLD Loss: tensor(116.8349, grad_fn=<MulBackward0>)
+BCE Loss:  tensor(5718.0820, grad_fn=<BinaryCrossEntropyBackward>) KLD Loss: tensor(116.8349, grad_fn=<MulBackward0>)
+BCE Loss:  tensor(5722.7476, grad_fn=<BinaryCrossEntropyBackward>) KLD Loss: tensor(120.2448, grad_fn=<MulBackward0>)
+BCE Loss:  tensor(5722.7476, grad_fn=<BinaryCrossEntropyBackward>) KLD Loss: tensor(120.2448, grad_fn=<MulBackward0>)
+BCE Loss:  tensor(5840.6025, grad_fn=<BinaryCrossEntropyBackward>) KLD Loss: tensor(113.1255, grad_fn=<MulBackward0>)
+BCE Loss:  tensor(5840.6025, grad_fn=<BinaryCrossEntropyBackward>) KLD Loss: tensor(113.1255, grad_fn=<MulBackward0>)
+BCE Loss:  tensor(5643.1172, grad_fn=<BinaryCrossEntropyBackward>) KLD Loss: tensor(115.1800, grad_fn=<MulBackward0>)
+BCE Loss:  tensor(5643.1172, grad_fn=<BinaryCrossEntropyBackward>) KLD Loss: tensor(115.1800, grad_fn=<MulBackward0>)
+BCE Loss:  tensor(5488.6953, grad_fn=<BinaryCrossEntropyBackward>) KLD Loss: tensor(113.7850, grad_fn=<MulBackward0>)
+BCE Loss:  tensor(5488.6953, grad_fn=<BinaryCrossEntropyBackward>) KLD Loss: tensor(113.7850, grad_fn=<MulBackward0>)

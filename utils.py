@@ -8,7 +8,6 @@ from itertools import zip_longest
 from Bio.Data import CodonTable
 from Bio.Seq import translate, IUPAC
 
-
 def normalize(X): 
     """ normalize an array """
     return (X - X.mean()) / X.std()
@@ -65,6 +64,21 @@ def generate_random_gfp_data_mutations(num_of_mutations_lst, num_per_mutation_co
     print(time.time() - start_time, "seconds to generate the mutated df")
     return mutated_df
 
+def get_mutation(string, num_mutations, alphabet): 
+    mutation = list(string)
+    num_characters = len(alphabet)
+    characters_to_index = dict(zip(alphabet, range(num_characters)))
+    index_to_characters = dict(zip(range(num_characters), alphabet))
+    indexes = np.random.choice(range(len(string)), num_mutations, replace=False)
+    for i in indexes:
+        original_c = string[i]
+        original_index = characters_to_index[original_c]
+        new_index = np.random.randint(0, num_characters)
+        while new_index == original_index: 
+            new_index = np.random.randint(0, num_characters)
+        mutation[i] = index_to_characters[new_index] 
+    return "".join(mutation)
+
 def save_mutated_gfp_data(mutated_df, path = "./data/mutated_df.csv"):
     mutated_df.to_csv(path, index = None)
     
@@ -97,52 +111,46 @@ def load_gfp_data(gfp_data_path):
     return X_train, X_test, y_train, y_test
 
   
-def one_hot_encode_dna_sequence(X):
+def one_hot_encode(X, alphabet):
     """
-    Input: X is a list of DNA Sequences represented by the base pairs ACTG. 
-        All DNA Sequences must be the same length
-    Output: one hot encoded list of dna sequences
-    Example: one_hot_encode(["ACT", "ACG"]) = [[1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0], 
+    Input: X is a list of sequences represented by the set of letters in alphabet
+        All sequences must be the same length
+    Output: one hot encoded list of X sequences
+    Example: one_hot_encode(["ACT", "ACG"], "ACTG") = [[1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0],
                                               [1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 1]]
     """
     assert(len(X) > 0)
     assert(all([len(X[0]) == len(X[i]) for i in range(len(X))]))
-    alphabet = ["A", "C", "T", "G"]
     alphabet_size = len(alphabet)
     alphabet_dict = dict(zip(alphabet, range(alphabet_size)))
-    one_hot_matrix = np.zeros((len(X), alphabet_size * len(X[0]))) 
-    for i, dna_sequence in enumerate(X):
-        for j, base_pair in enumerate(dna_sequence):
-            index = alphabet_dict[base_pair]
+    one_hot_matrix = np.zeros((len(X), alphabet_size * len(X[0])))
+    for i, sequence in enumerate(X):
+        for j, letter in enumerate(sequence):
+            if letter not in alphabet:
+                raise KeyError("letter not in alphabet")
+            index = alphabet_dict[letter]
             one_hot_matrix[i, alphabet_size * j + index] = 1.0
     return one_hot_matrix
 
-def one_hot_decode_dna_sequence(X): 
+def one_hot_decode(X, alphabet):
     """
-    Input: X is a one hot encoded list of DNA Sequences represented by the base pairs ACTG. 
+    Input: X is a one hot encoded list of DNA Sequences represented by the base pairs ACTG.
         All DNA Sequences must be the same length
     Output: list of dna sequences
-    Example: one_hot_decode([[1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0], 
-                            [1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 1]]) = ["ACT", "ACG"]
+    Example: one_hot_decode([[1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0],
+                            [1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 1]], "ACTG") = ["ACT", "ACG"]
     """
     assert(len(X) > 0)
     assert(all([len(X[0]) == len(X[i]) for i in range(len(X))]))
-    alphabet = ["A", "C", "T", "G"]
     alphabet_size = len(alphabet)
-    dna_sequences = []
-    for i, one_hot_sequence in enumerate(X): 
-        dna_sequence = []
-        for j in range(0, len(one_hot_sequence), 4): 
-            if one_hot_sequence[j]:
-                dna_sequence.append("A")
-            elif one_hot_sequence[j + 1]: 
-                dna_sequence.append("C")
-            elif one_hot_sequence[j + 2]: 
-                dna_sequence.append("T")
-            elif one_hot_sequence[j + 3]: 
-                dna_sequence.append("G")
-        dna_sequences.append("".join(dna_sequence))
-    return np.array(dna_sequences)
+    sequences_lst = []
+    for i, one_hot_sequence in enumerate(X):
+        sequence, sequence_len = [], len(one_hot_sequence)
+        for j in range(0, sequence_len, alphabet_size):
+            index = np.argmax(one_hot_sequence[j:j+alphabet_size])
+            sequence.append(alphabet[index])
+        sequences_lst.append("".join(sequence))
+    return sequences_lst
 
 def string_to_tensor(string, character_to_int):
     tensor = torch.zeros(len(string)).long()

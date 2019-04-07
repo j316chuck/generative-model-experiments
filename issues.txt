@@ -26,9 +26,10 @@
 	rnn_test_sample_4: batch size 40, runs in 35 seconds, 224 mismatches and loss is a little bit higher. but yeah... runs twice as fast. 
 	rnn_test_sample_5: hidden size 800 * 4, runs in 1066 seconds or 15x slower. so its an n^2 rate slower. surprisingly/unsurprisingly increasing hidden state results in best generated sequences 
 	rnn_test_sample_6: small model, hidden size 100, layers 1, loss a little higher, ran in 23 seconds. 
-     3. VAE
+	5. need to check no_grad   
+  3. VAE
 	1. https://colab.research.google.com/drive/1Wl78KHPzQ2Q253Rob5W1o0bd8nu9DZel#scrollTo=zaCO7S0-_KNn&forceEdit=true&offline=true&sandboxMode=true	
-
-
-
- 
+	2. it is simple and does not contain the option to change the architecture much
+	3. check if your losses are what you think they are
+	4. can add more checks in evaluate to see training 
+	5. vae also has shitty coding style where you do not set with torch.no_grad() 
