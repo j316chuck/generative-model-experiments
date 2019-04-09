@@ -1,0 +1,201 @@
+Train on 900 samples, validate on 100 samples
+Epoch 1/100
+900/900 [==============================] - 5s 5ms/step - loss: 135.5982 - decoder_loss: 100.0888 - kl_reshape_loss: 35.5094 - val_loss: 44.3349 - val_decoder_loss: 32.2930 - val_kl_reshape_loss: 12.0419
+Epoch 2/100
+900/900 [==============================] - 2s 2ms/step - loss: 41.8330 - decoder_loss: 31.8689 - kl_reshape_loss: 9.9641 - val_loss: 37.8486 - val_decoder_loss: 29.0495 - val_kl_reshape_loss: 8.7992
+Epoch 3/100
+900/900 [==============================] - 2s 2ms/step - loss: 37.2469 - decoder_loss: 29.3561 - kl_reshape_loss: 7.8909 - val_loss: 36.0050 - val_decoder_loss: 29.0431 - val_kl_reshape_loss: 6.9619
+Epoch 4/100
+900/900 [==============================] - 2s 2ms/step - loss: 34.3824 - decoder_loss: 27.8538 - kl_reshape_loss: 6.5286 - val_loss: 33.1739 - val_decoder_loss: 26.7518 - val_kl_reshape_loss: 6.4221
+Epoch 5/100
+900/900 [==============================] - 2s 2ms/step - loss: 33.0320 - decoder_loss: 27.0815 - kl_reshape_loss: 5.9505 - val_loss: 32.2602 - val_decoder_loss: 27.0838 - val_kl_reshape_loss: 5.1764
+Epoch 6/100
+900/900 [==============================] - 2s 2ms/step - loss: 32.2897 - decoder_loss: 26.7159 - kl_reshape_loss: 5.5738 - val_loss: 32.1457 - val_decoder_loss: 26.4481 - val_kl_reshape_loss: 5.6976
+Epoch 7/100
+900/900 [==============================] - 2s 3ms/step - loss: 30.8921 - decoder_loss: 25.9429 - kl_reshape_loss: 4.9492 - val_loss: 30.3485 - val_decoder_loss: 25.5868 - val_kl_reshape_loss: 4.7617
+Epoch 8/100
+900/900 [==============================] - 2s 2ms/step - loss: 30.5842 - decoder_loss: 25.7404 - kl_reshape_loss: 4.8438 - val_loss: 31.8506 - val_decoder_loss: 25.9738 - val_kl_reshape_loss: 5.8768
+Epoch 9/100
+900/900 [==============================] - 2s 2ms/step - loss: 30.1539 - decoder_loss: 25.4258 - kl_reshape_loss: 4.7281 - val_loss: 30.1775 - val_decoder_loss: 26.3584 - val_kl_reshape_loss: 3.8191
+Epoch 10/100
+900/900 [==============================] - 2s 2ms/step - loss: 29.3328 - decoder_loss: 25.3177 - kl_reshape_loss: 4.0151 - val_loss: 29.4346 - val_decoder_loss: 24.6813 - val_kl_reshape_loss: 4.7533
+Epoch 11/100
+900/900 [==============================] - 2s 2ms/step - loss: 28.3023 - decoder_loss: 24.6156 - kl_reshape_loss: 3.6867 - val_loss: 28.7672 - val_decoder_loss: 25.8204 - val_kl_reshape_loss: 2.9469
+Epoch 12/100
+900/900 [==============================] - 2s 2ms/step - loss: 28.2741 - decoder_loss: 24.7728 - kl_reshape_loss: 3.5013 - val_loss: 27.9805 - val_decoder_loss: 24.7897 - val_kl_reshape_loss: 3.1908
+Epoch 13/100
+900/900 [==============================] - 2s 2ms/step - loss: 27.6015 - decoder_loss: 24.4967 - kl_reshape_loss: 3.1048 - val_loss: 27.4482 - val_decoder_loss: 24.4463 - val_kl_reshape_loss: 3.0019
+Epoch 14/100
+900/900 [==============================] - 2s 2ms/step - loss: 26.7075 - decoder_loss: 24.2263 - kl_reshape_loss: 2.4811 - val_loss: 27.0216 - val_decoder_loss: 24.3949 - val_kl_reshape_loss: 2.6267
+Epoch 15/100
+900/900 [==============================] - 2s 2ms/step - loss: 26.2528 - decoder_loss: 24.0223 - kl_reshape_loss: 2.2305 - val_loss: 26.5055 - val_decoder_loss: 24.3859 - val_kl_reshape_loss: 2.1195
+Epoch 16/100
+900/900 [==============================] - 2s 2ms/step - loss: 25.9979 - decoder_loss: 23.9659 - kl_reshape_loss: 2.0321 - val_loss: 26.3097 - val_decoder_loss: 24.2806 - val_kl_reshape_loss: 2.0291
+Epoch 17/100
+900/900 [==============================] - 2s 2ms/step - loss: 25.8454 - decoder_loss: 23.9705 - kl_reshape_loss: 1.8749 - val_loss: 26.3056 - val_decoder_loss: 24.5523 - val_kl_reshape_loss: 1.7533
+Epoch 18/100
+900/900 [==============================] - 2s 2ms/step - loss: 25.3757 - decoder_loss: 23.6876 - kl_reshape_loss: 1.6881 - val_loss: 25.4935 - val_decoder_loss: 23.8976 - val_kl_reshape_loss: 1.5959
+Epoch 19/100
+900/900 [==============================] - 2s 2ms/step - loss: 25.2270 - decoder_loss: 23.6963 - kl_reshape_loss: 1.5307 - val_loss: 25.9255 - val_decoder_loss: 24.2870 - val_kl_reshape_loss: 1.6385
+Epoch 20/100
+900/900 [==============================] - 2s 2ms/step - loss: 25.0089 - decoder_loss: 23.5183 - kl_reshape_loss: 1.4906 - val_loss: 25.9433 - val_decoder_loss: 24.3985 - val_kl_reshape_loss: 1.5448
+Epoch 21/100
+900/900 [==============================] - 2s 2ms/step - loss: 24.9818 - decoder_loss: 23.5701 - kl_reshape_loss: 1.4116 - val_loss: 25.4110 - val_decoder_loss: 24.1511 - val_kl_reshape_loss: 1.2600
+Epoch 22/100
+900/900 [==============================] - 2s 2ms/step - loss: 24.7869 - decoder_loss: 23.5146 - kl_reshape_loss: 1.2723 - val_loss: 25.6397 - val_decoder_loss: 24.2267 - val_kl_reshape_loss: 1.4131
+Epoch 23/100
+900/900 [==============================] - 2s 2ms/step - loss: 24.6994 - decoder_loss: 23.4194 - kl_reshape_loss: 1.2800 - val_loss: 25.2346 - val_decoder_loss: 24.0991 - val_kl_reshape_loss: 1.1356
+Epoch 24/100
+900/900 [==============================] - 2s 2ms/step - loss: 24.7092 - decoder_loss: 23.4789 - kl_reshape_loss: 1.2303 - val_loss: 25.2007 - val_decoder_loss: 24.0664 - val_kl_reshape_loss: 1.1343
+Epoch 25/100
+900/900 [==============================] - 2s 2ms/step - loss: 24.5017 - decoder_loss: 23.3231 - kl_reshape_loss: 1.1786 - val_loss: 24.9823 - val_decoder_loss: 23.9586 - val_kl_reshape_loss: 1.0237
+Epoch 26/100
+900/900 [==============================] - 2s 2ms/step - loss: 24.4749 - decoder_loss: 23.3332 - kl_reshape_loss: 1.1417 - val_loss: 24.9972 - val_decoder_loss: 23.8010 - val_kl_reshape_loss: 1.1962
+Epoch 27/100
+900/900 [==============================] - 2s 2ms/step - loss: 24.3457 - decoder_loss: 23.2804 - kl_reshape_loss: 1.0653 - val_loss: 24.8905 - val_decoder_loss: 23.8646 - val_kl_reshape_loss: 1.0258
+Epoch 28/100
+900/900 [==============================] - 2s 2ms/step - loss: 24.1702 - decoder_loss: 23.1233 - kl_reshape_loss: 1.0470 - val_loss: 25.0215 - val_decoder_loss: 24.0865 - val_kl_reshape_loss: 0.9349
+Epoch 29/100
+900/900 [==============================] - 2s 2ms/step - loss: 24.2272 - decoder_loss: 23.2657 - kl_reshape_loss: 0.9615 - val_loss: 24.8448 - val_decoder_loss: 23.9870 - val_kl_reshape_loss: 0.8578
+Epoch 30/100
+900/900 [==============================] - 2s 2ms/step - loss: 24.0342 - decoder_loss: 23.1471 - kl_reshape_loss: 0.8871 - val_loss: 24.7055 - val_decoder_loss: 23.8412 - val_kl_reshape_loss: 0.8643
+Epoch 31/100
+900/900 [==============================] - 2s 2ms/step - loss: 23.8726 - decoder_loss: 23.0353 - kl_reshape_loss: 0.8373 - val_loss: 24.7214 - val_decoder_loss: 24.1050 - val_kl_reshape_loss: 0.6164
+Epoch 32/100
+900/900 [==============================] - 2s 2ms/step - loss: 23.8187 - decoder_loss: 23.0817 - kl_reshape_loss: 0.7370 - val_loss: 24.3490 - val_decoder_loss: 23.7175 - val_kl_reshape_loss: 0.6315
+Epoch 33/100
+900/900 [==============================] - 2s 2ms/step - loss: 23.5840 - decoder_loss: 22.9127 - kl_reshape_loss: 0.6713 - val_loss: 24.5395 - val_decoder_loss: 23.8562 - val_kl_reshape_loss: 0.6833
+Epoch 34/100
+900/900 [==============================] - 3s 3ms/step - loss: 23.5003 - decoder_loss: 22.9108 - kl_reshape_loss: 0.5895 - val_loss: 24.2610 - val_decoder_loss: 23.7775 - val_kl_reshape_loss: 0.4835
+Epoch 35/100
+900/900 [==============================] - 2s 3ms/step - loss: 23.4632 - decoder_loss: 22.9001 - kl_reshape_loss: 0.5630 - val_loss: 24.0925 - val_decoder_loss: 23.7259 - val_kl_reshape_loss: 0.3667
+Epoch 36/100
+900/900 [==============================] - 2s 2ms/step - loss: 23.3111 - decoder_loss: 22.8387 - kl_reshape_loss: 0.4724 - val_loss: 24.1872 - val_decoder_loss: 23.8214 - val_kl_reshape_loss: 0.3658
+Epoch 37/100
+900/900 [==============================] - 3s 3ms/step - loss: 23.1166 - decoder_loss: 22.6553 - kl_reshape_loss: 0.4612 - val_loss: 23.9988 - val_decoder_loss: 23.7369 - val_kl_reshape_loss: 0.2619
+Epoch 38/100
+900/900 [==============================] - 2s 2ms/step - loss: 23.0315 - decoder_loss: 22.5476 - kl_reshape_loss: 0.4839 - val_loss: 23.8540 - val_decoder_loss: 23.6209 - val_kl_reshape_loss: 0.2331
+Epoch 39/100
+900/900 [==============================] - 2s 2ms/step - loss: 22.9248 - decoder_loss: 22.4031 - kl_reshape_loss: 0.5217 - val_loss: 23.8815 - val_decoder_loss: 23.6105 - val_kl_reshape_loss: 0.2711
+Epoch 40/100
+900/900 [==============================] - 2s 2ms/step - loss: 22.9116 - decoder_loss: 22.3352 - kl_reshape_loss: 0.5764 - val_loss: 24.0727 - val_decoder_loss: 23.7732 - val_kl_reshape_loss: 0.2994
+Epoch 41/100
+900/900 [==============================] - 2s 2ms/step - loss: 22.9197 - decoder_loss: 22.2740 - kl_reshape_loss: 0.6457 - val_loss: 24.0329 - val_decoder_loss: 23.7331 - val_kl_reshape_loss: 0.2998
+Epoch 42/100
+900/900 [==============================] - 2s 2ms/step - loss: 22.8235 - decoder_loss: 22.1074 - kl_reshape_loss: 0.7161 - val_loss: 24.1077 - val_decoder_loss: 23.7213 - val_kl_reshape_loss: 0.3865
+Epoch 43/100
+900/900 [==============================] - 2s 2ms/step - loss: 22.7560 - decoder_loss: 21.9597 - kl_reshape_loss: 0.7963 - val_loss: 24.1517 - val_decoder_loss: 23.7917 - val_kl_reshape_loss: 0.3600
+Epoch 44/100
+900/900 [==============================] - 2s 2ms/step - loss: 22.7786 - decoder_loss: 21.8981 - kl_reshape_loss: 0.8805 - val_loss: 24.4277 - val_decoder_loss: 23.8646 - val_kl_reshape_loss: 0.5631
+Epoch 45/100
+900/900 [==============================] - 2s 2ms/step - loss: 22.7766 - decoder_loss: 21.8148 - kl_reshape_loss: 0.9618 - val_loss: 24.3395 - val_decoder_loss: 23.8208 - val_kl_reshape_loss: 0.5188
+Epoch 46/100
+900/900 [==============================] - 2s 3ms/step - loss: 22.6077 - decoder_loss: 21.5428 - kl_reshape_loss: 1.0649 - val_loss: 24.2669 - val_decoder_loss: 23.7121 - val_kl_reshape_loss: 0.5547
+Epoch 47/100
+900/900 [==============================] - 2s 2ms/step - loss: 22.6603 - decoder_loss: 21.5274 - kl_reshape_loss: 1.1329 - val_loss: 24.2684 - val_decoder_loss: 23.7914 - val_kl_reshape_loss: 0.4770
+Epoch 48/100
+900/900 [==============================] - 2s 2ms/step - loss: 22.5155 - decoder_loss: 21.3320 - kl_reshape_loss: 1.1834 - val_loss: 24.5347 - val_decoder_loss: 23.8776 - val_kl_reshape_loss: 0.6571
+Epoch 49/100
+900/900 [==============================] - 2s 2ms/step - loss: 22.4499 - decoder_loss: 21.1622 - kl_reshape_loss: 1.2877 - val_loss: 24.4392 - val_decoder_loss: 23.7650 - val_kl_reshape_loss: 0.6742
+Epoch 50/100
+900/900 [==============================] - 2s 3ms/step - loss: 22.4087 - decoder_loss: 21.0696 - kl_reshape_loss: 1.3391 - val_loss: 24.2229 - val_decoder_loss: 23.5640 - val_kl_reshape_loss: 0.6589
+Epoch 51/100
+900/900 [==============================] - 2s 2ms/step - loss: 22.2649 - decoder_loss: 20.7944 - kl_reshape_loss: 1.4705 - val_loss: 24.3821 - val_decoder_loss: 23.7428 - val_kl_reshape_loss: 0.6394
+Epoch 52/100
+900/900 [==============================] - 2s 2ms/step - loss: 22.2997 - decoder_loss: 20.7544 - kl_reshape_loss: 1.5453 - val_loss: 24.5899 - val_decoder_loss: 23.8613 - val_kl_reshape_loss: 0.7286
+Epoch 53/100
+900/900 [==============================] - 2s 2ms/step - loss: 22.2549 - decoder_loss: 20.6189 - kl_reshape_loss: 1.6360 - val_loss: 24.5274 - val_decoder_loss: 23.7285 - val_kl_reshape_loss: 0.7989
+Epoch 54/100
+900/900 [==============================] - 2s 2ms/step - loss: 22.1041 - decoder_loss: 20.3974 - kl_reshape_loss: 1.7068 - val_loss: 24.4505 - val_decoder_loss: 23.6832 - val_kl_reshape_loss: 0.7673
+Epoch 55/100
+900/900 [==============================] - 2s 2ms/step - loss: 22.1181 - decoder_loss: 20.3107 - kl_reshape_loss: 1.8074 - val_loss: 24.7097 - val_decoder_loss: 23.7771 - val_kl_reshape_loss: 0.9326
+Epoch 56/100
+900/900 [==============================] - 2s 2ms/step - loss: 22.0233 - decoder_loss: 20.1188 - kl_reshape_loss: 1.9046 - val_loss: 24.6462 - val_decoder_loss: 23.7912 - val_kl_reshape_loss: 0.8550
+Epoch 57/100
+900/900 [==============================] - 2s 2ms/step - loss: 21.9334 - decoder_loss: 19.9639 - kl_reshape_loss: 1.9694 - val_loss: 24.9253 - val_decoder_loss: 24.0411 - val_kl_reshape_loss: 0.8842
+Epoch 58/100
+900/900 [==============================] - 2s 2ms/step - loss: 21.9419 - decoder_loss: 19.8996 - kl_reshape_loss: 2.0423 - val_loss: 24.8990 - val_decoder_loss: 23.8853 - val_kl_reshape_loss: 1.0137
+Epoch 59/100
+900/900 [==============================] - 2s 2ms/step - loss: 21.7141 - decoder_loss: 19.5607 - kl_reshape_loss: 2.1533 - val_loss: 24.5909 - val_decoder_loss: 23.5817 - val_kl_reshape_loss: 1.0092
+Epoch 60/100
+900/900 [==============================] - 2s 3ms/step - loss: 21.7065 - decoder_loss: 19.4974 - kl_reshape_loss: 2.2091 - val_loss: 25.1564 - val_decoder_loss: 24.0445 - val_kl_reshape_loss: 1.1119
+Epoch 61/100
+900/900 [==============================] - 2s 2ms/step - loss: 21.7373 - decoder_loss: 19.4019 - kl_reshape_loss: 2.3354 - val_loss: 24.6413 - val_decoder_loss: 23.5301 - val_kl_reshape_loss: 1.1111
+Epoch 62/100
+900/900 [==============================] - 2s 2ms/step - loss: 21.5381 - decoder_loss: 19.1229 - kl_reshape_loss: 2.4153 - val_loss: 24.9914 - val_decoder_loss: 23.7725 - val_kl_reshape_loss: 1.2188
+Epoch 63/100
+900/900 [==============================] - 2s 2ms/step - loss: 21.6077 - decoder_loss: 19.1208 - kl_reshape_loss: 2.4869 - val_loss: 25.4754 - val_decoder_loss: 24.2334 - val_kl_reshape_loss: 1.2420
+Epoch 64/100
+900/900 [==============================] - 2s 2ms/step - loss: 21.4570 - decoder_loss: 18.8641 - kl_reshape_loss: 2.5929 - val_loss: 25.1326 - val_decoder_loss: 23.7548 - val_kl_reshape_loss: 1.3778
+Epoch 65/100
+900/900 [==============================] - 2s 2ms/step - loss: 21.4692 - decoder_loss: 18.7924 - kl_reshape_loss: 2.6768 - val_loss: 24.9571 - val_decoder_loss: 23.5366 - val_kl_reshape_loss: 1.4205
+Epoch 66/100
+900/900 [==============================] - 2s 2ms/step - loss: 21.4099 - decoder_loss: 18.6405 - kl_reshape_loss: 2.7694 - val_loss: 25.1701 - val_decoder_loss: 23.8840 - val_kl_reshape_loss: 1.2860
+Epoch 67/100
+900/900 [==============================] - 2s 2ms/step - loss: 21.1359 - decoder_loss: 18.3678 - kl_reshape_loss: 2.7680 - val_loss: 25.1395 - val_decoder_loss: 23.6573 - val_kl_reshape_loss: 1.4822
+Epoch 68/100
+900/900 [==============================] - 2s 2ms/step - loss: 21.2658 - decoder_loss: 18.3739 - kl_reshape_loss: 2.8919 - val_loss: 25.1779 - val_decoder_loss: 23.7859 - val_kl_reshape_loss: 1.3919
+Epoch 69/100
+900/900 [==============================] - 2s 2ms/step - loss: 21.3677 - decoder_loss: 18.3046 - kl_reshape_loss: 3.0630 - val_loss: 24.8097 - val_decoder_loss: 23.3544 - val_kl_reshape_loss: 1.4553
+Epoch 70/100
+900/900 [==============================] - 2s 2ms/step - loss: 21.0752 - decoder_loss: 18.0022 - kl_reshape_loss: 3.0730 - val_loss: 25.4454 - val_decoder_loss: 24.0310 - val_kl_reshape_loss: 1.4145
+Epoch 71/100
+900/900 [==============================] - 2s 2ms/step - loss: 21.1811 - decoder_loss: 18.0105 - kl_reshape_loss: 3.1706 - val_loss: 25.2170 - val_decoder_loss: 23.6132 - val_kl_reshape_loss: 1.6039
+Epoch 72/100
+900/900 [==============================] - 2s 2ms/step - loss: 21.1668 - decoder_loss: 17.9408 - kl_reshape_loss: 3.2259 - val_loss: 25.5051 - val_decoder_loss: 23.9331 - val_kl_reshape_loss: 1.5721
+Epoch 73/100
+900/900 [==============================] - 2s 2ms/step - loss: 21.0322 - decoder_loss: 17.6991 - kl_reshape_loss: 3.3331 - val_loss: 25.9099 - val_decoder_loss: 24.2534 - val_kl_reshape_loss: 1.6565
+Epoch 74/100
+900/900 [==============================] - 2s 2ms/step - loss: 20.9362 - decoder_loss: 17.5577 - kl_reshape_loss: 3.3785 - val_loss: 25.3775 - val_decoder_loss: 23.6876 - val_kl_reshape_loss: 1.6899
+Epoch 75/100
+900/900 [==============================] - 2s 2ms/step - loss: 20.9676 - decoder_loss: 17.4377 - kl_reshape_loss: 3.5299 - val_loss: 26.2010 - val_decoder_loss: 24.2845 - val_kl_reshape_loss: 1.9166
+Epoch 76/100
+900/900 [==============================] - 2s 2ms/step - loss: 20.8646 - decoder_loss: 17.3067 - kl_reshape_loss: 3.5579 - val_loss: 26.2747 - val_decoder_loss: 24.3950 - val_kl_reshape_loss: 1.8797
+Epoch 77/100
+900/900 [==============================] - 2s 2ms/step - loss: 20.7246 - decoder_loss: 17.1456 - kl_reshape_loss: 3.5790 - val_loss: 25.6147 - val_decoder_loss: 23.8285 - val_kl_reshape_loss: 1.7862
+Epoch 78/100
+900/900 [==============================] - 2s 2ms/step - loss: 20.6417 - decoder_loss: 16.9317 - kl_reshape_loss: 3.7100 - val_loss: 25.8094 - val_decoder_loss: 24.1809 - val_kl_reshape_loss: 1.6285
+Epoch 79/100
+900/900 [==============================] - 2s 2ms/step - loss: 20.6665 - decoder_loss: 16.9230 - kl_reshape_loss: 3.7435 - val_loss: 26.0602 - val_decoder_loss: 24.1228 - val_kl_reshape_loss: 1.9374
+Epoch 80/100
+900/900 [==============================] - 2s 2ms/step - loss: 20.6290 - decoder_loss: 16.7306 - kl_reshape_loss: 3.8984 - val_loss: 26.2234 - val_decoder_loss: 23.9036 - val_kl_reshape_loss: 2.3198
+Epoch 81/100
+900/900 [==============================] - 2s 2ms/step - loss: 20.4738 - decoder_loss: 16.5196 - kl_reshape_loss: 3.9542 - val_loss: 26.4192 - val_decoder_loss: 24.3521 - val_kl_reshape_loss: 2.0672
+Epoch 82/100
+900/900 [==============================] - 2s 2ms/step - loss: 20.3732 - decoder_loss: 16.2970 - kl_reshape_loss: 4.0763 - val_loss: 26.6175 - val_decoder_loss: 24.6624 - val_kl_reshape_loss: 1.9551
+Epoch 83/100
+900/900 [==============================] - 2s 2ms/step - loss: 20.0414 - decoder_loss: 16.1693 - kl_reshape_loss: 3.8721 - val_loss: 26.3583 - val_decoder_loss: 24.2107 - val_kl_reshape_loss: 2.1476s: 20.4582 - decoder_loss: 16.39
+Epoch 84/100
+900/900 [==============================] - 2s 2ms/step - loss: 20.1398 - decoder_loss: 16.0216 - kl_reshape_loss: 4.1182 - val_loss: 26.5152 - val_decoder_loss: 24.3423 - val_kl_reshape_loss: 2.1728
+Epoch 85/100
+900/900 [==============================] - 2s 2ms/step - loss: 20.1975 - decoder_loss: 15.9269 - kl_reshape_loss: 4.2706 - val_loss: 26.9547 - val_decoder_loss: 24.4971 - val_kl_reshape_loss: 2.4576
+Epoch 86/100
+900/900 [==============================] - 2s 3ms/step - loss: 20.1474 - decoder_loss: 15.8052 - kl_reshape_loss: 4.3422 - val_loss: 26.0263 - val_decoder_loss: 23.8188 - val_kl_reshape_loss: 2.2075
+Epoch 87/100
+900/900 [==============================] - 2s 3ms/step - loss: 19.9363 - decoder_loss: 15.5549 - kl_reshape_loss: 4.3814 - val_loss: 26.6368 - val_decoder_loss: 24.1990 - val_kl_reshape_loss: 2.4378
+Epoch 88/100
+900/900 [==============================] - 2s 2ms/step - loss: 20.0749 - decoder_loss: 15.6231 - kl_reshape_loss: 4.4517 - val_loss: 26.1408 - val_decoder_loss: 23.5619 - val_kl_reshape_loss: 2.5789
+Epoch 89/100
+900/900 [==============================] - 2s 3ms/step - loss: 19.8413 - decoder_loss: 15.2606 - kl_reshape_loss: 4.5808 - val_loss: 26.8301 - val_decoder_loss: 24.5204 - val_kl_reshape_loss: 2.3097
+Epoch 90/100
+900/900 [==============================] - 2s 2ms/step - loss: 19.8811 - decoder_loss: 15.2766 - kl_reshape_loss: 4.6045 - val_loss: 27.1932 - val_decoder_loss: 24.7087 - val_kl_reshape_loss: 2.4845
+Epoch 91/100
+900/900 [==============================] - 2s 3ms/step - loss: 19.8780 - decoder_loss: 15.1488 - kl_reshape_loss: 4.7292 - val_loss: 26.6921 - val_decoder_loss: 24.0873 - val_kl_reshape_loss: 2.6048
+Epoch 92/100
+900/900 [==============================] - 2s 2ms/step - loss: 19.8734 - decoder_loss: 15.1509 - kl_reshape_loss: 4.7225 - val_loss: 26.4114 - val_decoder_loss: 23.7550 - val_kl_reshape_loss: 2.6564
+Epoch 93/100
+900/900 [==============================] - 2s 2ms/step - loss: 19.4865 - decoder_loss: 14.7720 - kl_reshape_loss: 4.7145 - val_loss: 27.0574 - val_decoder_loss: 24.4866 - val_kl_reshape_loss: 2.5708
+Epoch 94/100
+900/900 [==============================] - 2s 3ms/step - loss: 19.6326 - decoder_loss: 14.7904 - kl_reshape_loss: 4.8422 - val_loss: 26.9188 - val_decoder_loss: 24.4305 - val_kl_reshape_loss: 2.4882
+Epoch 95/100
+900/900 [==============================] - 3s 3ms/step - loss: 19.6686 - decoder_loss: 14.7221 - kl_reshape_loss: 4.9465 - val_loss: 27.2805 - val_decoder_loss: 24.3227 - val_kl_reshape_loss: 2.9578
+Epoch 96/100
+900/900 [==============================] - 3s 3ms/step - loss: 19.4008 - decoder_loss: 14.4298 - kl_reshape_loss: 4.9710 - val_loss: 26.8643 - val_decoder_loss: 24.2457 - val_kl_reshape_loss: 2.6186
+Epoch 97/100
+900/900 [==============================] - 2s 2ms/step - loss: 19.3527 - decoder_loss: 14.2946 - kl_reshape_loss: 5.0580 - val_loss: 26.8332 - val_decoder_loss: 24.1000 - val_kl_reshape_loss: 2.7332
+Epoch 98/100
+900/900 [==============================] - 2s 3ms/step - loss: 19.4177 - decoder_loss: 14.2841 - kl_reshape_loss: 5.1336 - val_loss: 27.1859 - val_decoder_loss: 24.2429 - val_kl_reshape_loss: 2.9430
+Epoch 99/100
+900/900 [==============================] - 2s 3ms/step - loss: 19.4906 - decoder_loss: 14.2853 - kl_reshape_loss: 5.2053 - val_loss: 27.4052 - val_decoder_loss: 24.4093 - val_kl_reshape_loss: 2.9959
+Epoch 100/100
+900/900 [==============================] - 2s 2ms/step - loss: 19.3447 - decoder_loss: 14.1339 - kl_reshape_loss: 5.2108 - val_loss: 27.6220 - val_decoder_loss: 24.9251 - val_kl_reshape_loss: 2.6969
