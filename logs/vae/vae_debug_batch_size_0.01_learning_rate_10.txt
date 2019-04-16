@@ -1,0 +1,29 @@
+<====> Epoch: 1. Average loss: nan. Reconstruction loss: nan. KLD loss: nan. Time: 0.67 seconds
+Test set loss: nan Reconstruction loss: nan. KLD loss: nan <====>
+<====> Epoch: 2. Average loss: nan. Reconstruction loss: nan. KLD loss: nan. Time: 1.42 seconds
+Test set loss: nan Reconstruction loss: nan. KLD loss: nan <====>
+<====> Epoch: 3. Average loss: nan. Reconstruction loss: nan. KLD loss: nan. Time: 2.14 seconds
+Test set loss: nan Reconstruction loss: nan. KLD loss: nan <====>
+<====> Epoch: 4. Average loss: nan. Reconstruction loss: nan. KLD loss: nan. Time: 2.88 seconds
+Test set loss: nan Reconstruction loss: nan. KLD loss: nan <====>
+<====> Epoch: 5. Average loss: nan. Reconstruction loss: nan. KLD loss: nan. Time: 3.50 seconds
+Test set loss: nan Reconstruction loss: nan. KLD loss: nan <====>
+<====> Epoch: 6. Average loss: nan. Reconstruction loss: nan. KLD loss: nan. Time: 4.24 seconds
+Test set loss: nan Reconstruction loss: nan. KLD loss: nan <====>
+<====> Epoch: 7. Average loss: nan. Reconstruction loss: nan. KLD loss: nan. Time: 4.92 seconds
+Test set loss: nan Reconstruction loss: nan. KLD loss: nan <====>
+<====> Epoch: 8. Average loss: nan. Reconstruction loss: nan. KLD loss: nan. Time: 5.52 seconds
+Test set loss: nan Reconstruction loss: nan. KLD loss: nan <====>
+<====> Epoch: 9. Average loss: nan. Reconstruction loss: nan. KLD loss: nan. Time: 6.26 seconds
+Test set loss: nan Reconstruction loss: nan. KLD loss: nan <====>
+<====> Epoch: 10. Average loss: nan. Reconstruction loss: nan. KLD loss: nan. Time: 6.89 seconds
+Test set loss: nan Reconstruction loss: nan. KLD loss: nan <====>
+<====> Epoch: 11. Average loss: nan. Reconstruction loss: nan. KLD loss: nan. Time: 7.85 seconds
+Test set loss: nan Reconstruction loss: nan. KLD loss: nan <====>
+<====> Epoch: 12. Average loss: nan. Reconstruction loss: nan. KLD loss: nan. Time: 8.53 seconds
+Test set loss: nan Reconstruction loss: nan. KLD loss: nan <====>
+<====> Epoch: 13. Average loss: nan. Reconstruction loss: nan. KLD loss: nan. Time: 9.30 seconds
+Test set loss: nan Reconstruction loss: nan. KLD loss: nan <====>
+<====> Epoch: 14. Average loss: nan. Reconstruction loss: nan. KLD loss: nan. Time: 10.08 seconds
+Test set loss: nan Reconstruction loss: nan. KLD loss: nan <====>
+<====> Epoch: 15. Average loss: nan. Reconstruction loss: nan. KLD loss: nan. Time: 10.75 seconds

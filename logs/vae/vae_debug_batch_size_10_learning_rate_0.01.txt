@@ -1,0 +1,11 @@
+<====> Epoch: 1. Average loss: 110.2043. Reconstruction loss: 88.2220. KLD loss: 21.9824. Time: 0.53 seconds
+Test set loss: 34.3734 Reconstruction loss: 28.2169. KLD loss: 6.1566 <====>
+<====> Epoch: 2. Average loss: 33.2324. Reconstruction loss: 27.0930. KLD loss: 6.1394. Time: 1.31 seconds
+Test set loss: 33.3419 Reconstruction loss: 29.4268. KLD loss: 3.9151 <====>
+VAE(
+  (fc1): Linear(in_features=4998, out_features=50, bias=True)
+  (fc21): Linear(in_features=50, out_features=20, bias=True)
+  (fc22): Linear(in_features=50, out_features=20, bias=True)
+  (fc3): Linear(in_features=20, out_features=50, bias=True)
+  (fc4): Linear(in_features=50, out_features=4998, bias=True)
+)
