@@ -1,0 +1,411 @@
+
+
+ch: 1. Average loss: 183.1621. Reconstruction loss: 147.9658. KLD loss: 35.1963. Time: 1.36 seconds
+Test set loss: 44.4628 Reconstruction loss: 33.6877. KLD loss: 10.7751 <====>
+<====> Epoch: 2. Average loss: 39.7238. Reconstruction loss: 30.1007. KLD loss: 9.6231. Time: 3.06 seconds
+Test set loss: 37.2323 Reconstruction loss: 29.7316. KLD loss: 7.5007 <====>
+<====> Epoch: 3. Average loss: 35.4081. Reconstruction loss: 27.9947. KLD loss: 7.4134. Time: 4.55 seconds
+Test set loss: 35.4169 Reconstruction loss: 27.4848. KLD loss: 7.9321 <====>
+<====> Epoch: 4. Average loss: 33.2957. Reconstruction loss: 26.9354. KLD loss: 6.3603. Time: 6.03 seconds
+Test set loss: 33.6627 Reconstruction loss: 27.8102. KLD loss: 5.8526 <====>
+<====> Epoch: 5. Average loss: 32.2922. Reconstruction loss: 26.5189. KLD loss: 5.7733. Time: 7.35 seconds
+Test set loss: 33.0878 Reconstruction loss: 27.2595. KLD loss: 5.8283 <====>
+<====> Epoch: 6. Average loss: 31.9878. Reconstruction loss: 26.5368. KLD loss: 5.4510. Time: 8.89 seconds
+Test set loss: 35.4348 Reconstruction loss: 27.3765. KLD loss: 8.0583 <====>
+<====> Epoch: 7. Average loss: 31.1929. Reconstruction loss: 25.7486. KLD loss: 5.4443. Time: 10.23 seconds
+Test set loss: 32.1680 Reconstruction loss: 26.9809. KLD loss: 5.1872 <====>
+<====> Epoch: 8. Average loss: 30.5442. Reconstruction loss: 25.6333. KLD loss: 4.9109. Time: 12.82 seconds
+Test set loss: 31.4416 Reconstruction loss: 26.5030. KLD loss: 4.9386 <====>
+<====> Epoch: 9. Average loss: 29.3770. Reconstruction loss: 25.3069. KLD loss: 4.0701. Time: 14.08 seconds
+Test set loss: 31.0071 Reconstruction loss: 27.1630. KLD loss: 3.8441 <====>
+<====> Epoch: 10. Average loss: 31.4299. Reconstruction loss: 25.9585. KLD loss: 5.4714. Time: 15.31 seconds
+Test set loss: 31.1122 Reconstruction loss: 26.0947. KLD loss: 5.0175 <====>
+<====> Epoch: 11. Average loss: 28.9122. Reconstruction loss: 24.9115. KLD loss: 4.0007. Time: 16.54 seconds
+Test set loss: 29.7244 Reconstruction loss: 26.2981. KLD loss: 3.4263 <====>
+<====> Epoch: 12. Average loss: 28.6557. Reconstruction loss: 24.9252. KLD loss: 3.7304. Time: 17.85 seconds
+Test set loss: 29.8795 Reconstruction loss: 26.3496. KLD loss: 3.5300 <====>
+<====> Epoch: 13. Average loss: 28.0660. Reconstruction loss: 24.6136. KLD loss: 3.4524. Time: 19.27 seconds
+Test set loss: 29.2508 Reconstruction loss: 26.4914. KLD loss: 2.7595 <====>
+<====> Epoch: 14. Average loss: 26.9009. Reconstruction loss: 24.4068. KLD loss: 2.4941. Time: 20.94 seconds
+Test set loss: 28.8157 Reconstruction loss: 26.6052. KLD loss: 2.2105 <====>
+<====> Epoch: 15. Average loss: 27.7561. Reconstruction loss: 24.6763. KLD loss: 3.0798. Time: 23.58 seconds
+Test set loss: 28.4747 Reconstruction loss: 26.1239. KLD loss: 2.3508 <====>
+<====> Epoch: 16. Average loss: 26.9449. Reconstruction loss: 24.3468. KLD loss: 2.5981. Time: 25.25 seconds
+Test set loss: 28.6820 Reconstruction loss: 26.2038. KLD loss: 2.4783 <====>
+<====> Epoch: 17. Average loss: 26.2767. Reconstruction loss: 24.0706. KLD loss: 2.2061. Time: 27.14 seconds
+Test set loss: 27.6679 Reconstruction loss: 25.7514. KLD loss: 1.9165 <====>
+<====> Epoch: 18. Average loss: 25.9695. Reconstruction loss: 24.0839. KLD loss: 1.8856. Time: 28.60 seconds
+Test set loss: 27.4443 Reconstruction loss: 25.5501. KLD loss: 1.8941 <====>
+<====> Epoch: 19. Average loss: 25.5370. Reconstruction loss: 23.9451. KLD loss: 1.5918. Time: 30.17 seconds
+Test set loss: 27.0697 Reconstruction loss: 25.3989. KLD loss: 1.6707 <====>
+<====> Epoch: 20. Average loss: 25.0416. Reconstruction loss: 23.6713. KLD loss: 1.3703. Time: 31.54 seconds
+Test set loss: 26.7712 Reconstruction loss: 25.5395. KLD loss: 1.2317 <====>
+<====> Epoch: 21. Average loss: 24.6827. Reconstruction loss: 23.5430. KLD loss: 1.1397. Time: 33.03 seconds
+Test set loss: 26.4285 Reconstruction loss: 25.4272. KLD loss: 1.0013 <====>
+<====> Epoch: 22. Average loss: 24.4852. Reconstruction loss: 23.4968. KLD loss: 0.9884. Time: 34.54 seconds
+Test set loss: 25.9370 Reconstruction loss: 25.1502. KLD loss: 0.7868 <====>
+<====> Epoch: 23. Average loss: 24.1442. Reconstruction loss: 23.3611. KLD loss: 0.7830. Time: 35.94 seconds
+Test set loss: 25.7412 Reconstruction loss: 25.0267. KLD loss: 0.7145 <====>
+<====> Epoch: 24. Average loss: 23.9914. Reconstruction loss: 23.3017. KLD loss: 0.6897. Time: 37.27 seconds
+Test set loss: 25.5629 Reconstruction loss: 25.0019. KLD loss: 0.5610 <====>
+<====> Epoch: 25. Average loss: 23.7951. Reconstruction loss: 23.2196. KLD loss: 0.5755. Time: 38.66 seconds
+Test set loss: 25.4883 Reconstruction loss: 24.9615. KLD loss: 0.5268 <====>
+<====> Epoch: 26. Average loss: 23.8846. Reconstruction loss: 23.2677. KLD loss: 0.6169. Time: 40.03 seconds
+Test set loss: 25.5803 Reconstruction loss: 24.9066. KLD loss: 0.6737 <====>
+<====> Epoch: 27. Average loss: 23.5097. Reconstruction loss: 23.1230. KLD loss: 0.3868. Time: 41.38 seconds
+Test set loss: 25.1650 Reconstruction loss: 24.9139. KLD loss: 0.2511 <====>
+<====> Epoch: 28. Average loss: 23.4057. Reconstruction loss: 23.1659. KLD loss: 0.2398. Time: 42.98 seconds
+Test set loss: 25.0787 Reconstruction loss: 24.8976. KLD loss: 0.1811 <====>
+<====> Epoch: 29. Average loss: 23.2378. Reconstruction loss: 23.0747. KLD loss: 0.1631. Time: 44.31 seconds
+Test set loss: 24.9519 Reconstruction loss: 24.8473. KLD loss: 0.1047 <====>
+<====> Epoch: 30. Average loss: 23.1392. Reconstruction loss: 23.0319. KLD loss: 0.1073. Time: 45.67 seconds
+Test set loss: 24.9218 Reconstruction loss: 24.8626. KLD loss: 0.0593 <====>
+<====> Epoch: 31. Average loss: 23.0643. Reconstruction loss: 22.9714. KLD loss: 0.0928. Time: 47.09 seconds
+Test set loss: 24.8982 Reconstruction loss: 24.8404. KLD loss: 0.0578 <====>
+<====> Epoch: 32. Average loss: 23.1281. Reconstruction loss: 23.0248. KLD loss: 0.1033. Time: 48.46 seconds
+Test set loss: 24.8510 Reconstruction loss: 24.7787. KLD loss: 0.0723 <====>
+<====> Epoch: 33. Average loss: 23.0634. Reconstruction loss: 22.9498. KLD loss: 0.1136. Time: 49.70 seconds
+Test set loss: 24.8677 Reconstruction loss: 24.7991. KLD loss: 0.0686 <====>
+<====> Epoch: 34. Average loss: 23.0584. Reconstruction loss: 22.9343. KLD loss: 0.1240. Time: 50.94 seconds
+Test set loss: 24.8564 Reconstruction loss: 24.7779. KLD loss: 0.0785 <====>
+<====> Epoch: 35. Average loss: 23.0276. Reconstruction loss: 22.8890. KLD loss: 0.1386. Time: 52.31 seconds
+Test set loss: 24.9134 Reconstruction loss: 24.8376. KLD loss: 0.0759 <====>
+<====> Epoch: 36. Average loss: 23.0026. Reconstruction loss: 22.8545. KLD loss: 0.1481. Time: 53.92 seconds
+Test set loss: 24.9008 Reconstruction loss: 24.8162. KLD loss: 0.0845 <====>
+<====> Epoch: 37. Average loss: 23.0354. Reconstruction loss: 22.8767. KLD loss: 0.1587. Time: 55.32 seconds
+Test set loss: 24.9034 Reconstruction loss: 24.8088. KLD loss: 0.0946 <====>
+<====> Epoch: 38. Average loss: 23.0344. Reconstruction loss: 22.8475. KLD loss: 0.1869. Time: 56.58 seconds
+Test set loss: 24.8896 Reconstruction loss: 24.7867. KLD loss: 0.1029 <====>
+<====> Epoch: 39. Average loss: 22.9837. Reconstruction loss: 22.7787. KLD loss: 0.2051. Time: 57.94 seconds
+Test set loss: 24.9503 Reconstruction loss: 24.8429. KLD loss: 0.1073 <====>
+<====> Epoch: 40. Average loss: 22.9973. Reconstruction loss: 22.7873. KLD loss: 0.2099. Time: 59.48 seconds
+Test set loss: 24.9492 Reconstruction loss: 24.8355. KLD loss: 0.1137 <====>
+<====> Epoch: 41. Average loss: 22.9528. Reconstruction loss: 22.7343. KLD loss: 0.2184. Time: 61.93 seconds
+Test set loss: 24.9389 Reconstruction loss: 24.8170. KLD loss: 0.1219 <====>
+<====> Epoch: 42. Average loss: 22.9746. Reconstruction loss: 22.7251. KLD loss: 0.2494. Time: 63.42 seconds
+Test set loss: 24.9055 Reconstruction loss: 24.7775. KLD loss: 0.1280 <====>
+<====> Epoch: 43. Average loss: 22.8741. Reconstruction loss: 22.6128. KLD loss: 0.2613. Time: 64.76 seconds
+Test set loss: 24.9800 Reconstruction loss: 24.8388. KLD loss: 0.1412 <====>
+<====> Epoch: 44. Average loss: 22.8975. Reconstruction loss: 22.6098. KLD loss: 0.2877. Time: 66.06 seconds
+Test set loss: 24.9576 Reconstruction loss: 24.8045. KLD loss: 0.1531 <====>
+<====> Epoch: 45. Average loss: 22.8795. Reconstruction loss: 22.5655. KLD loss: 0.3141. Time: 67.76 seconds
+Test set loss: 24.9997 Reconstruction loss: 24.8411. KLD loss: 0.1586 <====>
+<====> Epoch: 46. Average loss: 22.7783. Reconstruction loss: 22.4554. KLD loss: 0.3229. Time: 69.63 seconds
+Test set loss: 25.0121 Reconstruction loss: 24.8520. KLD loss: 0.1602 <====>
+<====> Epoch: 47. Average loss: 22.8145. Reconstruction loss: 22.4513. KLD loss: 0.3632. Time: 71.37 seconds
+Test set loss: 25.0407 Reconstruction loss: 24.8491. KLD loss: 0.1917 <====>
+<====> Epoch: 48. Average loss: 22.8189. Reconstruction loss: 22.3788. KLD loss: 0.4401. Time: 73.02 seconds
+Test set loss: 25.0301 Reconstruction loss: 24.8145. KLD loss: 0.2156 <====>
+<====> Epoch: 49. Average loss: 22.8438. Reconstruction loss: 22.3868. KLD loss: 0.4570. Time: 74.55 seconds
+Test set loss: 24.9629 Reconstruction loss: 24.7430. KLD loss: 0.2198 <====>
+<====> Epoch: 50. Average loss: 22.7576. Reconstruction loss: 22.2649. KLD loss: 0.4927. Time: 76.00 seconds
+Test set loss: 25.0311 Reconstruction loss: 24.8196. KLD loss: 0.2115 <====>
+<====> Epoch: 51. Average loss: 22.6914. Reconstruction loss: 22.1791. KLD loss: 0.5123. Time: 77.38 seconds
+Test set loss: 25.0873 Reconstruction loss: 24.8439. KLD loss: 0.2434 <====>
+<====> Epoch: 52. Average loss: 22.6445. Reconstruction loss: 22.1122. KLD loss: 0.5323. Time: 78.85 seconds
+Test set loss: 25.1131 Reconstruction loss: 24.8380. KLD loss: 0.2751 <====>
+<====> Epoch: 53. Average loss: 22.6211. Reconstruction loss: 22.0100. KLD loss: 0.6110. Time: 80.37 seconds
+Test set loss: 25.1438 Reconstruction loss: 24.8635. KLD loss: 0.2802 <====>
+<====> Epoch: 54. Average loss: 22.5636. Reconstruction loss: 21.9223. KLD loss: 0.6414. Time: 82.74 seconds
+Test set loss: 25.2071 Reconstruction loss: 24.8956. KLD loss: 0.3114 <====>
+<====> Epoch: 55. Average loss: 22.5519. Reconstruction loss: 21.8524. KLD loss: 0.6994. Time: 84.38 seconds
+Test set loss: 25.1359 Reconstruction loss: 24.7832. KLD loss: 0.3527 <====>
+<====> Epoch: 56. Average loss: 22.6932. Reconstruction loss: 21.9529. KLD loss: 0.7403. Time: 85.71 seconds
+Test set loss: 25.2016 Reconstruction loss: 24.8610. KLD loss: 0.3407 <====>
+<====> Epoch: 57. Average loss: 22.5641. Reconstruction loss: 21.7578. KLD loss: 0.8063. Time: 87.29 seconds
+Test set loss: 25.1711 Reconstruction loss: 24.7810. KLD loss: 0.3900 <====>
+<====> Epoch: 58. Average loss: 22.4011. Reconstruction loss: 21.5448. KLD loss: 0.8563. Time: 88.59 seconds
+Test set loss: 25.2442 Reconstruction loss: 24.7997. KLD loss: 0.4445 <====>
+<====> Epoch: 59. Average loss: 22.4154. Reconstruction loss: 21.4840. KLD loss: 0.9313. Time: 89.86 seconds
+Test set loss: 25.4477 Reconstruction loss: 24.9611. KLD loss: 0.4866 <====>
+<====> Epoch: 60. Average loss: 22.4816. Reconstruction loss: 21.4848. KLD loss: 0.9969. Time: 91.13 seconds
+Test set loss: 25.5195 Reconstruction loss: 25.0248. KLD loss: 0.4946 <====>
+<====> Epoch: 61. Average loss: 22.3555. Reconstruction loss: 21.3040. KLD loss: 1.0515. Time: 92.36 seconds
+Test set loss: 25.4989 Reconstruction loss: 24.9548. KLD loss: 0.5442 <====>
+<====> Epoch: 62. Average loss: 22.3356. Reconstruction loss: 21.2310. KLD loss: 1.1046. Time: 93.58 seconds
+Test set loss: 25.4753 Reconstruction loss: 24.9073. KLD loss: 0.5680 <====>
+<====> Epoch: 63. Average loss: 22.3409. Reconstruction loss: 21.1499. KLD loss: 1.1910. Time: 95.04 seconds
+Test set loss: 25.3727 Reconstruction loss: 24.7745. KLD loss: 0.5982 <====>
+<====> Epoch: 64. Average loss: 22.1532. Reconstruction loss: 20.9193. KLD loss: 1.2339. Time: 96.66 seconds
+Test set loss: 25.6250 Reconstruction loss: 25.0192. KLD loss: 0.6058 <====>
+<====> Epoch: 65. Average loss: 22.2856. Reconstruction loss: 20.9742. KLD loss: 1.3114. Time: 97.99 seconds
+Test set loss: 25.6127 Reconstruction loss: 24.9561. KLD loss: 0.6566 <====>
+<====> Epoch: 66. Average loss: 22.2062. Reconstruction loss: 20.8564. KLD loss: 1.3498. Time: 99.31 seconds
+Test set loss: 25.5707 Reconstruction loss: 24.9144. KLD loss: 0.6563 <====>
+<====> Epoch: 67. Average loss: 22.2027. Reconstruction loss: 20.7890. KLD loss: 1.4137. Time: 100.63 seconds
+Test set loss: 25.5697 Reconstruction loss: 24.8861. KLD loss: 0.6836 <====>
+<====> Epoch: 68. Average loss: 22.0129. Reconstruction loss: 20.5674. KLD loss: 1.4455. Time: 101.98 seconds
+Test set loss: 25.7065 Reconstruction loss: 24.9603. KLD loss: 0.7461 <====>
+<====> Epoch: 69. Average loss: 22.0718. Reconstruction loss: 20.5753. KLD loss: 1.4965. Time: 103.33 seconds
+Test set loss: 25.6343 Reconstruction loss: 24.9353. KLD loss: 0.6990 <====>
+<====> Epoch: 70. Average loss: 21.9294. Reconstruction loss: 20.4041. KLD loss: 1.5253. Time: 104.70 seconds
+Test set loss: 25.8015 Reconstruction loss: 24.9620. KLD loss: 0.8395 <====>
+<====> Epoch: 71. Average loss: 21.9707. Reconstruction loss: 20.3270. KLD loss: 1.6437. Time: 106.08 seconds
+Test set loss: 25.6603 Reconstruction loss: 24.8108. KLD loss: 0.8494 <====>
+<====> Epoch: 72. Average loss: 21.8828. Reconstruction loss: 20.1793. KLD loss: 1.7036. Time: 107.53 seconds
+Test set loss: 25.9006 Reconstruction loss: 25.0098. KLD loss: 0.8908 <====>
+<====> Epoch: 73. Average loss: 21.9033. Reconstruction loss: 20.1299. KLD loss: 1.7734. Time: 108.91 seconds
+Test set loss: 25.9034 Reconstruction loss: 25.0498. KLD loss: 0.8537 <====>
+<====> Epoch: 74. Average loss: 21.7774. Reconstruction loss: 19.9729. KLD loss: 1.8045. Time: 110.27 seconds
+Test set loss: 25.8657 Reconstruction loss: 24.8967. KLD loss: 0.9690 <====>
+<====> Epoch: 75. Average loss: 21.7143. Reconstruction loss: 19.8075. KLD loss: 1.9068. Time: 111.64 seconds
+Test set loss: 25.9869 Reconstruction loss: 24.9718. KLD loss: 1.0151 <====>
+<====> Epoch: 76. Average loss: 21.6783. Reconstruction loss: 19.6857. KLD loss: 1.9926. Time: 112.94 seconds
+Test set loss: 26.1547 Reconstruction loss: 25.0914. KLD loss: 1.0633 <====>
+<====> Epoch: 77. Average loss: 21.6584. Reconstruction loss: 19.6492. KLD loss: 2.0092. Time: 114.33 seconds
+Test set loss: 26.0825 Reconstruction loss: 24.9819. KLD loss: 1.1006 <====>
+<====> Epoch: 78. Average loss: 21.6166. Reconstruction loss: 19.5279. KLD loss: 2.0887. Time: 115.68 seconds
+Test set loss: 26.1908 Reconstruction loss: 25.1857. KLD loss: 1.0051 <====>
+<====> Epoch: 79. Average loss: 21.6491. Reconstruction loss: 19.4964. KLD loss: 2.1526. Time: 117.10 seconds
+Test set loss: 26.1757 Reconstruction loss: 25.0262. KLD loss: 1.1495 <====>
+<====> Epoch: 80. Average loss: 21.4887. Reconstruction loss: 19.2459. KLD loss: 2.2428. Time: 118.44 seconds
+Test set loss: 26.3834 Reconstruction loss: 25.1458. KLD loss: 1.2375 <====>
+<====> Epoch: 81. Average loss: 21.5269. Reconstruction loss: 19.2189. KLD loss: 2.3081. Time: 119.77 seconds
+Test set loss: 26.3707 Reconstruction loss: 25.1332. KLD loss: 1.2375 <====>
+<====> Epoch: 82. Average loss: 21.4519. Reconstruction loss: 19.1128. KLD loss: 2.3391. Time: 121.12 seconds
+Test set loss: 26.2070 Reconstruction loss: 24.9613. KLD loss: 1.2458 <====>
+<====> Epoch: 83. Average loss: 21.3884. Reconstruction loss: 18.9823. KLD loss: 2.4060. Time: 122.49 seconds
+Test set loss: 26.3538 Reconstruction loss: 25.0761. KLD loss: 1.2777 <====>
+<====> Epoch: 84. Average loss: 21.4230. Reconstruction loss: 18.9148. KLD loss: 2.5082. Time: 123.84 seconds
+Test set loss: 26.4679 Reconstruction loss: 25.1431. KLD loss: 1.3248 <====>
+<====> Epoch: 85. Average loss: 21.1398. Reconstruction loss: 18.6135. KLD loss: 2.5263. Time: 125.15 seconds
+Test set loss: 26.4734 Reconstruction loss: 25.1734. KLD loss: 1.3000 <====>
+<====> Epoch: 86. Average loss: 21.3189. Reconstruction loss: 18.6812. KLD loss: 2.6377. Time: 126.40 seconds
+Test set loss: 26.6298 Reconstruction loss: 25.1040. KLD loss: 1.5258 <====>
+<====> Epoch: 87. Average loss: 21.1972. Reconstruction loss: 18.4903. KLD loss: 2.7070. Time: 127.75 seconds
+Test set loss: 26.4382 Reconstruction loss: 24.9245. KLD loss: 1.5137 <====>
+<====> Epoch: 88. Average loss: 21.3149. Reconstruction loss: 18.5391. KLD loss: 2.7758. Time: 129.12 seconds
+Test set loss: 26.6843 Reconstruction loss: 24.9825. KLD loss: 1.7018 <====>
+<====> Epoch: 89. Average loss: 21.0837. Reconstruction loss: 18.2714. KLD loss: 2.8122. Time: 130.43 seconds
+Test set loss: 26.7313 Reconstruction loss: 25.2344. KLD loss: 1.4969 <====>
+<====> Epoch: 90. Average loss: 21.0947. Reconstruction loss: 18.1352. KLD loss: 2.9594. Time: 131.77 seconds
+Test set loss: 26.5310 Reconstruction loss: 24.8783. KLD loss: 1.6527 <====>
+<====> Epoch: 91. Average loss: 20.9237. Reconstruction loss: 17.9795. KLD loss: 2.9442. Time: 133.05 seconds
+Test set loss: 26.7988 Reconstruction loss: 25.3382. KLD loss: 1.4605 <====>
+<====> Epoch: 92. Average loss: 20.9207. Reconstruction loss: 17.8727. KLD loss: 3.0480. Time: 134.43 seconds
+Test set loss: 27.0782 Reconstruction loss: 25.4863. KLD loss: 1.5918 <====>
+<====> Epoch: 93. Average loss: 21.1423. Reconstruction loss: 17.9675. KLD loss: 3.1747. Time: 135.77 seconds
+Test set loss: 26.9358 Reconstruction loss: 25.1784. KLD loss: 1.7575 <====>
+<====> Epoch: 94. Average loss: 20.7480. Reconstruction loss: 17.6138. KLD loss: 3.1343. Time: 137.15 seconds
+Test set loss: 26.9655 Reconstruction loss: 25.4217. KLD loss: 1.5439 <====>
+<====> Epoch: 95. Average loss: 20.7863. Reconstruction loss: 17.5631. KLD loss: 3.2232. Time: 138.53 seconds
+Test set loss: 27.0226 Reconstruction loss: 25.2631. KLD loss: 1.7596 <====>
+<====> Epoch: 96. Average loss: 20.7887. Reconstruction loss: 17.4934. KLD loss: 3.2952. Time: 139.91 seconds
+Test set loss: 27.0405 Reconstruction loss: 25.1037. KLD loss: 1.9368 <====>
+<====> Epoch: 97. Average loss: 20.7383. Reconstruction loss: 17.3803. KLD loss: 3.3580. Time: 141.30 seconds
+Test set loss: 27.3541 Reconstruction loss: 25.5242. KLD loss: 1.8299 <====>
+<====> Epoch: 98. Average loss: 20.6423. Reconstruction loss: 17.2573. KLD loss: 3.3851. Time: 142.69 seconds
+Test set loss: 27.4261 Reconstruction loss: 25.2264. KLD loss: 2.1997 <====>
+<====> Epoch: 99. Average loss: 20.5764. Reconstruction loss: 17.1387. KLD loss: 3.4376. Time: 144.14 seconds
+Test set loss: 27.2893 Reconstruction loss: 25.5181. KLD loss: 1.7712 <====>
+<====> Epoch: 100. Average loss: 20.5741. Reconstruction loss: 17.0440. KLD loss: 3.5301. Time: 145.47 seconds
+Test set loss: 27.3370 Reconstruction loss: 25.3567. KLD loss: 1.9803 <====>
+<====> Epoch: 101. Average loss: 20.4510. Reconstruction loss: 16.8739. KLD loss: 3.5771. Time: 146.87 seconds
+Test set loss: 27.4575 Reconstruction loss: 25.5594. KLD loss: 1.8980 <====>
+<====> Epoch: 102. Average loss: 20.4735. Reconstruction loss: 16.8271. KLD loss: 3.6464. Time: 148.44 seconds
+Test set loss: 27.4101 Reconstruction loss: 25.2963. KLD loss: 2.1138 <====>
+<====> Epoch: 103. Average loss: 20.3437. Reconstruction loss: 16.6662. KLD loss: 3.6774. Time: 150.62 seconds
+Test set loss: 27.3556 Reconstruction loss: 25.3328. KLD loss: 2.0227 <====>
+<====> Epoch: 104. Average loss: 20.2395. Reconstruction loss: 16.5181. KLD loss: 3.7214. Time: 152.09 seconds
+Test set loss: 27.5937 Reconstruction loss: 25.5554. KLD loss: 2.0383 <====>
+<====> Epoch: 105. Average loss: 20.2793. Reconstruction loss: 16.5176. KLD loss: 3.7618. Time: 153.92 seconds
+Test set loss: 27.7615 Reconstruction loss: 25.6056. KLD loss: 2.1560 <====>
+<====> Epoch: 106. Average loss: 20.1929. Reconstruction loss: 16.3764. KLD loss: 3.8166. Time: 155.59 seconds
+Test set loss: 27.7993 Reconstruction loss: 25.6897. KLD loss: 2.1095 <====>
+<====> Epoch: 107. Average loss: 20.2504. Reconstruction loss: 16.3207. KLD loss: 3.9297. Time: 157.20 seconds
+Test set loss: 27.7797 Reconstruction loss: 25.5322. KLD loss: 2.2475 <====>
+<====> Epoch: 108. Average loss: 20.2770. Reconstruction loss: 16.2347. KLD loss: 4.0423. Time: 158.69 seconds
+Test set loss: 27.9589 Reconstruction loss: 25.8066. KLD loss: 2.1523 <====>
+<====> Epoch: 109. Average loss: 20.0556. Reconstruction loss: 16.0922. KLD loss: 3.9634. Time: 160.14 seconds
+Test set loss: 28.1080 Reconstruction loss: 25.6445. KLD loss: 2.4635 <====>
+<====> Epoch: 110. Average loss: 19.9950. Reconstruction loss: 15.8819. KLD loss: 4.1131. Time: 162.06 seconds
+Test set loss: 27.9797 Reconstruction loss: 25.6497. KLD loss: 2.3300 <====>
+<====> Epoch: 111. Average loss: 20.1561. Reconstruction loss: 15.9628. KLD loss: 4.1933. Time: 164.51 seconds
+Test set loss: 28.2247 Reconstruction loss: 25.7505. KLD loss: 2.4742 <====>
+<====> Epoch: 112. Average loss: 19.9316. Reconstruction loss: 15.7944. KLD loss: 4.1372. Time: 167.38 seconds
+Test set loss: 27.8491 Reconstruction loss: 25.3287. KLD loss: 2.5204 <====>
+<====> Epoch: 113. Average loss: 19.9401. Reconstruction loss: 15.6655. KLD loss: 4.2745. Time: 168.79 seconds
+Test set loss: 27.9440 Reconstruction loss: 25.5722. KLD loss: 2.3718 <====>
+<====> Epoch: 114. Average loss: 19.9960. Reconstruction loss: 15.6648. KLD loss: 4.3312. Time: 170.21 seconds
+Test set loss: 28.0205 Reconstruction loss: 25.4339. KLD loss: 2.5866 <====>
+<====> Epoch: 115. Average loss: 19.7889. Reconstruction loss: 15.3862. KLD loss: 4.4027. Time: 171.82 seconds
+Test set loss: 28.2607 Reconstruction loss: 25.7234. KLD loss: 2.5373 <====>
+<====> Epoch: 116. Average loss: 19.8978. Reconstruction loss: 15.4387. KLD loss: 4.4591. Time: 173.26 seconds
+Test set loss: 28.5165 Reconstruction loss: 25.7699. KLD loss: 2.7467 <====>
+<====> Epoch: 117. Average loss: 19.7701. Reconstruction loss: 15.3017. KLD loss: 4.4684. Time: 174.75 seconds
+Test set loss: 28.4261 Reconstruction loss: 25.7142. KLD loss: 2.7119 <====>
+<====> Epoch: 118. Average loss: 19.7102. Reconstruction loss: 15.0975. KLD loss: 4.6127. Time: 176.34 seconds
+Test set loss: 28.6616 Reconstruction loss: 26.1021. KLD loss: 2.5594 <====>
+<====> Epoch: 119. Average loss: 19.6306. Reconstruction loss: 14.9974. KLD loss: 4.6332. Time: 177.69 seconds
+Test set loss: 28.7241 Reconstruction loss: 26.1664. KLD loss: 2.5577 <====>
+<====> Epoch: 120. Average loss: 19.6967. Reconstruction loss: 15.0530. KLD loss: 4.6436. Time: 178.93 seconds
+Test set loss: 28.8273 Reconstruction loss: 26.1980. KLD loss: 2.6293 <====>
+<====> Epoch: 121. Average loss: 19.5709. Reconstruction loss: 14.8408. KLD loss: 4.7301. Time: 180.20 seconds
+Test set loss: 28.6137 Reconstruction loss: 25.9603. KLD loss: 2.6535 <====>
+<====> Epoch: 122. Average loss: 19.4564. Reconstruction loss: 14.7099. KLD loss: 4.7466. Time: 181.56 seconds
+Test set loss: 28.7558 Reconstruction loss: 25.8598. KLD loss: 2.8960 <====>
+<====> Epoch: 123. Average loss: 19.6958. Reconstruction loss: 14.7245. KLD loss: 4.9713. Time: 182.90 seconds
+Test set loss: 28.7017 Reconstruction loss: 25.9703. KLD loss: 2.7313 <====>
+<====> Epoch: 124. Average loss: 19.5473. Reconstruction loss: 14.5672. KLD loss: 4.9801. Time: 184.74 seconds
+Test set loss: 28.8411 Reconstruction loss: 25.8400. KLD loss: 3.0011 <====>
+<====> Epoch: 125. Average loss: 19.3482. Reconstruction loss: 14.4205. KLD loss: 4.9277. Time: 186.74 seconds
+Test set loss: 28.8861 Reconstruction loss: 26.0220. KLD loss: 2.8641 <====>
+<====> Epoch: 126. Average loss: 19.3062. Reconstruction loss: 14.3510. KLD loss: 4.9552. Time: 189.07 seconds
+Test set loss: 28.9083 Reconstruction loss: 26.0938. KLD loss: 2.8145 <====>
+<====> Epoch: 127. Average loss: 19.2220. Reconstruction loss: 14.2000. KLD loss: 5.0221. Time: 190.97 seconds
+Test set loss: 29.3509 Reconstruction loss: 26.5246. KLD loss: 2.8263 <====>
+<====> Epoch: 128. Average loss: 19.2785. Reconstruction loss: 14.2353. KLD loss: 5.0431. Time: 192.22 seconds
+Test set loss: 29.1894 Reconstruction loss: 26.0600. KLD loss: 3.1294 <====>
+<====> Epoch: 129. Average loss: 19.2635. Reconstruction loss: 14.1082. KLD loss: 5.1553. Time: 193.82 seconds
+Test set loss: 29.1885 Reconstruction loss: 25.9047. KLD loss: 3.2837 <====>
+<====> Epoch: 130. Average loss: 19.0080. Reconstruction loss: 13.9364. KLD loss: 5.0717. Time: 195.68 seconds
+Test set loss: 29.2782 Reconstruction loss: 26.2104. KLD loss: 3.0678 <====>
+<====> Epoch: 131. Average loss: 18.9810. Reconstruction loss: 13.8337. KLD loss: 5.1474. Time: 197.59 seconds
+Test set loss: 29.8128 Reconstruction loss: 26.7157. KLD loss: 3.0971 <====>
+<====> Epoch: 132. Average loss: 19.1413. Reconstruction loss: 13.8122. KLD loss: 5.3291. Time: 200.11 seconds
+Test set loss: 29.4676 Reconstruction loss: 26.1806. KLD loss: 3.2871 <====>
+<====> Epoch: 133. Average loss: 18.9839. Reconstruction loss: 13.6288. KLD loss: 5.3551. Time: 201.81 seconds
+Test set loss: 29.5233 Reconstruction loss: 26.1306. KLD loss: 3.3926 <====>
+<====> Epoch: 134. Average loss: 19.0571. Reconstruction loss: 13.6605. KLD loss: 5.3966. Time: 203.53 seconds
+Test set loss: 29.6527 Reconstruction loss: 26.2697. KLD loss: 3.3830 <====>
+<====> Epoch: 135. Average loss: 18.9537. Reconstruction loss: 13.4839. KLD loss: 5.4698. Time: 205.74 seconds
+Test set loss: 29.5322 Reconstruction loss: 26.1140. KLD loss: 3.4182 <====>
+<====> Epoch: 136. Average loss: 18.9963. Reconstruction loss: 13.4745. KLD loss: 5.5218. Time: 208.09 seconds
+Test set loss: 29.6932 Reconstruction loss: 26.6924. KLD loss: 3.0008 <====>
+<====> Epoch: 137. Average loss: 18.8708. Reconstruction loss: 13.3410. KLD loss: 5.5298. Time: 210.30 seconds
+Test set loss: 29.6315 Reconstruction loss: 26.3088. KLD loss: 3.3227 <====>
+<====> Epoch: 138. Average loss: 18.7652. Reconstruction loss: 13.2682. KLD loss: 5.4970. Time: 212.74 seconds
+Test set loss: 30.1150 Reconstruction loss: 26.4927. KLD loss: 3.6223 <====>
+<====> Epoch: 139. Average loss: 18.8026. Reconstruction loss: 13.2090. KLD loss: 5.5936. Time: 215.53 seconds
+Test set loss: 29.9650 Reconstruction loss: 26.7701. KLD loss: 3.1949 <====>
+<====> Epoch: 140. Average loss: 18.7910. Reconstruction loss: 13.0829. KLD loss: 5.7081. Time: 218.12 seconds
+Test set loss: 30.2348 Reconstruction loss: 26.3201. KLD loss: 3.9148 <====>
+<====> Epoch: 141. Average loss: 18.8183. Reconstruction loss: 13.0658. KLD loss: 5.7526. Time: 220.33 seconds
+Test set loss: 30.1835 Reconstruction loss: 26.5659. KLD loss: 3.6176 <====>
+<====> Epoch: 142. Average loss: 18.5128. Reconstruction loss: 12.8749. KLD loss: 5.6379. Time: 222.41 seconds
+Test set loss: 30.2182 Reconstruction loss: 26.6397. KLD loss: 3.5785 <====>
+<====> Epoch: 143. Average loss: 18.4479. Reconstruction loss: 12.7774. KLD loss: 5.6705. Time: 224.67 seconds
+Test set loss: 30.3427 Reconstruction loss: 26.7250. KLD loss: 3.6177 <====>
+<====> Epoch: 144. Average loss: 18.5907. Reconstruction loss: 12.8415. KLD loss: 5.7491. Time: 226.58 seconds
+Test set loss: 30.7173 Reconstruction loss: 27.0078. KLD loss: 3.7095 <====>
+<====> Epoch: 145. Average loss: 18.6520. Reconstruction loss: 12.7312. KLD loss: 5.9208. Time: 227.84 seconds
+Test set loss: 30.1224 Reconstruction loss: 26.7742. KLD loss: 3.3482 <====>
+<====> Epoch: 146. Average loss: 18.2582. Reconstruction loss: 12.5286. KLD loss: 5.7295. Time: 229.07 seconds
+Test set loss: 30.4036 Reconstruction loss: 26.8830. KLD loss: 3.5207 <====>
+<====> Epoch: 147. Average loss: 18.5088. Reconstruction loss: 12.5050. KLD loss: 6.0037. Time: 230.30 seconds
+Test set loss: 30.3981 Reconstruction loss: 26.7236. KLD loss: 3.6745 <====>
+<====> Epoch: 148. Average loss: 18.4348. Reconstruction loss: 12.4491. KLD loss: 5.9856. Time: 231.56 seconds
+Test set loss: 30.4812 Reconstruction loss: 26.8849. KLD loss: 3.5963 <====>
+<====> Epoch: 149. Average loss: 18.0624. Reconstruction loss: 12.1394. KLD loss: 5.9230. Time: 232.93 seconds
+Test set loss: 30.6642 Reconstruction loss: 26.9610. KLD loss: 3.7031 <====>
+<====> Epoch: 150. Average loss: 18.2292. Reconstruction loss: 12.2432. KLD loss: 5.9860. Time: 234.32 seconds
+Test set loss: 31.0152 Reconstruction loss: 27.1002. KLD loss: 3.9149 <====>
+<====> Epoch: 151. Average loss: 18.4167. Reconstruction loss: 12.2775. KLD loss: 6.1392. Time: 236.45 seconds
+Test set loss: 31.1416 Reconstruction loss: 26.6506. KLD loss: 4.4909 <====>
+<====> Epoch: 152. Average loss: 18.2639. Reconstruction loss: 12.1313. KLD loss: 6.1327. Time: 238.58 seconds
+Test set loss: 31.2606 Reconstruction loss: 27.4542. KLD loss: 3.8064 <====>
+<====> Epoch: 153. Average loss: 18.3135. Reconstruction loss: 12.0849. KLD loss: 6.2286. Time: 240.51 seconds
+Test set loss: 31.0015 Reconstruction loss: 27.1933. KLD loss: 3.8082 <====>
+<====> Epoch: 154. Average loss: 18.2573. Reconstruction loss: 12.0339. KLD loss: 6.2234. Time: 243.00 seconds
+Test set loss: 31.2432 Reconstruction loss: 27.7065. KLD loss: 3.5367 <====>
+<====> Epoch: 155. Average loss: 18.1175. Reconstruction loss: 11.9411. KLD loss: 6.1763. Time: 244.50 seconds
+Test set loss: 31.3441 Reconstruction loss: 27.3873. KLD loss: 3.9569 <====>
+<====> Epoch: 156. Average loss: 18.1691. Reconstruction loss: 11.8528. KLD loss: 6.3164. Time: 246.74 seconds
+Test set loss: 31.0348 Reconstruction loss: 27.0646. KLD loss: 3.9702 <====>
+<====> Epoch: 157. Average loss: 18.1166. Reconstruction loss: 11.7955. KLD loss: 6.3211. Time: 248.15 seconds
+Test set loss: 31.6143 Reconstruction loss: 27.4512. KLD loss: 4.1631 <====>
+<====> Epoch: 158. Average loss: 18.0866. Reconstruction loss: 11.7764. KLD loss: 6.3101. Time: 250.07 seconds
+Test set loss: 31.3012 Reconstruction loss: 27.4508. KLD loss: 3.8504 <====>
+<====> Epoch: 159. Average loss: 18.0106. Reconstruction loss: 11.6044. KLD loss: 6.4062. Time: 251.50 seconds
+Test set loss: 31.7241 Reconstruction loss: 27.9390. KLD loss: 3.7851 <====>
+<====> Epoch: 160. Average loss: 18.0541. Reconstruction loss: 11.6909. KLD loss: 6.3632. Time: 252.74 seconds
+Test set loss: 31.5247 Reconstruction loss: 27.4113. KLD loss: 4.1134 <====>
+<====> Epoch: 161. Average loss: 18.1935. Reconstruction loss: 11.6040. KLD loss: 6.5895. Time: 254.59 seconds
+Test set loss: 31.6166 Reconstruction loss: 27.4163. KLD loss: 4.2003 <====>
+<====> Epoch: 162. Average loss: 18.1096. Reconstruction loss: 11.5534. KLD loss: 6.5562. Time: 256.94 seconds
+Test set loss: 31.6798 Reconstruction loss: 27.5004. KLD loss: 4.1794 <====>
+<====> Epoch: 163. Average loss: 18.0060. Reconstruction loss: 11.4798. KLD loss: 6.5262. Time: 259.03 seconds
+Test set loss: 31.6442 Reconstruction loss: 27.5439. KLD loss: 4.1003 <====>
+<====> Epoch: 164. Average loss: 17.8485. Reconstruction loss: 11.3176. KLD loss: 6.5309. Time: 261.03 seconds
+Test set loss: 31.8558 Reconstruction loss: 27.5115. KLD loss: 4.3443 <====>
+<====> Epoch: 165. Average loss: 18.0113. Reconstruction loss: 11.3902. KLD loss: 6.6211. Time: 263.21 seconds
+Test set loss: 31.6365 Reconstruction loss: 27.2089. KLD loss: 4.4276 <====>
+<====> Epoch: 166. Average loss: 17.9364. Reconstruction loss: 11.3201. KLD loss: 6.6164. Time: 265.16 seconds
+Test set loss: 32.2266 Reconstruction loss: 28.0259. KLD loss: 4.2007 <====>
+<====> Epoch: 167. Average loss: 17.8687. Reconstruction loss: 11.2112. KLD loss: 6.6576. Time: 267.03 seconds
+Test set loss: 31.8604 Reconstruction loss: 27.3572. KLD loss: 4.5032 <====>
+<====> Epoch: 168. Average loss: 17.7129. Reconstruction loss: 11.0577. KLD loss: 6.6551. Time: 268.85 seconds
+Test set loss: 32.1217 Reconstruction loss: 27.5772. KLD loss: 4.5445 <====>
+<====> Epoch: 169. Average loss: 17.7930. Reconstruction loss: 11.0620. KLD loss: 6.7311. Time: 270.94 seconds
+Test set loss: 32.1880 Reconstruction loss: 28.0279. KLD loss: 4.1601 <====>
+<====> Epoch: 170. Average loss: 17.8357. Reconstruction loss: 11.0133. KLD loss: 6.8224. Time: 272.99 seconds
+Test set loss: 32.4325 Reconstruction loss: 28.4483. KLD loss: 3.9842 <====>
+<====> Epoch: 171. Average loss: 17.8251. Reconstruction loss: 11.0677. KLD loss: 6.7574. Time: 274.92 seconds
+Test set loss: 32.6558 Reconstruction loss: 28.4762. KLD loss: 4.1797 <====>
+<====> Epoch: 172. Average loss: 17.6818. Reconstruction loss: 10.9387. KLD loss: 6.7430. Time: 276.87 seconds
+Test set loss: 32.2491 Reconstruction loss: 27.9903. KLD loss: 4.2588 <====>
+<====> Epoch: 173. Average loss: 17.7777. Reconstruction loss: 10.8725. KLD loss: 6.9052. Time: 278.58 seconds
+Test set loss: 32.3429 Reconstruction loss: 27.6921. KLD loss: 4.6508 <====>
+<====> Epoch: 174. Average loss: 17.7495. Reconstruction loss: 10.8704. KLD loss: 6.8791. Time: 280.03 seconds
+Test set loss: 32.5106 Reconstruction loss: 28.0385. KLD loss: 4.4720 <====>
+<====> Epoch: 175. Average loss: 17.5629. Reconstruction loss: 10.7378. KLD loss: 6.8250. Time: 282.26 seconds
+Test set loss: 32.6468 Reconstruction loss: 27.9084. KLD loss: 4.7384 <====>
+<====> Epoch: 176. Average loss: 17.5278. Reconstruction loss: 10.6768. KLD loss: 6.8510. Time: 284.32 seconds
+Test set loss: 32.4156 Reconstruction loss: 27.6941. KLD loss: 4.7214 <====>
+<====> Epoch: 177. Average loss: 17.6746. Reconstruction loss: 10.6327. KLD loss: 7.0418. Time: 286.90 seconds
+Test set loss: 33.1339 Reconstruction loss: 28.9660. KLD loss: 4.1679 <====>
+<====> Epoch: 178. Average loss: 17.6527. Reconstruction loss: 10.6608. KLD loss: 6.9919. Time: 289.20 seconds
+Test set loss: 33.0432 Reconstruction loss: 28.4985. KLD loss: 4.5447 <====>
+<====> Epoch: 179. Average loss: 17.5030. Reconstruction loss: 10.6136. KLD loss: 6.8894. Time: 292.03 seconds
+Test set loss: 32.7592 Reconstruction loss: 27.9978. KLD loss: 4.7614 <====>
+<====> Epoch: 180. Average loss: 17.6296. Reconstruction loss: 10.5886. KLD loss: 7.0410. Time: 293.73 seconds
+Test set loss: 32.5755 Reconstruction loss: 28.1371. KLD loss: 4.4385 <====>
+<====> Epoch: 181. Average loss: 17.7256. Reconstruction loss: 10.6165. KLD loss: 7.1091. Time: 296.28 seconds
+Test set loss: 32.8787 Reconstruction loss: 28.2037. KLD loss: 4.6750 <====>
+<====> Epoch: 182. Average loss: 17.5750. Reconstruction loss: 10.4585. KLD loss: 7.1164. Time: 298.15 seconds
+Test set loss: 32.9924 Reconstruction loss: 28.4955. KLD loss: 4.4969 <====>
+<====> Epoch: 183. Average loss: 17.4574. Reconstruction loss: 10.4912. KLD loss: 6.9662. Time: 300.36 seconds
+Test set loss: 32.9384 Reconstruction loss: 27.5254. KLD loss: 5.4130 <====>
+<====> Epoch: 184. Average loss: 17.2684. Reconstruction loss: 10.2222. KLD loss: 7.0462. Time: 302.86 seconds
+Test set loss: 33.3197 Reconstruction loss: 28.9268. KLD loss: 4.3929 <====>
+<====> Epoch: 185. Average loss: 17.4922. Reconstruction loss: 10.4474. KLD loss: 7.0448. Time: 305.05 seconds
+Test set loss: 33.1565 Reconstruction loss: 28.2525. KLD loss: 4.9040 <====>
+<====> Epoch: 186. Average loss: 17.5702. Reconstruction loss: 10.3834. KLD loss: 7.1868. Time: 307.02 seconds
+Test set loss: 33.3650 Reconstruction loss: 28.7346. KLD loss: 4.6303 <====>
+<====> Epoch: 187. Average loss: 17.3345. Reconstruction loss: 10.2259. KLD loss: 7.1086. Time: 309.00 seconds
+Test set loss: 33.6232 Reconstruction loss: 29.1545. KLD loss: 4.4686 <====>
+<====> Epoch: 188. Average loss: 17.3475. Reconstruction loss: 10.2723. KLD loss: 7.0752. Time: 310.63 seconds
+Test set loss: 33.7409 Reconstruction loss: 28.9476. KLD loss: 4.7933 <====>
+<====> Epoch: 189. Average loss: 17.2382. Reconstruction loss: 10.1319. KLD loss: 7.1063. Time: 312.04 seconds
+Test set loss: 33.4787 Reconstruction loss: 28.3974. KLD loss: 5.0813 <====>
+<====> Epoch: 190. Average loss: 17.3887. Reconstruction loss: 10.1294. KLD loss: 7.2593. Time: 313.38 seconds
+Test set loss: 33.6243 Reconstruction loss: 28.3874. KLD loss: 5.2369 <====>
+<====> Epoch: 191. Average loss: 17.1981. Reconstruction loss: 9.9885. KLD loss: 7.2096. Time: 314.81 seconds
+Test set loss: 33.9171 Reconstruction loss: 28.9214. KLD loss: 4.9957 <====>
+<====> Epoch: 192. Average loss: 17.1508. Reconstruction loss: 9.9989. KLD loss: 7.1519. Time: 316.18 seconds
+Test set loss: 33.8280 Reconstruction loss: 28.7853. KLD loss: 5.0427 <====>
+<====> Epoch: 193. Average loss: 17.1999. Reconstruction loss: 9.9707. KLD loss: 7.2292. Time: 317.53 seconds
+Test set loss: 33.7963 Reconstruction loss: 28.9385. KLD loss: 4.8578 <====>
+<====> Epoch: 194. Average loss: 17.2407. Reconstruction loss: 9.9545. KLD loss: 7.2861. Time: 318.92 seconds
+Test set loss: 33.7154 Reconstruction loss: 28.4321. KLD loss: 5.2833 <====>
+<====> Epoch: 195. Average loss: 16.9889. Reconstruction loss: 9.7706. KLD loss: 7.2183. Time: 320.29 seconds
+Test set loss: 33.6305 Reconstruction loss: 28.8027. KLD loss: 4.8278 <====>
+<====> Epoch: 196. Average loss: 17.2247. Reconstruction loss: 9.8423. KLD loss: 7.3824. Time: 321.62 seconds
+Test set loss: 34.0888 Reconstruction loss: 28.6742. KLD loss: 5.4146 <====>
+<====> Epoch: 197. Average loss: 17.1735. Reconstruction loss: 9.7810. KLD loss: 7.3925. Time: 322.95 seconds
+Test set loss: 34.3373 Reconstruction loss: 29.0501. KLD loss: 5.2872 <====>
+<====> Epoch: 198. Average loss: 17.1352. Reconstruction loss: 9.7594. KLD loss: 7.3758. Time: 324.31 seconds
+Test set loss: 34.1782 Reconstruction loss: 29.4016. KLD loss: 4.7766 <====>
+<====> Epoch: 199. Average loss: 17.0330. Reconstruction loss: 9.6577. KLD loss: 7.3754. Time: 325.67 seconds
+Test set loss: 33.8562 Reconstruction loss: 29.1277. KLD loss: 4.7285 <====>
+<====> Epoch: 200. Average loss: 17.0734. Reconstruction loss: 9.7134. KLD loss: 7.3600. Time: 327.50 seconds
+Test set loss: 34.2364 Reconstruction loss: 29.3299. KLD loss: 4.9065 <====>
+VAE(
+  (fc1): Linear(in_features=4998, out_features=50, bias=True)
+  (fc21): Linear(in_features=50, out_features=20, bias=True)
+  (fc22): Linear(in_features=50, out_features=20, bias=True)
+  (fc3): Linear(in_features=20, out_features=50, bias=True)
+  (fc4): Linear(in_features=50, out_features=4998, bias=True)
+  (fc5): Linear(in_features=21, out_features=21, bias=True)
+)
+

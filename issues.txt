@@ -32,4 +32,5 @@
 	2. it is simple and does not contain the option to change the architecture much
 	3. check if your losses are what you think they are
 	4. can add more checks in evaluate to see training 
-	5. vae also has shitty coding style where you do not set with torch.no_grad() 
+	5. vae also has shitty coding style where you do not set with torch.no_grad()
+	6. hmmm seems to be different results for vae the way you code it. Around 2 off of tf implementation in test loss and a little bit off of vae in kld loss, may just be difference in parameters tho 

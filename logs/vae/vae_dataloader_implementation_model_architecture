@@ -1,0 +1,86 @@
+digraph {
+	graph [size="12,12"]
+	node [align=left fontsize=12 height=0.2 ranksep=0.1 shape=box style=filled]
+	4635654016 [label=AddBackward0 fillcolor=darkolivegreen1]
+	4509886616 -> 4635654016
+	4509886616 [label=UnsafeViewBackward]
+	4617848480 -> 4509886616
+	4617848480 [label=MmBackward]
+	4509965896 -> 4617848480
+	4509965896 [label=ViewBackward]
+	4610555976 -> 4509965896
+	4610555976 [label=ViewBackward]
+	4610556088 -> 4610555976
+	4610556088 [label=EluBackward]
+	4610556200 -> 4610556088
+	4610556200 [label=AddmmBackward]
+	4610556312 -> 4610556200
+	4610556312 [label="
+ (4998)" fillcolor=lightblue]
+	4610556368 -> 4610556200
+	4610556368 [label=EluBackward]
+	4610556536 -> 4610556368
+	4610556536 [label=AddmmBackward]
+	4610556648 -> 4610556536
+	4610556648 [label="
+ (50)" fillcolor=lightblue]
+	4610556704 -> 4610556536
+	4610556704 [label=AddBackward0]
+	4610556928 -> 4610556704
+	4610556928 [label=AddmmBackward]
+	4610557040 -> 4610556928
+	4610557040 [label="
+ (20)" fillcolor=lightblue]
+	4610557096 -> 4610556928
+	4610557096 [label=EluBackward]
+	4610557320 -> 4610557096
+	4610557320 [label=AddmmBackward]
+	4610557376 -> 4610557320
+	4610557376 [label="
+ (50)" fillcolor=lightblue]
+	4610557432 -> 4610557320
+	4610557432 [label=TBackward]
+	4610557600 -> 4610557432
+	4610557600 [label="
+ (50, 4998)" fillcolor=lightblue]
+	4610557152 -> 4610556928
+	4610557152 [label=TBackward]
+	4610557264 -> 4610557152
+	4610557264 [label="
+ (20, 50)" fillcolor=lightblue]
+	4610556872 -> 4610556704
+	4610556872 [label=MulBackward0]
+	4610557208 -> 4610556872
+	4610557208 [label=ExpBackward]
+	4610557712 -> 4610557208
+	4610557712 [label=MulBackward0]
+	4610557768 -> 4610557712
+	4610557768 [label=AddmmBackward]
+	4610557824 -> 4610557768
+	4610557824 [label="
+ (20)" fillcolor=lightblue]
+	4610557096 -> 4610557768
+	4610557880 -> 4610557768
+	4610557880 [label=TBackward]
+	4610558048 -> 4610557880
+	4610558048 [label="
+ (20, 50)" fillcolor=lightblue]
+	4610556760 -> 4610556536
+	4610556760 [label=TBackward]
+	4610556984 -> 4610556760
+	4610556984 [label="
+ (50, 20)" fillcolor=lightblue]
+	4610556424 -> 4610556200
+	4610556424 [label=TBackward]
+	4610556592 -> 4610556424
+	4610556592 [label="
+ (4998, 50)" fillcolor=lightblue]
+	4927549336 -> 4617848480
+	4927549336 [label=TBackward]
+	4610556032 -> 4927549336
+	4610556032 [label="
+ (21, 21)" fillcolor=lightblue]
+	4394492200 -> 4635654016
+	4394492200 [label="
+ (21)" fillcolor=lightblue]
+}

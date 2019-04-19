@@ -1,12 +1,78 @@
-<====> Epoch: 1. Average loss: 180.7743. Reconstruction loss: 148.94. KLD loss: 31.84. Time: 0.90 seconds
-Sample generated sequence: GRLYFCPYTRNKCWVWECPFDGHHNEHRGKMPDKE*TE*DPHRGTPHLTGNYQ*HLGEKHTSARRMVK*E*SYHY*MWHW*MRA*RHPMYENGEMSIQLFWDGIAE*VYYEKH*WVKTMYTAPCIHPDNIQMSSYLTMCLFWLYTCKPQVFQWGRCPLCFIM*YKHATERPHS*SHHHCWASLNEIQLSGYAYHNGDYAGCPRELYWGLP*PVVD*CVRGLEL*YAGINKDEWPLCKD
-Average mismatches from the wild type: 181.8
-wild type elbo prob: 16.463821411132812. 3 mutations elbo prob: 42.954620361328125. 10 mutations elbo prob: 94.41255950927734.
-Test set loss: 46.9071 Average Mismatches: 13.3800 Wild Type Mismatches 9.5600 <====> 
-
-<====> Epoch: 2. Average loss: 41.7006. Reconstruction loss: 31.62. KLD loss: 10.08. Time: 3.50 seconds
-Sample generated sequence: STGEELYRGEVPILGEPTGGINGEQF*NSGP*ELDATYYMGTDRFISTTGKLRNPWPKLAIGLWYGVPCFSRYPDHMKQLCYFESK*PEGYIQERTIFFKVYGKYKRIAEVRDEGDALGGRMILRGIHHTHDGNMC**KRPMNYNKHDVCIMTANKEMGIKYNFAMRFNIHDGYVWLADHYQMHAPPKFGGAPPPEWM*LGDQSQISKDPNEEL*LPVLLQLDHAAGFAPNYHEGCK*
-Average mismatches from the wild type: 130.4
-wild type elbo prob: 8.56099796295166. 3 mutations elbo prob: 38.788330078125. 10 mutations elbo prob: 92.36090087890625.
-Test set loss: 38.2156 Average Mismatches: 9.1600 Wild Type Mismatches 5.5100 <====> 
-
+Training vae_test_sample 
+Args:
+model_type -- vae
+name -- vae_test_sample
+input -- 4998
+hidden_size -- 50
+latent_dim -- 20
+device -- cpu
+learning_rate -- 0.001
+epochs -- 10
+all_characters -- *ACDEFGHIKLMNPQRSTVWY
+seq_length -- 238
+batch_size -- 10
+num_characters -- 21
+character_to_int -- {'*': 0, 'A': 1, 'C': 2, 'D': 3, 'E': 4, 'F': 5, 'G': 6, 'H': 7, 'I': 8, 'K': 9, 'L': 10, 'M': 11, 'N': 12, 'P': 13, 'Q': 14, 'R': 15, 'S': 16, 'T': 17, 'V': 18, 'W': 19, 'Y': 20}
+int_to_character -- {0: '*', 1: 'A', 2: 'C', 3: 'D', 4: 'E', 5: 'F', 6: 'G', 7: 'H', 8: 'I', 9: 'K', 10: 'L', 11: 'M', 12: 'N', 13: 'P', 14: 'Q', 15: 'R', 16: 'S', 17: 'T', 18: 'V', 19: 'W', 20: 'Y'}
+model -- VAE(
+  (fc1): Linear(in_features=4998, out_features=50, bias=True)
+  (fc21): Linear(in_features=50, out_features=20, bias=True)
+  (fc22): Linear(in_features=50, out_features=20, bias=True)
+  (fc3): Linear(in_features=20, out_features=50, bias=True)
+  (fc4): Linear(in_features=50, out_features=4998, bias=True)
+)
+optimizer -- Adam (
+Parameter Group 0
+    amsgrad: False
+    betas: (0.9, 0.999)
+    eps: 1e-08
+    lr: 0.001
+    weight_decay: 0
+)
+train_loss_history -- []
+valid_loss_history -- []
+**************************************************
+training model on train and validation datasets...
+--------------------------------------------------
+epoch: 1. train loss: 209.4933. train cross entropy loss: 174.5915. train kld loss: 34.9018
+time: 1.39. valid loss: 45.6846. valid cross entropy loss: 30.4280, valid kld loss 15.2566
+--------------------------------------------------
+--------------------------------------------------
+epoch: 2. train loss: 40.4923. train cross entropy loss: 28.1044. train kld loss: 12.3879
+time: 2.59. valid loss: 39.5323. valid cross entropy loss: 26.4529, valid kld loss 13.0794
+--------------------------------------------------
+--------------------------------------------------
+epoch: 3. train loss: 36.7045. train cross entropy loss: 27.0623. train kld loss: 9.6422
+time: 3.81. valid loss: 35.6259. valid cross entropy loss: 27.0575, valid kld loss 8.5683
+--------------------------------------------------
+--------------------------------------------------
+epoch: 4. train loss: 33.8370. train cross entropy loss: 26.2645. train kld loss: 7.5726
+time: 5.07. valid loss: 35.1905. valid cross entropy loss: 26.3114, valid kld loss 8.8791
+--------------------------------------------------
+--------------------------------------------------
+epoch: 5. train loss: 32.3129. train cross entropy loss: 25.7310. train kld loss: 6.5819
+time: 6.23. valid loss: 36.5292. valid cross entropy loss: 31.8601, valid kld loss 4.6691
+--------------------------------------------------
+--------------------------------------------------
+epoch: 6. train loss: 31.7783. train cross entropy loss: 25.7494. train kld loss: 6.0290
+time: 7.31. valid loss: 33.0531. valid cross entropy loss: 27.7250, valid kld loss 5.3281
+--------------------------------------------------
+--------------------------------------------------
+epoch: 7. train loss: 31.1307. train cross entropy loss: 25.5136. train kld loss: 5.6171
+time: 8.39. valid loss: 32.5240. valid cross entropy loss: 26.9771, valid kld loss 5.5468
+--------------------------------------------------
+--------------------------------------------------
+epoch: 8. train loss: 31.6565. train cross entropy loss: 25.6183. train kld loss: 6.0382
+time: 9.47. valid loss: 32.0250. valid cross entropy loss: 26.5771, valid kld loss 5.4478
+--------------------------------------------------
+--------------------------------------------------
+epoch: 9. train loss: 30.7356. train cross entropy loss: 25.4253. train kld loss: 5.3103
+time: 10.87. valid loss: 32.2537. valid cross entropy loss: 26.6539, valid kld loss 5.5998
+--------------------------------------------------
+--------------------------------------------------
+epoch: 10. train loss: 30.1986. train cross entropy loss: 25.1026. train kld loss: 5.0960
+time: 12.35. valid loss: 31.8074. valid cross entropy loss: 27.3705, valid kld loss 4.4369
+--------------------------------------------------
+**************************************************
+evaluating model on test dataset:
+total loss: 31.6326 cross entropy loss: 27.1975. kld loss: 4.4350

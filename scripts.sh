@@ -1,0 +1,1 @@
+python3 main.py --model vae --name vae_test_sample_large --input 4998 --hidden_size 50 --latent_dim 20 --seq_length 238 --device cpu --learning_rate 0.001 --epochs 20 --batch_size 10 --layers 2 --dataset gfp_amino_acid --num_data 1000

@@ -7,6 +7,7 @@ from sklearn.model_selection import train_test_split
 from itertools import zip_longest
 from Bio.Data import CodonTable
 from Bio.Seq import translate, IUPAC
+from torch.nn import functional as F
 
 def normalize(X): 
     """ normalize an array """
@@ -137,8 +138,9 @@ def one_hot_decode(X, alphabet):
     Input: X is a one hot encoded list of DNA Sequences represented by the base pairs ACTG.
         All DNA Sequences must be the same length
     Output: list of dna sequences
-    Example: one_hot_decode([[1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0],
-                            [1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 1]], "ACTG") = ["ACT", "ACG"]
+    >>> one_hot_decode([[1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0], \
+        [1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 1]], "ACTG")
+    ['ACT', 'ACG']
     """
     assert(len(X) > 0)
     assert(all([len(X[0]) == len(X[i]) for i in range(len(X))]))
@@ -163,3 +165,59 @@ def string_to_numpy(string, character_to_int):
     for i, c in enumerate(string): 
         arr[i] = character_to_int[c]
     return arr
+
+def to_tensor(x, device = torch.device("cpu")):
+    """
+    Converts numpy array to tensor on the specific torch device
+    >>> to_tensor(np.ones((3, 3)), torch.device("cpu"))
+    tensor([[1., 1., 1.],
+            [1., 1., 1.],
+            [1., 1., 1.]])
+    """
+    assert(type(x) == np.ndarray)
+    return torch.from_numpy(x).float().to(device)
+    
+def sample_tensor_to_string(x, int_to_character, softmax=False):
+    """
+    Samples a tensor from the probability distribution of x. 
+    Input: a 2d or 1d vector of shape (characters x vocabulary_size)
+    Output: a string of length characters long 
+    Note that the results are sampled each time and will be different
+    
+    >>> int_to_character = dict(zip(range(21), get_all_amino_acids()))
+    >>> seed = torch.manual_seed(1)
+    >>> sample_tensor_to_string(torch.randn(18, 21), int_to_character, softmax=True) 
+    'YDNYCIYNINISLNPFPR'
+    """
+    num_characters = len(int_to_character)
+    assert(type(x) == torch.Tensor)
+    assert(x.shape[0] % num_characters == 0 or x.shape[1] % num_characters == 0)
+    x = x.reshape(-1, num_characters)
+    if softmax:
+        x = F.softmax(x, dim = -1)
+    string = []
+    for dist in x: 
+        index = torch.multinomial(dist, 1).item()
+        string.append(int_to_character[index])
+    return "".join(string)
+
+
+def tensor_to_string(x, int_to_character):
+    """
+    Converts tensor to string
+    Input: A sequence in tensor format
+    Output: A sequence in string format
+
+    >>> int_to_character = dict(zip(range(4), "ACTG"))
+    >>> tensor_to_string(torch.tensor([0, 0, 1, 0, 0, 0, 1, 0]), int_to_character)
+    'TT'
+    >>> tensor_to_string(torch.tensor([0.8, 0.15, 0.05, 0, 0, 0.9, 0.1, 0]), int_to_character)
+    'AC'
+    """
+    num_characters = len(int_to_character)
+    assert(type(x) == torch.Tensor)
+    assert(len(x) % num_characters == 0)
+    x = x.reshape(-1, num_characters)
+    _, index = x.max(dim = 1)
+    return "".join([int_to_character[i] for i in index.numpy()])
+
