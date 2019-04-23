@@ -9,30 +9,31 @@ from torch.utils.data import TensorDataset, DataLoader
 from utils import load_gfp_data, get_all_amino_acids, get_wild_type_amino_acid_sequence
 from utils import count_substring_mismatch, one_hot_encode
 
+
 def get_dataloader(args):
     """
-	returns a dataloader that loads n sequences of length size broken into batch_size chunks.
-	seqences may be randomly drawn from initial dataset and shuffled every epoch
-	wild type added to args
+    returns a dataloader that loads n sequences of length size broken into batch_size chunks.
+    sequences may be randomly drawn from initial dataset and shuffled every epoch
+    wild type added to args
     """
-    X_train, X_test, y_train, y_test = None, None, None, None
+    x_train, x_test, y_train, y_test = None, None, None, None
     train_loader, valid_loader, test_loader = None, None, None
     if args["dataset"] == "gfp_amino_acid":
-        X_train, X_test, y_train, y_test = load_gfp_data("./data/gfp_amino_acid_shuffle_")
+        x_train, x_test, y_train, y_test = load_gfp_data("./data/gfp_amino_acid_shuffle_")
         args["vocabulary"] = get_all_amino_acids()
         args["wild_type"] = get_wild_type_amino_acid_sequence()
     if args["model_type"] == "vae":
-        one_hot_X_valid = one_hot_encode(X_train[args["num_data"]:2 * args["num_data"]], args["vocabulary"])
-        one_hot_X_train = one_hot_encode(X_train[:args["num_data"]], args["vocabulary"])
-        one_hot_X_test = one_hot_encode(X_test[:args["num_data"]], args["vocabulary"])
+        one_hot_x_valid = one_hot_encode(x_train[args["num_data"]:2 * args["num_data"]], args["vocabulary"])
+        one_hot_x_train = one_hot_encode(x_train[:args["num_data"]], args["vocabulary"])
+        one_hot_x_test = one_hot_encode(x_test[:args["num_data"]], args["vocabulary"])
         y_valid = y_train[args["num_data"]:2 * args["num_data"]]
         y_train = y_train[:args["num_data"]]
         y_test = y_test[:args["num_data"]]
-        train_dataset = TensorDataset(torch.from_numpy(one_hot_X_train).float(),
+        train_dataset = TensorDataset(torch.from_numpy(one_hot_x_train).float(),
                                       torch.from_numpy(y_train.reshape(-1, 1)).float())
-        valid_dataset = TensorDataset(torch.from_numpy(one_hot_X_valid).float(),
+        valid_dataset = TensorDataset(torch.from_numpy(one_hot_x_valid).float(),
                                       torch.from_numpy(y_valid.reshape(-1, 1)).float())
-        test_dataset = TensorDataset(torch.from_numpy(one_hot_X_test).float(),
+        test_dataset = TensorDataset(torch.from_numpy(one_hot_x_test).float(),
                                      torch.from_numpy(y_test.reshape(-1, 1)).float())
         train_loader = DataLoader(train_dataset, batch_size=args["batch_size"], shuffle=True)
         valid_loader = DataLoader(valid_dataset, batch_size=args["batch_size"], shuffle=True)
@@ -47,6 +48,7 @@ def get_model(args):
         model = GenerativeVAE(args)
     return model
 
+
 def main(args):
     # loading data and model
     train_loader, valid_loader, test_loader = get_dataloader(args)
@@ -58,7 +60,7 @@ def main(args):
         print(arg, "--", value, file=logger)
 
     # training and evaluating model
-    # torch.manual_seed(1) set seed to get reproducible results
+    torch.manual_seed(1)  # set seed to get reproducible results
     print("*" * 50 + "\ntraining model on train and validation datasets...", file=logger)
     model.fit(train_dataloader=train_loader, valid_dataloader=valid_loader, verbose=True, logger=logger, save_model=True)
     model.plot_model("./logs/{0}/{1}_model_architecture".format(model.model_type, model.name))

@@ -8,7 +8,7 @@ from torch import nn, optim
 from torch.nn import functional as F
 from torchviz import make_dot
 from utils import one_hot_encode, to_tensor
-
+from models import Model
 
 class VAE(nn.Module):
 
@@ -80,7 +80,7 @@ class VAE(nn.Module):
         return -0.5 * torch.sum(1 + logvar - mu.pow(2) - logvar.exp())
 
 
-class GenerativeVAE:
+class GenerativeVAE(Model):
 
     def __init__(self, args):
         """
@@ -304,4 +304,3 @@ class GenerativeVAE:
         plt.ylabel("loss")
         if save_fig_dir:
             plt.savefig(save_fig_dir)
-        plt.show()
