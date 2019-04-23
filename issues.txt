@@ -1,5 +1,6 @@
     1. HMM Implementation Issues
-        1. add in batch_size later
+	0. add in weights later    
+    	1. add in batch_size later
         2. separate function to load data and then run the data. 
           1. add five fold cv later. 
           2. when adding random data generation you can also modify every single data point… Do later? 

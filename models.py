@@ -1,31 +1,32 @@
 class Model:
-
+    """ TODO add documentation here """
     def __init__(self, args):
         self.args = args
+        self.save_epochs = 50
 
-    def fit(self, train_dataloader, valid_dataloader=None, verbose=True, logger=None, save_model=True, weights=None):
+    def fit(self, train_dataloader, valid_dataloader=None, verbose=True, logger=None, save_model=True, weights=None, **kwargs):
         pass
 
-    def predict(self, dataloader, verbose=False, logger=None, save_model=True, weights=None):
+    def evaluate(self, dataloader, verbose=False, logger=None, weights=None, **kwargs):
         pass
 
-    def evaluate(self, dataloader, verbose=False, logger=None, save_model=True, weights=None):
+    def sample(self, num_samples, length, **kwargs):
         pass
 
-    def sample(self, num_samples=1, length=10):
+    def show_model(self, **kwargs):
         pass
 
-    def show_model(self):
+    def plot_model(self, save_fig_dir, **kwargs):
         pass
 
     def save_model(self, path, **kwargs):
         pass
 
-    def load_model(self, path):
+    def load_model(self, path, **kwargs):
         pass
 
-    def plot_model(self, save_fig_dir):
+    def plot_history(self, save_fig_dir, **kwargs):
         pass
 
-    def plot_history(self, save_fig_dir):
-        pass
+    def print_vars(self):
+        print(self.__dict__)

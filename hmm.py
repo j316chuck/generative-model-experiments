@@ -1,15 +1,13 @@
-import pandas as pd
-import numpy as np
-import time 
 import json
-from pomegranate import State, DiscreteDistribution, HiddenMarkovModel
-from sklearn.model_selection import train_test_split
+from pomegranate import DiscreteDistribution, HiddenMarkovModel
 from utils import *
-from Bio.Alphabet import IUPAC
+from models import Model
 
-class GenerativeHMM(): 
-    
-    def __init__(self, args, x_train=None, weights=None, verbose=True): 
+
+class GenerativeHMM(Model):
+
+    def __init__(self, args):
+        """ TODO add documentation """
         """
         Initializes the HMM to perform generative tasks
         Parameters
@@ -20,134 +18,121 @@ class GenerativeHMM():
             defines the name of the HMM
         args.hidden_size : int 
             defines the hidden size
-        args.max_iterations: int
-            sets the max iterations
+        args.epochs: int
+            sets the epochs
         args.n_jobs: int
             sets the number of cores to use
         args.batch_size : int
-            sets the batch size
-        args.epochs : int 
-            sets the epoch size 
+            sets the batch size (not implemented yet)
+        args.pseudo_count : int
+            sets the pseudo count of the args
+        args.vocabulary : str
+            all the characters in the output sequences
         args.char_to_int : dict
             a map from characters to index (integer) in the sequences
         args.build_from_samples : boolean
             build model from samples
         """
-        self.args = args
+        Model.__init__(self, args)
+        self.model_type = args["model_type"]
         self.name = args["name"]
         self.hidden_size = args["hidden_size"]
-        self.max_iterations = args["max_iterations"]
+        self.epochs = args["epochs"]
         self.n_jobs = args["n_jobs"]
         self.batch_size = args["batch_size"]
-        self.epoch = args["epoch"]
-        self.char_to_int = args["char_to_int"]
-        self.vocabulary = [pair[0] for pair in sorted(self.char_to_int.items(), key = lambda x : x[1])]
-        self.indexes = [pair[1] for pair in sorted(self.char_to_int.items(), key = lambda x : x[1])]
-        self.emission_size = len(self.indexes)
-        if args["build_from_samples"] and x_train is not None: 
-            self.model = HiddenMarkovModel.from_samples(DiscreteDistribution, 
-                                                    n_components = self.hidden_size, 
-                                                    X = x_train, 
-                                                    algorithm = 'baum-welch', 
-                                                    return_history = True,
-                                                    verbose = verbose,
-                                                    max_iterations = self.max_iterations,
-                                                    n_jobs = self.n_jobs, 
-                                                    weights = weights,
-                                                    #batch_size = self.batch_size,
-                                                    #batches_per_epoch = self.epochs
-                                               )[0]
-            
-        else: 
-            self.build_model()
-        self.model.bake()
-
+        self.pseudo_count = args["pseudo_count"]
+        self.all_characters = args["vocabulary"]
+        self.num_characters = len(self.all_characters)
+        self.character_to_int = dict(zip(self.all_characters, range(self.num_characters)))
+        self.int_to_character = dict(zip(range(self.num_characters), self.all_characters))
+        self.indexes = list(range(self.num_characters))
+        self.model = None
+        self.build_model()
+        self.train_neg_log_prob = []
+        self.valid_neg_log_prob = []
     
     def build_model(self): 
         distributions = []
-        for _ in range(self.hidden_size): 
-            emission_probs = np.random.random(self.emission_size)
+        for _ in range(self.hidden_size):
+            emission_probs = np.random.random(self.num_characters)
             emission_probs = emission_probs / emission_probs.sum()
-            distributions.append(DiscreteDistribution(dict(zip(self.vocabulary, emission_probs))))
+            distributions.append(DiscreteDistribution(dict(zip(self.all_characters, emission_probs))))
         trans_mat = np.random.random((self.hidden_size, self.hidden_size))
-        trans_mat = trans_mat / trans_mat.sum(axis = 1, keepdims = 1)
-        starts = np.random.random((self.hidden_size))
+        trans_mat = trans_mat / trans_mat.sum(axis=1, keepdims=1)
+        starts = np.random.random(self.hidden_size)
         starts = starts / starts.sum()
         # testing initializations
         np.testing.assert_almost_equal(starts.sum(), 1)
-        np.testing.assert_array_almost_equal(np.ones(self.hidden_size), trans_mat.sum(axis = 1))
+        np.testing.assert_array_almost_equal(np.ones(self.hidden_size), trans_mat.sum(axis=1))
         self.model = HiddenMarkovModel.from_matrix(trans_mat, distributions, starts)
-        
-    def get_args(self): 
-        return self.args
-        
-    def fit(self, x_train, weights=None, verbose=True):
+        self.model.bake()
+
+    def fit(self, train_dataloader, valid_dataloader=None, verbose=True, logger=None, save_model=True, weights=None, **kwargs):
         """
         Fits the model on an HMM with self.hidden_size
-        """    
-        return self.model.fit(x_train, 
-                        algorithm = 'baum-welch', 
-                        return_history = True, 
-                        verbose = verbose,
-                        max_iterations = self.max_iterations,
-                        n_jobs = self.n_jobs, 
-                        weights = weights,
-                        #batch_size = self.batch_size,
-                        #batches_per_epoch = self.epochs
-                   )
-    
-    def sample(self, n, length):
         """
-        Input:
-        n is number of samples
-        length is how long you want each sample to be
-        """
-        return np.array(["".join(seq) for seq in self.model.sample(n = n, length = length)])
-            
-        
-    def predict(self, x_test): 
+        start_time = time.time()
+        for epoch in range(1, self.epochs + 1):
+            _, hist = self.model.fit(train_dataloader, max_iterations=1, pseudocount=self.pseudo_count,
+                                     n_jobs=self.n_jobs, return_history=True)
+            train_neg_log_prob = self.evaluate(train_dataloader) / len(train_dataloader)
+            self.train_neg_log_prob.append(train_neg_log_prob)
+            if valid_dataloader:
+                test_neg_log_prob = self.evaluate(valid_dataloader) / len(valid_dataloader)
+                self.valid_neg_log_prob.append(test_neg_log_prob)
+            if verbose:
+                print("epoch {0}, train neg log prob: {1}, test neg log probability {2}, time: {3}".format(
+                    epoch, train_neg_log_prob, test_neg_log_prob, time.time() - start_time), file=logger)
+            if epoch % self.save_epochs == 0 and save_model:
+                self.save_model("./models/{0}/checkpoint_{1}.json".format(self.name, epoch))
+
+    def evaluate(self, dataloader, verbose=False, logger=None, weights=None, **kwargs):
         """
         predict the log probability of obtaining the sequences in x_test
         log(P(X1, X2, ..., X_test)) = sum(log(P(Xi)))
         Input: x_test a list of sequences. should be 2 or 3 dimensional
         """
-        assert(len(np.array(x_test).shape) == 2 or len(np.array(x_test).shape) == 3)
-        return sum([self.model.log_probability(seq) for seq in np.array(x_test)])
-                
-    def show_model(self): 
-        self.model.plot()
+        assert(len(np.array(dataloader).shape) == 2 or len(np.array(dataloader).shape) == 3)
+        neg_log_prob = -sum([self.model.log_probability(seq) for seq in np.array(dataloader)])
+        if verbose:
+            print("Average neg log prob: {0:.4f}".format(neg_log_prob / len(dataloader)), file=logger)
+        if "pos_log_prob" in kwargs:
+            return -neg_log_prob
+        else:
+            return neg_log_prob
+
+    def sample(self, num_samples, length, **kwargs):
+        """
+        Input:
+        n is number of samples
+        length is how long you want each sample to be
+        """
+        return ["".join(x) for x in self.model.sample(n=num_samples, length=length)]
+
+    def show_model(self, **kwargs):
+        print(self.model)
+
+    def plot_model(self, save_fig_dir, **kwargs):
+        # self.model.plot() does not plot legible graphs for hidden size > 10
+        pass
         
-    def save_model(self, path): 
+    def save_model(self, path, **kwargs):
         with open(path, 'w') as f:
             json.dump(self.model.to_json(), f)
     
-    def load_model(self, path): 
+    def load_model(self, path, **kwargs):
         with open(path, 'r') as f:
             json_model = json.load(f)
         self.model = HiddenMarkovModel.from_json(json_model)
 
-def hmm_base_args(): 
-    return {
-        "name" : "base HMM",
-        "hidden_size" : 5,
-        "max_iterations" : 10,
-        "n_jobs" : 1,
-        "batch_size" : 5,
-        "epoch" : 2,
-        "char_to_int" : {"A" : 0, "C" : 1, "T" : 2, "G" : 3},
-        "build_from_samples" : False
-    }
-
-def hmm_build_from_samples_args(): 
-    args = hmm_base_args()
-    args["build_from_samples"] = True
-    return args
-
-def hmm_amino_acid_args(): 
-    args = hmm_base_args()
-    amino_acids = get_all_amino_acids()
-    indexes = list(range(len(amino_acids)))
-    assert(len(amino_acids) == 21)
-    assert(amino_acids == "*" + IUPAC.protein.letters) #*ACDEFGHIKLMNPQRSTVWY
-    args["char_to_int"] = dict(zip(amino_acids, indexes))
-    return args
+    def plot_history(self, save_fig_dir, **kwargs):
+        plt.figure()
+        plt.title("{0} training history".format(self.name))
+        for name, history_lst in self.__dict__.items():
+            if "prob" in name:
+                plt.plot(history_lst, label=name)
+        plt.legend()
+        plt.xlabel("epochs")
+        plt.ylabel("loss")
+        if save_fig_dir:
+            plt.savefig(save_fig_dir)

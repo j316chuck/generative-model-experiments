@@ -1,13 +1,12 @@
 import torch
-import numpy as np
 import os
-import matplotlib.pyplot as plt
 import argparse
 
+from hmm import GenerativeHMM
 from vae import GenerativeVAE
 from torch.utils.data import TensorDataset, DataLoader
 from utils import load_gfp_data, get_all_amino_acids, get_wild_type_amino_acid_sequence
-from utils import count_substring_mismatch, one_hot_encode
+from utils import one_hot_encode, plot_mismatches_histogram
 
 
 def get_dataloader(args):
@@ -22,6 +21,7 @@ def get_dataloader(args):
         x_train, x_test, y_train, y_test = load_gfp_data("./data/gfp_amino_acid_shuffle_")
         args["vocabulary"] = get_all_amino_acids()
         args["wild_type"] = get_wild_type_amino_acid_sequence()
+
     if args["model_type"] == "vae":
         one_hot_x_valid = one_hot_encode(x_train[args["num_data"]:2 * args["num_data"]], args["vocabulary"])
         one_hot_x_train = one_hot_encode(x_train[:args["num_data"]], args["vocabulary"])
@@ -38,6 +38,10 @@ def get_dataloader(args):
         train_loader = DataLoader(train_dataset, batch_size=args["batch_size"], shuffle=True)
         valid_loader = DataLoader(valid_dataset, batch_size=args["batch_size"], shuffle=True)
         test_loader = DataLoader(test_dataset, batch_size=args["batch_size"], shuffle=True)
+    if args["model_type"] == "hmm":
+        train_loader = [list(x) for x in x_train[:args["num_data"]]]
+        valid_loader = [list(x) for x in x_train[args["num_data"]:2 * args["num_data"]]]
+        test_loader = [list(x) for x in x_test[:args["num_data"]]]
 
     return train_loader, valid_loader, test_loader
 
@@ -46,6 +50,8 @@ def get_model(args):
     model = None
     if args["model_type"] == 'vae':
         model = GenerativeVAE(args)
+    elif args["model_type"] == 'hmm':
+        model = GenerativeHMM(args)
     return model
 
 
@@ -54,13 +60,14 @@ def main(args):
     train_loader, valid_loader, test_loader = get_dataloader(args)
     model = get_model(args)
     assert(model is not None and train_loader is not None)
-    logger = open("./logs/{0}/{1}.txt".format(args["model_type"], args["name"]), "w")
+    #logger = open("./logs/{0}/{1}.txt".format(args["model_type"], args["name"]), "w")
+    logger = None
     print("Training {0} \nArgs:".format(args["name"]), file=logger)
     for arg, value in model.__dict__.items():
         print(arg, "--", value, file=logger)
 
     # training and evaluating model
-    torch.manual_seed(1)  # set seed to get reproducible results
+    # torch.manual_seed(1)  # set seed to get reproducible results
     print("*" * 50 + "\ntraining model on train and validation datasets...", file=logger)
     model.fit(train_dataloader=train_loader, valid_dataloader=valid_loader, verbose=True, logger=logger, save_model=True)
     model.plot_model("./logs/{0}/{1}_model_architecture".format(model.model_type, model.name))
@@ -70,24 +77,9 @@ def main(args):
     logger.close()
 
     # sample from model and see if generated sequences are reasonable
-    num_samples = 1000
-    num_characters = len(args["vocabulary"])
-    index_to_character = dict(zip(range(num_characters), args["vocabulary"]))
-    z = np.random.sample((num_samples, 20))
-    outputs = model.decoder(torch.tensor(z).float(), softmax=True).detach().numpy()
-    mismatches, all_strings = [], []
-    for i in range(outputs.shape[0]):
-        string = []
-        for j in range(outputs.shape[1]):
-            k = np.random.choice(list(range(num_characters)), p=outputs[i, j])
-            string.append(index_to_character[k])
-        all_strings.append("".join(string))
-        mismatches.append(count_substring_mismatch(args["wild_type"], all_strings[-1]))
-    plt.title("mismatches from wild type")
-    plt.hist(mismatches, bins=15)
-    plt.xlabel("mismatches")
-    plt.ylabel("counts")
-    plt.savefig("./logs/{0}/{1}_mismatches_from_wild_type.png".format(model.model_type, model.name))
+    sampled_sequences = model.sample(num_samples=1000, length=len(args["wild_type"]))
+    save_fig_dir = "./logs/{0}/{1}_mismatches.png".format(model.model_type, model.name)
+    plot_mismatches_histogram(sampled_sequences, args["wild_type"], save_fig_dir=save_fig_dir, show=False)
 
 
 if __name__ == '__main__':
@@ -98,17 +90,16 @@ if __name__ == '__main__':
     parser.add_argument("-i", "--input", default=-1, required=False, help="size of input", type=int)
     parser.add_argument("-hi", "--hidden_size", default=-1, required=False, help="hidden size of model", type=int)
     parser.add_argument("-la", "--latent_dim", default=-1, required=False, help="latent dim of model", type=int)
-    parser.add_argument("-se", "--seq_length", default=-1, required=False, help="seq length of the vocabulary",
-                        type=int)
+    parser.add_argument("-se", "--seq_length", default=-1, required=False, help="seq length of the vocabulary", type=int)
+    parser.add_argument("-ps", "--pseudo_count", default=1, required=False, help="pseudocounts to be added to outputs", type=int)
+    parser.add_argument("-nj", "--n_jobs", default=1, required=False, help="num of jobs for parallelizing hmm", type=int)
     parser.add_argument("-de", "--device", default="cpu", required=False, help="device to use to train model", type=str)
     parser.add_argument("-lr", "--learning_rate", default=0.001, required=False, help="learning_rate", type=float)
     parser.add_argument("-e", "--epochs", default=10, required=False, help="number of epochs to train", type=int)
     parser.add_argument("-b", "--batch_size", default=10, required=False, help="batch_size", type=int)
     parser.add_argument("-l", "--layers", default=2, required=False, help="layer size", type=int)
-    parser.add_argument("-da", "--dataset", default="gfp_amino_acid", required=False, help="which dataset to use",
-                        type=str)
-    parser.add_argument("-d", "--num_data", default=100, required=False, help="number of data points to train on",
-                        type=int)
+    parser.add_argument("-da", "--dataset", default="gfp_amino_acid", required=False, help="which dataset to use", type=str)
+    parser.add_argument("-d", "--num_data", default=100, required=False, help="number of data points to train on", type=int)
     args = vars(parser.parse_args())
     if args["device"] == "cpu":
         args["device"] = torch.device("cpu")

@@ -10,6 +10,7 @@ from torchviz import make_dot
 from utils import one_hot_encode, to_tensor
 from models import Model
 
+
 class VAE(nn.Module):
 
     def __init__(self, input_size, hidden_size, latent_dim, num_characters, seq_length):
@@ -114,6 +115,7 @@ class GenerativeVAE(Model):
         args.learning_rate : float
             initial learning rate
         """
+        Model.__init__(self, args)
         self.model_type = args["model_type"]
         self.name = args["name"]
         self.input = args["input"]
@@ -134,7 +136,7 @@ class GenerativeVAE(Model):
         self.optimizer = torch.optim.Adam(self.model.parameters(), lr=self.learning_rate)
         self.train_loss_history = []
         self.valid_loss_history = []
-        assert (self.seq_length * self.num_characters == self.input)
+        assert(self.seq_length * self.num_characters == self.input)
 
     def elbo_loss(self, recon_x, x, mu, logvar):
         """
@@ -143,13 +145,7 @@ class GenerativeVAE(Model):
                mu and logvar are the hidden states of size self.hidden_size
         Output: elbo_loss
         """
-        outputs = F.log_softmax(recon_x, dim=2)
-        CE = (-1 * outputs * x.view(x.shape[0], -1, self.num_characters)).sum()
-        # see Appendix B from VAE paper:
-        # Kingma and Welling. Auto-Encoding Variational Bayes. ICLR, 2014
-        # https://arxiv.org/abs/1312.6114
-        KLD = -0.5 * torch.sum(1 + logvar - mu.pow(2) - logvar.exp())
-        return CE + KLD
+        return self.cross_entropy_loss(recon_x, x) + self.kld_loss(mu, logvar)
 
     def cross_entropy_loss(self, recon_x, x):
         loss = nn.CrossEntropyLoss(reduction='sum')
@@ -161,7 +157,8 @@ class GenerativeVAE(Model):
     def kld_loss(self, mu, logvar):
         return -0.5 * torch.sum(1 + logvar - mu.pow(2) - logvar.exp())
 
-    def fit(self, train_dataloader, valid_dataloader=None, verbose=True, logger=None, save_model=True):
+
+    def fit(self, train_dataloader, valid_dataloader=None, verbose=True, logger=None, save_model=True, weights=None, **kwargs):
         start_time = time.time()
         self.train_loss_history, self.valid_loss_history = [], []
         self.valid_recon_loss_history, self.valid_kld_loss_history = [], []
@@ -289,9 +286,6 @@ class GenerativeVAE(Model):
             graph.render(save_dir)
         if verbose:
             graph.view()
-
-    def print_vars(self):
-        print(self.__dict__)
 
     def plot_history(self, save_fig_dir):
         plt.figure()

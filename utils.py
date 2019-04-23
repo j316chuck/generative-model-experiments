@@ -5,9 +5,9 @@ import torch
 
 from sklearn.model_selection import train_test_split
 from itertools import zip_longest
-from Bio.Data import CodonTable
 from Bio.Seq import translate, IUPAC
 from torch.nn import functional as F
+import matplotlib.pyplot as plt
 
 def normalize(X): 
     """ normalize an array """
@@ -111,7 +111,30 @@ def load_gfp_data(gfp_data_path):
     y_test = np.load(gfp_data_path + "y_test.npy")
     return X_train, X_test, y_train, y_test
 
-  
+
+def plot_mismatches_histogram(sequences, wild_type, save_fig_dir=None, show=False):
+    """
+    :param sequences: list of sampled sequences
+    :param wild_type: base sequence to compare all other sequences against
+    :param save_fig_dir: saves the histogram of mismatches
+    :param show: shows the histogram of mismatches
+    :return: list that counts the number of mismatches from the wild type
+    >>> plot_mismatches_histogram(["ACT", "ACG"], "ACG", None, False)
+    [1, 0]
+    """
+    assert(type(wild_type) == str and all(type(seq) == str for seq in sequences))
+    assert(all([len(wild_type) == len(seq) for seq in sequences]))
+    mismatches = [count_substring_mismatch(x, wild_type) for x in sequences]
+    plt.title("mismatches from wild type")
+    plt.hist(mismatches, bins=15)
+    plt.xlabel("mismatches")
+    plt.ylabel("counts")
+    if save_fig_dir:
+        plt.savefig(save_fig_dir)
+    if show:
+        plt.show()
+    return mismatches
+
 def one_hot_encode(X, alphabet):
     """
     Input: X is a list of sequences represented by the set of letters in alphabet
