@@ -125,10 +125,11 @@ def plot_mismatches_histogram(sequences, wild_type, save_fig_dir=None, show=Fals
     assert(type(wild_type) == str and all(type(seq) == str for seq in sequences))
     assert(all([len(wild_type) == len(seq) for seq in sequences]))
     mismatches = [count_substring_mismatch(x, wild_type) for x in sequences]
-    plt.title("mismatches from wild type")
+    plt.figure(figsize=(15, 15))
+    plt.title("mismatches from wild type", fontsize=15)
     plt.hist(mismatches, bins=15)
-    plt.xlabel("mismatches")
-    plt.ylabel("counts")
+    plt.xlabel("mismatches", fontsize=12)
+    plt.ylabel("counts", fontsize=12)
     if save_fig_dir:
         plt.savefig(save_fig_dir)
     if show:

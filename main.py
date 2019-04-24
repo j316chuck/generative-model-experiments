@@ -38,7 +38,7 @@ def get_dataloader(args):
         train_loader = DataLoader(train_dataset, batch_size=args["batch_size"], shuffle=True)
         valid_loader = DataLoader(valid_dataset, batch_size=args["batch_size"], shuffle=True)
         test_loader = DataLoader(test_dataset, batch_size=args["batch_size"], shuffle=True)
-    if args["model_type"] == "hmm":
+    elif args["model_type"] == "hmm":
         train_loader = [list(x) for x in x_train[:args["num_data"]]]
         valid_loader = [list(x) for x in x_train[args["num_data"]:2 * args["num_data"]]]
         test_loader = [list(x) for x in x_test[:args["num_data"]]]
@@ -60,8 +60,7 @@ def main(args):
     train_loader, valid_loader, test_loader = get_dataloader(args)
     model = get_model(args)
     assert(model is not None and train_loader is not None)
-    #logger = open("./logs/{0}/{1}.txt".format(args["model_type"], args["name"]), "w")
-    logger = None
+    logger = open("./logs/{0}/{1}.txt".format(args["model_type"], args["name"]), "w")
     print("Training {0} \nArgs:".format(args["name"]), file=logger)
     for arg, value in model.__dict__.items():
         print(arg, "--", value, file=logger)
@@ -74,7 +73,8 @@ def main(args):
     model.plot_history("./logs/{0}/{1}_training_history.png".format(model.model_type, model.name))
     print("*" * 50 + "\nevaluating model on test dataset:", file=logger)
     model.evaluate(dataloader=test_loader, verbose=True, logger=logger)
-    logger.close()
+    if logger:
+        logger.close()
 
     # sample from model and see if generated sequences are reasonable
     sampled_sequences = model.sample(num_samples=1000, length=len(args["wild_type"]))

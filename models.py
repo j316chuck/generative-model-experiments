@@ -13,10 +13,10 @@ class Model:
     def sample(self, num_samples, length, **kwargs):
         pass
 
-    def show_model(self, **kwargs):
+    def show_model(self, logger=None, **kwargs):
         pass
 
-    def plot_model(self, save_fig_dir, **kwargs):
+    def plot_model(self, save_fig_dir, show=False, **kwargs):
         pass
 
     def save_model(self, path, **kwargs):

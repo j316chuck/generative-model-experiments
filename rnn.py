@@ -1,9 +1,3 @@
-import matplotlib
-matplotlib.use('Agg')
-import unidecode
-import string
-import random
-import re
 import time
 import torch
 import torch.nn as nn
@@ -13,9 +7,9 @@ import matplotlib.pyplot as plt
 
 from torch.autograd import Variable
 from torchviz import make_dot
-from torch.utils.data import TensorDataset, DataLoader
-from utils import load_gfp_data, get_all_amino_acids, get_wild_type_amino_acid_sequence 
-from utils import count_substring_mismatch, string_to_tensor, string_to_numpy
+from utils import get_all_amino_acids, get_wild_type_amino_acid_sequence
+from utils import count_substring_mismatch, string_to_tensor
+from models import Model
 
 # https://github.com/spro/char-rnn.pytorch/blob/master/model.py
 class RNN(nn.Module):
@@ -48,8 +42,9 @@ class RNN(nn.Module):
             return (Variable(torch.zeros(self.n_layers, batch_size, self.hidden_size)),
                     Variable(torch.zeros(self.n_layers, batch_size, self.hidden_size)))
         return Variable(torch.zeros(self.n_layers, batch_size, self.hidden_size))
-    
-class GenerativeRNN(): 
+
+
+class GenerativeRNN(Model):
     
     def __init__(self, args):     
         """
@@ -73,6 +68,7 @@ class GenerativeRNN():
         args.vocabulary : string
             all the characters in the context of the problem
         """
+        Model.__init__(self, args)
         self.name = args["name"]
         self.description = args["description"]
         self.layers = args["layers"]
@@ -86,21 +82,12 @@ class GenerativeRNN():
         self.model = RNN(self.num_characters, self.hidden_size, self.num_characters, "lstm", self.layers)
         self.optimizer = torch.optim.Adam(self.model.parameters(), lr=self.learning_rate)
         self.criterion = nn.CrossEntropyLoss()
-        self.loss_history = []
-        
+        self.train_loss_history, self.valid_loss_history = [], []
 
     def fit(self, dataloader, verbose=True, logger=None, save_model=True):
         # amino acid dataset specific checks
-        wild_type = get_wild_type_amino_acid_sequence()
-        three_mutation = "".join([self.int_to_character[np.random.randint(0, self.num_characters)] if i % 3 == 1 else wild_type[i] for i in range(10)])
-        ten_mutation = "".join([self.int_to_character[np.random.randint(0, self.num_characters)] for i in range(10)])
-        print("Sampled sequences", wild_type[0:10], three_mutation, ten_mutation, file=logger)
-        
-        if not os.path.isdir("./models/{0}".format(self.name)):
-            os.mkdir("./models/{0}".format(self.name))
-        
         start_time = time.time()
-        self.loss_history = []
+        self.train_loss_history, self.valid_loss_history = [], []
         for epoch in range(1, self.epochs + 1):
             total_loss = []
             for i, (input, target) in enumerate(dataloader):

@@ -55,31 +55,6 @@ class VAE(nn.Module):
         z = self.reparameterize(mu, logvar)
         return self.decode(z, softmax=False), mu, logvar
 
-    def elbo_loss(self, recon_x, x, mu, logvar):
-        """
-        Input: x is the one hot encoded batch_size x (seq_length * num_characters)
-               recon_x is the unormalized outputs of the decoder in the same shape as x
-               mu and logvar are the hidden states of size self.hidden_size
-        Output: elbo_loss
-        """
-        outputs = F.log_softmax(recon_x, dim=2)
-        CE = (-1 * outputs * x.view(x.shape[0], -1, self.num_characters)).sum()
-        # see Appendix B from VAE paper:
-        # Kingma and Welling. Auto-Encoding Variational Bayes. ICLR, 2014
-        # https://arxiv.org/abs/1312.6114
-        KLD = -0.5 * torch.sum(1 + logvar - mu.pow(2) - logvar.exp())
-        return CE + KLD
-
-    def cross_entropy_loss(self, recon_x, x):
-        loss = nn.CrossEntropyLoss(reduction='sum')
-        input = recon_x.permute(0, 2, 1)
-        _, target = x.view(x.shape[0], -1, self.num_characters).max(dim=2)
-        target = target.long()
-        return loss(input, target)
-
-    def kld_loss(self, mu, logvar):
-        return -0.5 * torch.sum(1 + logvar - mu.pow(2) - logvar.exp())
-
 
 class GenerativeVAE(Model):
 
@@ -131,11 +106,12 @@ class GenerativeVAE(Model):
         self.num_characters = len(self.all_characters)
         self.character_to_int = dict(zip(self.all_characters, range(self.num_characters)))
         self.int_to_character = dict(zip(range(self.num_characters), self.all_characters))
+        self.indexes = list(range(self.num_characters))
         self.model = VAE(self.input, self.hidden_size, self.latent_dim, self.num_characters, self.seq_length)
         self.model.to(self.device)
         self.optimizer = torch.optim.Adam(self.model.parameters(), lr=self.learning_rate)
-        self.train_loss_history = []
-        self.valid_loss_history = []
+        self.train_loss_history, self.train_recon_loss_history, self.train_kld_loss_history = [], [], []
+        self.valid_loss_history, self.valid_recon_loss_history, self.valid_kld_loss_history = [], [], []
         assert(self.seq_length * self.num_characters == self.input)
 
     def elbo_loss(self, recon_x, x, mu, logvar):
@@ -149,20 +125,18 @@ class GenerativeVAE(Model):
 
     def cross_entropy_loss(self, recon_x, x):
         loss = nn.CrossEntropyLoss(reduction='sum')
-        input = recon_x.permute(0, 2, 1)
+        inp = recon_x.permute(0, 2, 1)
         _, target = x.view(x.shape[0], -1, self.num_characters).max(dim=2)
         target = target.long()
-        return loss(input, target)
+        return loss(inp, target)
 
     def kld_loss(self, mu, logvar):
         return -0.5 * torch.sum(1 + logvar - mu.pow(2) - logvar.exp())
 
-
     def fit(self, train_dataloader, valid_dataloader=None, verbose=True, logger=None, save_model=True, weights=None, **kwargs):
         start_time = time.time()
-        self.train_loss_history, self.valid_loss_history = [], []
-        self.valid_recon_loss_history, self.valid_kld_loss_history = [], []
-        self.train_recon_loss_history, self.train_kld_loss_history = [], []
+        self.train_loss_history, self.train_recon_loss_history, self.train_kld_loss_history = [], [], []
+        self.valid_loss_history, self.valid_recon_loss_history, self.valid_kld_loss_history = [], [], []
         for epoch in range(1, self.epochs + 1):
             # train model
             self.model.train()
@@ -181,46 +155,24 @@ class GenerativeVAE(Model):
             self.train_loss_history.append(total_train_loss / len(train_dataloader.dataset))
             self.train_recon_loss_history.append(total_recon_loss / len(train_dataloader.dataset))
             self.train_kld_loss_history.append(total_kld_loss / len(train_dataloader.dataset))
-
             # evaluate model
             self.model.eval()
             if valid_dataloader:
-                valid_loss, valid_recon_loss, valid_kld_loss = self.evaluate(valid_dataloader, verbose=False,
-                                                                             logger=logger)
+                valid_loss, valid_recon_loss, valid_kld_loss = self.evaluate(valid_dataloader, verbose=False, logger=logger)
                 self.valid_loss_history.append(valid_loss)
                 self.valid_recon_loss_history.append(valid_recon_loss)
                 self.valid_kld_loss_history.append(valid_kld_loss)
             if verbose:
                 print("-" * 50, file=logger)
-                print(
-                    'epoch: {0}. train loss: {1:.4f}. train cross entropy loss: {2:.4f}. train kld loss: {3:.4f}'.format(
-                        epoch, self.train_loss_history[-1], self.train_recon_loss_history[-1],
-                        self.train_kld_loss_history[-1]), file=logger)
-                print(
-                    'time: {0:.2f}. valid loss: {1:.4f}. valid cross entropy loss: {2:.4f}, valid kld loss {3:.4f}'.format(
-                        time.time() - start_time, self.valid_loss_history[-1], self.valid_recon_loss_history[-1],
-                        self.valid_kld_loss_history[-1]), file=logger)
+                print('epoch: {0}. train loss: {1:.4f}. train cross entropy loss: {2:.4f}. train kld loss: {3:.4f}'.format(
+                        epoch, self.train_loss_history[-1], self.train_recon_loss_history[-1], self.train_kld_loss_history[-1]), file=logger)
+                print('time: {0:.2f} sec. valid loss: {1:.4f}. valid cross entropy loss: {2:.4f}, valid kld loss {3:.4f}'.format(
+                        time.time() - start_time, self.valid_loss_history[-1], self.valid_recon_loss_history[-1], self.valid_kld_loss_history[-1]), file=logger)
                 print("-" * 50, file=logger)
             if epoch % 50 == 0:
-                self.save_model(epoch, self.train_loss_history[-1])
+                self.save_model("./models/{0}/checkpoint_{1}".format(self.name, epoch), epoch=epoch, loss=loss)
 
-    def predict_elbo_prob(self, sequences, string=True):
-        """
-        Input: list of sequences in string or one_hot_encoded form
-        Output: list of the elbo probability for each sequence
-        Example: predict_elbo_prob(["ACT", "ACG"]) = [0.2, 0.75]
-        predict_elbo_prob([[1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0],
-                        [1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 1]]) = [0.2, 0.75]
-        note: alphabet in this example is ACTG and the wild type is probably ACG***
-        """
-        if string:
-            sequences = one_hot_encode(sequences, self.all_characters)
-        if type(sequences) != torch.Tensor:
-            x = to_tensor(sequences, device=self.device)
-        recon_x, mu, logvar = self.model(x)
-        return self.elbo_loss(recon_x, x, mu, logvar)
-
-    def evaluate(self, dataloader, verbose=True, logger=None):
+    def evaluate(self, dataloader, verbose=True, logger=None, weights=None, **kwargs):
         self.model.eval()
         total_loss, total_recon_loss, total_kld_loss = 0, 0, 0
         for i, (x, _) in enumerate(dataloader):
@@ -239,7 +191,6 @@ class GenerativeVAE(Model):
         return total_loss.item(), total_recon_loss.item(), total_kld_loss.item()
 
     def decoder(self, z, softmax=False):
-        """ note that the outputs are unnormalized """
         assert (z.shape[1] == self.latent_dim)
         if type(z) != torch.Tensor:
             z = to_tensor(z, self.device)
@@ -255,39 +206,52 @@ class GenerativeVAE(Model):
         else:
             return mu, log_var
 
-    def sample(self, num_samples=1, z=None, softmax=True):
-        if z is None:
+    def sample(self, num_samples, length, **kwargs):
+        assert(length <= self.input / self.num_characters)
+        if "z" in kwargs:
+            z = kwargs["z"]
+        else:
             z = torch.randn(num_samples, self.latent_dim).to(self.device)
-        return self.decoder(z, softmax=softmax), z
-
-    def load_model(self, model_path):
-        checkpoint = torch.load(model_path)
-        self.model.load_state_dict(checkpoint["model_state_dict"])
-        self.optimizer.load_state_dict(checkpoint["optimizer_state_dict"])
-
-    def save_model(self, epoch=None, loss=None):
-        torch.save({
-            'epoch': epoch,
-            'loss': loss,
-            'model_state_dict': self.model.state_dict(),
-            'optimizer_state_dict': self.optimizer.state_dict()
-        }, "./models/{0}/checkpoint_{1}.pt".format(self.name, epoch))
+        sampled_probabilities = self.decoder(z, softmax=True).detach().numpy()
+        strings = []
+        for i in range(sampled_probabilities.shape[0]):
+            string = []
+            for j in range(sampled_probabilities.shape[1]):
+                k = np.random.choice(self.indexes, p=sampled_probabilities[i, j])
+                string.append(self.int_to_character[k])
+            strings.append("".join(string)[:length])
+        return strings
 
     def show_model(self, logger=None):
         print(self.model, file=logger)
 
-    def plot_model(self, save_dir, verbose=False):
+    def plot_model(self, save_fig_dir, show=False):
         x = np.random.randn(self.batch_size, self.seq_length, self.num_characters)
         x = to_tensor(x, self.device)
         out, _, _ = self.model(x)
         graph = make_dot(out)
-        if save_dir is not None:
+        if save_fig_dir is not None:
             graph.format = "png"
-            graph.render(save_dir)
-        if verbose:
+            graph.render(save_fig_dir)
+        if show:
             graph.view()
 
-    def plot_history(self, save_fig_dir):
+    def save_model(self, path, **kwargs):
+        d = dict()
+        d['model_state_dict'] = self.model.state_dict()
+        d['optimizer_state_dict'] = self.optimizer.state_dict()
+        if 'epoch' in kwargs:
+            d['epoch'] = kwargs['epoch']
+        if 'loss' in kwargs:
+            d['loss'] = kwargs
+        torch.save(d, path)
+
+    def load_model(self, path, **kwargs):
+        checkpoint = torch.load(path)
+        self.model.load_state_dict(checkpoint["model_state_dict"])
+        self.optimizer.load_state_dict(checkpoint["optimizer_state_dict"])
+
+    def plot_history(self, save_fig_dir, **kwargs):
         plt.figure()
         plt.title("{0} training history".format(self.name))
         for name, history_lst in self.__dict__.items():

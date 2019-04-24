@@ -81,7 +81,7 @@ class GenerativeHMM(Model):
                 test_neg_log_prob = self.evaluate(valid_dataloader) / len(valid_dataloader)
                 self.valid_neg_log_prob.append(test_neg_log_prob)
             if verbose:
-                print("epoch {0}, train neg log prob: {1}, test neg log probability {2}, time: {3}".format(
+                print("epoch {0}, train neg log prob: {1:.4f}, test neg log probability {2:.4f}, time: {3:.2f} sec".format(
                     epoch, train_neg_log_prob, test_neg_log_prob, time.time() - start_time), file=logger)
             if epoch % self.save_epochs == 0 and save_model:
                 self.save_model("./models/{0}/checkpoint_{1}.json".format(self.name, epoch))
@@ -109,10 +109,10 @@ class GenerativeHMM(Model):
         """
         return ["".join(x) for x in self.model.sample(n=num_samples, length=length)]
 
-    def show_model(self, **kwargs):
-        print(self.model)
+    def show_model(self, logger=None, **kwargs):
+        print(self.model, logger)
 
-    def plot_model(self, save_fig_dir, **kwargs):
+    def plot_model(self, save_fig_dir, show=False, **kwargs):
         # self.model.plot() does not plot legible graphs for hidden size > 10
         pass
         
@@ -136,3 +136,6 @@ class GenerativeHMM(Model):
         plt.ylabel("loss")
         if save_fig_dir:
             plt.savefig(save_fig_dir)
+
+
+
