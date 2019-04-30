@@ -3,3 +3,6 @@ python3 main.py --model vae --name vae_test_sample_large --input 4998 --hidden_s
 
 # hmm 
 python3.6 main.py --model_type hmm --name hmm_test_sample --hidden_size 50 --epochs 20 --batch_size 10 --dataset gfp_amino_acid --num_data 100 --n_jobs 10 --pseudo_count 1
+
+# rnn
+python3 main.py --model_type rnn --name rnn_test_sample --layers 1 --hidden_size 200 --learning_rate 0.001 --batch_size 10 --pseudo_count 1 --epoch 50 --num_data 100 --input 4998

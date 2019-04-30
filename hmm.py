@@ -101,7 +101,7 @@ class GenerativeHMM(Model):
         else:
             return neg_log_prob
 
-    def sample(self, num_samples, length, **kwargs):
+    def sample(self, num_samples, length, to_string=True, **kwargs):
         """
         Input:
         n is number of samples

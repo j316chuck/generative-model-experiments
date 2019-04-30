@@ -7,7 +7,7 @@ import matplotlib.pyplot as plt
 from torch import nn, optim
 from torch.nn import functional as F
 from torchviz import make_dot
-from utils import one_hot_encode, to_tensor
+from utils import to_tensor, sample_tensor_to_string
 from models import Model
 
 
@@ -152,7 +152,7 @@ class GenerativeVAE(Model):
                 total_train_loss += loss.item() * x.shape[0]
                 total_recon_loss += rloss.item()
                 total_kld_loss += kloss.item()
-            self.train_loss_history.append(total_train_loss / len(train_dataloader.dataset))
+            self.train_loss_history.append(total_train_loss / len(train_dataloader.dataset)) # len(train_dataloader.dataset is size of data)
             self.train_recon_loss_history.append(total_recon_loss / len(train_dataloader.dataset))
             self.train_kld_loss_history.append(total_kld_loss / len(train_dataloader.dataset))
             # evaluate model
@@ -169,8 +169,8 @@ class GenerativeVAE(Model):
                 print('time: {0:.2f} sec. valid loss: {1:.4f}. valid cross entropy loss: {2:.4f}, valid kld loss {3:.4f}'.format(
                         time.time() - start_time, self.valid_loss_history[-1], self.valid_recon_loss_history[-1], self.valid_kld_loss_history[-1]), file=logger)
                 print("-" * 50, file=logger)
-            if epoch % 50 == 0:
-                self.save_model("./models/{0}/checkpoint_{1}".format(self.name, epoch), epoch=epoch, loss=loss)
+            if epoch % self.save_epochs == 0 and save_model:
+                self.save_model("./models/{0}/checkpoint_{1}.".format(self.name, epoch), epoch=epoch, loss=loss)
 
     def evaluate(self, dataloader, verbose=True, logger=None, weights=None, **kwargs):
         self.model.eval()
@@ -206,21 +206,18 @@ class GenerativeVAE(Model):
         else:
             return mu, log_var
 
-    def sample(self, num_samples, length, **kwargs):
+    def sample(self, num_samples, length, to_string=True, **kwargs):
         assert(length <= self.input / self.num_characters)
         if "z" in kwargs:
             z = kwargs["z"]
         else:
             z = torch.randn(num_samples, self.latent_dim).to(self.device)
-        sampled_probabilities = self.decoder(z, softmax=True).detach().numpy()
-        strings = []
-        for i in range(sampled_probabilities.shape[0]):
-            string = []
-            for j in range(sampled_probabilities.shape[1]):
-                k = np.random.choice(self.indexes, p=sampled_probabilities[i, j])
-                string.append(self.int_to_character[k])
-            strings.append("".join(string)[:length])
-        return strings
+        sampled_probabilities = self.decoder(z, softmax=True)
+        sampled_probabilities = sampled_probabilities[:, :length, :]
+        if to_string:
+            return [sample_tensor_to_string(prob, self.int_to_character) for prob in sampled_probabilities]
+        else:
+            return sampled_probabilities.detach().numpy()
 
     def show_model(self, logger=None):
         print(self.model, file=logger)

@@ -226,6 +226,7 @@ def sample_tensor_to_string(x, int_to_character, softmax=False):
     return "".join(string)
 
 
+
 def tensor_to_string(x, int_to_character):
     """
     Converts tensor to string

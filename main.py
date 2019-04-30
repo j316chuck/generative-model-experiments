@@ -4,9 +4,10 @@ import argparse
 
 from hmm import GenerativeHMM
 from vae import GenerativeVAE
+from rnn import GenerativeRNN
 from torch.utils.data import TensorDataset, DataLoader
 from utils import load_gfp_data, get_all_amino_acids, get_wild_type_amino_acid_sequence
-from utils import one_hot_encode, plot_mismatches_histogram
+from utils import one_hot_encode, plot_mismatches_histogram, string_to_tensor
 
 
 def get_dataloader(args):
@@ -42,6 +43,20 @@ def get_dataloader(args):
         train_loader = [list(x) for x in x_train[:args["num_data"]]]
         valid_loader = [list(x) for x in x_train[args["num_data"]:2 * args["num_data"]]]
         test_loader = [list(x) for x in x_test[:args["num_data"]]]
+    elif args["model_type"] == "rnn":
+        character_to_int = dict(zip(args["vocabulary"], list(range(len(args["vocabulary"])))))
+        train_input = torch.stack([string_to_tensor(string[:-1], character_to_int) for string in x_train[:args["num_data"]]]).long()
+        valid_input = torch.stack([string_to_tensor(string[:-1], character_to_int) for string in x_train[args["num_data"]:2*args["num_data"]]]).long()
+        test_input = torch.stack([string_to_tensor(string[:-1], character_to_int) for string in x_test[:args["num_data"]]]).long()
+        train_output = torch.stack([string_to_tensor(string[1:], character_to_int) for string in x_train[:args["num_data"]]]).long()
+        valid_output = torch.stack([string_to_tensor(string[1:], character_to_int) for string in x_train[args["num_data"]:2*args["num_data"]]]).long()
+        test_output = torch.stack([string_to_tensor(string[1:], character_to_int) for string in x_test[:args["num_data"]]]).long()
+        train_dataset = TensorDataset(train_input, train_output)
+        valid_dataset = TensorDataset(valid_input, valid_output)
+        test_dataset = TensorDataset(test_input, test_output)
+        train_loader = DataLoader(train_dataset, batch_size=args["batch_size"], shuffle=True)
+        valid_loader = DataLoader(valid_dataset, batch_size=args["batch_size"], shuffle=True)
+        test_loader = DataLoader(test_dataset, batch_size=args["batch_size"], shuffle=True)
 
     return train_loader, valid_loader, test_loader
 
@@ -52,6 +67,8 @@ def get_model(args):
         model = GenerativeVAE(args)
     elif args["model_type"] == 'hmm':
         model = GenerativeHMM(args)
+    elif args["model_type"] == 'rnn':
+        model = GenerativeRNN(args)
     return model
 
 
@@ -61,6 +78,7 @@ def main(args):
     model = get_model(args)
     assert(model is not None and train_loader is not None)
     logger = open("./logs/{0}/{1}.txt".format(args["model_type"], args["name"]), "w")
+    # logger = None
     print("Training {0} \nArgs:".format(args["name"]), file=logger)
     for arg, value in model.__dict__.items():
         print(arg, "--", value, file=logger)

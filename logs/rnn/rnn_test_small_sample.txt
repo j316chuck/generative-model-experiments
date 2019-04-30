@@ -1,14 +1,14 @@
-Training rnn_test_sample 
+Training rnn_test_small_sample 
 Args:
-args -- {'model_type': 'rnn', 'name': 'rnn_test_sample', 'input': 4998, 'hidden_size': 200, 'latent_dim': -1, 'seq_length': -1, 'pseudo_count': 1, 'n_jobs': 1, 'device': device(type='cpu'), 'learning_rate': 0.001, 'epochs': 10, 'batch_size': 10, 'layers': 1, 'dataset': 'gfp_amino_acid', 'num_data': 1000, 'vocabulary': '*ACDEFGHIKLMNPQRSTVWY', 'wild_type': 'SKGEELFTGVVPILVELDGDVNGHKFSVSGEGEGDATYGKLTLKFICTTGKLPVPWPTLVTTLSYGVQCFSRYPDHMKQHDFFKSAMPEGYVQERTIFFKDDGNYKTRAEVKFEGDTLVNRIELKGIDFKEDGNILGHKLEYNYNSHNVYIMADKQKNGIKVNFKIRHNIEDGSVQLADHYQQNTPIGDGPVLLPDNHYLSTQSALSKDPNEKRDHMVLLEFVTAAGITHGMDELYK*'}
+args -- {'model_type': 'rnn', 'name': 'rnn_test_small_sample', 'input': 4998, 'hidden_size': 200, 'latent_dim': -1, 'seq_length': -1, 'pseudo_count': 1, 'n_jobs': 1, 'device': device(type='cpu'), 'learning_rate': 0.001, 'epochs': 5, 'batch_size': 10, 'layers': 1, 'dataset': 'gfp_amino_acid', 'num_data': 1000, 'vocabulary': '*ACDEFGHIKLMNPQRSTVWY', 'wild_type': 'SKGEELFTGVVPILVELDGDVNGHKFSVSGEGEGDATYGKLTLKFICTTGKLPVPWPTLVTTLSYGVQCFSRYPDHMKQHDFFKSAMPEGYVQERTIFFKDDGNYKTRAEVKFEGDTLVNRIELKGIDFKEDGNILGHKLEYNYNSHNVYIMADKQKNGIKVNFKIRHNIEDGSVQLADHYQQNTPIGDGPVLLPDNHYLSTQSALSKDPNEKRDHMVLLEFVTAAGITHGMDELYK*'}
 save_epochs -- 50
-name -- rnn_test_sample
+name -- rnn_test_small_sample
 model_type -- rnn
 input -- 4998
 layers -- 1
 hidden_size -- 200
 learning_rate -- 0.001
-epochs -- 10
+epochs -- 5
 all_characters -- *ACDEFGHIKLMNPQRSTVWY
 batch_size -- 10
 pseudo_count -- 1
@@ -37,7 +37,10 @@ train_loss_history -- []
 valid_loss_history -- []
 **************************************************
 training model on train and validation datasets...
-epoch 1, train neg log prob: 252.2066, test neg log probability 50.5122, time: 113.49 sec
-epoch 2, train neg log prob: 41.3887, test neg log probability 36.7232, time: 223.31 sec
-epoch 3, train neg log prob: 33.5889, test neg log probability 32.2332, time: 333.97 sec
-epoch 4, train neg log prob: 30.2323, test neg log probability 29.9982, time: 443.90 sec
+epoch 1, train neg log prob: 243.4404, test neg log probability 49.3325, time: 143.50 sec
+epoch 2, train neg log prob: 40.7142, test neg log probability 36.2328, time: 290.99 sec
+epoch 3, train neg log prob: 33.1601, test neg log probability 32.0046, time: 418.30 sec
+epoch 4, train neg log prob: 29.8747, test neg log probability 29.8821, time: 553.83 sec
+epoch 5, train neg log prob: 28.0687, test neg log probability 28.3901, time: 699.42 sec
+**************************************************
+evaluating model on test dataset:

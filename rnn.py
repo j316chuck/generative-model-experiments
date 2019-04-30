@@ -1,15 +1,17 @@
 import time
 import torch
 import torch.nn as nn
-import numpy as np 
-import os 
+import numpy as np
+import os
 import matplotlib.pyplot as plt
 
 from torch.autograd import Variable
 from torchviz import make_dot
+from torch.nn import functional as F
 from utils import get_all_amino_acids, get_wild_type_amino_acid_sequence
-from utils import count_substring_mismatch, string_to_tensor
+from utils import count_substring_mismatch, string_to_tensor, to_tensor
 from models import Model
+
 
 # https://github.com/spro/char-rnn.pytorch/blob/master/model.py
 class RNN(nn.Module):
@@ -20,7 +22,7 @@ class RNN(nn.Module):
         self.hidden_size = hidden_size
         self.output_size = output_size
         self.n_layers = n_layers
-        
+
         self.encoder = nn.Embedding(input_size, hidden_size)
         if self.model == "gru":
             self.rnn = nn.GRU(hidden_size, hidden_size, n_layers)
@@ -30,13 +32,13 @@ class RNN(nn.Module):
 
     def forward(self, input, hidden):
         # input is of shape (batch_size, 1) where each input[x, 0] is the word index
-        # char RNN so we generate one character at a time. 
+        # char RNN so we generate one character at a time.
         batch_size = input.size(0)
         encoded = self.encoder(input)
         output, hidden = self.rnn(encoded.view(1, batch_size, -1), hidden)
         output = self.decoder(output.view(batch_size, -1))
         return output, hidden
-    
+
     def init_hidden(self, batch_size):
         if self.model == "lstm":
             return (Variable(torch.zeros(self.n_layers, batch_size, self.hidden_size)),
@@ -45,169 +47,185 @@ class RNN(nn.Module):
 
 
 class GenerativeRNN(Model):
-    
-    def __init__(self, args):     
+
+    def __init__(self, args):
         """
         Initializes the RNN to be a generative char RNN
         Parameters
         ----------
         args : dictionary
             defines the hyper-parameters of the neural network
-        args.name : string 
+        args.name : string
             defines the name of the neural network
-        args.description: string
-            describes the architecture of the neural network
         args.layers : int
             specifies the number of stacked layers we want in the LSTM
         args.hidden_size : int
             the size of the hidden layer
         args.learning_rate : float
             sets the learning rate
-        args.epochs : int 
-            sets the epoch size 
+        args.epochs : int
+            sets the epoch size
         args.vocabulary : string
             all the characters in the context of the problem
+        args.batch_size : int
+            sets the batch size of the problem
         """
         Model.__init__(self, args)
         self.name = args["name"]
-        self.description = args["description"]
+        self.model_type = args["model_type"]
+        self.input = args["input"]
         self.layers = args["layers"]
         self.hidden_size = args["hidden_size"]
         self.learning_rate = args["learning_rate"]
         self.epochs = args["epochs"]
         self.all_characters = args["vocabulary"]
+        self.batch_size = args["batch_size"]
+        self.pseudo_count = args["pseudo_count"]
+        self.device = args["device"]
         self.num_characters = len(self.all_characters)
-        self.character_to_int = dict(zip(self.all_characters, range(self.num_characters)))
-        self.int_to_character = dict(zip(range(self.num_characters), self.all_characters))
+        self.indexes = list(range(self.num_characters))
+        self.character_to_int = dict(zip(self.all_characters, self.indexes))
+        self.int_to_character = dict(zip(self.indexes, self.all_characters))
+        self.initial_probs = dict(zip(self.indexes, np.zeros(self.num_characters)))
+        self.initial_probs_tensor = []
         self.model = RNN(self.num_characters, self.hidden_size, self.num_characters, "lstm", self.layers)
         self.optimizer = torch.optim.Adam(self.model.parameters(), lr=self.learning_rate)
         self.criterion = nn.CrossEntropyLoss()
         self.train_loss_history, self.valid_loss_history = [], []
 
-    def fit(self, dataloader, verbose=True, logger=None, save_model=True):
-        # amino acid dataset specific checks
+    def fit(self, train_dataloader, valid_dataloader=None, verbose=True, logger=None, save_model=True, weights=None,
+            **kwargs):
         start_time = time.time()
+        self.model.train()
         self.train_loss_history, self.valid_loss_history = [], []
+        # fit initial distribution of starting characters with la place smoothing
+        self.initial_probs = dict(zip(self.indexes, np.ones(self.num_characters) * self.pseudo_count))
+        for inp, _ in train_dataloader:
+            for char_index in inp[:, 0]:
+                self.initial_probs[char_index.item()] += 1
+        dataset_length = len(train_dataloader.dataset)
+        smoothing_count = self.num_characters * self.pseudo_count
+        for char_index in self.initial_probs.keys():
+            self.initial_probs[char_index] = self.initial_probs[char_index] / (dataset_length + smoothing_count)
+        self.initial_probs_tensor = torch.Tensor(list(self.initial_probs.values()))
+
         for epoch in range(1, self.epochs + 1):
-            total_loss = []
-            for i, (input, target) in enumerate(dataloader):
-                batch_size, seq_length = input.shape[0], input.shape[1]
+            self.model.train()
+            train_loss = 0
+            for i, (inp, target) in enumerate(train_dataloader):
+                batch_size, seq_length = inp.shape[0], inp.shape[1]
                 hidden = self.model.init_hidden(batch_size)
                 self.model.zero_grad()
-                
                 loss = 0
                 for c in range(seq_length):
-                    output, hidden = self.model(input[:, c], hidden)
-                    loss += self.criterion(output.view(batch_size, -1), target[:, c])
-                
+                    output, hidden = self.model(inp[:, c], hidden)
+                    loss += self.criterion(output.view(batch_size, -1), target[:, c])  # mean cross entropy loss
                 loss.backward()
                 self.optimizer.step()
-                total_loss.append(loss.item() / seq_length)
-            
-            self.loss_history.append(np.mean(total_loss))
-            generated_sequence = self.sample(predict_len = len(wild_type) - 1, prime_str = "S")
-            mismatches = count_substring_mismatch(wild_type, generated_sequence)
-            wild_prob, mutation_three_prob, mutation_ten_prob = self.predict_log_prob(wild_type[1:10]), self.predict_log_prob(three_mutation[1:10]), self.predict_log_prob(ten_mutation[1:10])
-            
-            if verbose: 
-                print("epoch {0}. loss: {1:.2f}. time: {2:.2f} seconds.".format(epoch, self.loss_history[-1], time.time() - start_time), file = logger)
-                print("generated sequence: {0}\n{1} mismatches from the wild type".format(generated_sequence, mismatches), file = logger) 
-                print("wild type log prob: {0}. 3 mutations log prob: {1}. 10 mutations log prob: {2}.\n" \
-                      .format(wild_prob, mutation_three_prob, mutation_ten_prob), file = logger)
-            if save_model:
-                self.save_model(epoch, total_loss)        
+                train_loss += loss.item() * batch_size
+            train_loss /= len(train_dataloader.dataset)
+            self.train_loss_history.append(train_loss)
+            self.model.eval()
+            if valid_dataloader:
+                valid_loss = self.evaluate(valid_dataloader, verbose=False, logger=logger)
+                self.valid_loss_history.append(valid_loss)
+            if verbose:
+                print("epoch {0}, train neg log prob: {1:.4f}, test neg log probability {2:.4f}, time: {3:.2f} sec".format(
+                        epoch, train_loss, valid_loss, time.time() - start_time), file=logger)
+            if epoch % self.save_epochs == 0 and save_model:
+                self.save_model("./models/{0}/checkpoint_{1}.pt".format(self.name, epoch), epoch=epoch, loss=loss, initial_probs=True)
 
-    def predict_log_prob(self, sequence, prime_str = "S"):
-        hidden = self.model.init_hidden(1) 
-        prime_input = string_to_tensor(prime_str, self.character_to_int)
-        for p in range(len(prime_str) - 1):
-            _, hidden = self.model(prime_input[p], hidden)
-        input = prime_input[-1]
+    def evaluate(self, dataloader, verbose=False, logger=None, weights=None, **kwargs):
+        total_loss = 0
+        for inp, target in dataloader:
+            batch_size, seq_length = inp.shape[0], inp.shape[1]
+            for starting_char_index in inp[:, 0]:
+                total_loss += -np.log(self.initial_probs[starting_char_index.item()]) #neg log probability of starting character
+            hidden = self.model.init_hidden(batch_size)
+            for c in range(seq_length):
+                output, hidden = self.model(inp[:, c], hidden)
+                total_loss += (self.criterion(output.view(batch_size, -1), target[:, c]) * batch_size)
+        return total_loss.item() / len(dataloader.dataset)
 
-        log_prob = 0
-        for char in sequence:
-            output, hidden = self.model(input.view(1, -1), hidden)
-            softmax = nn.Softmax(dim = 1)
-            probs = softmax(output).view(-1)
-            i = self.character_to_int[char]
-            log_prob += np.log(probs[i].item())
-        return log_prob
+    def sample(self, num_samples, length, to_string=True, **kwargs):
+        hidden = self.model.init_hidden(num_samples)
+        input = torch.multinomial(input=self.initial_probs_tensor, num_samples=num_samples, replacement=True)
+        predicted_strings = input.reshape(1, num_samples).long()
+        sampled_probabilities = torch.stack([self.initial_probs_tensor for _ in range(num_samples)])
+        sampled_probabilities = sampled_probabilities.reshape(1, num_samples, self.num_characters)
+        for _ in range(1, length):
+            output, hidden = self.model(input.view(num_samples, 1), hidden)
+            output = F.softmax(output, dim=-1)
+            input = torch.Tensor([torch.multinomial(input=prob, num_samples=1, replacement=True)[0] for prob in output]).long()
+            sampled_probabilities = torch.cat([sampled_probabilities, output.reshape(1, num_samples, self.num_characters)])
+            predicted_strings = torch.cat([predicted_strings, input.reshape(1, num_samples)])
+        sampled_probabilities = sampled_probabilities.permute(1, 0, 2)
+        predicted_strings = predicted_strings.permute(1, 0).detach().numpy()
+        if to_string:
+            sampled_strings = []
+            for string in predicted_strings:
+                sampled_strings.append("".join([self.int_to_character[index] for index in string]))
+            return sampled_strings
+        else:
+            return sampled_probabilities.detach().numpy()
 
-    def sample(self, predict_len, prime_str = 'S', temperature = 1):
-        hidden = self.model.init_hidden(1)
-        prime_input = string_to_tensor(prime_str, self.character_to_int)
-        predicted = prime_str
+    def show_model(self, logger=None, **kwargs):
+        print(self.model, file=logger)
 
-        # Use priming string to "build up" hidden state
-        for p in range(len(prime_str) - 1):
-            output, hidden = self.model(prime_input[p], hidden)
-        input = prime_input[-1]
-
-        for p in range(predict_len):
-            output, hidden = self.model(input.view(1, -1), hidden)
-
-            # Sample from the network as a multinomial distribution
-            output_dist = output.data.view(-1).div(temperature).exp()
-            top_i = torch.multinomial(output_dist, 1)[0].item()
-
-            # Add predicted character to string and use as next input
-            predicted_char = self.int_to_character[top_i]
-            predicted += predicted_char
-            input = string_to_tensor(predicted_char, self.character_to_int)
-
-        return predicted
-
-            
-    def load_model(self, model_path):
-        checkpoint = torch.load("./models/{0}/{1}".format(self.name, model_path))
-        self.model.load_state_dict(checkpoint["model_state_dict"])
-        self.optimizer.load_state_dict(checkpoint["optimizer_state_dict"])
-    
-    def save_model(self, epoch=None, loss=None): 
-        torch.save({
-                    'epoch': epoch,
-                    'loss': loss,
-                    'model_state_dict': self.model.state_dict(),
-                    'optimizer_state_dict': self.optimizer.state_dict()
-                }, "./models/{0}/checkpoint_{1}.pt".format(self.name, epoch))
-
-    
-    def show_model(self): 
-        print(self.model)
-    
-    def plot_model(self, save_dir, verbose=True): 
+    def plot_model(self, save_fig_dir, show=False, **kwargs):
         hidden = self.model.init_hidden(1)
         out, _ = self.model(string_to_tensor("S", self.character_to_int), hidden)
         graph = make_dot(out)
-        if save_dir is not None:
+        if save_fig_dir is not None:
             graph.format = "png"
-            graph.render(save_dir) 
-        if verbose:
+            graph.render(save_fig_dir)
+        if show:
             graph.view()
-            
-    def plot_history(self, save_fig_dir): 
+
+    def save_model(self, path, **kwargs):
+        d = dict()
+        d['model_state_dict'] = self.model.state_dict()
+        d['optimizer_state_dict'] = self.optimizer.state_dict()
+        if 'initial_probs' in kwargs:
+            d['initial_probs'] = self.initial_probs
+        if 'epoch' in kwargs:
+            d['epoch'] = kwargs['epoch']
+        if 'loss' in kwargs:
+            d['loss'] = kwargs
+        torch.save(d, path)
+
+    def load_model(self, path, **kwargs):
+        saved_dict = torch.load(path)
+        self.model.load_state_dict(saved_dict["model_state_dict"])
+        self.optimizer.load_state_dict(saved_dict["optimizer_state_dict"])
+        if 'initial_probs' in kwargs:
+            self.initial_probs = saved_dict['initial_probs']
+            self.initial_probs_tensor = torch.Tensor(list(self.initial_probs.values()))
+
+    def plot_history(self, save_fig_dir, **kwargs):
         plt.figure()
-        plt.title("Training Loss Curve")
-        plt.plot(self.loss_history)
+        plt.title("{0} training history".format(self.name))
+        for name, history_lst in self.__dict__.items():
+            if "history" in name:
+                plt.plot(history_lst, label=name)
+        plt.legend()
         plt.xlabel("epochs")
         plt.ylabel("loss")
-        plt.xticks(range(self.epochs))
         if save_fig_dir:
             plt.savefig(save_fig_dir)
-        plt.show()
-    
-def get_test_args():
-    args = {
-        "name" : "rnn_test_sample",
-        "layers" : 2, 
-        "hidden_size" : 200,
-        "learning_rate" : 0.005,
-        "epochs" : 10,
-        "vocabulary" : get_all_amino_acids(),
-        "num_data" : 100, 
-        "batch_size" : 10
-    }
-    args["description"] = "name: {0}, layers {1}, hidden size {2}, lr {3}, epochs {4}".format(args["name"], 
-                            args["layers"], args["hidden_size"], args["learning_rate"], args["epochs"])
 
-    return args
+
+def rnn_default_args():
+    return {
+        "input" : 4998,
+        "batch_size" : 10,
+        "name": "default",
+        "model_type": "rnn",
+        "layers": 1,
+        "hidden_size": 200,
+        "learning_rate": 0.001,
+        "epochs": 10,
+        "vocabulary": get_all_amino_acids(),
+        "pseudo_count": 1,
+        "device": torch.device("cpu")
+    }
