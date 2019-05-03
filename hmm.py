@@ -2,7 +2,7 @@ import json
 from pomegranate import DiscreteDistribution, HiddenMarkovModel
 from utils import *
 from models import Model
-
+import os
 
 class GenerativeHMM(Model):
 
@@ -67,7 +67,7 @@ class GenerativeHMM(Model):
         self.model = HiddenMarkovModel.from_matrix(trans_mat, distributions, starts)
         self.model.bake()
 
-    def fit(self, train_dataloader, valid_dataloader=None, verbose=True, logger=None, save_model=True, weights=None, **kwargs):
+    def fit(self, train_dataloader, valid_dataloader=None, verbose=True, logger=None, save_model_dir=None, weights=None, **kwargs):
         """
         Fits the model on an HMM with self.hidden_size
         """
@@ -83,8 +83,8 @@ class GenerativeHMM(Model):
             if verbose:
                 print("epoch {0}, train neg log prob: {1:.4f}, test neg log probability {2:.4f}, time: {3:.2f} sec".format(
                     epoch, train_neg_log_prob, test_neg_log_prob, time.time() - start_time), file=logger)
-            if epoch % self.save_epochs == 0 and save_model:
-                self.save_model("./models/{0}/checkpoint_{1}.json".format(self.name, epoch))
+            if epoch % self.save_epochs == 0 and save_model_dir:
+                self.save_model(os.path.join(save_model_dir, "checkpoint_{0}.json".format(epoch)))
 
     def evaluate(self, dataloader, verbose=False, logger=None, weights=None, **kwargs):
         """
@@ -136,6 +136,7 @@ class GenerativeHMM(Model):
         plt.ylabel("loss")
         if save_fig_dir:
             plt.savefig(save_fig_dir)
+        plt.close()
 
 
 

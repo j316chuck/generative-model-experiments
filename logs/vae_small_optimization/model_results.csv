@@ -1,0 +1,9 @@
+name,test_score,mismatches
+vae_learning_rate_0.003_hidden_size_200_batch_size_10,31.683650970458984,3.547
+vae_learning_rate_0.003_hidden_size_200_batch_size_20,31.19463539123535,3.263
+vae_learning_rate_0.001_hidden_size_200_batch_size_10,28.691736221313477,2.983
+vae_learning_rate_0.001_hidden_size_50_batch_size_20,27.464357376098633,88.342
+vae_learning_rate_0.003_hidden_size_50_batch_size_10,27.061504364013672,3.581
+vae_learning_rate_0.001_hidden_size_200_batch_size_20,25.890949249267578,3.488
+vae_learning_rate_0.001_hidden_size_50_batch_size_10,25.642593383789062,3.632
+vae_learning_rate_0.003_hidden_size_50_batch_size_20,25.606840133666992,3.686

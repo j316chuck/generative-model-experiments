@@ -7,7 +7,7 @@ class Model(object):
     def fit(self, train_dataloader, valid_dataloader=None, verbose=True, logger=None, save_model=True, weights=None):
         raise NotImplementedError
         
-    def evaluate(self, dataloader, verbose=False, logger=None, save_model=True, weights=None):
+    def evaluate(self, dataloader, verbose=False, logger=None, save_model_dir=None, weights=None):
         raise NotImplementedError
 
     def sample(self, num_samples, length, to_string=True):

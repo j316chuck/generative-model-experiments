@@ -9,27 +9,72 @@ from Bio.Seq import translate, IUPAC
 from torch.nn import functional as F
 import matplotlib.pyplot as plt
 
-def normalize(X): 
-    """ normalize an array """
+
+def normalize(X):
+    """
+    :param X: dataframe or numpy array to be normalized
+    :return: dataframe or numpy array that is normalized
+    >>> normalize(np.array([0, 1, 2]))
+    array([-1.22474487,  0.        ,  1.22474487])
+    """
     return (X - X.mean()) / X.std()
 
-def get_wild_type_dna_sequence(): 
+
+def get_wild_type_dna_sequence():
+    """
+    :return: string of wild type dna sequence from cached location
+    """
     return pd.read_csv("./data/gfp_data.csv")["nucSequence"].values[0]
 
+
 def dna_to_amino_acid(dna_seq):
+    """
+    :param dna_seq:
+    :return: string of dna sequence into amino acid form
+    >>> dna_to_amino_acid("ACTGGCTAT")
+    'TGY'
+    """
     return translate(dna_seq)
 
-def get_all_amino_acids(): 
+
+def get_all_amino_acids():
+    """
+    :return: string of all amino acids + stop character
+    >>> get_all_amino_acids()
+    '*ACDEFGHIKLMNPQRSTVWY'
+    >>> len(get_all_amino_acids())
+    21
+    """
     return "*" + IUPAC.protein.letters
-    
-def get_wild_type_amino_acid_sequence(): 
+
+
+def get_wild_type_amino_acid_sequence():
+    """
+    :return: string of wild type amino acid sequence from cached location
+    """
     return dna_to_amino_acid(get_wild_type_dna_sequence())
 
-def count_substring_mismatch(s1, s2): 
-    """ returns the number of misaligned pairs within strings s1 and s2"""
+
+def count_substring_mismatch(s1, s2):
+    """
+    :param s1: string one
+    :param s2: string two
+    :return: int of the number of mismatches between the two sequences
+    >>> count_substring_mismatch('1', '2')
+    1
+    >>> count_substring_mismatch('ACT', 'ACGA')
+    2
+    """
     return sum([i != j for i, j in zip_longest(s1, s2)])
 
+
 def generate_random_gfp_data_mutations(num_of_mutations_lst, num_per_mutation_count = 1000): 
+    """
+
+    :param num_of_mutations_lst: list defining the count of mutations from the base sequence we want
+    :param num_per_mutation_count:
+    :return:
+    """
     """
     Input: num_of_mutations_lst is a list defining the count of mutations from the base sequence we want, 
            num_per_mutation_count is an int defining how many of each mutation count do we want. Often set to the test size
@@ -134,6 +179,7 @@ def plot_mismatches_histogram(sequences, wild_type, save_fig_dir=None, show=Fals
         plt.savefig(save_fig_dir)
     if show:
         plt.show()
+    plt.close()
     return mismatches
 
 def one_hot_encode(X, alphabet):

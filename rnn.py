@@ -93,7 +93,7 @@ class GenerativeRNN(Model):
         self.criterion = nn.CrossEntropyLoss()
         self.train_loss_history, self.valid_loss_history = [], []
 
-    def fit(self, train_dataloader, valid_dataloader=None, verbose=True, logger=None, save_model=True, weights=None,
+    def fit(self, train_dataloader, valid_dataloader=None, verbose=True, logger=None, save_model_dir=None, weights=None,
             **kwargs):
         start_time = time.time()
         self.model.train()
@@ -132,8 +132,8 @@ class GenerativeRNN(Model):
             if verbose:
                 print("epoch {0}, train neg log prob: {1:.4f}, test neg log probability {2:.4f}, time: {3:.2f} sec".format(
                         epoch, train_loss, valid_loss, time.time() - start_time), file=logger)
-            if epoch % self.save_epochs == 0 and save_model:
-                self.save_model("./models/{0}/checkpoint_{1}.pt".format(self.name, epoch), epoch=epoch, loss=loss, initial_probs=True)
+            if epoch % self.save_epochs == 0 and save_model_dir:
+                self.save_model(os.path.join(save_model_dir, "checkpoint_{0}.pt".format(epoch)), epoch=epoch, loss=loss, initial_probs=True)
 
     def evaluate(self, dataloader, verbose=False, logger=None, weights=None, **kwargs):
         total_loss = 0
@@ -213,6 +213,7 @@ class GenerativeRNN(Model):
         plt.ylabel("loss")
         if save_fig_dir:
             plt.savefig(save_fig_dir)
+        plt.close()
 
 
 def rnn_default_args():

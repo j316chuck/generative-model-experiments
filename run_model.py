@@ -36,9 +36,9 @@ def get_dataloader(args):
                                       torch.from_numpy(y_valid.reshape(-1, 1)).float())
         test_dataset = TensorDataset(torch.from_numpy(one_hot_x_test).float(),
                                      torch.from_numpy(y_test.reshape(-1, 1)).float())
-        train_loader = DataLoader(train_dataset, batch_size=args["batch_size"], shuffle=True)
-        valid_loader = DataLoader(valid_dataset, batch_size=args["batch_size"], shuffle=True)
-        test_loader = DataLoader(test_dataset, batch_size=args["batch_size"], shuffle=True)
+        train_loader = DataLoader(train_dataset, batch_size=int(args["batch_size"]), shuffle=True)
+        valid_loader = DataLoader(valid_dataset, batch_size=int(args["batch_size"]), shuffle=True)
+        test_loader = DataLoader(test_dataset, batch_size=int(args["batch_size"]), shuffle=True)
     elif args["model_type"] == "hmm":
         train_loader = [list(x) for x in x_train[:args["num_data"]]]
         valid_loader = [list(x) for x in x_train[args["num_data"]:2 * args["num_data"]]]
@@ -54,9 +54,9 @@ def get_dataloader(args):
         train_dataset = TensorDataset(train_input, train_output)
         valid_dataset = TensorDataset(valid_input, valid_output)
         test_dataset = TensorDataset(test_input, test_output)
-        train_loader = DataLoader(train_dataset, batch_size=args["batch_size"], shuffle=True)
-        valid_loader = DataLoader(valid_dataset, batch_size=args["batch_size"], shuffle=True)
-        test_loader = DataLoader(test_dataset, batch_size=args["batch_size"], shuffle=True)
+        train_loader = DataLoader(train_dataset, batch_size=int(args["batch_size"]), shuffle=True)
+        valid_loader = DataLoader(valid_dataset, batch_size=int(args["batch_size"]), shuffle=True)
+        test_loader = DataLoader(test_dataset, batch_size=int(args["batch_size"]), shuffle=True)
 
     return train_loader, valid_loader, test_loader
 
@@ -72,38 +72,51 @@ def get_model(args):
     return model
 
 
-def main(args):
+def run_experiment(args):
+    if args["device"] == 'cpu':
+        args["device"] = torch.device("cpu")
+    else:
+        args["device"] = torch.device("gpu")
+    # creating paths for the models to be logged and saved
+    if not os.path.exists("./{0}/{1}".format(args["base_log"], args["model_type"])):
+        os.makedirs("./{0}/{1}".format(args["base_log"], args["model_type"]))
+    if not os.path.exists("./models/{0}".format(args["name"])):
+        os.makedirs('./models/{0}'.format(args["name"]))
+
     # loading data and model
     train_loader, valid_loader, test_loader = get_dataloader(args)
     model = get_model(args)
     assert(model is not None and train_loader is not None)
-    logger = open("./logs/{0}/{1}.txt".format(args["model_type"], args["name"]), "w")
-    # logger = None
+    path_name = os.path.join(args["base_log"], args["model_type"], args["name"])
+    logger = open(path_name + ".txt", "w")
+    #logger = None
     print("Training {0} \nArgs:".format(args["name"]), file=logger)
     for arg, value in model.__dict__.items():
         print(arg, "--", value, file=logger)
-
     # training and evaluating model
     # torch.manual_seed(1)  # set seed to get reproducible results
     print("*" * 50 + "\ntraining model on train and validation datasets...", file=logger)
-    model.fit(train_dataloader=train_loader, valid_dataloader=valid_loader, verbose=True, logger=logger, save_model=True)
-    model.plot_model("./logs/{0}/{1}_model_architecture".format(model.model_type, model.name))
-    model.plot_history("./logs/{0}/{1}_training_history.png".format(model.model_type, model.name))
+    model_path = os.path.join("./models", args["name"])
+    model.fit(train_dataloader=train_loader, valid_dataloader=valid_loader, verbose=True, logger=logger, save_model_dir=model_path)
+    model.save_model(os.path.join(model_path, args["name"]))
+    model.plot_model(path_name + "_model_architecture")
+    model.plot_history(path_name + "_training_history.png")
     print("*" * 50 + "\nevaluating model on test dataset:", file=logger)
-    model.evaluate(dataloader=test_loader, verbose=True, logger=logger)
+    test_score = model.evaluate(dataloader=test_loader, verbose=True, logger=logger)
     if logger:
         logger.close()
 
     # sample from model and see if generated sequences are reasonable
     sampled_sequences = model.sample(num_samples=1000, length=len(args["wild_type"]))
-    save_fig_dir = "./logs/{0}/{1}_mismatches.png".format(model.model_type, model.name)
-    plot_mismatches_histogram(sampled_sequences, args["wild_type"], save_fig_dir=save_fig_dir, show=False)
+    mismatches = plot_mismatches_histogram(sampled_sequences, args["wild_type"], save_fig_dir=path_name + "_mismatches.png", show=False)
+    return sum(mismatches) / len(mismatches), test_score, model
 
 
 if __name__ == '__main__':
     # parsing arguments
     parser = argparse.ArgumentParser(description='Process the arguments for the Model')
     parser.add_argument("-mt", "--model_type", default="vae", required=False, help="type of model to use", type=str)
+    parser.add_argument("-bl", "--base_log", default="logs", required=False, help="base_log", type=str)
     parser.add_argument("-n", "--name", default="vae_test_sample", required=False, help="name of model", type=str)
     parser.add_argument("-i", "--input", default=-1, required=False, help="size of input", type=int)
     parser.add_argument("-hi", "--hidden_size", default=-1, required=False, help="hidden size of model", type=int)
@@ -119,16 +132,6 @@ if __name__ == '__main__':
     parser.add_argument("-da", "--dataset", default="gfp_amino_acid", required=False, help="which dataset to use", type=str)
     parser.add_argument("-d", "--num_data", default=100, required=False, help="number of data points to train on", type=int)
     args = vars(parser.parse_args())
-    if args["device"] == "cpu":
-        args["device"] = torch.device("cpu")
-    else:
-        args["device"] = torch.device("gpu")
-
-    # creating paths for the models to be logged and saved
-    if not os.path.exists("./logs/{0}".format(args["model_type"])):
-        os.makedirs("./logs/{0}".format(args["model_type"]))
-    if not os.path.exists("./models/{0}".format(args["name"])):
-        os.makedirs('./models/{0}'.format(args["name"]))
 
     # main training and testing function
-    main(args)
+    run_experiment(args)
