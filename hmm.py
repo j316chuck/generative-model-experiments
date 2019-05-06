@@ -4,35 +4,10 @@ from utils import *
 from models import Model
 import os
 
+
 class GenerativeHMM(Model):
 
     def __init__(self, args):
-        """ TODO add documentation """
-        """
-        Initializes the HMM to perform generative tasks
-        Parameters
-        ----------
-        args : dictionary
-            defines the hyper-parameters of the HMM
-        args.name : string 
-            defines the name of the HMM
-        args.hidden_size : int 
-            defines the hidden size
-        args.epochs: int
-            sets the epochs
-        args.n_jobs: int
-            sets the number of cores to use
-        args.batch_size : int
-            sets the batch size (not implemented yet)
-        args.pseudo_count : int
-            sets the pseudo count of the args
-        args.vocabulary : str
-            all the characters in the output sequences
-        args.char_to_int : dict
-            a map from characters to index (integer) in the sequences
-        args.build_from_samples : boolean
-            build model from samples
-        """
         Model.__init__(self, args)
         self.model_type = args["model_type"]
         self.name = args["name"]
@@ -68,9 +43,6 @@ class GenerativeHMM(Model):
         self.model.bake()
 
     def fit(self, train_dataloader, valid_dataloader=None, verbose=True, logger=None, save_model_dir=None, weights=None, **kwargs):
-        """
-        Fits the model on an HMM with self.hidden_size
-        """
         start_time = time.time()
         for epoch in range(1, self.epochs + 1):
             _, hist = self.model.fit(train_dataloader, max_iterations=1, pseudocount=self.pseudo_count,
@@ -87,11 +59,6 @@ class GenerativeHMM(Model):
                 self.save_model(os.path.join(save_model_dir, "checkpoint_{0}.json".format(epoch)))
 
     def evaluate(self, dataloader, verbose=False, logger=None, weights=None, **kwargs):
-        """
-        predict the log probability of obtaining the sequences in x_test
-        log(P(X1, X2, ..., X_test)) = sum(log(P(Xi)))
-        Input: x_test a list of sequences. should be 2 or 3 dimensional
-        """
         assert(len(np.array(dataloader).shape) == 2 or len(np.array(dataloader).shape) == 3)
         neg_log_prob = -sum([self.model.log_probability(seq) for seq in np.array(dataloader)])
         if verbose:
@@ -102,11 +69,6 @@ class GenerativeHMM(Model):
             return neg_log_prob
 
     def sample(self, num_samples, length, to_string=True, **kwargs):
-        """
-        Input:
-        n is number of samples
-        length is how long you want each sample to be
-        """
         return ["".join(x) for x in self.model.sample(n=num_samples, length=length)]
 
     def show_model(self, logger=None, **kwargs):

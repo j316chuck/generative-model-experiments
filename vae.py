@@ -33,11 +33,13 @@ class VAE(nn.Module):
         return self.fc21(h1), self.fc22(h1)
 
     def reparameterize(self, mu, logvar):
+        # mu and logvar should be of shape - (batch_size, hidden_size)
         std = torch.exp(0.5 * logvar)
         eps = torch.randn_like(std)
         return mu + eps * std
 
     def decode(self, z, softmax=False):
+        # z should be of shape - (batch_size, hidden_size)
         batch_size = z.shape[0]
         h3 = F.elu(self.fc3(z))
         if softmax:
@@ -47,50 +49,21 @@ class VAE(nn.Module):
 
     def forward(self, x):
         """
-        Input: x is the one hot encoded batch_size x (seq_length * num_characters)
-        Output: recon_x: is the one hot encoded batch_size x seq_length x num_characters vector
-                mu: is the hidden state mean with dimension batch_size x hidden_size
-                logvar: is the hidden state log variance with dimension batch_size x hidden_size
+        :param x: one hot encoded vector with dimension (batch_size x (seq_length * num_characters))
+        :return: recon_x: one hot encoded vector with dimension (batch_size x seq_length x num_characters)
+                mu: hidden state mean with dimension (batch_size x hidden_size)
+                logvar: hidden state log variance with dimension (batch_size x hidden_size)
         """
         mu, logvar = self.encode(x.view(-1, self.input_size))
+        # sampled hidden state
         z = self.reparameterize(mu, logvar)
-        return self.decode(z, softmax=False), mu, logvar
+        recon_x = self.decode(z, softmax=False)
+        return recon_x, mu, logvar
 
 
 class GenerativeVAE(Model):
 
     def __init__(self, args):
-        """
-        Initializes the VAE to be a generative VAE
-        Parameters
-        ----------
-        args : dictionary
-            defines the hyper-parameters of the neural network
-        args.model_type : string
-            defines the type of the neural network
-        args.name : string
-            defines the name of the neural network
-        args.input : int
-            the size of the input
-        args.hidden_size : int
-            the size of the hidden layer
-        args.latent_dim: int
-            the size of the latent dimension
-        args.device : device
-            the device used: cpu or gpu
-        args.learning_rate : float
-            sets the learning rate
-        args.epochs : int
-            sets the epoch size
-        args.vocabulary : string
-            all the characters in the context of the problem
-        args.seq_length : int
-            maximum seq length of the DNA sequence
-        args.batch_size : int
-            batch size of the model
-        args.learning_rate : float
-            initial learning rate
-        """
         Model.__init__(self, args)
         self.model_type = args["model_type"]
         self.name = args["name"]
@@ -117,17 +90,18 @@ class GenerativeVAE(Model):
 
     def elbo_loss(self, recon_x, x, mu, logvar):
         """
-        Input: x is the one hot encoded batch_size x (seq_length * num_characters)
-               recon_x is the unormalized outputs of the decoder in the same shape as x
-               mu and logvar are the hidden states of size self.hidden_size
-        Output: elbo_loss
+        :param recon_x: one hot encoded vector that is the output of the vae (batch_size x seq_length x num_characters)
+        :param x: one hot encoded vector that is the expected x value (batch_size x seq_length x num_characters)
+        :param mu: hidden state mean with dimension (batch_size x hidden_size)
+        :param logvar: hidden state log variance with dimension (batch_size x hidden_size)
+        :return: kld_loss + negative log likelihood loss
         """
         return self.cross_entropy_loss(recon_x, x) + self.kld_loss(mu, logvar)
 
     def cross_entropy_loss(self, recon_x, x):
         loss = nn.CrossEntropyLoss(reduction='sum')
-        inp = recon_x.permute(0, 2, 1)
-        _, target = x.view(x.shape[0], -1, self.num_characters).max(dim=2)
+        inp = recon_x.permute(0, 2, 1)  # reshape to format in CrossEntropy Form (batch_size x num_characters x seq_length)
+        _, target = x.view(x.shape[0], -1, self.num_characters).max(dim=2)  # get in CrossEntropy Form (batch_size x seq_length)
         target = target.long()
         return loss(inp, target)
 

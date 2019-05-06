@@ -12,9 +12,8 @@ from utils import one_hot_encode, plot_mismatches_histogram, string_to_tensor
 
 def get_dataloader(args):
     """
-    returns a dataloader that loads n sequences of length size broken into batch_size chunks.
-    sequences may be randomly drawn from initial dataset and shuffled every epoch
-    wild type added to args
+    :param args: contains all the arguments to load the data
+    :return: a loaded dataset with wild type and vocabulary included in args
     """
     x_train, x_test, y_train, y_test = None, None, None, None
     train_loader, valid_loader, test_loader = None, None, None
@@ -62,6 +61,10 @@ def get_dataloader(args):
 
 
 def get_model(args):
+    """
+    :param args: args to specify which model to use
+    :return: the model to run the experiment with
+    """
     model = None
     if args["model_type"] == 'vae':
         model = GenerativeVAE(args)
@@ -73,10 +76,17 @@ def get_model(args):
 
 
 def run_experiment(args):
+    """
+    main training loop to fit, save, plot, and evaluate the model
+    :param args: arguments to initialize model and dataset with
+    :return: average mismatches among 1000 samples, average neg log prob, model
+    """
+    # putting tensors on cpu or gpu
     if args["device"] == 'cpu':
         args["device"] = torch.device("cpu")
     else:
         args["device"] = torch.device("gpu")
+
     # creating paths for the models to be logged and saved
     if not os.path.exists("./{0}/{1}".format(args["base_log"], args["model_type"])):
         os.makedirs("./{0}/{1}".format(args["base_log"], args["model_type"]))
@@ -88,13 +98,14 @@ def run_experiment(args):
     model = get_model(args)
     assert(model is not None and train_loader is not None)
     path_name = os.path.join(args["base_log"], args["model_type"], args["name"])
+    #
+    logger=None
     logger = open(path_name + ".txt", "w")
-    #logger = None
     print("Training {0} \nArgs:".format(args["name"]), file=logger)
     for arg, value in model.__dict__.items():
         print(arg, "--", value, file=logger)
+
     # training and evaluating model
-    # torch.manual_seed(1)  # set seed to get reproducible results
     print("*" * 50 + "\ntraining model on train and validation datasets...", file=logger)
     model_path = os.path.join("./models", args["name"])
     model.fit(train_dataloader=train_loader, valid_dataloader=valid_loader, verbose=True, logger=logger, save_model_dir=model_path)

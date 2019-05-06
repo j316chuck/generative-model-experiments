@@ -49,27 +49,6 @@ class RNN(nn.Module):
 class GenerativeRNN(Model):
 
     def __init__(self, args):
-        """
-        Initializes the RNN to be a generative char RNN
-        Parameters
-        ----------
-        args : dictionary
-            defines the hyper-parameters of the neural network
-        args.name : string
-            defines the name of the neural network
-        args.layers : int
-            specifies the number of stacked layers we want in the LSTM
-        args.hidden_size : int
-            the size of the hidden layer
-        args.learning_rate : float
-            sets the learning rate
-        args.epochs : int
-            sets the epoch size
-        args.vocabulary : string
-            all the characters in the context of the problem
-        args.batch_size : int
-            sets the batch size of the problem
-        """
         Model.__init__(self, args)
         self.name = args["name"]
         self.model_type = args["model_type"]
@@ -107,6 +86,7 @@ class GenerativeRNN(Model):
         smoothing_count = self.num_characters * self.pseudo_count
         for char_index in self.initial_probs.keys():
             self.initial_probs[char_index] = self.initial_probs[char_index] / (dataset_length + smoothing_count)
+        # initial distribution to sample from 
         self.initial_probs_tensor = torch.Tensor(list(self.initial_probs.values()))
 
         for epoch in range(1, self.epochs + 1):
