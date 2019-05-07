@@ -86,8 +86,8 @@ def run_experiment(args):
         args["device"] = torch.device("cpu")
     else:
         args["device"] = torch.device("gpu")
-
     # creating paths for the models to be logged and saved
+
     if not os.path.exists("./{0}/{1}".format(args["base_log"], args["model_type"])):
         os.makedirs("./{0}/{1}".format(args["base_log"], args["model_type"]))
     if not os.path.exists("./models/{0}".format(args["name"])):
@@ -142,6 +142,5 @@ if __name__ == '__main__':
     parser.add_argument("-da", "--dataset", default="gfp_amino_acid", required=False, help="which dataset to use", type=str)
     parser.add_argument("-d", "--num_data", default=100, required=False, help="number of data points to train on", type=int)
     args = vars(parser.parse_args())
-
     # main training and testing function
     run_experiment(args)

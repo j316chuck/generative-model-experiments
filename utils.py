@@ -25,7 +25,37 @@ def get_wild_type_dna_sequence():
     """
     :return: string of wild type dna sequence from cached location
     """
-    return pd.read_csv("./data/gfp_data.csv")["nucSequence"].values[0]
+    return "AGCAAGGGCGAGGAGCTGTTCAC" \
+           "CGGGGTGGTGCCCATCCTGGTCG" \
+           "AGCTGGACGGCGACGTAAACGGC" \
+           "CACAAGTTCAGCGTGTCCGGCGA" \
+           "GGGCGAGGGCGATGCCACCTACG" \
+           "GCAAGCTGACCCTGAAGTTCATC" \
+           "TGCACCACCGGCAAGCTGCCCGT" \
+           "GCCCTGGCCCACCCTCGTGACCA" \
+           "CCCTGTCATACGGCGTGCAGTGC" \
+           "TTCAGCCGCTACCCCGACCACAT" \
+           "GAAGCAGCACGACTTCTTCAAGT" \
+           "CCGCCATGCCCGAAGGCTACGTC" \
+           "CAGGAGCGCACCATCTTCTTCAA" \
+           "GGACGACGGCAACTACAAGACCC" \
+           "GCGCCGAGGTGAAGTTCGAGGGC" \
+           "GACACACTAGTGAACCGCATCGA" \
+           "GCTGAAGGGCATCGACTTCAAGG" \
+           "AGGACGGCAACATCCTGGGGCAC" \
+           "AAGCTGGAGTACAACTACAACAG" \
+           "CCACAACGTCTATATCATGGCCG" \
+           "ACAAGCAGAAGAACGGCATCAAG" \
+           "GTGAACTTCAAGATCCGCCACAA" \
+           "CATCGAGGACGGCAGCGTGCAGC" \
+           "TCGCCGACCACTACCAGCAGAACA" \
+           "CCCCCATCGGCGACGGCCCCGTGC" \
+           "TGCTGCCCGACAACCACTACCTGA" \
+           "GCACCCAGTCCGCCCTGAGCAAAGA" \
+           "CCCCAACGAGAAGCGCGATCACAT" \
+           "GGTCCTGCTGGAGTTCGTGACCGC" \
+           "CGCCGGGATCACTCACGGCATGGA" \
+           "CGAGCTGTACAAGTGA"
 
 
 def dna_to_amino_acid(dna_seq):
@@ -307,7 +337,6 @@ def generate_mutations_df(base_sequence, mutations_lst, mutation_count_lst, alph
     mutations_per_sequence_lst = []
     for mutation_count, num_mutations in zip(mutations_lst, mutation_count_lst):
         mutations_per_sequence_lst.extend([mutation_count for _ in range(int(num_mutations))])
-    print(len(mutations_per_sequence_lst))
     assert(total_data_points < 200000)
     assert(len(mutations_lst) == len(mutation_count_lst))
     assert(len(mutations_per_sequence_lst) == total_data_points)
