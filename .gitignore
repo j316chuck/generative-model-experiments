@@ -1,9 +1,8 @@
-data/*
 .idea/*
 models/*
-models/rnn_test_sample_5/*
-models/rnn_converge/*
-models/rnn_trial_1/*
 __pycache__/*
 .ipynb_checkpoints/*
 .DS_store
+./data/gfp_x_train.npy
+./data/gfp_x_tst.npy
+./data/mutated_df.csv

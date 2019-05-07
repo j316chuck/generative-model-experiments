@@ -6,7 +6,7 @@ from hmm import GenerativeHMM
 from vae import GenerativeVAE
 from rnn import GenerativeRNN
 from torch.utils.data import TensorDataset, DataLoader
-from utils import load_gfp_data, get_all_amino_acids, get_wild_type_amino_acid_sequence
+from utils import load_data, get_all_amino_acids, get_wild_type_amino_acid_sequence
 from utils import one_hot_encode, plot_mismatches_histogram, string_to_tensor
 
 
@@ -18,7 +18,7 @@ def get_dataloader(args):
     x_train, x_test, y_train, y_test = None, None, None, None
     train_loader, valid_loader, test_loader = None, None, None
     if args["dataset"] == "gfp_amino_acid":
-        x_train, x_test, y_train, y_test = load_gfp_data("./data/gfp_amino_acid_shuffle_")
+        x_train, x_test, y_train, y_test = load_data("./data/gfp_amino_acid_shuffle_")
         args["vocabulary"] = get_all_amino_acids()
         args["wild_type"] = get_wild_type_amino_acid_sequence()
 
@@ -98,8 +98,7 @@ def run_experiment(args):
     model = get_model(args)
     assert(model is not None and train_loader is not None)
     path_name = os.path.join(args["base_log"], args["model_type"], args["name"])
-    #
-    logger=None
+    #logger = None
     logger = open(path_name + ".txt", "w")
     print("Training {0} \nArgs:".format(args["name"]), file=logger)
     for arg, value in model.__dict__.items():
