@@ -42,7 +42,7 @@ class GenerativeHMM(Model):
         self.model = HiddenMarkovModel.from_matrix(trans_mat, distributions, starts)
         self.model.bake()
 
-    def fit(self, train_dataloader, valid_dataloader=None, verbose=True, logger=None, save_model_dir=None, weights=None, **kwargs):
+    def fit(self, train_dataloader, valid_dataloader=None, verbose=True, logger=None, save_model=True, weights=None, **kwargs):
         start_time = time.time()
         for epoch in range(1, self.epochs + 1):
             _, hist = self.model.fit(train_dataloader, max_iterations=1, pseudocount=self.pseudo_count,
@@ -55,8 +55,10 @@ class GenerativeHMM(Model):
             if verbose:
                 print("epoch {0}, train neg log prob: {1:.4f}, test neg log probability {2:.4f}, time: {3:.2f} sec".format(
                     epoch, train_neg_log_prob, test_neg_log_prob, time.time() - start_time), file=logger)
-            if epoch % self.save_epochs == 0 and save_model_dir:
-                self.save_model(os.path.join(save_model_dir, "checkpoint_{0}.json".format(epoch)))
+            if epoch % self.save_epochs == 0 and save_model:
+                path = os.path.join(self.base_log, self.name, "{0}_checkpoint_{1}.json".format(self.model_type, epoch))
+                print(path)
+                self.save_model(path)
 
     def evaluate(self, dataloader, verbose=False, logger=None, weights=None, **kwargs):
         assert(len(np.array(dataloader).shape) == 2 or len(np.array(dataloader).shape) == 3)

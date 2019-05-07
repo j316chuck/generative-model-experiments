@@ -530,4 +530,139 @@ def load_base_sequence(name):
         raise AssertionError("Dataset name not found")
 
 
+def get_all_dataset_names(path="./data/dataset_descriptions.csv"):
+    """
+    :return: list, all the names of the dataset
+    >>> get_all_dataset_names()
+    array(['synthetic_unimodal_data_length_100_gaussian',
+           'synthetic_unimodal_data_length_100_skewed_gaussian',
+           'synthetic_unimodal_data_length_100_uniform',
+           'synthetic_unimodal_data_length_20_gaussian',
+           'synthetic_unimodal_data_length_20_skewed_gaussian',
+           'synthetic_unimodal_data_length_20_uniform',
+           'synthetic_unimodal_data_length_50_gaussian',
+           'synthetic_unimodal_data_length_50_skewed_gaussian',
+           'synthetic_unimodal_data_length_50_uniform', 'gfp',
+           'synthetic_multimodal_data_modes_2_length_50_uniform',
+           'synthetic_multimodal_data_modes_3_length_50_uniform',
+           'synthetic_multimodal_data_modes_5_length_50_uniform'],
+          dtype=object)
+    """
+    return pd.read_csv(path)["dataset"].values
 
+
+def get_all_model_types():
+    """
+    :return: list, all models used in the pipeline
+    >>> get_all_model_types()
+    array(['vae', 'rnn', 'hmm'], dtype='<U3')
+    """
+    return np.array(["vae", "rnn", "hmm"])
+
+
+def rnn_default_args():
+    """
+    :return: dict, the default arguments for an rnn model run on gfp dataset
+    """
+    return {
+        "model_type": "rnn",
+        "base_log": "logs/gfp/rnn/",
+        "name": "rnn_default_medium",
+        "input": 4998,
+        "hidden_size": 200,
+        "latent_dim": -1,
+        "seq_length": 238,
+        "pseudo_count": 1,
+        "n_jobs": 1,
+        "device": "cpu",
+        "learning_rate": 0.001,
+        "epochs": 100,
+        "batch_size": 10,
+        "layers": 1,
+        "dataset": "gfp",
+        "num_data": 1000,
+    }
+
+
+def rnn_default_small_args():
+    """
+    :return: dict, the default arguments for a small rnn model run on gfp dataset
+    """
+    args = rnn_default_args()
+    args["name"] = "rnn_default_small"
+    args["num_data"] = 100
+    args["epochs"] = 10
+    args["hidden_size"] = 100
+    return args
+
+
+def vae_default_args():
+    """
+    :return: dict, the default arguments for an vae model run on gfp dataset
+    """
+    return {
+        "model_type": "vae",
+        "base_log": "logs/gfp/vae/",
+        "name": "vae_default_medium",
+        "input": 4998,
+        "hidden_size": 200,
+        "latent_dim": 20,
+        "seq_length": 238,
+        "pseudo_count": 1,
+        "n_jobs": 1,
+        "device": "cpu",
+        "learning_rate": 0.001,
+        "epochs": 100,
+        "batch_size": 10,
+        "layers": 1,
+        "dataset": "gfp",
+        "num_data": 1000,
+    }
+
+
+def vae_default_small_args():
+    """
+    :return: dict, the default arguments for a small vae model run on gfp dataset
+    """
+    args = vae_default_args()
+    args["name"] = "vae_default_small"
+    args["hidden_size"] = 50
+    args["epochs"] = 10
+    args["num_data"] = 100
+    return args
+
+
+def hmm_default_args():
+    """
+    :return: dict, the default arguments for an hmm model run on gfp dataset
+    """
+    return {
+        "model_type": "hmm",
+        "base_log": "logs/gfp/hmm/",
+        "name": "hmm_default_medium",
+        "input": 4998,
+        "hidden_size": 100,
+        "latent_dim": -1,
+        "seq_length": 238,
+        "pseudo_count": 1,
+        "n_jobs": 1,
+        "device": "cpu",
+        "learning_rate": 0.001,
+        "epochs": 100,
+        "batch_size": 10,
+        "layers": 1,
+        "dataset": "gfp",
+        "num_data": 1000,
+    }
+
+
+def hmm_default_small_args():
+    """
+    :return: dict, the default arguments for a small hmm model run on gfp dataset
+    """
+    args = hmm_default_args()
+    args["name"] = "hmm_default_small"
+    args["hidden_size"] = 30
+    args["epochs"] = 10
+    args["num_data"] = 100
+    return args

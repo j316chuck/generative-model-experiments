@@ -1,6 +1,7 @@
 import torch
 import os
 import argparse
+import time
 
 from hmm import GenerativeHMM
 from vae import GenerativeVAE
@@ -79,47 +80,51 @@ def run_experiment(args):
     """
     main training loop to fit, save, plot, and evaluate the model
     :param args: arguments to initialize model and dataset with
-    :return: average mismatches among 1000 samples, average neg log prob, model
+    :return: train_score: float, model's train loss on training dataset,
+            valid_score: float, model's valid loss on validation dataset,
+            test_score: float, model's test loss on testing dataset,
+            average_mismatches: float, the average number of mismatches from wild type.
+            total_time: total time this experiment took.
     """
+    start_time = time.time()
     # putting tensors on cpu or gpu
     if args["device"] == 'cpu':
         args["device"] = torch.device("cpu")
     else:
         args["device"] = torch.device("gpu")
     # creating paths for the models to be logged and saved
-
-    if not os.path.exists("./{0}/{1}".format(args["base_log"], args["model_type"])):
-        os.makedirs("./{0}/{1}".format(args["base_log"], args["model_type"]))
-    if not os.path.exists("./models/{0}".format(args["name"])):
-        os.makedirs('./models/{0}'.format(args["name"]))
-
+    model_path = os.join(args["base_log"], args["name"])
+    if not os.path.exists(model_path):
+        os.makedirs(model_path)
     # loading data and model
     train_loader, valid_loader, test_loader = get_dataloader(args)
     model = get_model(args)
     assert(model is not None and train_loader is not None)
-    path_name = os.path.join(args["base_log"], args["model_type"], args["name"])
+    path_name = os.path.join(args["base_log"], args["name"], args["name"])
     #logger = None
-    logger = open(path_name + ".txt", "w")
+    logger = open(path_name + "_log.txt", "w")
     print("Training {0} \nArgs:".format(args["name"]), file=logger)
     for arg, value in model.__dict__.items():
         print(arg, "--", value, file=logger)
 
     # training and evaluating model
     print("*" * 50 + "\ntraining model on train and validation datasets...", file=logger)
-    model_path = os.path.join("./models", args["name"])
-    model.fit(train_dataloader=train_loader, valid_dataloader=valid_loader, verbose=True, logger=logger, save_model_dir=model_path)
-    model.save_model(os.path.join(model_path, args["name"]))
+    model.fit(train_dataloader=train_loader, valid_dataloader=valid_loader, verbose=True, logger=logger, save_model=True)
+    train_score = model.evaluate(dataloader=train_loader, verbose=False, logger=None)
+    valid_score = model.evaluate(dataloader=train_loader, verbose=False, logger=None)
+    model.save_model(path_name + "_saved_model", epoch=args["epochs"], loss=train_score)
     model.plot_model(path_name + "_model_architecture")
     model.plot_history(path_name + "_training_history.png")
     print("*" * 50 + "\nevaluating model on test dataset:", file=logger)
     test_score = model.evaluate(dataloader=test_loader, verbose=True, logger=logger)
     if logger:
         logger.close()
-
     # sample from model and see if generated sequences are reasonable
     sampled_sequences = model.sample(num_samples=1000, length=len(args["wild_type"]))
     mismatches = plot_mismatches_histogram(sampled_sequences, args["wild_type"], save_fig_dir=path_name + "_mismatches.png", show=False)
-    return sum(mismatches) / len(mismatches), test_score, model
+    average_mismatches = sum(mismatches) / len(mismatches)
+    total_time = time.time() - start_time
+    return train_score, valid_score, test_score, average_mismatches, total_time
 
 
 if __name__ == '__main__':

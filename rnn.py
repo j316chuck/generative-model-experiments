@@ -8,8 +8,7 @@ import matplotlib.pyplot as plt
 from torch.autograd import Variable
 from torchviz import make_dot
 from torch.nn import functional as F
-from utils import get_all_amino_acids, get_wild_type_amino_acid_sequence
-from utils import count_substring_mismatch, string_to_tensor, to_tensor
+from utils import string_to_tensor
 from models import Model
 
 
@@ -72,7 +71,7 @@ class GenerativeRNN(Model):
         self.criterion = nn.CrossEntropyLoss()
         self.train_loss_history, self.valid_loss_history = [], []
 
-    def fit(self, train_dataloader, valid_dataloader=None, verbose=True, logger=None, save_model_dir=None, weights=None,
+    def fit(self, train_dataloader, valid_dataloader=None, verbose=True, logger=None, save_model=True, weights=None,
             **kwargs):
         start_time = time.time()
         self.model.train()
@@ -86,7 +85,7 @@ class GenerativeRNN(Model):
         smoothing_count = self.num_characters * self.pseudo_count
         for char_index in self.initial_probs.keys():
             self.initial_probs[char_index] = self.initial_probs[char_index] / (dataset_length + smoothing_count)
-        # initial distribution to sample from 
+        # initial distribution to sample from
         self.initial_probs_tensor = torch.Tensor(list(self.initial_probs.values()))
 
         for epoch in range(1, self.epochs + 1):
@@ -112,8 +111,10 @@ class GenerativeRNN(Model):
             if verbose:
                 print("epoch {0}, train neg log prob: {1:.4f}, test neg log probability {2:.4f}, time: {3:.2f} sec".format(
                         epoch, train_loss, valid_loss, time.time() - start_time), file=logger)
-            if epoch % self.save_epochs == 0 and save_model_dir:
-                self.save_model(os.path.join(save_model_dir, "checkpoint_{0}.pt".format(epoch)), epoch=epoch, loss=loss, initial_probs=True)
+            if epoch % self.save_epochs == 0 and save_model:
+                path = os.path.join(self.base_log, self.name, "{0}_checkpoint_{1}.pt".format(self.model_type, epoch))
+                print(path)
+                self.save_model(path, epoch=epoch, loss=loss, initial_probs=True)
 
     def evaluate(self, dataloader, verbose=False, logger=None, weights=None, **kwargs):
         total_loss = 0
@@ -195,18 +196,3 @@ class GenerativeRNN(Model):
             plt.savefig(save_fig_dir)
         plt.close()
 
-
-def rnn_default_args():
-    return {
-        "input" : 4998,
-        "batch_size" : 10,
-        "name": "default",
-        "model_type": "rnn",
-        "layers": 1,
-        "hidden_size": 200,
-        "learning_rate": 0.001,
-        "epochs": 10,
-        "vocabulary": get_all_amino_acids(),
-        "pseudo_count": 1,
-        "device": torch.device("cpu")
-    }

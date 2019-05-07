@@ -66,6 +66,7 @@ class GenerativeVAE(Model):
     def __init__(self, args):
         Model.__init__(self, args)
         self.model_type = args["model_type"]
+        self.base_log = args["base_log"]
         self.name = args["name"]
         self.input = args["input"]
         self.hidden_size = args["hidden_size"]
@@ -108,7 +109,7 @@ class GenerativeVAE(Model):
     def kld_loss(self, mu, logvar):
         return -0.5 * torch.sum(1 + logvar - mu.pow(2) - logvar.exp())
 
-    def fit(self, train_dataloader, valid_dataloader=None, verbose=True, logger=None, save_model_dir=None, weights=None, **kwargs):
+    def fit(self, train_dataloader, valid_dataloader=None, verbose=True, logger=None, save_model=True, weights=None, **kwargs):
         start_time = time.time()
         self.train_loss_history, self.train_recon_loss_history, self.train_kld_loss_history = [], [], []
         self.valid_loss_history, self.valid_recon_loss_history, self.valid_kld_loss_history = [], [], []
@@ -144,8 +145,10 @@ class GenerativeVAE(Model):
                 print('time: {0:.2f} sec. valid loss: {1:.4f}. valid cross entropy loss: {2:.4f}, valid kld loss {3:.4f}'.format(
                         time.time() - start_time, self.valid_loss_history[-1], self.valid_recon_loss_history[-1], self.valid_kld_loss_history[-1]), file=logger)
                 print("-" * 50, file=logger)
-            if epoch % self.save_epochs == 0 and save_model_dir:
-                self.save_model(os.path.join(save_model_dir, "checkpoint_{0}.pt".format(epoch)), epoch=epoch, loss=loss)
+            if epoch % self.save_epochs == 0 and save_model:
+                path = os.path.join(self.base_log, self.name, "{0}_checkpoint_{1}.pt".format(self.model_type, epoch))
+                print(path)
+                self.save_model(path, epoch=epoch, loss=loss)
 
     def evaluate(self, dataloader, verbose=True, logger=None, weights=None, **kwargs):
         self.model.eval()
