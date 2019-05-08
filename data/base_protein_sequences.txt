@@ -2,6 +2,8 @@
 >sp|A0A075B6Y3|TJA3_HUMAN T cell receptor alpha joining 3 OS=Homo sapiens OX=9606 GN=TRAJ3 PE=4 SV=2
 GYSSASKIIFGSGTRLSIRP
 #https://www.uniprot.org/uniprot/Q9UGB4
+>1L2Y:A|PDBID|CHAIN|SEQUENCE
+NLYIQWLKDGGPSSGRPPPS 20 chain 
 >sp|Q9UGB4|CT187_HUMAN Putative uncharacterized protein C20orf187 OS=Homo sapiens OX=9606 GN=C20orf187 PE=4 SV=1
 MDILLDLGWHFSNCDEDTFYSPVQNTEGDLLFFDHNLKTDRGHVERSVMD
 #https://www.uniprot.org/uniprot/Q9BRU2

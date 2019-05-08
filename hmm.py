@@ -66,9 +66,9 @@ class GenerativeHMM(Model):
         if verbose:
             print("Average neg log prob: {0:.4f}".format(neg_log_prob / len(dataloader)), file=logger)
         if "pos_log_prob" in kwargs:
-            return -neg_log_prob
+            return -neg_log_prob / len(dataloader)
         else:
-            return neg_log_prob
+            return neg_log_prob / len(dataloader)
 
     def sample(self, num_samples, length, to_string=True, **kwargs):
         return ["".join(x) for x in self.model.sample(n=num_samples, length=length)]

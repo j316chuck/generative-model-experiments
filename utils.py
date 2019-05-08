@@ -68,22 +68,30 @@ def dna_to_amino_acid(dna_seq):
     return translate(dna_seq)
 
 
-def get_all_amino_acids():
+def get_all_amino_acids(gap=False):
     """
     :return: string of all amino acids + stop character
-    >>> get_all_amino_acids()
+    >>> get_all_amino_acids(gap=True)
     '*ACDEFGHIKLMNPQRSTVWY'
-    >>> len(get_all_amino_acids())
-    21
+    >>> len(get_all_amino_acids(gap=False))
+    20
+    >>> get_all_amino_acids(gap=False)
+    'ACDEFGHIKLMNPQRSTVWY'
     """
-    return "*" + IUPAC.protein.letters
+    if gap:
+        return "*" + IUPAC.protein.letters  # length 21
+    else:
+        return IUPAC.protein.letters  # length 20
 
 
-def get_wild_type_amino_acid_sequence():
+def get_wild_type_amino_acid_sequence(gap=False):
     """
     :return: string of wild type amino acid sequence from cached location
     """
-    return dna_to_amino_acid(get_wild_type_dna_sequence())
+    if gap:
+        return dna_to_amino_acid(get_wild_type_dna_sequence())  # length 238
+    else:
+        return dna_to_amino_acid(get_wild_type_dna_sequence())[:-1]  # length 237
 
 
 def count_substring_mismatch(s1, s2):
@@ -112,13 +120,13 @@ def get_gfp_data(amino_acid=False, gfp_data_path="./data/gfp_data.csv", x_featur
     """
     df = pd.read_csv(gfp_data_path, index_col=0)
     if amino_acid: 
-        X = df[x_feature].apply(lambda x: dna_to_amino_acid(x)).values
+        x = df[x_feature].apply(lambda x: dna_to_amino_acid(x)).values
     else: 
-        X = df[x_feature].values
+        x = df[x_feature].values
     y = df[y_feature].values
     if normalize_y: 
         y = normalize(y)
-    return train_test_split(X, y, test_size=test_size, shuffle=shuffle)
+    return train_test_split(x, y, test_size=test_size, shuffle=shuffle)
 
 
 def save_data(X_train, X_test, y_train, y_test, data_path):
@@ -131,23 +139,27 @@ def save_data(X_train, X_test, y_train, y_test, data_path):
     :param data_path: path to save data
     :return: None
     """
-    np.save(data_path + "X_train.npy", X_train)
-    np.save(data_path + "X_test.npy", X_test)
+    np.save(data_path + "x_train.npy", X_train)
+    np.save(data_path + "x_test.npy", X_test)
     np.save(data_path + "y_train.npy", y_train)
     np.save(data_path + "y_test.npy", y_test)
 
 
-def load_data(data_path):
+def load_data(data_path, start_index=None, end_index=None):
     """
     load your data from location
     :param data_path: path of your gfp data
+    :param start_index: starting index of string
+    :param end_index: end index of string
     :return: train test matrices with expected outputs
     """
-    X_train = np.load(data_path + "X_train.npy")
-    X_test = np.load(data_path + "X_test.npy")
+    x_train = np.load(data_path + "x_train.npy")
+    x_train = [x[start_index:end_index] for x in x_train]  # select sub portion of the string
+    x_test = np.load(data_path + "x_test.npy")
+    x_test = [x[start_index:end_index] for x in x_test]  # select sub portion of the string
     y_train = np.load(data_path + "y_train.npy")
     y_test = np.load(data_path + "y_test.npy")
-    return X_train, X_test, y_train, y_test
+    return x_train, x_test, y_train, y_test
 
 
 def plot_mismatches_histogram(sequences, wild_type, save_fig_dir=None, show=False):
@@ -271,10 +283,10 @@ def sample_tensor_to_string(x, int_to_character, softmax=False):
     :param int_to_character: maps indexes to character
     :param softmax: apply softmax layer or not before sampling
     :return: string format of sampled probability tensor
-    >>> int_to_character = dict(zip(range(21), get_all_amino_acids()))
+    >>> int_to_character = dict(zip(range(20), get_all_amino_acids()))
     >>> seed = torch.manual_seed(1)
-    >>> sample_tensor_to_string(torch.randn(18, 21), int_to_character, softmax=True) 
-    'YDNYCIYNINISLNPFPR'
+    >>> sample_tensor_to_string(torch.randn(18, 20), int_to_character, softmax=True)
+    'QAFAQGATQTHLYAFTRH'
     """
     num_characters = len(int_to_character)
     assert(type(x) == torch.Tensor)
@@ -322,8 +334,8 @@ def generate_mutations_df(base_sequence, mutations_lst, mutation_count_lst, alph
     :param end_mutation_index: int, how many characters to skip at the end of the mutation
     :param verbose: bool, print data generation results?
     :return: a dataframe comprised of three columns: the mutated strings, the number of mutations, the base_sequence
-    >>> base_sequence, mutations_lst = get_wild_type_amino_acid_sequence(), [1, 2, 3]
-    >>> mutation_count_lst, alphabet = [100, 100, 100], get_all_amino_acids()
+    >>> base_sequence, mutations_lst = get_wild_type_amino_acid_sequence(gap=False), [1, 2, 3]
+    >>> mutation_count_lst, alphabet = [100, 100, 100], get_all_amino_acids(gap=False)
     >>> mutated_df = generate_mutations_df(base_sequence, mutations_lst, mutation_count_lst, alphabet)
     >>> for i, row in mutated_df.iterrows():
     ...     assert(count_substring_mismatch(row["mutated_string"], row["base_sequence"]) == row["mutation_count"])
@@ -385,8 +397,7 @@ def get_mutation(string, num_mutations, num_characters, characters_to_index, ind
     'ATTAA'
     """
     mutation = list(string)
-    indexes = np.random.choice(range(start_mutation_index, len(string) - end_mutation_index),
-                            num_mutations, replace=False)
+    indexes = np.random.choice(range(start_mutation_index, len(string) - end_mutation_index), num_mutations, replace=False)
     for i in indexes:
         original_c = string[i]
         original_index = characters_to_index[original_c]
@@ -506,7 +517,7 @@ def load_base_sequence(name):
     dataset not found
     """
     if "gfp" in name:
-        return get_wild_type_amino_acid_sequence()
+        return get_wild_type_amino_acid_sequence(gap=False)
     elif "length_20" in name and "synthetic" in name and "unimodal" in name:
         return 'GYSSASKIIFGSGTRLSIRP'
     elif "length_50" in name and "synthetic" in name and "unimodal" in name:

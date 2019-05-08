@@ -2,6 +2,7 @@ import torch
 import os
 import argparse
 import time
+import numpy as np
 
 from hmm import GenerativeHMM
 from vae import GenerativeVAE
@@ -9,6 +10,7 @@ from rnn import GenerativeRNN
 from torch.utils.data import TensorDataset, DataLoader
 from utils import load_data, get_all_amino_acids, get_wild_type_amino_acid_sequence
 from utils import one_hot_encode, plot_mismatches_histogram, string_to_tensor
+from utils import load_base_sequence
 
 
 def get_dataloader(args):
@@ -18,10 +20,18 @@ def get_dataloader(args):
     """
     x_train, x_test, y_train, y_test = None, None, None, None
     train_loader, valid_loader, test_loader = None, None, None
-    if args["dataset"] == "gfp_amino_acid":
-        x_train, x_test, y_train, y_test = load_data("./data/gfp_amino_acid_shuffle_")
+    if args["dataset"] == "gfp":
+        x_train, x_test, y_train, y_test = load_data("./data/gfp_amino_acid_shuffle_", end_index=-1)
+        print(x_train[40])
+        args["vocabulary"] = get_all_amino_acids(gap=False)
+        args["wild_type"] = get_wild_type_amino_acid_sequence(gap=False)
+    elif "synthetic" in args["dataset"] and "unimodal" in args["dataset"]:
+        x_train = np.loads(os.path.join("./data", args["dataset"] + "_x_train.npy"))
+        x_test = np.loads(os.path.join("./data", args["dataset"] + "_x_test.npy"))
+        y_train = [0] * len(x_train) # auxillary variables to format in shape of train_dataset
+        y_test = [0] * len(x_test) # auxillary list to format in shape of test_dataset
         args["vocabulary"] = get_all_amino_acids()
-        args["wild_type"] = get_wild_type_amino_acid_sequence()
+        args["wild_type"] = load_base_sequence(args["dataset"])
 
     if args["model_type"] == "vae":
         one_hot_x_valid = one_hot_encode(x_train[args["num_data"]:2 * args["num_data"]], args["vocabulary"])
@@ -93,7 +103,7 @@ def run_experiment(args):
     else:
         args["device"] = torch.device("gpu")
     # creating paths for the models to be logged and saved
-    model_path = os.join(args["base_log"], args["name"])
+    model_path = os.path.join(args["base_log"], args["name"])
     if not os.path.exists(model_path):
         os.makedirs(model_path)
     # loading data and model
@@ -112,7 +122,7 @@ def run_experiment(args):
     model.fit(train_dataloader=train_loader, valid_dataloader=valid_loader, verbose=True, logger=logger, save_model=True)
     train_score = model.evaluate(dataloader=train_loader, verbose=False, logger=None)
     valid_score = model.evaluate(dataloader=train_loader, verbose=False, logger=None)
-    model.save_model(path_name + "_saved_model", epoch=args["epochs"], loss=train_score)
+    model.save_model(path_name + "_saved_model", epoch=args["epochs"], loss=train_score, initial_probs=True)
     model.plot_model(path_name + "_model_architecture")
     model.plot_history(path_name + "_training_history.png")
     print("*" * 50 + "\nevaluating model on test dataset:", file=logger)

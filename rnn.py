@@ -126,7 +126,10 @@ class GenerativeRNN(Model):
             for c in range(seq_length):
                 output, hidden = self.model(inp[:, c], hidden)
                 total_loss += (self.criterion(output.view(batch_size, -1), target[:, c]) * batch_size)
-        return total_loss.item() / len(dataloader.dataset)
+        total_loss = total_loss.item() / len(dataloader.dataset)
+        if verbose:
+            print('total loss: {0:.4f}'.format(total_loss), file=logger)
+        return total_loss
 
     def sample(self, num_samples, length, to_string=True, **kwargs):
         hidden = self.model.init_hidden(num_samples)

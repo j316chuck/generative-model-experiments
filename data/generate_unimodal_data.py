@@ -6,7 +6,7 @@ from utils import get_all_amino_acids, generate_mutations_df, generate_discrete_
 from utils import generate_discrete_gaussian_distribution, generate_discrete_skewed_gaussian_distribution
 
 # get data distributions
-base_sequences_lst = ["GYSSASKIIFGSGTRLSIRP",
+base_sequences_lst = ["NLYIQWLKDGGPSSGRPPPS",
                       "MDILLDLGWHFSNCDEDTFYSPVQNTEGDLLFFDHNLKTDRGHVERSVMD",
                       "MQKPCKENEGKPKCSVPKREEKRPYGEFERQQTEGNFRQRLLQSLEEFKEDIDYRHFKDEEMTREGDEMERCLEEIRGLRKKFRALHSNHRHSRDRPYPI"]
 num_samples = 10000
