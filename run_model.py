@@ -20,7 +20,7 @@ def get_dataloader(args):
     """
     x_train, x_test, y_train, y_test = None, None, None, None
     train_loader, valid_loader, test_loader = None, None, None
-    if args["dataset"] == "gfp":
+    if  "gfp" in args["dataset"]:
         x_train, x_test, y_train, y_test = load_data("./data/gfp_")
         args["vocabulary"] = get_all_amino_acids(gap=True)
         args["wild_type"] = get_wild_type_amino_acid_sequence(gap=True)

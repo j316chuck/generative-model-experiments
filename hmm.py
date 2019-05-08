@@ -47,10 +47,10 @@ class GenerativeHMM(Model):
         for epoch in range(1, self.epochs + 1):
             _, hist = self.model.fit(train_dataloader, max_iterations=1, pseudocount=self.pseudo_count,
                                      n_jobs=self.n_jobs, return_history=True)
-            train_neg_log_prob = self.evaluate(train_dataloader) / len(train_dataloader)
+            train_neg_log_prob = self.evaluate(train_dataloader)
             self.train_neg_log_prob.append(train_neg_log_prob)
             if valid_dataloader:
-                test_neg_log_prob = self.evaluate(valid_dataloader) / len(valid_dataloader)
+                test_neg_log_prob = self.evaluate(valid_dataloader)
                 self.valid_neg_log_prob.append(test_neg_log_prob)
             if verbose:
                 print("epoch {0}, train neg log prob: {1:.4f}, test neg log probability {2:.4f}, time: {3:.2f} sec".format(
@@ -65,10 +65,7 @@ class GenerativeHMM(Model):
         neg_log_prob = -sum([self.model.log_probability(seq) for seq in np.array(dataloader)])
         if verbose:
             print("Average neg log prob: {0:.4f}".format(neg_log_prob / len(dataloader)), file=logger)
-        if "pos_log_prob" in kwargs:
-            return -neg_log_prob / len(dataloader)
-        else:
-            return neg_log_prob / len(dataloader)
+        return neg_log_prob / len(dataloader)
 
     def sample(self, num_samples, length, to_string=True, **kwargs):
         return ["".join(x) for x in self.model.sample(n=num_samples, length=length)]

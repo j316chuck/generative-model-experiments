@@ -37,16 +37,16 @@ train_loss_history -- []
 valid_loss_history -- []
 **************************************************
 training model on train and validation datasets...
-epoch 1, train neg log prob: 705.3689, test neg log probability 679.1980, time: 8.65 sec
-epoch 2, train neg log prob: 654.1714, test neg log probability 624.1366, time: 16.21 sec
-epoch 3, train neg log prob: 597.2578, test neg log probability 563.2189, time: 23.01 sec
-epoch 4, train neg log prob: 531.4200, test neg log probability 491.0654, time: 29.85 sec
-epoch 5, train neg log prob: 455.8053, test neg log probability 412.1905, time: 36.66 sec
-epoch 6, train neg log prob: 377.5100, test neg log probability 336.0088, time: 45.09 sec
-epoch 7, train neg log prob: 304.7356, test neg log probability 268.2234, time: 52.51 sec
-epoch 8, train neg log prob: 242.1235, test neg log probability 213.0198, time: 60.61 sec
-epoch 9, train neg log prob: 191.5690, test neg log probability 169.5714, time: 69.88 sec
-epoch 10, train neg log prob: 152.6638, test neg log probability 137.3101, time: 78.41 sec
+epoch 1, train neg log prob: 701.4389, test neg log probability 675.9579, time: 7.70 sec
+epoch 2, train neg log prob: 651.3482, test neg log probability 622.5110, time: 15.57 sec
+epoch 3, train neg log prob: 596.2379, test neg log probability 562.9444, time: 22.63 sec
+epoch 4, train neg log prob: 532.2264, test neg log probability 493.8160, time: 29.94 sec
+epoch 5, train neg log prob: 459.5968, test neg log probability 417.6212, time: 37.21 sec
+epoch 6, train neg log prob: 383.3967, test neg log probability 343.0133, time: 44.50 sec
+epoch 7, train neg log prob: 311.9627, test neg log probability 276.0110, time: 51.99 sec
+epoch 8, train neg log prob: 249.5553, test neg log probability 220.1818, time: 59.04 sec
+epoch 9, train neg log prob: 198.5238, test neg log probability 176.2213, time: 68.50 sec
+epoch 10, train neg log prob: 158.8499, test neg log probability 143.0451, time: 76.94 sec
 **************************************************
 evaluating model on test dataset:
-total loss: 138.0467
+total loss: 145.4200
