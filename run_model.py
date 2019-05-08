@@ -21,10 +21,9 @@ def get_dataloader(args):
     x_train, x_test, y_train, y_test = None, None, None, None
     train_loader, valid_loader, test_loader = None, None, None
     if args["dataset"] == "gfp":
-        x_train, x_test, y_train, y_test = load_data("./data/gfp_amino_acid_shuffle_", end_index=-1)
-        print(x_train[40])
-        args["vocabulary"] = get_all_amino_acids(gap=False)
-        args["wild_type"] = get_wild_type_amino_acid_sequence(gap=False)
+        x_train, x_test, y_train, y_test = load_data("./data/gfp_")
+        args["vocabulary"] = get_all_amino_acids(gap=True)
+        args["wild_type"] = get_wild_type_amino_acid_sequence(gap=True)
     elif "synthetic" in args["dataset"] and "unimodal" in args["dataset"]:
         x_train = np.loads(os.path.join("./data", args["dataset"] + "_x_train.npy"))
         x_test = np.loads(os.path.join("./data", args["dataset"] + "_x_test.npy"))
