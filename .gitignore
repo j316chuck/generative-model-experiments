@@ -3,6 +3,3 @@ models/*
 __pycache__/*
 .ipynb_checkpoints/*
 .DS_store
-data/gfp_x_test.npy
-data/gfp_x_train.npy
-data/mutated_df.csv
