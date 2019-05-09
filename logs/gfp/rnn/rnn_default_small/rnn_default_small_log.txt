@@ -26,6 +26,7 @@ indexes -- [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19
 train_loss_history -- []
 valid_loss_history -- []
 initial_probs_tensor -- []
+initial_probs -- {0: 1.0, 1: 1.0, 2: 1.0, 3: 1.0, 4: 1.0, 5: 1.0, 6: 1.0, 7: 1.0, 8: 1.0, 9: 1.0, 10: 1.0, 11: 1.0, 12: 1.0, 13: 1.0, 14: 1.0, 15: 1.0, 16: 1.0, 17: 1.0, 18: 1.0, 19: 1.0, 20: 1.0}
 model -- RNN(
   (encoder): Embedding(21, 100)
   (rnn): LSTM(100, 100)
@@ -42,16 +43,16 @@ Parameter Group 0
 criterion -- CrossEntropyLoss()
 **************************************************
 training model on train and validation datasets...
-epoch 1, train neg log prob: 701.5797, test neg log probability 673.9718, time: 5.66 sec
-epoch 2, train neg log prob: 649.8299, test neg log probability 622.3105, time: 10.71 sec
-epoch 3, train neg log prob: 595.4881, test neg log probability 563.7193, time: 16.45 sec
-epoch 4, train neg log prob: 531.5924, test neg log probability 494.6526, time: 24.67 sec
-epoch 5, train neg log prob: 457.1002, test neg log probability 416.6249, time: 38.50 sec
-epoch 6, train neg log prob: 377.5651, test neg log probability 339.6752, time: 51.17 sec
-epoch 7, train neg log prob: 303.5136, test neg log probability 273.1509, time: 62.05 sec
-epoch 8, train neg log prob: 240.8989, test neg log probability 218.0297, time: 77.82 sec
-epoch 9, train neg log prob: 191.0766, test neg log probability 176.2573, time: 92.20 sec
-epoch 10, train neg log prob: 153.0150, test neg log probability 144.5923, time: 108.02 sec
+epoch 1, train neg log prob: 698.5583, test neg log probability 673.0283, time: 9.39 sec
+epoch 2, train neg log prob: 648.5898, test neg log probability 620.4673, time: 17.41 sec
+epoch 3, train neg log prob: 592.5696, test neg log probability 559.7554, time: 26.34 sec
+epoch 4, train neg log prob: 526.2509, test neg log probability 488.2001, time: 33.73 sec
+epoch 5, train neg log prob: 449.8451, test neg log probability 409.8150, time: 41.18 sec
+epoch 6, train neg log prob: 371.7281, test neg log probability 335.4909, time: 48.80 sec
+epoch 7, train neg log prob: 300.5853, test neg log probability 270.8664, time: 56.39 sec
+epoch 8, train neg log prob: 239.8588, test neg log probability 218.2320, time: 66.67 sec
+epoch 9, train neg log prob: 191.2838, test neg log probability 176.9023, time: 77.12 sec
+epoch 10, train neg log prob: 153.6068, test neg log probability 145.5836, time: 87.32 sec
 **************************************************
 evaluating model on test dataset:
-total loss: 145.8432
+total loss: 146.1176

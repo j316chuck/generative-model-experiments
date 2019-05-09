@@ -652,7 +652,7 @@ def hmm_default_args():
         "base_log": "logs/gfp/hmm/",
         "name": "hmm_default_medium",
         "input": 4998,
-        "hidden_size": 100,
+        "hidden_size": 75,
         "latent_dim": -1,
         "seq_length": 238,
         "pseudo_count": 1,
