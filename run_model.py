@@ -3,6 +3,8 @@ import os
 import argparse
 import time
 import numpy as np
+import traceback
+import sys
 
 from hmm import GenerativeHMM
 from vae import GenerativeVAE
@@ -11,7 +13,6 @@ from torch.utils.data import TensorDataset, DataLoader
 from utils import load_data, get_all_amino_acids, get_wild_type_amino_acid_sequence
 from utils import one_hot_encode, plot_mismatches_histogram, string_to_tensor
 from utils import load_base_sequence
-
 
 def get_dataloader(args):
     """
@@ -118,6 +119,7 @@ def run_experiment(args):
 
     # training and evaluating model with try catch block to get exception
     print("*" * 50 + "\ntraining model on train and validation datasets...", file=logger)
+    exit_code = 0
     try:
         model.fit(train_dataloader=train_loader, valid_dataloader=valid_loader, verbose=True, logger=logger, save_model=True)
         train_score = model.evaluate(dataloader=train_loader, verbose=False, logger=None)
@@ -127,20 +129,26 @@ def run_experiment(args):
         model.plot_history(path_name + "_training_history.png")
         print("*" * 50 + "\nevaluating model on test dataset:", file=logger)
         test_score = model.evaluate(dataloader=test_loader, verbose=True, logger=logger)
+        # sample from model and see if generated sequences are reasonable
+        sampled_sequences = model.sample(num_samples=1000, length=len(args["wild_type"]))
+        mismatches = plot_mismatches_histogram(sampled_sequences, args["wild_type"],
+                                               save_fig_dir=path_name + "_mismatches.png", show=False)
+        average_mismatches = sum(mismatches) / len(mismatches)
     except Exception as e:
-        print(e, file=logger)
+        exit_code = 1
+        exc_type, exc_value, exc_traceback = sys.exc_info()
+        print("=" * 50, file=logger)
+        print("Error in running experiment: {0}\nTraceback log: ".format(args["name"]), file=logger)
+        print("=" * 50, file=logger)
+        traceback.print_tb(exc_traceback, file=logger)
+    finally:
+        total_time = time.time() - start_time
         if logger:
             logger.close()
-        return "Error in program"
-    if logger:
-        logger.close()
-
-    # sample from model and see if generated sequences are reasonable
-    sampled_sequences = model.sample(num_samples=1000, length=len(args["wild_type"]))
-    mismatches = plot_mismatches_histogram(sampled_sequences, args["wild_type"], save_fig_dir=path_name + "_mismatches.png", show=False)
-    average_mismatches = sum(mismatches) / len(mismatches)
-    total_time = time.time() - start_time
-    return train_score, valid_score, test_score, average_mismatches, total_time
+        if exit_code == 0:  # exited successfuly
+            return (exit_code, train_score, valid_score, test_score, average_mismatches, total_time)
+        else:
+            return (exit_code, -1, exc_type, exc_value, exc_traceback, total_time)
 
 
 if __name__ == '__main__':

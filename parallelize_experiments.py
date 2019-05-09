@@ -64,7 +64,7 @@ def pool_jobs(commands_lst, num_processes=4):
 
 if __name__ == '__main__':
     num_processes = 3
-    script = open("./data/synthetic_unimodal_small_script.sh", "r")
+    script = open("./scripts/synthetic_unimodal_small_script.sh", "r")
     commands_lst = [command.strip() for command in script.readlines()]
     task_spooler(commands_lst=commands_lst, num_processes=num_processes)
     # queue_jobs(commands_lst=commands_lst, num_processes=num_processes)
