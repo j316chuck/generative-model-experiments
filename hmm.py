@@ -17,6 +17,8 @@ class GenerativeHMM(Model):
         self.batch_size = args["batch_size"]
         self.pseudo_count = args["pseudo_count"]
         self.all_characters = args["vocabulary"]
+        self.input = args["input"]
+        self.seq_length = args["seq_length"]
         self.num_characters = len(self.all_characters)
         self.character_to_int = dict(zip(self.all_characters, range(self.num_characters)))
         self.int_to_character = dict(zip(range(self.num_characters), self.all_characters))
@@ -25,6 +27,8 @@ class GenerativeHMM(Model):
         self.build_model()
         self.train_neg_log_prob = []
         self.valid_neg_log_prob = []
+        assert(self.seq_length * self.num_characters == self.input)
+
     
     def build_model(self): 
         distributions = []

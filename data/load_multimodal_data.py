@@ -6,7 +6,7 @@ from utils import count_substring_mismatch, load_base_sequence
 
 start_index, end_index = 1, 1
 base_sequences_lst = load_base_sequence("synthetic_multimodal_data_modes_5_length_50_uniform")
-dataset_size = 10000
+dataset_size = 20000
 for data_path in glob.glob("./synthetic_multimodal_data_*.csv"):
     # load dataset
     name = data_path[:-4]
@@ -24,6 +24,7 @@ for data_path in glob.glob("./synthetic_multimodal_data_*.csv"):
         assert(count_substring_mismatch(row["base_sequence"][:start_index], row["mutated_string"][:start_index]) == 0)
         assert(count_substring_mismatch(row["base_sequence"][-end_index:], row["mutated_string"][-end_index:]) == 0)
         assert(row["base_sequence"] == base_sequences_lst[int(row["base_sequence_index"])])
+        assert("*" not in row["base_sequence"])
     # check shape of mutated dataframe is correct
     print(df.shape[0], mode)
     assert(df.shape[0] == dataset_size * mode)

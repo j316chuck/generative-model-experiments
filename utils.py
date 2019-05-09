@@ -499,7 +499,7 @@ def load_base_sequence(name):
     :param name: string, dataset name
     :return: string, base sequence
     >>> load_base_sequence("synthetic_unimodal_data_length_20_uniform")
-    'GYSSASKIIFGSGTRLSIRP'
+    'NLYIQWLKDGGPSSGRPPPS'
     >>> load_base_sequence("synthetic_unimodal_data_length_50_skewed_gaussian")
     'MDILLDLGWHFSNCDEDTFYSPVQNTEGDLLFFDHNLKTDRGHVERSVMD'
     >>> load_base_sequence("synthetic_unimodal_data_length_100_gaussian")
@@ -519,7 +519,7 @@ def load_base_sequence(name):
     if "gfp" in name:
         return get_wild_type_amino_acid_sequence(gap=False)
     elif "length_20" in name and "synthetic" in name and "unimodal" in name:
-        return 'GYSSASKIIFGSGTRLSIRP'
+        return 'NLYIQWLKDGGPSSGRPPPS'
     elif "length_50" in name and "synthetic" in name and "unimodal" in name:
         return 'MDILLDLGWHFSNCDEDTFYSPVQNTEGDLLFFDHNLKTDRGHVERSVMD'
     elif "length_100" in name and "synthetic" in name and "unimodal" in name:

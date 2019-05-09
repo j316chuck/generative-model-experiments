@@ -19,6 +19,7 @@ for data_path in glob.glob("./synthetic_unimodal_data_*.csv"):
         assert(count_substring_mismatch(row["base_sequence"][:start_index], row["mutated_string"][:start_index]) == 0)
         assert(count_substring_mismatch(row["base_sequence"][-end_index:], row["mutated_string"][-end_index:]) == 0)
         assert(row["base_sequence"] == base_sequence)
+        assert("*" not in row["mutated_string"])
 
     # check if loaded x_train and x_test are right
     assert((set(x_train) | set(x_test)) == set(df["mutated_string"].values))

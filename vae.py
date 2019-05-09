@@ -147,7 +147,6 @@ class GenerativeVAE(Model):
                 print("-" * 50, file=logger)
             if epoch % self.save_epochs == 0 and save_model:
                 path = os.path.join(self.base_log, self.name, "{0}_checkpoint_{1}.pt".format(self.model_type, epoch))
-                print(path)
                 self.save_model(path, epoch=epoch, loss=loss)
 
     def evaluate(self, dataloader, verbose=True, logger=None, weights=None, **kwargs):

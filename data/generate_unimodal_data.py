@@ -9,7 +9,7 @@ from utils import generate_discrete_gaussian_distribution, generate_discrete_ske
 base_sequences_lst = ["NLYIQWLKDGGPSSGRPPPS",
                       "MDILLDLGWHFSNCDEDTFYSPVQNTEGDLLFFDHNLKTDRGHVERSVMD",
                       "MQKPCKENEGKPKCSVPKREEKRPYGEFERQQTEGNFRQRLLQSLEEFKEDIDYRHFKDEEMTREGDEMERCLEEIRGLRKKFRALHSNHRHSRDRPYPI"]
-num_samples = 10000
+num_samples = 50000
 uniform_lst = list(generate_discrete_uniform_distribution(num_samples, low=1, high=10)[1].values())
 skewed_gaussian_lst = list(generate_discrete_skewed_gaussian_distribution(num_samples, a=4, mean=3.5, std=2, low=1, high=10)[1].values())
 gaussian_lst = list(generate_discrete_gaussian_distribution(num_samples, mean=5.5, std=2, low=1, high=10)[1].values())
@@ -33,7 +33,8 @@ plt.savefig("./data_distributions.png")
 plt.close()
 
 # generate mutation datasets
-alphabet = get_all_amino_acids()
+alphabet = get_all_amino_acids(gap=False)
+assert(len(alphabet) == 20)
 start_mutation_index = 1
 end_mutation_index = 1
 for base_sequence in base_sequences_lst:
@@ -44,6 +45,6 @@ for base_sequence in base_sequences_lst:
                                            start_mutation_index, end_mutation_index, verbose=True)
         mutated_df = mutated_df.sample(frac=1).reset_index(drop=True)  # shuffle
         mutated_df.to_csv(name + ".csv", index=False)
-        x_train, x_test = train_test_split(mutated_df["mutated_string"].values, test_size=0.5)
+        x_train, x_test = train_test_split(mutated_df["mutated_string"].values, test_size=0.2)
         np.save(name + "_x_train.npy", x_train)
         np.save(name + "_x_test.npy", x_test)

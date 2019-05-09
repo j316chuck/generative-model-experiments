@@ -60,6 +60,7 @@ class GenerativeRNN(Model):
         self.batch_size = args["batch_size"]
         self.pseudo_count = args["pseudo_count"]
         self.device = args["device"]
+        self.seq_length = args["seq_length"]
         self.num_characters = len(self.all_characters)
         self.indexes = list(range(self.num_characters))
         self.character_to_int = dict(zip(self.all_characters, self.indexes))
@@ -70,6 +71,7 @@ class GenerativeRNN(Model):
         self.optimizer = torch.optim.Adam(self.model.parameters(), lr=self.learning_rate)
         self.criterion = nn.CrossEntropyLoss()
         self.train_loss_history, self.valid_loss_history = [], []
+        assert(self.seq_length * self.num_characters == self.input)
 
     def fit(self, train_dataloader, valid_dataloader=None, verbose=True, logger=None, save_model=True, weights=None,
             **kwargs):

@@ -20,11 +20,11 @@ for file in glob.glob("./synthetic_unimodal_*.csv"):
     else:
         values.append(file[len(file) - sub_index:-4])  # distribution
     values.append(pd.read_csv(file).iloc[0, 2])  # base_sequence
-    values.append(None)
+    values.append("no * character, vocabulary-20 amino acids")
     df.loc[df.shape[0]] = values
 
 # gfp descriptions
-values = ["gfp", 238, 1718, "skewed_gaussian", get_wild_type_amino_acid_sequence(), None]
+values = ["gfp", 238, 58417, "skewed_gaussian", get_wild_type_amino_acid_sequence(), "* character, vocabulary-21 amino acids"]
 df.loc[df.shape[0]] = values
 
 # multimodal descriptions
@@ -41,7 +41,7 @@ for file in glob.glob("./synthetic_multimodal_*.csv"):
         values.append(file[len(file) - sub_index:-4])  # distribution
     values.append(load_base_sequence(file))  # base_sequences
     sub_index = file[::-1].find("_")
-    values.append(None)
+    values.append("no * character, vocabulary-20 amino acids")
     df.loc[df.shape[0]] = values
 
 # output to csv

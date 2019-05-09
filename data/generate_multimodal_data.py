@@ -13,9 +13,10 @@ uniform_lst = list(generate_discrete_uniform_distribution(num_samples, low=1, hi
 
 # generate mutation datasets
 mutations_lst = list(range(1, 11))
-dataset_size = 10000
+dataset_size = 20000
 mutations_count_lst = [int(dataset_size//10)] * 10
-alphabet = get_all_amino_acids()
+alphabet = get_all_amino_acids(gap=False)
+assert(len(alphabet) == 20)
 start_mutation_index = 1
 end_mutation_index = 1
 for mode in modes_lst:
@@ -29,7 +30,7 @@ for mode in modes_lst:
     mutated_df.sample(frac=1).reset_index(drop=True)
     mutated_df.to_csv(dataset_name + ".csv", index=False)
     x_train, x_test, y_train, y_test = train_test_split(mutated_df["mutated_string"].values,
-                                                        mutated_df["base_sequence"], test_size=0.5)
+                                                        mutated_df["base_sequence"], test_size=0.2)
     np.save(dataset_name + "_x_train.npy", x_train)
     np.save(dataset_name + "_x_test.npy", x_test)
     np.save(dataset_name + "_y_train.npy", y_train)
