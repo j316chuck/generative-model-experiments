@@ -2,7 +2,6 @@ import torch
 import torch.utils.data
 import numpy as np
 import time
-import matplotlib.pyplot as plt
 import os
 
 from torch import nn, optim
@@ -65,29 +64,11 @@ class GenerativeVAE(Model):
 
     def __init__(self, args):
         Model.__init__(self, args)
-        self.model_type = args["model_type"]
-        self.base_log = args["base_log"]
-        self.name = args["name"]
-        self.input = args["input"]
-        self.hidden_size = args["hidden_size"]
-        self.latent_dim = args["latent_dim"]
-        self.device = args["device"]
-        self.learning_rate = args["learning_rate"]
-        self.epochs = args["epochs"]
-        self.all_characters = args["vocabulary"]
-        self.seq_length = args["seq_length"]
-        self.batch_size = args["batch_size"]
-        self.learning_rate = args["learning_rate"]
-        self.num_characters = len(self.all_characters)
-        self.character_to_int = dict(zip(self.all_characters, range(self.num_characters)))
-        self.int_to_character = dict(zip(range(self.num_characters), self.all_characters))
-        self.indexes = list(range(self.num_characters))
         self.model = VAE(self.input, self.hidden_size, self.latent_dim, self.num_characters, self.seq_length)
         self.model.to(self.device)
         self.optimizer = torch.optim.Adam(self.model.parameters(), lr=self.learning_rate)
-        self.train_loss_history, self.train_recon_loss_history, self.train_kld_loss_history = [], [], []
-        self.valid_loss_history, self.valid_recon_loss_history, self.valid_kld_loss_history = [], [], []
-        assert(self.seq_length * self.num_characters == self.input)
+        self.train_recon_loss_history, self.train_kld_loss_history = [], []
+        self.valid_recon_loss_history, self.valid_kld_loss_history = [], []
 
     def elbo_loss(self, recon_x, x, mu, logvar):
         """
@@ -226,15 +207,5 @@ class GenerativeVAE(Model):
         self.optimizer.load_state_dict(checkpoint["optimizer_state_dict"])
 
     def plot_history(self, save_fig_dir, **kwargs):
-        plt.figure()
-        plt.title("{0} training history".format(self.name))
-        for name, history_lst in self.__dict__.items():
-            if "history" in name:
-                plt.plot(history_lst, label=name)
-        plt.legend()
-        plt.xlabel("epochs")
-        plt.ylabel("loss")
-        if save_fig_dir:
-            plt.savefig(save_fig_dir)
-        plt.close()
+        super().plot_history(save_fig_dir=save_fig_dir, **kwargs)
 

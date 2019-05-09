@@ -116,18 +116,25 @@ def run_experiment(args):
     for arg, value in model.__dict__.items():
         print(arg, "--", value, file=logger)
 
-    # training and evaluating model
+    # training and evaluating model with try catch block to get exception
     print("*" * 50 + "\ntraining model on train and validation datasets...", file=logger)
-    model.fit(train_dataloader=train_loader, valid_dataloader=valid_loader, verbose=True, logger=logger, save_model=True)
-    train_score = model.evaluate(dataloader=train_loader, verbose=False, logger=None)
-    valid_score = model.evaluate(dataloader=train_loader, verbose=False, logger=None)
-    model.save_model(path_name + "_saved_model", epoch=args["epochs"], loss=train_score, initial_probs=True)
-    model.plot_model(path_name + "_model_architecture")
-    model.plot_history(path_name + "_training_history.png")
-    print("*" * 50 + "\nevaluating model on test dataset:", file=logger)
-    test_score = model.evaluate(dataloader=test_loader, verbose=True, logger=logger)
+    try:
+        model.fit(train_dataloader=train_loader, valid_dataloader=valid_loader, verbose=True, logger=logger, save_model=True)
+        train_score = model.evaluate(dataloader=train_loader, verbose=False, logger=None)
+        valid_score = model.evaluate(dataloader=train_loader, verbose=False, logger=None)
+        model.save_model(path_name + "_saved_model", epoch=args["epochs"], loss=train_score, initial_probs=True)
+        model.plot_model(path_name + "_model_architecture")
+        model.plot_history(path_name + "_training_history.png")
+        print("*" * 50 + "\nevaluating model on test dataset:", file=logger)
+        test_score = model.evaluate(dataloader=test_loader, verbose=True, logger=logger)
+    except Exception as e:
+        print(e, file=logger)
+        if logger:
+            logger.close()
+        return "Error in program"
     if logger:
         logger.close()
+
     # sample from model and see if generated sequences are reasonable
     sampled_sequences = model.sample(num_samples=1000, length=len(args["wild_type"]))
     mismatches = plot_mismatches_histogram(sampled_sequences, args["wild_type"], save_fig_dir=path_name + "_mismatches.png", show=False)

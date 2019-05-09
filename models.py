@@ -1,3 +1,5 @@
+import matplotlib.pyplot as plt
+
 class Model(object):
 
     def __init__(self, args):
@@ -9,17 +11,44 @@ class Model(object):
         :param args.input: int, the size of the input
         :param args.hidden_size: int, the size of the hidden layer
         :param args.latent_dim: int, the size of the latent dimension
+        :param args.seq_length: int, the size of the sequence length
+        :param args.pseudo_count: int, the pseudo count to be added to each output distribution
+        :param args.n_jobs: int, the number of jobs to parallelize the computation
         :param args.device: device, the device used: cpu or gpu
         :param args.learning_rate: float, sets the learning rate
         :param args.epochs: int, sets the epoch size
-        :param args.vocabulary: string, all the characters in the context of the problem
-        :param args.seq_length: int, maximum seq length of the DNA sequence
         :param args.batch_size: int, batch size of the model
-        :param args.learning_rate: float, initial learning rate
-        :param args.pseudo_count: int, the pseudocount to add to each character
+        :param args.layers: int, the number of layers in the model
+        :param args.dataset: string, the dataset used
+        :param args.num_data: int, the number of data points in the train, test, and valid datasets
+        :param args.vocabulary: string, all the characters in the context of the problem
         """
         self.args = args
         self.save_epochs = 50
+        self.model_type = args["model_type"]
+        self.base_log = args["base_log"]
+        self.name = args["name"]
+        self.input = args["input"]
+        self.hidden_size = args["hidden_size"]
+        self.latent_dim = args["latent_dim"]
+        self.seq_length = args["seq_length"]
+        self.pseudo_count = args["pseudo_count"]
+        self.n_jobs = args["n_jobs"]
+        self.device = args["device"]
+        self.learning_rate = args["learning_rate"]
+        self.epochs = args["epochs"]
+        self.batch_size = args["batch_size"]
+        self.layers = args["layers"]
+        self.dataset = args["dataset"]
+        self.num_data = args["num_data"]
+        self.all_characters = args["vocabulary"]
+        self.num_characters = len(self.all_characters)
+        self.character_to_int = dict(zip(self.all_characters, range(self.num_characters)))
+        self.int_to_character = dict(zip(range(self.num_characters), self.all_characters))
+        self.indexes = list(range(self.num_characters))
+        self.train_loss_history = []
+        self.valid_loss_history = []
+        assert(self.seq_length * self.num_characters == self.input)
 
     def fit(self, train_dataloader, valid_dataloader=None, verbose=True, logger=None, save_model=True, weights=None):
         """
@@ -88,10 +117,20 @@ class Model(object):
         """
         raise NotImplementedError
 
-    def plot_history(self, save_fig_dir):
+    def plot_history(self, save_fig_dir, **kwargs):
         """
         plot the training and validation history of the model. should be called after fit.
         :param save_fig_dir: directory to save the training and validation history in
         :return: None
         """
-        raise NotImplementedError
+        plt.figure()
+        plt.title("{0} training history".format(self.name))
+        for name, history_lst in self.__dict__.items():
+            if "history" in name:
+                plt.plot(history_lst, label=name)
+        plt.legend()
+        plt.xlabel("epochs")
+        plt.ylabel("loss")
+        if save_fig_dir:
+            plt.savefig(save_fig_dir)
+        plt.close()

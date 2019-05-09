@@ -3,7 +3,6 @@ import torch
 import torch.nn as nn
 import numpy as np
 import os
-import matplotlib.pyplot as plt
 
 from torch.autograd import Variable
 from torchviz import make_dot
@@ -49,29 +48,11 @@ class GenerativeRNN(Model):
 
     def __init__(self, args):
         Model.__init__(self, args)
-        self.name = args["name"]
-        self.model_type = args["model_type"]
-        self.input = args["input"]
-        self.layers = args["layers"]
-        self.hidden_size = args["hidden_size"]
-        self.learning_rate = args["learning_rate"]
-        self.epochs = args["epochs"]
-        self.all_characters = args["vocabulary"]
-        self.batch_size = args["batch_size"]
-        self.pseudo_count = args["pseudo_count"]
-        self.device = args["device"]
-        self.seq_length = args["seq_length"]
-        self.num_characters = len(self.all_characters)
-        self.indexes = list(range(self.num_characters))
-        self.character_to_int = dict(zip(self.all_characters, self.indexes))
-        self.int_to_character = dict(zip(self.indexes, self.all_characters))
-        self.initial_probs = dict(zip(self.indexes, np.zeros(self.num_characters)))
         self.initial_probs_tensor = []
+        self.initial_probs = dict(zip(self.indexes, np.ones(self.num_characters) * self.pseudo_count))
         self.model = RNN(self.num_characters, self.hidden_size, self.num_characters, "lstm", self.layers)
         self.optimizer = torch.optim.Adam(self.model.parameters(), lr=self.learning_rate)
         self.criterion = nn.CrossEntropyLoss()
-        self.train_loss_history, self.valid_loss_history = [], []
-        assert(self.seq_length * self.num_characters == self.input)
 
     def fit(self, train_dataloader, valid_dataloader=None, verbose=True, logger=None, save_model=True, weights=None,
             **kwargs):
@@ -189,15 +170,6 @@ class GenerativeRNN(Model):
             self.initial_probs_tensor = torch.Tensor(list(self.initial_probs.values()))
 
     def plot_history(self, save_fig_dir, **kwargs):
-        plt.figure()
-        plt.title("{0} training history".format(self.name))
-        for name, history_lst in self.__dict__.items():
-            if "history" in name:
-                plt.plot(history_lst, label=name)
-        plt.legend()
-        plt.xlabel("epochs")
-        plt.ylabel("loss")
-        if save_fig_dir:
-            plt.savefig(save_fig_dir)
-        plt.close()
+        super().plot_history(save_fig_dir=save_fig_dir, **kwargs)
+
 

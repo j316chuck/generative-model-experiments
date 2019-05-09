@@ -2,22 +2,29 @@ Training rnn_default_small
 Args:
 args -- {'model_type': 'rnn', 'base_log': 'logs/gfp/rnn/', 'name': 'rnn_default_small', 'input': 4998, 'hidden_size': 100, 'latent_dim': -1, 'seq_length': 238, 'pseudo_count': 1, 'n_jobs': 1, 'device': device(type='cpu'), 'learning_rate': 0.001, 'epochs': 10, 'batch_size': 10, 'layers': 1, 'dataset': 'gfp', 'num_data': 100, 'vocabulary': '*ACDEFGHIKLMNPQRSTVWY', 'wild_type': 'SKGEELFTGVVPILVELDGDVNGHKFSVSGEGEGDATYGKLTLKFICTTGKLPVPWPTLVTTLSYGVQCFSRYPDHMKQHDFFKSAMPEGYVQERTIFFKDDGNYKTRAEVKFEGDTLVNRIELKGIDFKEDGNILGHKLEYNYNSHNVYIMADKQKNGIKVNFKIRHNIEDGSVQLADHYQQNTPIGDGPVLLPDNHYLSTQSALSKDPNEKRDHMVLLEFVTAAGITHGMDELYK*'}
 save_epochs -- 50
-name -- rnn_default_small
 model_type -- rnn
+base_log -- logs/gfp/rnn/
+name -- rnn_default_small
 input -- 4998
-layers -- 1
 hidden_size -- 100
+latent_dim -- -1
+seq_length -- 238
+pseudo_count -- 1
+n_jobs -- 1
+device -- cpu
 learning_rate -- 0.001
 epochs -- 10
-all_characters -- *ACDEFGHIKLMNPQRSTVWY
 batch_size -- 10
-pseudo_count -- 1
-device -- cpu
+layers -- 1
+dataset -- gfp
+num_data -- 100
+all_characters -- *ACDEFGHIKLMNPQRSTVWY
 num_characters -- 21
-indexes -- [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20]
 character_to_int -- {'*': 0, 'A': 1, 'C': 2, 'D': 3, 'E': 4, 'F': 5, 'G': 6, 'H': 7, 'I': 8, 'K': 9, 'L': 10, 'M': 11, 'N': 12, 'P': 13, 'Q': 14, 'R': 15, 'S': 16, 'T': 17, 'V': 18, 'W': 19, 'Y': 20}
 int_to_character -- {0: '*', 1: 'A', 2: 'C', 3: 'D', 4: 'E', 5: 'F', 6: 'G', 7: 'H', 8: 'I', 9: 'K', 10: 'L', 11: 'M', 12: 'N', 13: 'P', 14: 'Q', 15: 'R', 16: 'S', 17: 'T', 18: 'V', 19: 'W', 20: 'Y'}
-initial_probs -- {0: 0.0, 1: 0.0, 2: 0.0, 3: 0.0, 4: 0.0, 5: 0.0, 6: 0.0, 7: 0.0, 8: 0.0, 9: 0.0, 10: 0.0, 11: 0.0, 12: 0.0, 13: 0.0, 14: 0.0, 15: 0.0, 16: 0.0, 17: 0.0, 18: 0.0, 19: 0.0, 20: 0.0}
+indexes -- [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20]
+train_loss_history -- []
+valid_loss_history -- []
 initial_probs_tensor -- []
 model -- RNN(
   (encoder): Embedding(21, 100)
@@ -33,20 +40,18 @@ Parameter Group 0
     weight_decay: 0
 )
 criterion -- CrossEntropyLoss()
-train_loss_history -- []
-valid_loss_history -- []
 **************************************************
 training model on train and validation datasets...
-epoch 1, train neg log prob: 701.4389, test neg log probability 675.9579, time: 7.70 sec
-epoch 2, train neg log prob: 651.3482, test neg log probability 622.5110, time: 15.57 sec
-epoch 3, train neg log prob: 596.2379, test neg log probability 562.9444, time: 22.63 sec
-epoch 4, train neg log prob: 532.2264, test neg log probability 493.8160, time: 29.94 sec
-epoch 5, train neg log prob: 459.5968, test neg log probability 417.6212, time: 37.21 sec
-epoch 6, train neg log prob: 383.3967, test neg log probability 343.0133, time: 44.50 sec
-epoch 7, train neg log prob: 311.9627, test neg log probability 276.0110, time: 51.99 sec
-epoch 8, train neg log prob: 249.5553, test neg log probability 220.1818, time: 59.04 sec
-epoch 9, train neg log prob: 198.5238, test neg log probability 176.2213, time: 68.50 sec
-epoch 10, train neg log prob: 158.8499, test neg log probability 143.0451, time: 76.94 sec
+epoch 1, train neg log prob: 701.5797, test neg log probability 673.9718, time: 5.66 sec
+epoch 2, train neg log prob: 649.8299, test neg log probability 622.3105, time: 10.71 sec
+epoch 3, train neg log prob: 595.4881, test neg log probability 563.7193, time: 16.45 sec
+epoch 4, train neg log prob: 531.5924, test neg log probability 494.6526, time: 24.67 sec
+epoch 5, train neg log prob: 457.1002, test neg log probability 416.6249, time: 38.50 sec
+epoch 6, train neg log prob: 377.5651, test neg log probability 339.6752, time: 51.17 sec
+epoch 7, train neg log prob: 303.5136, test neg log probability 273.1509, time: 62.05 sec
+epoch 8, train neg log prob: 240.8989, test neg log probability 218.0297, time: 77.82 sec
+epoch 9, train neg log prob: 191.0766, test neg log probability 176.2573, time: 92.20 sec
+epoch 10, train neg log prob: 153.0150, test neg log probability 144.5923, time: 108.02 sec
 **************************************************
 evaluating model on test dataset:
-total loss: 145.4200
+total loss: 145.8432

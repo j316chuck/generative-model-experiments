@@ -9,27 +9,12 @@ class GenerativeHMM(Model):
 
     def __init__(self, args):
         Model.__init__(self, args)
-        self.model_type = args["model_type"]
-        self.name = args["name"]
-        self.hidden_size = args["hidden_size"]
-        self.epochs = args["epochs"]
-        self.n_jobs = args["n_jobs"]
-        self.batch_size = args["batch_size"]
-        self.pseudo_count = args["pseudo_count"]
-        self.all_characters = args["vocabulary"]
-        self.input = args["input"]
-        self.seq_length = args["seq_length"]
-        self.num_characters = len(self.all_characters)
-        self.character_to_int = dict(zip(self.all_characters, range(self.num_characters)))
-        self.int_to_character = dict(zip(range(self.num_characters), self.all_characters))
-        self.indexes = list(range(self.num_characters))
         self.model = None
         self.build_model()
-        self.train_neg_log_prob = []
-        self.valid_neg_log_prob = []
+        self.train_loss = []
+        self.valid_loss_history = []
         assert(self.seq_length * self.num_characters == self.input)
 
-    
     def build_model(self): 
         distributions = []
         for _ in range(self.hidden_size):
@@ -52,16 +37,15 @@ class GenerativeHMM(Model):
             _, hist = self.model.fit(train_dataloader, max_iterations=1, pseudocount=self.pseudo_count,
                                      n_jobs=self.n_jobs, return_history=True)
             train_neg_log_prob = self.evaluate(train_dataloader)
-            self.train_neg_log_prob.append(train_neg_log_prob)
+            self.train_loss_history.append(train_neg_log_prob)
             if valid_dataloader:
-                test_neg_log_prob = self.evaluate(valid_dataloader)
-                self.valid_neg_log_prob.append(test_neg_log_prob)
+                valid_neg_log_prob = self.evaluate(valid_dataloader)
+                self.valid_loss_history.append(valid_neg_log_prob)
             if verbose:
                 print("epoch {0}, train neg log prob: {1:.4f}, test neg log probability {2:.4f}, time: {3:.2f} sec".format(
-                    epoch, train_neg_log_prob, test_neg_log_prob, time.time() - start_time), file=logger)
+                    epoch, train_neg_log_prob, valid_neg_log_prob, time.time() - start_time), file=logger)
             if epoch % self.save_epochs == 0 and save_model:
                 path = os.path.join(self.base_log, self.name, "{0}_checkpoint_{1}.json".format(self.model_type, epoch))
-                print(path)
                 self.save_model(path)
 
     def evaluate(self, dataloader, verbose=False, logger=None, weights=None, **kwargs):
@@ -91,17 +75,9 @@ class GenerativeHMM(Model):
         self.model = HiddenMarkovModel.from_json(json_model)
 
     def plot_history(self, save_fig_dir, **kwargs):
-        plt.figure()
-        plt.title("{0} training history".format(self.name))
-        for name, history_lst in self.__dict__.items():
-            if "prob" in name:
-                plt.plot(history_lst, label=name)
-        plt.legend()
-        plt.xlabel("epochs")
-        plt.ylabel("loss")
-        if save_fig_dir:
-            plt.savefig(save_fig_dir)
-        plt.close()
+        super().plot_history(save_fig_dir=save_fig_dir, **kwargs)
+
+
 
 
 
