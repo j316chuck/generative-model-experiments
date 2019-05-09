@@ -47,45 +47,45 @@ valid_kld_loss_history -- []
 **************************************************
 training model on train and validation datasets...
 --------------------------------------------------
-epoch: 1. train loss: 296.3248. train cross entropy loss: 295.0198. train kld loss: 1.3050
-time: 0.11 sec. valid loss: 280.8511. valid cross entropy loss: 276.2572, valid kld loss 4.5939
+epoch: 1. train loss: 293.8287. train cross entropy loss: 292.4934. train kld loss: 1.3353
+time: 0.11 sec. valid loss: 280.0311. valid cross entropy loss: 276.3166, valid kld loss 3.7145
 --------------------------------------------------
 --------------------------------------------------
-epoch: 2. train loss: 252.7212. train cross entropy loss: 240.0123. train kld loss: 12.7089
-time: 0.34 sec. valid loss: 206.2158. valid cross entropy loss: 179.2292, valid kld loss 26.9866
+epoch: 2. train loss: 252.5772. train cross entropy loss: 243.2175. train kld loss: 9.3597
+time: 0.23 sec. valid loss: 211.7431. valid cross entropy loss: 191.5613, valid kld loss 20.1818
 --------------------------------------------------
 --------------------------------------------------
-epoch: 3. train loss: 157.1607. train cross entropy loss: 113.5257. train kld loss: 43.6350
-time: 0.44 sec. valid loss: 114.1917. valid cross entropy loss: 62.5041, valid kld loss 51.6875
+epoch: 3. train loss: 163.4026. train cross entropy loss: 126.9580. train kld loss: 36.4446
+time: 0.39 sec. valid loss: 118.2184. valid cross entropy loss: 68.9873, valid kld loss 49.2312
 --------------------------------------------------
 --------------------------------------------------
-epoch: 4. train loss: 87.2018. train cross entropy loss: 46.7243. train kld loss: 40.4776
-time: 0.61 sec. valid loss: 73.0219. valid cross entropy loss: 48.0271, valid kld loss 24.9948
+epoch: 4. train loss: 91.1091. train cross entropy loss: 49.8629. train kld loss: 41.2462
+time: 0.48 sec. valid loss: 74.8299. valid cross entropy loss: 47.1251, valid kld loss 27.7048
 --------------------------------------------------
 --------------------------------------------------
-epoch: 5. train loss: 59.0483. train cross entropy loss: 38.4277. train kld loss: 20.6206
-time: 0.70 sec. valid loss: 60.1646. valid cross entropy loss: 43.1781, valid kld loss 16.9865
+epoch: 5. train loss: 61.7597. train cross entropy loss: 38.7052. train kld loss: 23.0545
+time: 0.63 sec. valid loss: 59.6444. valid cross entropy loss: 40.9019, valid kld loss 18.7425
 --------------------------------------------------
 --------------------------------------------------
-epoch: 6. train loss: 49.7725. train cross entropy loss: 33.4871. train kld loss: 16.2855
-time: 0.84 sec. valid loss: 55.4575. valid cross entropy loss: 42.1492, valid kld loss 13.3082
+epoch: 6. train loss: 51.5197. train cross entropy loss: 34.3312. train kld loss: 17.1886
+time: 0.75 sec. valid loss: 55.0398. valid cross entropy loss: 39.7219, valid kld loss 15.3179
 --------------------------------------------------
 --------------------------------------------------
-epoch: 7. train loss: 46.4650. train cross entropy loss: 33.0307. train kld loss: 13.4343
-time: 0.97 sec. valid loss: 53.7861. valid cross entropy loss: 39.9453, valid kld loss 13.8408
+epoch: 7. train loss: 46.1968. train cross entropy loss: 32.7629. train kld loss: 13.4339
+time: 0.86 sec. valid loss: 51.7786. valid cross entropy loss: 39.5747, valid kld loss 12.2039
 --------------------------------------------------
 --------------------------------------------------
-epoch: 8. train loss: 44.1672. train cross entropy loss: 31.8393. train kld loss: 12.3278
-time: 1.09 sec. valid loss: 51.2328. valid cross entropy loss: 40.6886, valid kld loss 10.5442
+epoch: 8. train loss: 44.5741. train cross entropy loss: 32.7442. train kld loss: 11.8299
+time: 0.98 sec. valid loss: 52.1382. valid cross entropy loss: 40.5011, valid kld loss 11.6371
 --------------------------------------------------
 --------------------------------------------------
-epoch: 9. train loss: 42.7344. train cross entropy loss: 32.0954. train kld loss: 10.6390
-time: 1.23 sec. valid loss: 51.7415. valid cross entropy loss: 40.0842, valid kld loss 11.6573
+epoch: 9. train loss: 41.7261. train cross entropy loss: 30.7506. train kld loss: 10.9755
+time: 1.10 sec. valid loss: 50.3523. valid cross entropy loss: 40.8614, valid kld loss 9.4910
 --------------------------------------------------
 --------------------------------------------------
-epoch: 10. train loss: 41.1287. train cross entropy loss: 30.8278. train kld loss: 10.3009
-time: 1.37 sec. valid loss: 51.3269. valid cross entropy loss: 43.0562, valid kld loss 8.2707
+epoch: 10. train loss: 40.9096. train cross entropy loss: 31.4024. train kld loss: 9.5073
+time: 1.24 sec. valid loss: 50.4021. valid cross entropy loss: 40.2724, valid kld loss 10.1298
 --------------------------------------------------
 **************************************************
 evaluating model on test dataset:
-total loss: 49.7806 cross entropy loss: 41.4930. kld loss: 8.2876
+total loss: 50.0781 cross entropy loss: 39.9422. kld loss: 10.1359

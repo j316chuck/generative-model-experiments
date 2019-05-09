@@ -43,16 +43,16 @@ Parameter Group 0
 criterion -- CrossEntropyLoss()
 **************************************************
 training model on train and validation datasets...
-epoch 1, train neg log prob: 282.7114, test neg log probability 266.4847, time: 5.57 sec
-epoch 2, train neg log prob: 252.4418, test neg log probability 238.6228, time: 10.85 sec
-epoch 3, train neg log prob: 224.2298, test neg log probability 209.4618, time: 15.96 sec
-epoch 4, train neg log prob: 193.5383, test neg log probability 178.1128, time: 21.01 sec
-epoch 5, train neg log prob: 161.6254, test neg log probability 147.5586, time: 26.23 sec
-epoch 6, train neg log prob: 132.1115, test neg log probability 121.3066, time: 31.62 sec
-epoch 7, train neg log prob: 107.6798, test neg log probability 100.8202, time: 36.64 sec
-epoch 8, train neg log prob: 88.9859, test neg log probability 85.7262, time: 42.01 sec
-epoch 9, train neg log prob: 75.4987, test neg log probability 75.5596, time: 47.26 sec
-epoch 10, train neg log prob: 66.3580, test neg log probability 68.4829, time: 52.24 sec
+epoch 1, train neg log prob: 285.5301, test neg log probability 269.2798, time: 5.39 sec
+epoch 2, train neg log prob: 253.6024, test neg log probability 238.6628, time: 10.39 sec
+epoch 3, train neg log prob: 223.9414, test neg log probability 209.1470, time: 15.15 sec
+epoch 4, train neg log prob: 193.0884, test neg log probability 178.1999, time: 19.93 sec
+epoch 5, train neg log prob: 161.7455, test neg log probability 148.5317, time: 24.98 sec
+epoch 6, train neg log prob: 132.6486, test neg log probability 122.4253, time: 29.11 sec
+epoch 7, train neg log prob: 108.2648, test neg log probability 101.8289, time: 33.39 sec
+epoch 8, train neg log prob: 89.6414, test neg log probability 86.6850, time: 37.88 sec
+epoch 9, train neg log prob: 76.3307, test neg log probability 76.4159, time: 42.59 sec
+epoch 10, train neg log prob: 67.0885, test neg log probability 69.2982, time: 46.68 sec
 **************************************************
 evaluating model on test dataset:
-total loss: 68.1271
+total loss: 68.4861

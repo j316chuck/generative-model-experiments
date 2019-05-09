@@ -1056,3 +1056,19 @@ model -- None:{
     "name" : "None-end",
     "weight" : 1.0
 }
+train_loss -- []
+**************************************************
+training model on train and validation datasets...
+epoch 1, train neg log prob: 271.9826, test neg log probability 272.7829, time: 8.57 sec
+epoch 2, train neg log prob: 270.9006, test neg log probability 271.7049, time: 17.89 sec
+epoch 3, train neg log prob: 269.6167, test neg log probability 270.4289, time: 25.13 sec
+epoch 4, train neg log prob: 268.4543, test neg log probability 269.2766, time: 32.41 sec
+epoch 5, train neg log prob: 266.5757, test neg log probability 267.4016, time: 40.01 sec
+epoch 6, train neg log prob: 263.4100, test neg log probability 264.2529, time: 48.00 sec
+epoch 7, train neg log prob: 259.0985, test neg log probability 260.0443, time: 55.32 sec
+epoch 8, train neg log prob: 251.7548, test neg log probability 252.9170, time: 61.96 sec
+epoch 9, train neg log prob: 238.1020, test neg log probability 239.6481, time: 68.98 sec
+epoch 10, train neg log prob: 221.6578, test neg log probability 223.6390, time: 75.73 sec
+**************************************************
+evaluating model on test dataset:
+Average neg log prob: 223.4584

@@ -1,0 +1,71 @@
+digraph {
+	graph [size="12,12"]
+	node [align=left fontsize=12 height=0.2 ranksep=0.1 shape=box style=filled]
+	4790064968 [label=AddmmBackward fillcolor=darkolivegreen1]
+	4790065248 -> 4790064968
+	4790065248 [label="
+ (20)" fillcolor=lightblue]
+	4790064296 -> 4790064968
+	4790064296 [label=ViewBackward]
+	4797346368 -> 4790064296
+	4797346368 [label=StackBackward]
+	4797346424 -> 4797346368
+	4797346424 [label=MulBackward0]
+	4797346536 -> 4797346424
+	4797346536 [label=SigmoidBackward]
+	4797346704 -> 4797346536
+	4797346704 [label=SplitBackward]
+	4797346200 -> 4797346704
+	4797346200 [label=AddBackward0]
+	4797346872 -> 4797346200
+	4797346872 [label=AddmmBackward]
+	4797347040 -> 4797346872
+	4797347040 [label="
+ (400)" fillcolor=lightblue]
+	4797347096 -> 4797346872
+	4797347096 [label=UnbindBackward]
+	4797347320 -> 4797347096
+	4797347320 [label=ViewBackward]
+	4797347376 -> 4797347320
+	4797347376 [label=EmbeddingBackward]
+	4797347488 -> 4797347376
+	4797347488 [label="
+ (20, 100)" fillcolor=lightblue]
+	4797347152 -> 4797346872
+	4797347152 [label=TBackward]
+	4797347264 -> 4797347152
+	4797347264 [label="
+ (400, 100)" fillcolor=lightblue]
+	4797346928 -> 4797346200
+	4797346928 [label=AddmmBackward]
+	4797347208 -> 4797346928
+	4797347208 [label="
+ (400)" fillcolor=lightblue]
+	4797347432 -> 4797346928
+	4797347432 [label=TBackward]
+	4797347544 -> 4797347432
+	4797347544 [label="
+ (400, 100)" fillcolor=lightblue]
+	4797346592 -> 4797346424
+	4797346592 [label=TanhBackward]
+	4797346760 -> 4797346592
+	4797346760 [label=AddBackward0]
+	4797346984 -> 4797346760
+	4797346984 [label=MulBackward0]
+	4797347768 -> 4797346984
+	4797347768 [label=SigmoidBackward]
+	4797346704 -> 4797347768
+	4797347600 -> 4797346760
+	4797347600 [label=MulBackward0]
+	4797347824 -> 4797347600
+	4797347824 [label=SigmoidBackward]
+	4797346704 -> 4797347824
+	4797347712 -> 4797347600
+	4797347712 [label=TanhBackward]
+	4797346704 -> 4797347712
+	4790063288 -> 4790064968
+	4790063288 [label=TBackward]
+	4797346312 -> 4790063288
+	4797346312 [label="
+ (20, 100)" fillcolor=lightblue]
+}

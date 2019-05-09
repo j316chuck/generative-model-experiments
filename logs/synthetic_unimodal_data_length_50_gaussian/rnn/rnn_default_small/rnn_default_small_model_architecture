@@ -1,0 +1,71 @@
+digraph {
+	graph [size="12,12"]
+	node [align=left fontsize=12 height=0.2 ranksep=0.1 shape=box style=filled]
+	4516313800 [label=AddmmBackward fillcolor=darkolivegreen1]
+	4516313912 -> 4516313800
+	4516313912 [label="
+ (20)" fillcolor=lightblue]
+	4668523912 -> 4516313800
+	4668523912 [label=ViewBackward]
+	4432474632 -> 4668523912
+	4432474632 [label=StackBackward]
+	4432474576 -> 4432474632
+	4432474576 [label=MulBackward0]
+	4432474744 -> 4432474576
+	4432474744 [label=SigmoidBackward]
+	4432474912 -> 4432474744
+	4432474912 [label=SplitBackward]
+	4432475024 -> 4432474912
+	4432475024 [label=AddBackward0]
+	4432475136 -> 4432475024
+	4432475136 [label=AddmmBackward]
+	4432475304 -> 4432475136
+	4432475304 [label="
+ (400)" fillcolor=lightblue]
+	4432475360 -> 4432475136
+	4432475360 [label=UnbindBackward]
+	4432475584 -> 4432475360
+	4432475584 [label=ViewBackward]
+	4432475640 -> 4432475584
+	4432475640 [label=EmbeddingBackward]
+	4432475752 -> 4432475640
+	4432475752 [label="
+ (20, 100)" fillcolor=lightblue]
+	4432475416 -> 4432475136
+	4432475416 [label=TBackward]
+	4432475528 -> 4432475416
+	4432475528 [label="
+ (400, 100)" fillcolor=lightblue]
+	4432475192 -> 4432475024
+	4432475192 [label=AddmmBackward]
+	4432475472 -> 4432475192
+	4432475472 [label="
+ (400)" fillcolor=lightblue]
+	4432475696 -> 4432475192
+	4432475696 [label=TBackward]
+	4432475808 -> 4432475696
+	4432475808 [label="
+ (400, 100)" fillcolor=lightblue]
+	4432474800 -> 4432474576
+	4432474800 [label=TanhBackward]
+	4432474968 -> 4432474800
+	4432474968 [label=AddBackward0]
+	4432475248 -> 4432474968
+	4432475248 [label=MulBackward0]
+	4432476032 -> 4432475248
+	4432476032 [label=SigmoidBackward]
+	4432474912 -> 4432476032
+	4432475864 -> 4432474968
+	4432475864 [label=MulBackward0]
+	4432476088 -> 4432475864
+	4432476088 [label=SigmoidBackward]
+	4432474912 -> 4432476088
+	4432475976 -> 4432475864
+	4432475976 [label=TanhBackward]
+	4432474912 -> 4432475976
+	4432474296 -> 4516313800
+	4432474296 [label=TBackward]
+	4432474408 -> 4432474296
+	4432474408 [label="
+ (20, 100)" fillcolor=lightblue]
+}
