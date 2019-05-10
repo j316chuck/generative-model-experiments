@@ -97,6 +97,10 @@ class GenerativeRNN(Model):
             if epoch % self.save_epochs == 0 and save_model:
                 path = os.path.join(self.base_log, self.name, "{0}_checkpoint_{1}.pt".format(self.model_type, epoch))
                 self.save_model(path, epoch=epoch, loss=loss, initial_probs=True)
+            if self.early_stopping:
+                super().early_stop_iteration(loss, valid_loss, epoch, logger)
+                if self.early_stopping.early_stop:
+                    break
 
     def evaluate(self, dataloader, verbose=False, logger=None, weights=None, **kwargs):
         total_loss = 0

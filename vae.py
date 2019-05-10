@@ -130,19 +130,9 @@ class GenerativeVAE(Model):
                 path = os.path.join(self.base_log, self.name, "{0}_checkpoint_{1}.pt".format(self.model_type, epoch))
                 self.save_model(path, epoch=epoch, loss=loss)
             if self.early_stopping:
-                self.early_stopping(valid_loss)
+                super().early_stop_iteration(loss, valid_loss, epoch, logger)
                 if self.early_stopping.early_stop:
-                    early_epoch = epoch - self.patience
-                    print("-" * 50, file=logger)
-                    print("early stopped at epoch {0}".format(epoch), file=logger)
-                    print("loading model from epoch {0}".format(early_epoch), file=logger)
-                    print("-" * 50, file=logger)
-                    path = os.path.join(self.base_log, self.name, "{0}_early_stop.pt".format(self.model_type))
-                    self.load_model(path)
                     break
-                elif self.early_stopping.checkpoint:
-                    path = os.path.join(self.base_log, self.name, "{0}_early_stop.pt".format(self.model_type))
-                    self.save_model(path, epoch=epoch, loss=loss)
 
     def evaluate(self, dataloader, verbose=True, logger=None, weights=None, **kwargs):
         self.model.eval()

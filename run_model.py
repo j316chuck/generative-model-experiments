@@ -157,7 +157,7 @@ def run_experiment(args):
         if exit_code == 0:  # exited successfuly
             return (exit_code, train_score, valid_score, test_score, average_mismatches, total_time)
         else:
-            raise exc_value #return (exit_code, -1, exc_type, exc_value, exc_traceback, total_time)
+            raise exc_value  # return (exit_code, -1, exc_type, exc_value, exc_traceback, total_time)
 
 
 if __name__ == '__main__':

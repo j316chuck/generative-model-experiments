@@ -1,5 +1,6 @@
 import matplotlib.pyplot as plt
 from early_stopping import EarlyStopping
+import os
 
 class Model(object):
 
@@ -121,6 +122,28 @@ class Model(object):
         :return:
         """
         raise NotImplementedError
+
+    def early_stop_iteration(self, train_loss, valid_loss, epoch, logger):
+        """
+        update the early stopping checkpoint
+        :param train_loss: float, loss of training data
+        :param valid_loss: float, loss of validation data
+        :param epoch: int, which epoch is it
+        :param logger: file, where to log output
+        :return: None
+        """
+        self.early_stopping(valid_loss)
+        ending = "pt" if self.model_type is "rnn" or "vae" else "json"
+        path = os.path.join(self.base_log, self.name, "{0}_early_stop.{1}".format(self.model_type, ending))
+        if self.early_stopping.early_stop:
+            early_epoch = epoch - self.patience
+            print("-" * 50, file=logger)
+            print("early stopped at epoch {0}".format(epoch), file=logger)
+            print("loading model from epoch {0}".format(early_epoch), file=logger)
+            print("-" * 50, file=logger)
+            self.load_model(path)
+        elif self.early_stopping.checkpoint:
+            self.save_model(path, epoch=epoch, loss=train_loss, initial_probs=True)
 
     def plot_history(self, save_fig_dir, **kwargs):
         """
