@@ -106,7 +106,7 @@ def run_experiment(args):
         # putting tensors on cpu or gpu
         if args["early_stopping"]:
             assert(args["patience"] >= 1)
-            args["early_stopping"] = EarlyStopping(args["patience"], verbose=True)
+            args["early_stopping"] = EarlyStopping(args["patience"], verbose=True) # change to False verbose
         else:
             args["early_stopping"] = None
 
@@ -158,7 +158,6 @@ def run_experiment(args):
             return (exit_code, train_score, valid_score, test_score, average_mismatches, total_time)
         else:
             raise exc_value #return (exit_code, -1, exc_type, exc_value, exc_traceback, total_time)
-
 
 
 if __name__ == '__main__':

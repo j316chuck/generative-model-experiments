@@ -133,6 +133,11 @@ class Model(object):
         for name, history_lst in self.__dict__.items():
             if "history" in name:
                 plt.plot(history_lst, label=name)
+            if "valid_loss_history" in name:
+                valid_loss = history_lst
+        if self.early_stopping:
+            min_valid_epoch = valid_loss.index(min(valid_loss)) + 1
+            plt.axvline(min_valid_epoch, linestyle='--', color='r', label='early_stopping_checkpoint')
         plt.legend()
         plt.xlabel("epochs")
         plt.ylabel("loss")

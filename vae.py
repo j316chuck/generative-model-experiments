@@ -115,11 +115,10 @@ class GenerativeVAE(Model):
             self.train_kld_loss_history.append(total_kld_loss / len(train_dataloader.dataset))
             # evaluate model
             self.model.eval()
-            if valid_dataloader:
-                valid_loss, valid_recon_loss, valid_kld_loss = self.evaluate(valid_dataloader, verbose=False, logger=logger)
-                self.valid_loss_history.append(valid_loss)
-                self.valid_recon_loss_history.append(valid_recon_loss)
-                self.valid_kld_loss_history.append(valid_kld_loss)
+            valid_loss, valid_recon_loss, valid_kld_loss = self.evaluate(valid_dataloader, verbose=False, logger=logger)
+            self.valid_loss_history.append(valid_loss)
+            self.valid_recon_loss_history.append(valid_recon_loss)
+            self.valid_kld_loss_history.append(valid_kld_loss)
             if verbose:
                 print("-" * 50, file=logger)
                 print('epoch: {0}. train loss: {1:.4f}. train cross entropy loss: {2:.4f}. train kld loss: {3:.4f}'.format(
@@ -130,6 +129,20 @@ class GenerativeVAE(Model):
             if epoch % self.save_epochs == 0 and save_model:
                 path = os.path.join(self.base_log, self.name, "{0}_checkpoint_{1}.pt".format(self.model_type, epoch))
                 self.save_model(path, epoch=epoch, loss=loss)
+            if self.early_stopping:
+                self.early_stopping(valid_loss)
+                if self.early_stopping.early_stop:
+                    early_epoch = epoch - self.patience
+                    print("-" * 50, file=logger)
+                    print("early stopped at epoch {0}".format(epoch), file=logger)
+                    print("loading model from epoch {0}".format(early_epoch), file=logger)
+                    print("-" * 50, file=logger)
+                    path = os.path.join(self.base_log, self.name, "{0}_early_stop.pt".format(self.model_type))
+                    self.load_model(path)
+                    break
+                elif self.early_stopping.checkpoint:
+                    path = os.path.join(self.base_log, self.name, "{0}_early_stop.pt".format(self.model_type))
+                    self.save_model(path, epoch=epoch, loss=loss)
 
     def evaluate(self, dataloader, verbose=True, logger=None, weights=None, **kwargs):
         self.model.eval()
