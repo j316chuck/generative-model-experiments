@@ -54,7 +54,7 @@ class GenerativeRNN(Model):
         self.optimizer = torch.optim.Adam(self.model.parameters(), lr=self.learning_rate)
         self.criterion = nn.CrossEntropyLoss()
 
-    def fit(self, train_dataloader, valid_dataloader=None, verbose=True, logger=None, save_model=True, weights=None,
+    def fit(self, train_dataloader, valid_dataloader, verbose=True, logger=None, save_model=True, weights=None,
             **kwargs):
         start_time = time.time()
         self.model.train()

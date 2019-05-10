@@ -1,4 +1,5 @@
 import matplotlib.pyplot as plt
+from early_stopping import EarlyStopping
 
 class Model(object):
 
@@ -22,6 +23,8 @@ class Model(object):
         :param args.dataset: string, the dataset used
         :param args.num_data: int, the number of data points in the train, test, and valid datasets
         :param args.vocabulary: string, all the characters in the context of the problem
+        :param args.early_stopping: EarlyStopping object, early stopping used on validation loss or not
+        :param args.patience: int, how many iterations to wait for validation loss to decrease
         """
         self.args = args
         self.save_epochs = 50
@@ -42,6 +45,8 @@ class Model(object):
         self.dataset = args["dataset"]
         self.num_data = args["num_data"]
         self.all_characters = args["vocabulary"]
+        self.early_stopping = args["early_stopping"]
+        self.patience = args["patience"]
         self.num_characters = len(self.all_characters)
         self.character_to_int = dict(zip(self.all_characters, range(self.num_characters)))
         self.int_to_character = dict(zip(range(self.num_characters), self.all_characters))
@@ -50,7 +55,7 @@ class Model(object):
         self.valid_loss_history = []
         assert(self.seq_length * self.num_characters == self.input)
 
-    def fit(self, train_dataloader, valid_dataloader=None, verbose=True, logger=None, save_model=True, weights=None):
+    def fit(self, train_dataloader, valid_dataloader, verbose=True, logger=None, save_model=True, weights=None):
         """
         fits the model on a training set, using the validation set for hyper-parameter tuning
         :param train_dataloader: a dataloader that iterates through the training dataset in batches

@@ -31,7 +31,7 @@ class GenerativeHMM(Model):
         self.model = HiddenMarkovModel.from_matrix(trans_mat, distributions, starts)
         self.model.bake()
 
-    def fit(self, train_dataloader, valid_dataloader=None, verbose=True, logger=None, save_model=True, weights=None, **kwargs):
+    def fit(self, train_dataloader, valid_dataloader, verbose=True, logger=None, save_model=True, weights=None, **kwargs):
         start_time = time.time()
         for epoch in range(1, self.epochs + 1):
             _, hist = self.model.fit(train_dataloader, max_iterations=1, pseudocount=self.pseudo_count,

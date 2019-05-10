@@ -90,10 +90,11 @@ class GenerativeVAE(Model):
     def kld_loss(self, mu, logvar):
         return -0.5 * torch.sum(1 + logvar - mu.pow(2) - logvar.exp())
 
-    def fit(self, train_dataloader, valid_dataloader=None, verbose=True, logger=None, save_model=True, weights=None, **kwargs):
+    def fit(self, train_dataloader, valid_dataloader, verbose=True, logger=None, save_model=True, weights=None, **kwargs):
         start_time = time.time()
         self.train_loss_history, self.train_recon_loss_history, self.train_kld_loss_history = [], [], []
         self.valid_loss_history, self.valid_recon_loss_history, self.valid_kld_loss_history = [], [], []
+
         for epoch in range(1, self.epochs + 1):
             # train model
             self.model.train()
