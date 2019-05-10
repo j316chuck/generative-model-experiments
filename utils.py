@@ -592,6 +592,8 @@ def rnn_default_args():
         "layers": 1,
         "dataset": "gfp",
         "num_data": 1000,
+        "early_stopping": True,
+        "patience": 10,
     }
 
 
@@ -628,6 +630,8 @@ def vae_default_args():
         "layers": 1,
         "dataset": "gfp",
         "num_data": 1000,
+        "early_stopping": True,
+        "patience": 10,
     }
 
 
@@ -664,6 +668,8 @@ def hmm_default_args():
         "layers": 1,
         "dataset": "gfp",
         "num_data": 1000,
+        "early_stopping": True,
+        "patience": 10,
     }
 
 
