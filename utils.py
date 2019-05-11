@@ -129,18 +129,18 @@ def get_gfp_data(amino_acid=False, gfp_data_path="./data/gfp_data.csv", x_featur
     return train_test_split(x, y, test_size=test_size, shuffle=shuffle)
 
 
-def save_data(X_train, X_test, y_train, y_test, data_path):
+def save_data(x_train, x_test, y_train, y_test, data_path):
     """
     save your gfp data in location
-    :param X_train: training data
-    :param X_test: testing data
+    :param x_train: training data
+    :param x_test: testing data
     :param y_train: training output
     :param y_test: testing output
     :param data_path: path to save data
     :return: None
     """
-    np.save(data_path + "x_train.npy", X_train)
-    np.save(data_path + "x_test.npy", X_test)
+    np.save(data_path + "x_train.npy", x_train)
+    np.save(data_path + "x_test.npy", x_test)
     np.save(data_path + "y_train.npy", y_train)
     np.save(data_path + "y_test.npy", y_test)
 
@@ -162,19 +162,32 @@ def load_data(data_path, start_index=None, end_index=None):
     return x_train, x_test, y_train, y_test
 
 
-def plot_mismatches_histogram(sequences, wild_type, save_fig_dir=None, show=False):
+def plot_mismatches_histogram(sequences_lst, base_sequences_lst, save_fig_dir=None, show=False):
     """
-    :param sequences: list of sampled sequences
-    :param wild_type: base sequence to compare all other sequences against
+    counts the minimum mismatch between the sequences and the base_sequences_lst
+    :param sequences_lst: list of sampled sequences
+    :param base_sequences_lst: list, base sequences to compare all other sequences against
     :param save_fig_dir: saves the histogram of mismatches
     :param show: shows the histogram of mismatches
     :return: list that counts the number of mismatches from the wild type
-    >>> plot_mismatches_histogram(["ACT", "ACG"], "ACG", None, False)
+    >>> plot_mismatches_histogram(["ACT", "ACG"], ["ACG"], None, False)
     [1, 0]
+    >>> plot_mismatches_histogram(["ACTG", "ACCT"], ["ACTG", "ACCC"], None, False)
+    [0, 1]
+    >>> try:
+    ...     plot_mismatches_histogram(["ACT", "ACG"], ["ACTG", "ACCC"], None, False) # not same length
+    ... except:
+    ...     print("assertion error")
+    assertion error
     """
-    assert(type(wild_type) == str and all(type(seq) == str for seq in sequences))
-    assert(all([len(wild_type) == len(seq) for seq in sequences]))
-    mismatches = [count_substring_mismatch(x, wild_type) for x in sequences]
+
+    assert(all(type(base_seq) is str for base_seq in base_sequences_lst))
+    assert(all(type(seq) is str for seq in sequences_lst))
+    assert(all([len(base_sequences_lst[0]) == len(seq) for seq in sequences_lst]))
+    assert(all([len(base_sequences_lst[0]) == len(base_seq) for base_seq in base_sequences_lst]))
+    mismatches = []
+    for seq in sequences_lst:
+        mismatches.append(min([count_substring_mismatch(base_sequence, seq) for base_sequence in base_sequences_lst]))
     plt.figure(figsize=(15, 15))
     plt.title("mismatches from wild type", fontsize=15)
     plt.hist(mismatches, bins=15)
@@ -493,45 +506,45 @@ def generate_discrete_uniform_distribution(num_values, low=1, high=10):
     return uniform_lst.tolist(), bins
 
 
-def load_base_sequence(name):
+def load_base_sequences(name):
     """
     loads the base sequence of a specific dataset
     :param name: string, dataset name
-    :return: string, base sequence
-    >>> load_base_sequence("synthetic_unimodal_data_length_20_uniform")
-    'NLYIQWLKDGGPSSGRPPPS'
-    >>> load_base_sequence("synthetic_unimodal_data_length_50_skewed_gaussian")
-    'MDILLDLGWHFSNCDEDTFYSPVQNTEGDLLFFDHNLKTDRGHVERSVMD'
-    >>> load_base_sequence("synthetic_unimodal_data_length_100_gaussian")
-    'MQKPCKENEGKPKCSVPKREEKRPYGEFERQQTEGNFRQRLLQSLEEFKEDIDYRHFKDEEMTREGDEMERCLEEIRGLRKKFRALHSNHRHSRDRPYPI'
-    >>> load_base_sequence("synthetic_multimodal_data_length_50_modes_2_uniform")
+    :return: list, base_sequences_lst: a list of sequences that represent the base sequences that are mutated
+    >>> load_base_sequences("synthetic_unimodal_data_length_20_uniform")
+    ['NLYIQWLKDGGPSSGRPPPS']
+    >>> load_base_sequences("synthetic_unimodal_data_length_50_skewed_gaussian")
+    ['MDILLDLGWHFSNCDEDTFYSPVQNTEGDLLFFDHNLKTDRGHVERSVMD']
+    >>> load_base_sequences("synthetic_unimodal_data_length_100_gaussian")
+    ['MQKPCKENEGKPKCSVPKREEKRPYGEFERQQTEGNFRQRLLQSLEEFKEDIDYRHFKDEEMTREGDEMERCLEEIRGLRKKFRALHSNHRHSRDRPYPI']
+    >>> load_base_sequences("synthetic_multimodal_data_length_51_modes_2_uniform")
     ['MVAYWRQAGLSYIRYSQICAKAVRDALKTEFKANAEKTSGSNVKIVKVKKE', 'MSSHKTFTIKRFLAKKQKQNRPIPQWIQMKPGSKIRYNSKRRHWRRTKLGL']
-    >>> load_base_sequence("synthetic_multimodal_data_length_50_modes_3_uniform")
+    >>> load_base_sequences("synthetic_multimodal_data_length_51_modes_3_uniform")
     ['MVAYWRQAGLSYIRYSQICAKAVRDALKTEFKANAEKTSGSNVKIVKVKKE', 'MSSHKTFTIKRFLAKKQKQNRPIPQWIQMKPGSKIRYNSKRRHWRRTKLGL', 'MTSWPGGSFGPDPLLALLVVILLARLILWSCLGTYIDYRLAQRRPQKPKQD']
-    >>> load_base_sequence("synthetic_multimodal_data_length_50_modes_5_uniform")
+    >>> load_base_sequences("synthetic_multimodal_data_length_51_modes_5_uniform")
     ['MVAYWRQAGLSYIRYSQICAKAVRDALKTEFKANAEKTSGSNVKIVKVKKE', 'MSSHKTFTIKRFLAKKQKQNRPIPQWIQMKPGSKIRYNSKRRHWRRTKLGL', 'MTSWPGGSFGPDPLLALLVVILLARLILWSCLGTYIDYRLAQRRPQKPKQD', 'MVQECCSQSLYYEELHSYHIVPYASENAIYEMGYTSSHLEQNSQLLIYKMN', 'MSGPLSPVCSCPQLPFMLSPCHMHHHPGHVALSQTVSPASLLTQGLGLPQH']
     >>> try:
-    ...     load_base_sequence("tmp_data_length_10")
+    ...     load_base_sequences("tmp_data_length_10")
     ... except AssertionError:
     ...       print("dataset not found")
     dataset not found
     """
     if "gfp" in name:
-        return get_wild_type_amino_acid_sequence(gap=False)
+        return [get_wild_type_amino_acid_sequence(gap=True)]
     elif "length_20" in name and "synthetic" in name and "unimodal" in name:
-        return 'NLYIQWLKDGGPSSGRPPPS'
+        return ['NLYIQWLKDGGPSSGRPPPS']
     elif "length_50" in name and "synthetic" in name and "unimodal" in name:
-        return 'MDILLDLGWHFSNCDEDTFYSPVQNTEGDLLFFDHNLKTDRGHVERSVMD'
+        return ['MDILLDLGWHFSNCDEDTFYSPVQNTEGDLLFFDHNLKTDRGHVERSVMD']
     elif "length_100" in name and "synthetic" in name and "unimodal" in name:
-        return 'MQKPCKENEGKPKCSVPKREEKRPYGEFERQQTEGNFRQRLLQSLEEFKEDIDYRHFKDEEMTREGDEMERCLEEIRGLRKKFRALHSNHRHSRDRPYPI'
-    elif "length_50" in name and "synthetic" in name and "multimodal" in name and "modes_2" in name:
+        return ['MQKPCKENEGKPKCSVPKREEKRPYGEFERQQTEGNFRQRLLQSLEEFKEDIDYRHFKDEEMTREGDEMERCLEEIRGLRKKFRALHSNHRHSRDRPYPI']
+    elif "length_51" in name and "synthetic" in name and "multimodal" in name and "modes_2" in name:
         return ['MVAYWRQAGLSYIRYSQICAKAVRDALKTEFKANAEKTSGSNVKIVKVKKE',
                 'MSSHKTFTIKRFLAKKQKQNRPIPQWIQMKPGSKIRYNSKRRHWRRTKLGL']
-    elif "length_50" in name and "synthetic" in name and "multimodal" in name and "modes_3" in name:
+    elif "length_51" in name and "synthetic" in name and "multimodal" in name and "modes_3" in name:
         return ['MVAYWRQAGLSYIRYSQICAKAVRDALKTEFKANAEKTSGSNVKIVKVKKE',
                 'MSSHKTFTIKRFLAKKQKQNRPIPQWIQMKPGSKIRYNSKRRHWRRTKLGL',
                 'MTSWPGGSFGPDPLLALLVVILLARLILWSCLGTYIDYRLAQRRPQKPKQD']
-    elif "length_50" in name and "synthetic" in name and "multimodal" in name and "modes_5" in name:
+    elif "length_51" in name and "synthetic" in name and "multimodal" in name and "modes_5" in name:
         return ['MVAYWRQAGLSYIRYSQICAKAVRDALKTEFKANAEKTSGSNVKIVKVKKE',
                 'MSSHKTFTIKRFLAKKQKQNRPIPQWIQMKPGSKIRYNSKRRHWRRTKLGL',
                 'MTSWPGGSFGPDPLLALLVVILLARLILWSCLGTYIDYRLAQRRPQKPKQD',
@@ -554,9 +567,9 @@ def get_all_dataset_names(path="./data/dataset_descriptions.csv"):
            'synthetic_unimodal_data_length_50_gaussian',
            'synthetic_unimodal_data_length_50_skewed_gaussian',
            'synthetic_unimodal_data_length_50_uniform', 'gfp',
-           'synthetic_multimodal_data_modes_2_length_50_uniform',
-           'synthetic_multimodal_data_modes_3_length_50_uniform',
-           'synthetic_multimodal_data_modes_5_length_50_uniform'],
+           'synthetic_multimodal_data_modes_2_length_51_uniform',
+           'synthetic_multimodal_data_modes_3_length_51_uniform',
+           'synthetic_multimodal_data_modes_5_length_51_uniform'],
           dtype=object)
     """
     return pd.read_csv(path)["dataset"].values
@@ -605,7 +618,7 @@ def rnn_default_small_args():
     args["name"] = "rnn_default_small"
     args["num_data"] = 100
     args["epochs"] = 10
-    args["hidden_size"] = 100
+    args["hidden_size"] = 50
     return args
 
 
@@ -656,7 +669,7 @@ def hmm_default_args():
         "base_log": "logs/gfp/hmm/",
         "name": "hmm_default_medium",
         "input": 4998,
-        "hidden_size": 75,
+        "hidden_size": 50,
         "latent_dim": -1,
         "seq_length": 238,
         "pseudo_count": 1,
@@ -679,7 +692,7 @@ def hmm_default_small_args():
     """
     args = hmm_default_args()
     args["name"] = "hmm_default_small"
-    args["hidden_size"] = 30
+    args["hidden_size"] = 20
     args["epochs"] = 10
     args["num_data"] = 100
     return args

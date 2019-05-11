@@ -1,0 +1,47 @@
+training rnn model.
+number of parameters -- 22420.
+model args:
+**************************************************
+save_epochs -- 50
+model_type -- rnn
+base_log -- logs/synthetic_multimodal_data_modes_5_length_51_uniform/rnn
+name -- rnn_default_small
+input -- 1020
+hidden_size -- 50
+latent_dim -- -1
+seq_length -- 51
+pseudo_count -- 1
+n_jobs -- 1
+device -- cpu
+learning_rate -- 0.001
+epochs -- 10
+batch_size -- 10
+layers -- 1
+dataset -- synthetic_multimodal_data_modes_5_length_51_uniform
+num_data -- 100
+all_characters -- ACDEFGHIKLMNPQRSTVWY
+early_stopping -- <early_stopping.EarlyStopping object at 0x11bf8dc18>
+patience -- 10
+num_characters -- 20
+indexes -- [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19]
+train_loss_history -- []
+valid_loss_history -- []
+initial_probs_tensor -- []
+criterion -- CrossEntropyLoss()
+**************************************************
+training model on train and validation datasets...
+epoch 1, train neg log prob: 149.2160, test neg log probability 148.1198, time: 1.37 sec
+epoch 2, train neg log prob: 146.5026, test neg log probability 145.4619, time: 2.91 sec
+epoch 3, train neg log prob: 143.3652, test neg log probability 142.1799, time: 4.15 sec
+epoch 4, train neg log prob: 139.9412, test neg log probability 139.4097, time: 4.99 sec
+epoch 5, train neg log prob: 136.7471, test neg log probability 136.2224, time: 5.89 sec
+epoch 6, train neg log prob: 133.0044, test neg log probability 132.8090, time: 6.78 sec
+epoch 7, train neg log prob: 128.9926, test neg log probability 129.2020, time: 8.06 sec
+epoch 8, train neg log prob: 124.8511, test neg log probability 125.5237, time: 9.25 sec
+epoch 9, train neg log prob: 120.7091, test neg log probability 121.8900, time: 10.67 sec
+epoch 10, train neg log prob: 116.7558, test neg log probability 118.3781, time: 12.20 sec
+**************************************************
+evaluating model on test dataset:
+total loss: 114.6884
+**************************************************
+average mismatches per sample: 44.6850

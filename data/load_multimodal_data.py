@@ -2,10 +2,10 @@ import numpy as np
 import pandas as pd
 import glob
 import matplotlib.pyplot as plt
-from utils import count_substring_mismatch, load_base_sequence
+from utils import count_substring_mismatch, load_base_sequences
 
 start_index, end_index = 1, 1
-base_sequences_lst = load_base_sequence("synthetic_multimodal_data_modes_5_length_50_uniform")
+base_sequences_lst = load_base_sequences("synthetic_multimodal_data_modes_5_length_51_uniform")
 dataset_size = 20000
 for data_path in glob.glob("./synthetic_multimodal_data_*.csv"):
     # load dataset
@@ -17,7 +17,7 @@ for data_path in glob.glob("./synthetic_multimodal_data_*.csv"):
     x_test = np.load(name + "_x_test.npy")
     y_train = np.load(name + "_y_train.npy")
     y_test = np.load(name + "_y_test.npy")
-    base_sequence = load_base_sequence(name)
+    base_sequence = load_base_sequences(name)
     # check if number of mismatches is equivalent to the mutation count
     for i, row in df.iterrows():
         assert(count_substring_mismatch(row["base_sequence"], row["mutated_string"]) == row["mutation_count"])
@@ -33,10 +33,10 @@ for data_path in glob.glob("./synthetic_multimodal_data_*.csv"):
 
     # check if loaded x_train, x_test, y_train, y_test are right
     assert((set(x_train) | set(x_test)) == set(df["mutated_string"].values))
-    assert((set(y_train) | set(y_test)) == set(df["base_sequence"].values))
+    assert((set(y_train) | set(y_test)) == set(df["base_sequence_index"].values))
     # plot distribution to see if mismatches distribution is right
     plt.title(name)
     plt.hist(df["mutation_count"].values, bins=10)
     plt.xlabel("mutations")
     plt.ylabel("counts")
-    plt.show()
+    #plt.show()

@@ -1,0 +1,71 @@
+digraph {
+	graph [size="12,12"]
+	node [align=left fontsize=12 height=0.2 ranksep=0.1 shape=box style=filled]
+	4612043776 [label=AddmmBackward fillcolor=darkolivegreen1]
+	4663730584 -> 4612043776
+	4663730584 [label="
+ (20)" fillcolor=lightblue]
+	4764259720 -> 4612043776
+	4764259720 [label=ViewBackward]
+	4764261456 -> 4764259720
+	4764261456 [label=StackBackward]
+	4774879360 -> 4764261456
+	4774879360 [label=MulBackward0]
+	4774879472 -> 4774879360
+	4774879472 [label=SigmoidBackward]
+	4774879640 -> 4774879472
+	4774879640 [label=SplitBackward]
+	4774879752 -> 4774879640
+	4774879752 [label=AddBackward0]
+	4774879864 -> 4774879752
+	4774879864 [label=AddmmBackward]
+	4774880032 -> 4774879864
+	4774880032 [label="
+ (200)" fillcolor=lightblue]
+	4774880088 -> 4774879864
+	4774880088 [label=UnbindBackward]
+	4774880312 -> 4774880088
+	4774880312 [label=ViewBackward]
+	4774880368 -> 4774880312
+	4774880368 [label=EmbeddingBackward]
+	4774880480 -> 4774880368
+	4774880480 [label="
+ (20, 50)" fillcolor=lightblue]
+	4774880144 -> 4774879864
+	4774880144 [label=TBackward]
+	4774880256 -> 4774880144
+	4774880256 [label="
+ (200, 50)" fillcolor=lightblue]
+	4774879920 -> 4774879752
+	4774879920 [label=AddmmBackward]
+	4774880200 -> 4774879920
+	4774880200 [label="
+ (200)" fillcolor=lightblue]
+	4774880424 -> 4774879920
+	4774880424 [label=TBackward]
+	4774880592 -> 4774880424
+	4774880592 [label="
+ (200, 50)" fillcolor=lightblue]
+	4774879528 -> 4774879360
+	4774879528 [label=TanhBackward]
+	4774879696 -> 4774879528
+	4774879696 [label=AddBackward0]
+	4774879976 -> 4774879696
+	4774879976 [label=MulBackward0]
+	4774880704 -> 4774879976
+	4774880704 [label=SigmoidBackward]
+	4774879640 -> 4774880704
+	4774880536 -> 4774879696
+	4774880536 [label=MulBackward0]
+	4774880760 -> 4774880536
+	4774880760 [label=SigmoidBackward]
+	4774879640 -> 4774880760
+	4774880816 -> 4774880536
+	4774880816 [label=TanhBackward]
+	4774879640 -> 4774880816
+	4764258936 -> 4612043776
+	4764258936 [label=TBackward]
+	4774879304 -> 4764258936
+	4774879304 [label="
+ (20, 50)" fillcolor=lightblue]
+}

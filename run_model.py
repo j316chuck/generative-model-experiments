@@ -12,8 +12,9 @@ from rnn import GenerativeRNN
 from torch.utils.data import TensorDataset, DataLoader
 from utils import load_data, get_all_amino_acids, get_wild_type_amino_acid_sequence
 from utils import one_hot_encode, plot_mismatches_histogram, string_to_tensor
-from utils import load_base_sequence
+from utils import load_base_sequences
 from early_stopping import EarlyStopping
+
 
 def get_dataloader(args):
     """
@@ -22,17 +23,27 @@ def get_dataloader(args):
     """
     x_train, x_test, y_train, y_test = None, None, None, None
     train_loader, valid_loader, test_loader = None, None, None
-    if "gfp" in args["dataset"]:
-        x_train, x_test, y_train, y_test = load_data("./data/gfp_")
+    if "gfp" in args["dataset"]:  # clean up code later on
+        x_train = np.load(os.path.join("./data", args["dataset"] + "_x_train.npy"))
+        x_test = np.load(os.path.join("./data", args["dataset"] + "_x_test.npy"))
+        y_train = np.load(os.path.join("./data", args["dataset"] + "_y_train.npy"))  # stores median brightness
+        y_test = np.load(os.path.join("./data", args["dataset"] + "_y_test.npy"))  # stores median brightness
         args["vocabulary"] = get_all_amino_acids(gap=True)
-        args["wild_type"] = get_wild_type_amino_acid_sequence(gap=True)
+        args["base_sequences"] = load_base_sequences(args["dataset"])
     elif "synthetic" in args["dataset"] and "unimodal" in args["dataset"]:
         x_train = np.load(os.path.join("./data", args["dataset"] + "_x_train.npy"))
         x_test = np.load(os.path.join("./data", args["dataset"] + "_x_test.npy"))
         y_train = np.array([0] * len(x_train)) # auxillary variables to format in shape of train_dataset
         y_test = np.array([0] * len(x_test)) # auxillary list to format in shape of test_dataset
         args["vocabulary"] = get_all_amino_acids(gap=False)
-        args["wild_type"] = load_base_sequence(args["dataset"])
+        args["base_sequences"] = load_base_sequences(args["dataset"])  #
+    elif "synthetic" in args["dataset"] and "multimodal" in args["dataset"]:
+        x_train = np.load(os.path.join("./data", args["dataset"] + "_x_train.npy"))
+        x_test = np.load(os.path.join("./data", args["dataset"] + "_x_test.npy"))
+        y_train = np.load(os.path.join("./data", args["dataset"] + "_y_train.npy"))  # stores true base_sequence the data belongs to
+        y_test = np.load(os.path.join("./data", args["dataset"] + "_y_test.npy"))  # stores true base_sequence the data belongs to
+        args["vocabulary"] = get_all_amino_acids(gap=False)
+        args["base_sequences"] = load_base_sequences(args["dataset"])
 
     if args["model_type"] == "vae":
         one_hot_x_valid = one_hot_encode(x_train[args["num_data"]:2 * args["num_data"]], args["vocabulary"])
@@ -97,11 +108,16 @@ def run_experiment(args):
             average_mismatches: float, the average number of mismatches from wild type.
             total_time: total time this experiment took.
     """
+
     exit_code = 0
     start_time = time.time()
+    # creating paths for the models to be logged and saved
+    model_path = os.path.join(args["base_log"], args["name"])
+    if not os.path.exists(model_path):
+        os.makedirs(model_path)
     # logger = None
     path_name = os.path.join(args["base_log"], args["name"], args["name"])
-    logger = open(path_name + "_log.txt", "w")
+    logger = open(path_name + "_log.txt", "w+")
     try:
         # putting tensors on cpu or gpu
         if args["early_stopping"]:
@@ -109,38 +125,38 @@ def run_experiment(args):
             args["early_stopping"] = EarlyStopping(args["patience"], verbose=True) # change to False verbose
         else:
             args["early_stopping"] = None
-
         if args["device"] == 'cpu':
             args["device"] = torch.device("cpu")
         else:
             args["device"] = torch.device("gpu")
-        # creating paths for the models to be logged and saved
-        model_path = os.path.join(args["base_log"], args["name"])
-        if not os.path.exists(model_path):
-            os.makedirs(model_path)
         # loading data and model
         train_loader, valid_loader, test_loader = get_dataloader(args)
         model = get_model(args)
+        # model and data checks
+        assert(all(args["seq_length"] == len(base_sequence) for base_sequence in args["base_sequences"]))
         assert(model is not None and train_loader is not None)
-        print("Training {0} \nArgs:".format(args["name"]), file=logger)
+        print('training {0} model.\nnumber of parameters -- {1}.'.format(model.model_type, model.get_num_parameters()), file=logger)
+        print('model args:\n' + '*' * 50, file=logger)
         for arg, value in model.__dict__.items():
-            print(arg, "--", value, file=logger)
+            if len(str(value)) <= 100:
+                print(arg, "--", value, file=logger)
 
         # training and evaluating model with try catch block to get exception
         print("*" * 50 + "\ntraining model on train and validation datasets...", file=logger)
         model.fit(train_dataloader=train_loader, valid_dataloader=valid_loader, verbose=True, logger=logger, save_model=True)
         train_score = model.evaluate(dataloader=train_loader, verbose=False, logger=None)
-        valid_score = model.evaluate(dataloader=train_loader, verbose=False, logger=None)
+        valid_score = model.evaluate(dataloader=valid_loader, verbose=False, logger=None)
         model.plot_model(path_name + "_model_architecture")
         model.save_model(path_name + "_saved_model", epoch=args["epochs"], loss=train_score, initial_probs=True)
         model.plot_history(path_name + "_training_history.png")
         print("*" * 50 + "\nevaluating model on test dataset:", file=logger)
         test_score = model.evaluate(dataloader=test_loader, verbose=True, logger=logger)
         # sample from model and see if generated sequences are reasonable
-        sampled_sequences = model.sample(num_samples=1000, length=len(args["wild_type"]))
-        mismatches = plot_mismatches_histogram(sampled_sequences, args["wild_type"],
+        sampled_sequences = model.sample(num_samples=1000, length=args["seq_length"])
+        mismatches = plot_mismatches_histogram(sampled_sequences, args["base_sequences"],
                                                save_fig_dir=path_name + "_mismatches.png", show=False)
         average_mismatches = sum(mismatches) / len(mismatches)
+        print("*" * 50 + "\naverage mismatches per sample: {0:.4f}".format(average_mismatches), file=logger)
     except:
         exit_code = 1
         exc_type, exc_value, exc_traceback = sys.exc_info()

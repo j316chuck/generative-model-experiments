@@ -31,12 +31,13 @@ class EarlyStopping:
             self.counter += 1
             self.checkpoint = False
             if self.verbose:
-                print(f'early stopping counter: {self.counter} out of {self.patience}')
+                print(f'Validation loss increased ({-self.best_score:.6f} --> {val_loss:.6f}). '
+                      f'early stopping counter: {self.counter} out of {self.patience}')
             if self.counter >= self.patience:
                 self.early_stop = True
         else:
             if self.verbose:
-                print(f'Validation loss decreased ({self.best_score:.6f} --> {val_loss:.6f}).  Saving model ...')
+                print(f'Validation loss decreased ({-self.best_score:.6f} --> {val_loss:.6f}).  Saving model ...')
             self.best_score = score
             self.checkpoint = True
             self.counter = 0

@@ -145,6 +145,19 @@ class Model(object):
         elif self.early_stopping.checkpoint:
             self.save_model(path, epoch=epoch, loss=train_loss, initial_probs=True)
 
+    def get_num_parameters(self):
+        """
+        :return: number of trainable parameters this model has
+        """
+        assert(self.model_type == "rnn" or self.model_type == "vae" or self.model_type == "hmm")
+        if self.model_type == "rnn" or self.model_type == "vae":
+            return sum(p.numel() for p in self.model.parameters() if p.requires_grad)
+        elif self.model_type == "hmm":
+            return self.hidden_size * self.hidden_size + self.hidden_size * self.input / self.seq_length
+        else:
+            return -1
+
+
     def plot_history(self, save_fig_dir, **kwargs):
         """
         plot the training and validation history of the model. should be called after fit.
@@ -158,7 +171,7 @@ class Model(object):
                 plt.plot(history_lst, label=name)
             if "valid_loss_history" in name:
                 valid_loss = history_lst
-        if self.early_stopping:
+        if self.early_stopping and self.early_stopping.early_stop:
             min_valid_epoch = valid_loss.index(min(valid_loss)) + 1
             plt.axvline(min_valid_epoch, linestyle='--', color='r', label='early_stopping_checkpoint')
         plt.legend()

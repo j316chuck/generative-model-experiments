@@ -1,0 +1,79 @@
+training vae model.
+number of parameters -- 106160.
+model args:
+**************************************************
+save_epochs -- 50
+model_type -- vae
+base_log -- logs/synthetic_multimodal_data_modes_3_length_51_uniform/vae
+name -- vae_default_small
+input -- 1020
+hidden_size -- 50
+latent_dim -- 20
+seq_length -- 51
+pseudo_count -- 1
+n_jobs -- 1
+device -- cpu
+learning_rate -- 0.001
+epochs -- 10
+batch_size -- 10
+layers -- 1
+dataset -- synthetic_multimodal_data_modes_3_length_51_uniform
+num_data -- 100
+all_characters -- ACDEFGHIKLMNPQRSTVWY
+early_stopping -- <early_stopping.EarlyStopping object at 0x11c376ba8>
+patience -- 10
+num_characters -- 20
+indexes -- [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19]
+train_loss_history -- []
+valid_loss_history -- []
+train_recon_loss_history -- []
+train_kld_loss_history -- []
+valid_recon_loss_history -- []
+valid_kld_loss_history -- []
+**************************************************
+training model on train and validation datasets...
+--------------------------------------------------
+epoch: 1. train loss: 153.4634. train cross entropy loss: 153.1342. train kld loss: 0.3291
+time: 0.06 sec. valid loss: 150.5122. valid cross entropy loss: 149.8074, valid kld loss 0.7049
+--------------------------------------------------
+--------------------------------------------------
+epoch: 2. train loss: 146.8253. train cross entropy loss: 145.2636. train kld loss: 1.5617
+time: 0.13 sec. valid loss: 142.5374. valid cross entropy loss: 139.5862, valid kld loss 2.9512
+--------------------------------------------------
+--------------------------------------------------
+epoch: 3. train loss: 133.5811. train cross entropy loss: 127.9218. train kld loss: 5.6592
+time: 0.19 sec. valid loss: 123.8700. valid cross entropy loss: 114.7185, valid kld loss 9.1515
+--------------------------------------------------
+--------------------------------------------------
+epoch: 4. train loss: 113.1593. train cross entropy loss: 99.3044. train kld loss: 13.8549
+time: 0.24 sec. valid loss: 104.3032. valid cross entropy loss: 89.3997, valid kld loss 14.9035
+--------------------------------------------------
+--------------------------------------------------
+epoch: 5. train loss: 93.9042. train cross entropy loss: 79.4773. train kld loss: 14.4269
+time: 0.31 sec. valid loss: 89.1530. valid cross entropy loss: 76.2456, valid kld loss 12.9075
+--------------------------------------------------
+--------------------------------------------------
+epoch: 6. train loss: 79.4811. train cross entropy loss: 65.8728. train kld loss: 13.6083
+time: 0.38 sec. valid loss: 78.8482. valid cross entropy loss: 65.6827, valid kld loss 13.1655
+--------------------------------------------------
+--------------------------------------------------
+epoch: 7. train loss: 69.3201. train cross entropy loss: 55.3858. train kld loss: 13.9343
+time: 0.46 sec. valid loss: 70.5843. valid cross entropy loss: 56.8037, valid kld loss 13.7806
+--------------------------------------------------
+--------------------------------------------------
+epoch: 8. train loss: 62.5784. train cross entropy loss: 48.9045. train kld loss: 13.6739
+time: 0.53 sec. valid loss: 64.9453. valid cross entropy loss: 51.8909, valid kld loss 13.0543
+--------------------------------------------------
+--------------------------------------------------
+epoch: 9. train loss: 56.0461. train cross entropy loss: 42.8468. train kld loss: 13.1993
+time: 0.59 sec. valid loss: 60.1685. valid cross entropy loss: 46.7636, valid kld loss 13.4049
+--------------------------------------------------
+--------------------------------------------------
+epoch: 10. train loss: 50.1930. train cross entropy loss: 37.7451. train kld loss: 12.4479
+time: 0.66 sec. valid loss: 56.5608. valid cross entropy loss: 44.8293, valid kld loss 11.7316
+--------------------------------------------------
+**************************************************
+evaluating model on test dataset:
+total loss: 56.9287 cross entropy loss: 45.3127. kld loss: 11.6160
+**************************************************
+average mismatches per sample: 42.1760

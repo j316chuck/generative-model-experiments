@@ -1,0 +1,8 @@
+==================================================
+Error in running experiment: hmm_default_small
+Traceback log: 
+==================================================
+Traceback (most recent call last):
+  File "run_model.py", line 136, in run_experiment
+    assert(all(args["seq_length"] == len(base_sequence) for base_sequence in args["base_sequences"]))
+AssertionError

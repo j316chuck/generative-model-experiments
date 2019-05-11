@@ -3,10 +3,12 @@ import pandas as pd
 
 from sklearn.model_selection import train_test_split
 from utils import get_all_amino_acids, generate_mutations_df, generate_discrete_uniform_distribution
-from utils import load_base_sequence
+from utils import load_base_sequences
 
 # get data distributions
-base_sequences_lst = load_base_sequence("synthetic_multimodal_data_modes_5_length_50_uniform")
+base_sequences_lst = load_base_sequences("synthetic_multimodal_data_modes_5_length_51_uniform")
+seq_length = len(base_sequences_lst[0])
+assert(all(seq_length == len(base_sequence) for base_sequence in base_sequences_lst))
 modes_lst = [2, 3, 5]
 num_samples = 10000
 uniform_lst = list(generate_discrete_uniform_distribution(num_samples, low=1, high=10)[1].values())
@@ -20,7 +22,7 @@ assert(len(alphabet) == 20)
 start_mutation_index = 1
 end_mutation_index = 1
 for mode in modes_lst:
-    dataset_name = "synthetic_multimodal_data_modes_{0}_length_50_uniform".format(mode)
+    dataset_name = "synthetic_multimodal_data_modes_{0}_length_{1}_uniform".format(mode, seq_length)
     mutated_df = pd.DataFrame(columns=['mutated_string', 'mutation_count', 'base_sequence', 'base_sequence_index'])
     for i in range(mode):
         new_mutated_df = generate_mutations_df(base_sequences_lst[i], mutations_lst, mutations_count_lst, alphabet,
@@ -30,7 +32,7 @@ for mode in modes_lst:
     mutated_df.sample(frac=1).reset_index(drop=True)
     mutated_df.to_csv(dataset_name + ".csv", index=False)
     x_train, x_test, y_train, y_test = train_test_split(mutated_df["mutated_string"].values,
-                                                        mutated_df["base_sequence"], test_size=0.2)
+                                                        mutated_df["base_sequence_index"], test_size=0.2)
     np.save(dataset_name + "_x_train.npy", x_train)
     np.save(dataset_name + "_x_test.npy", x_test)
     np.save(dataset_name + "_y_train.npy", y_train)

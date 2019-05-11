@@ -1,0 +1,46 @@
+training hmm model.
+number of parameters -- 800.0.
+model args:
+**************************************************
+save_epochs -- 50
+model_type -- hmm
+base_log -- logs/synthetic_multimodal_data_modes_5_length_51_uniform/hmm
+name -- hmm_default_small
+input -- 1020
+hidden_size -- 20
+latent_dim -- -1
+seq_length -- 51
+pseudo_count -- 1
+n_jobs -- 1
+device -- cpu
+learning_rate -- 0.001
+epochs -- 10
+batch_size -- 10
+layers -- 1
+dataset -- synthetic_multimodal_data_modes_5_length_51_uniform
+num_data -- 100
+all_characters -- ACDEFGHIKLMNPQRSTVWY
+early_stopping -- <early_stopping.EarlyStopping object at 0x114364c50>
+patience -- 10
+num_characters -- 20
+indexes -- [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19]
+train_loss_history -- []
+valid_loss_history -- []
+train_loss -- []
+**************************************************
+training model on train and validation datasets...
+epoch 1, train neg log prob: 147.8628, test neg log probability 148.1155, time: 0.78 sec
+epoch 2, train neg log prob: 147.2082, test neg log probability 147.4668, time: 1.94 sec
+epoch 3, train neg log prob: 146.3847, test neg log probability 146.6465, time: 3.01 sec
+epoch 4, train neg log prob: 145.6795, test neg log probability 145.9427, time: 3.99 sec
+epoch 5, train neg log prob: 145.2737, test neg log probability 145.5368, time: 4.79 sec
+epoch 6, train neg log prob: 145.0656, test neg log probability 145.3307, time: 5.51 sec
+epoch 7, train neg log prob: 144.9163, test neg log probability 145.1876, time: 6.29 sec
+epoch 8, train neg log prob: 144.7656, test neg log probability 145.0488, time: 7.09 sec
+epoch 9, train neg log prob: 144.5936, test neg log probability 144.8947, time: 7.94 sec
+epoch 10, train neg log prob: 144.4005, test neg log probability 144.7271, time: 8.85 sec
+**************************************************
+evaluating model on test dataset:
+Average neg log prob: 144.1929
+**************************************************
+average mismatches per sample: 45.1140

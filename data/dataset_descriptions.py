@@ -1,7 +1,7 @@
 import glob
 import pandas as pd
 import numpy as np
-from utils import get_wild_type_amino_acid_sequence, load_base_sequence
+from utils import get_wild_type_amino_acid_sequence, load_base_sequences
 
 columns = ["dataset", "sequence_length", "num_data", "distribution", "base_sequence", "notes"]
 df = pd.DataFrame(columns=columns)
@@ -39,7 +39,7 @@ for file in glob.glob("./synthetic_multimodal_*.csv"):
         values.append("skewed_" + file[len(file) - sub_index:-4])  # distribution
     else:
         values.append(file[len(file) - sub_index:-4])  # distribution
-    values.append(load_base_sequence(file))  # base_sequences
+    values.append(load_base_sequences(file))  # base_sequences
     sub_index = file[::-1].find("_")
     values.append("no * character, vocabulary-20 amino acids")
     df.loc[df.shape[0]] = values

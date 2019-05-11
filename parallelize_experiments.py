@@ -74,7 +74,7 @@ def pool_jobs(commands_lst, num_processes=3, timeout=None):
 
 if __name__ == '__main__':
     num_processes = 3
-    script = open("./scripts/gfp_small_scripts.sh", "r")
+    script = open("./scripts/synthetic_multimodal_medium_script.sh", "r")
 
     """ test task spooler """
     #commands_lst = [command.strip() for command in script.readlines()]
