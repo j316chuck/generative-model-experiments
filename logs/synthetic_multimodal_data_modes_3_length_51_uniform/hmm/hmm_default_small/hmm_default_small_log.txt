@@ -20,7 +20,7 @@ layers -- 1
 dataset -- synthetic_multimodal_data_modes_3_length_51_uniform
 num_data -- 100
 all_characters -- ACDEFGHIKLMNPQRSTVWY
-early_stopping -- <early_stopping.EarlyStopping object at 0x11a001c50>
+early_stopping -- <early_stopping.EarlyStopping object at 0x1109cec50>
 patience -- 10
 num_characters -- 20
 indexes -- [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19]
@@ -29,18 +29,20 @@ valid_loss_history -- []
 train_loss -- []
 **************************************************
 training model on train and validation datasets...
-epoch 1, train neg log prob: 144.8852, test neg log probability 145.3535, time: 0.75 sec
-epoch 2, train neg log prob: 143.3968, test neg log probability 143.8622, time: 1.49 sec
-epoch 3, train neg log prob: 142.6154, test neg log probability 143.0902, time: 2.23 sec
-epoch 4, train neg log prob: 142.2088, test neg log probability 142.6917, time: 2.98 sec
-epoch 5, train neg log prob: 141.8485, test neg log probability 142.3305, time: 3.71 sec
-epoch 6, train neg log prob: 141.5149, test neg log probability 141.9880, time: 4.45 sec
-epoch 7, train neg log prob: 141.2693, test neg log probability 141.7341, time: 5.28 sec
-epoch 8, train neg log prob: 141.0634, test neg log probability 141.5264, time: 6.08 sec
-epoch 9, train neg log prob: 140.7953, test neg log probability 141.2667, time: 6.84 sec
-epoch 10, train neg log prob: 140.3697, test neg log probability 140.8650, time: 7.61 sec
+epoch 1, train neg log prob: 145.0222, test neg log probability 145.5204, time: 1.00 sec
+epoch 2, train neg log prob: 143.7579, test neg log probability 144.2704, time: 1.87 sec
+epoch 3, train neg log prob: 142.7509, test neg log probability 143.2764, time: 2.73 sec
+epoch 4, train neg log prob: 142.3370, test neg log probability 142.8721, time: 3.61 sec
+epoch 5, train neg log prob: 142.1353, test neg log probability 142.6750, time: 4.47 sec
+epoch 6, train neg log prob: 141.9704, test neg log probability 142.5129, time: 5.31 sec
+epoch 7, train neg log prob: 141.7603, test neg log probability 142.3079, time: 6.15 sec
+epoch 8, train neg log prob: 141.4439, test neg log probability 142.0046, time: 6.99 sec
+epoch 9, train neg log prob: 140.9148, test neg log probability 141.5085, time: 7.83 sec
+epoch 10, train neg log prob: 140.0527, test neg log probability 140.7027, time: 8.66 sec
 **************************************************
 evaluating model on test dataset:
-Average neg log prob: 140.5444
+Average neg log prob: 140.4717
 **************************************************
-average mismatches per sample: 45.3410
+average mismatches per sample: 45.3500
+**************************************************
+{'dataset': 'synthetic_multimodal_data_modes_3_length_51_uniform', 'model_type': 'hmm', 'name': 'hmm_default_small', 'exit_code': 0, 'train_score': 140.05271238378336, 'valid_score': 140.7026979492905, 'test_score': 140.47166686529238, 'average_mismatches': 45.35, 'num_params': 800.0, 'total_time': 14.483217239379883}

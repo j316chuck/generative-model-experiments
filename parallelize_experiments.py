@@ -2,6 +2,7 @@ from multiprocessing import Pool
 from multiprocessing import Process, Queue
 import subprocess
 import traceback
+import argparse
 from utils import hmm_default_small_args, rnn_default_small_args, vae_default_small_args
 import time
 import sys
@@ -62,6 +63,10 @@ def queue_jobs(commands_lst, num_processes=3, timeout=None):
             std_out, std_err = queue.get()  # you can not request queue.get() twice it is an iterator
             std_out_lst.append(std_out)
             std_err_lst.append(std_err)
+            print("=" * 50)
+            print("Process {0}".format(i * num_processes + j + 1))
+            print("Stdout:", std_out)
+            print("Stderr:", std_err)
     return process_names_lst, std_out_lst, std_err_lst
 
 
@@ -72,21 +77,26 @@ def pool_jobs(commands_lst, num_processes=3, timeout=None):
     print(results, len(results))
     return results
 
+
 if __name__ == '__main__':
-    num_processes = 3
-    script = open("./scripts/synthetic_multimodal_medium_script.sh", "r")
+    parser = argparse.ArgumentParser(description='Process the arguments for the Model')
+    parser.add_argument("-n", "--num_processes", default=3, required=False, help="num processes to run at once", type=int)
+    parser.add_argument("-s", "--script", default="./scripts/gfp_small_scripts.sh", required=False, help="script path", type=str)
+    args = vars(parser.parse_args())
+    num_processes = args["num_processes"]
+    script = open(args["script"], "r")
 
     """ test task spooler """
-    #commands_lst = [command.strip() for command in script.readlines()]
-    #process_lst, std_out_lst, std_err_lst = task_spooler(commands_lst, num_processes, timeout=None)
+    # commands_lst = [command.strip() for command in script.readlines()]
+    # process_lst, std_out_lst, std_err_lst = task_spooler(commands_lst, num_processes, timeout=None)
 
     """ test queue jobs """
     commands_lst = [command.strip() for command in script.readlines()]
     process_lst, std_out_lst, std_err_lst = queue_jobs(commands_lst=commands_lst, num_processes=num_processes, timeout=None) # time limit in seconds
 
     """ test pool jobs """
-    #commands_lst = [command.strip() for command in script.readlines()]
-    #process_lst, std_out_lst, std_err_lst = pool_jobs(commands_lst=commands_lst, num_processes=num_processes)
+    # commands_lst = [command.strip() for command in script.readlines()]
+    # process_lst, std_out_lst, std_err_lst = pool_jobs(commands_lst=commands_lst, num_processes=num_processes)
 
     """ test run bash """
     # timeout = 5

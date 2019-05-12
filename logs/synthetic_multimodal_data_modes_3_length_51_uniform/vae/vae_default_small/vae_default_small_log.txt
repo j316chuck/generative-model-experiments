@@ -20,7 +20,7 @@ layers -- 1
 dataset -- synthetic_multimodal_data_modes_3_length_51_uniform
 num_data -- 100
 all_characters -- ACDEFGHIKLMNPQRSTVWY
-early_stopping -- <early_stopping.EarlyStopping object at 0x11c376ba8>
+early_stopping -- <early_stopping.EarlyStopping object at 0x114b77c18>
 patience -- 10
 num_characters -- 20
 indexes -- [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19]
@@ -33,47 +33,49 @@ valid_kld_loss_history -- []
 **************************************************
 training model on train and validation datasets...
 --------------------------------------------------
-epoch: 1. train loss: 153.4634. train cross entropy loss: 153.1342. train kld loss: 0.3291
-time: 0.06 sec. valid loss: 150.5122. valid cross entropy loss: 149.8074, valid kld loss 0.7049
+epoch: 1. train loss: 153.2085. train cross entropy loss: 152.8752. train kld loss: 0.3333
+time: 0.08 sec. valid loss: 150.8860. valid cross entropy loss: 150.1195, valid kld loss 0.7665
 --------------------------------------------------
 --------------------------------------------------
-epoch: 2. train loss: 146.8253. train cross entropy loss: 145.2636. train kld loss: 1.5617
-time: 0.13 sec. valid loss: 142.5374. valid cross entropy loss: 139.5862, valid kld loss 2.9512
+epoch: 2. train loss: 147.4423. train cross entropy loss: 145.9140. train kld loss: 1.5282
+time: 0.16 sec. valid loss: 143.5899. valid cross entropy loss: 140.7682, valid kld loss 2.8216
 --------------------------------------------------
 --------------------------------------------------
-epoch: 3. train loss: 133.5811. train cross entropy loss: 127.9218. train kld loss: 5.6592
-time: 0.19 sec. valid loss: 123.8700. valid cross entropy loss: 114.7185, valid kld loss 9.1515
+epoch: 3. train loss: 136.6157. train cross entropy loss: 131.4231. train kld loss: 5.1927
+time: 0.24 sec. valid loss: 126.8755. valid cross entropy loss: 117.6850, valid kld loss 9.1906
 --------------------------------------------------
 --------------------------------------------------
-epoch: 4. train loss: 113.1593. train cross entropy loss: 99.3044. train kld loss: 13.8549
-time: 0.24 sec. valid loss: 104.3032. valid cross entropy loss: 89.3997, valid kld loss 14.9035
+epoch: 4. train loss: 113.3672. train cross entropy loss: 98.8169. train kld loss: 14.5504
+time: 0.32 sec. valid loss: 101.5595. valid cross entropy loss: 81.5078, valid kld loss 20.0517
 --------------------------------------------------
 --------------------------------------------------
-epoch: 5. train loss: 93.9042. train cross entropy loss: 79.4773. train kld loss: 14.4269
-time: 0.31 sec. valid loss: 89.1530. valid cross entropy loss: 76.2456, valid kld loss 12.9075
+epoch: 5. train loss: 87.9413. train cross entropy loss: 66.2780. train kld loss: 21.6633
+time: 0.39 sec. valid loss: 80.6546. valid cross entropy loss: 60.5572, valid kld loss 20.0974
 --------------------------------------------------
 --------------------------------------------------
-epoch: 6. train loss: 79.4811. train cross entropy loss: 65.8728. train kld loss: 13.6083
-time: 0.38 sec. valid loss: 78.8482. valid cross entropy loss: 65.6827, valid kld loss 13.1655
+epoch: 6. train loss: 69.3223. train cross entropy loss: 49.3918. train kld loss: 19.9305
+time: 0.47 sec. valid loss: 67.0767. valid cross entropy loss: 48.8667, valid kld loss 18.2100
 --------------------------------------------------
 --------------------------------------------------
-epoch: 7. train loss: 69.3201. train cross entropy loss: 55.3858. train kld loss: 13.9343
-time: 0.46 sec. valid loss: 70.5843. valid cross entropy loss: 56.8037, valid kld loss 13.7806
+epoch: 7. train loss: 57.9519. train cross entropy loss: 40.4073. train kld loss: 17.5446
+time: 0.57 sec. valid loss: 59.7130. valid cross entropy loss: 44.2412, valid kld loss 15.4718
 --------------------------------------------------
 --------------------------------------------------
-epoch: 8. train loss: 62.5784. train cross entropy loss: 48.9045. train kld loss: 13.6739
-time: 0.53 sec. valid loss: 64.9453. valid cross entropy loss: 51.8909, valid kld loss 13.0543
+epoch: 8. train loss: 50.9703. train cross entropy loss: 36.0984. train kld loss: 14.8719
+time: 0.65 sec. valid loss: 54.8851. valid cross entropy loss: 40.7988, valid kld loss 14.0863
 --------------------------------------------------
 --------------------------------------------------
-epoch: 9. train loss: 56.0461. train cross entropy loss: 42.8468. train kld loss: 13.1993
-time: 0.59 sec. valid loss: 60.1685. valid cross entropy loss: 46.7636, valid kld loss 13.4049
+epoch: 9. train loss: 46.7693. train cross entropy loss: 33.7210. train kld loss: 13.0483
+time: 0.72 sec. valid loss: 52.0788. valid cross entropy loss: 40.1321, valid kld loss 11.9467
 --------------------------------------------------
 --------------------------------------------------
-epoch: 10. train loss: 50.1930. train cross entropy loss: 37.7451. train kld loss: 12.4479
-time: 0.66 sec. valid loss: 56.5608. valid cross entropy loss: 44.8293, valid kld loss 11.7316
+epoch: 10. train loss: 43.6632. train cross entropy loss: 31.4761. train kld loss: 12.1871
+time: 0.80 sec. valid loss: 50.2306. valid cross entropy loss: 37.9359, valid kld loss 12.2947
 --------------------------------------------------
 **************************************************
 evaluating model on test dataset:
-total loss: 56.9287 cross entropy loss: 45.3127. kld loss: 11.6160
+total loss: 51.9703 cross entropy loss: 40.0193. kld loss: 11.9510
 **************************************************
-average mismatches per sample: 42.1760
+average mismatches per sample: 42.3020
+**************************************************
+{'dataset': 'synthetic_multimodal_data_modes_3_length_51_uniform', 'model_type': 'vae', 'name': 'vae_default_small', 'exit_code': 0, 'train_score': (43.2417106628418, 30.874954223632812, 12.366756439208984), 'valid_score': (51.096866607666016, 38.80219650268555, 12.294672012329102), 'test_score': (51.970252990722656, 40.019256591796875, 11.950998306274414), 'average_mismatches': 42.302, 'num_params': 106160, 'total_time': 3.7216179370880127}

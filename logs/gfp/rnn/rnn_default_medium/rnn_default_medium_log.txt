@@ -1,6 +1,7 @@
-Training rnn_default_medium 
-Args:
-args -- {'model_type': 'rnn', 'base_log': 'logs/gfp/rnn/', 'name': 'rnn_default_medium', 'input': 4998, 'hidden_size': 200, 'latent_dim': -1, 'seq_length': 238, 'pseudo_count': 1, 'n_jobs': 1, 'device': device(type='cpu'), 'learning_rate': 0.001, 'epochs': 100, 'batch_size': 10, 'layers': 1, 'dataset': 'gfp', 'num_data': 1000, 'early_stopping': <early_stopping.EarlyStopping object at 0x115439588>, 'patience': 10, 'vocabulary': '*ACDEFGHIKLMNPQRSTVWY', 'wild_type': 'SKGEELFTGVVPILVELDGDVNGHKFSVSGEGEGDATYGKLTLKFICTTGKLPVPWPTLVTTLSYGVQCFSRYPDHMKQHDFFKSAMPEGYVQERTIFFKDDGNYKTRAEVKFEGDTLVNRIELKGIDFKEDGNILGHKLEYNYNSHNVYIMADKQKNGIKVNFKIRHNIEDGSVQLADHYQQNTPIGDGPVLLPDNHYLSTQSALSKDPNEKRDHMVLLEFVTAAGITHGMDELYK*'}
+training rnn model.
+number of parameters -- 330021.
+model args:
+**************************************************
 save_epochs -- 50
 model_type -- rnn
 base_log -- logs/gfp/rnn/
@@ -19,71 +20,63 @@ layers -- 1
 dataset -- gfp
 num_data -- 1000
 all_characters -- *ACDEFGHIKLMNPQRSTVWY
-early_stopping -- <early_stopping.EarlyStopping object at 0x115439588>
+early_stopping -- <early_stopping.EarlyStopping object at 0x1120b0c88>
 patience -- 10
 num_characters -- 21
-character_to_int -- {'*': 0, 'A': 1, 'C': 2, 'D': 3, 'E': 4, 'F': 5, 'G': 6, 'H': 7, 'I': 8, 'K': 9, 'L': 10, 'M': 11, 'N': 12, 'P': 13, 'Q': 14, 'R': 15, 'S': 16, 'T': 17, 'V': 18, 'W': 19, 'Y': 20}
-int_to_character -- {0: '*', 1: 'A', 2: 'C', 3: 'D', 4: 'E', 5: 'F', 6: 'G', 7: 'H', 8: 'I', 9: 'K', 10: 'L', 11: 'M', 12: 'N', 13: 'P', 14: 'Q', 15: 'R', 16: 'S', 17: 'T', 18: 'V', 19: 'W', 20: 'Y'}
 indexes -- [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20]
 train_loss_history -- []
 valid_loss_history -- []
 initial_probs_tensor -- []
-initial_probs -- {0: 1.0, 1: 1.0, 2: 1.0, 3: 1.0, 4: 1.0, 5: 1.0, 6: 1.0, 7: 1.0, 8: 1.0, 9: 1.0, 10: 1.0, 11: 1.0, 12: 1.0, 13: 1.0, 14: 1.0, 15: 1.0, 16: 1.0, 17: 1.0, 18: 1.0, 19: 1.0, 20: 1.0}
-model -- RNN(
-  (encoder): Embedding(21, 200)
-  (rnn): LSTM(200, 200)
-  (decoder): Linear(in_features=200, out_features=21, bias=True)
-)
-optimizer -- Adam (
-Parameter Group 0
-    amsgrad: False
-    betas: (0.9, 0.999)
-    eps: 1e-08
-    lr: 0.001
-    weight_decay: 0
-)
 criterion -- CrossEntropyLoss()
 **************************************************
 training model on train and validation datasets...
-epoch 1, train neg log prob: 249.7980, test neg log probability 48.5980, time: 2364.68 sec
-epoch 2, train neg log prob: 40.3469, test neg log probability 36.0280, time: 2520.25 sec
-epoch 3, train neg log prob: 33.0998, test neg log probability 31.6350, time: 2629.99 sec
-epoch 4, train neg log prob: 29.9106, test neg log probability 29.4999, time: 2737.05 sec
-epoch 5, train neg log prob: 28.1198, test neg log probability 28.2203, time: 2855.20 sec
-epoch 6, train neg log prob: 26.9193, test neg log probability 27.3901, time: 2970.30 sec
-epoch 7, train neg log prob: 26.1510, test neg log probability 26.8160, time: 3075.44 sec
-epoch 8, train neg log prob: 25.5531, test neg log probability 26.2958, time: 3180.79 sec
-epoch 9, train neg log prob: 25.1193, test neg log probability 26.0225, time: 3285.02 sec
-epoch 10, train neg log prob: 24.8455, test neg log probability 25.8970, time: 3392.67 sec
-epoch 11, train neg log prob: 24.5342, test neg log probability 25.5991, time: 3509.95 sec
-epoch 12, train neg log prob: 24.3315, test neg log probability 25.4731, time: 3618.53 sec
-epoch 13, train neg log prob: 24.1844, test neg log probability 25.3683, time: 3726.27 sec
-epoch 14, train neg log prob: 23.9704, test neg log probability 25.3380, time: 3834.02 sec
-epoch 15, train neg log prob: 23.8864, test neg log probability 25.1318, time: 3940.74 sec
-epoch 16, train neg log prob: 23.6871, test neg log probability 25.2116, time: 4051.77 sec
-epoch 17, train neg log prob: 23.6257, test neg log probability 25.0451, time: 4160.81 sec
-epoch 18, train neg log prob: 23.5357, test neg log probability 25.0534, time: 4268.92 sec
-epoch 19, train neg log prob: 23.4499, test neg log probability 24.9344, time: 4377.44 sec
-epoch 20, train neg log prob: 23.3523, test neg log probability 24.9148, time: 4483.83 sec
-epoch 21, train neg log prob: 23.2563, test neg log probability 24.9041, time: 4609.90 sec
-epoch 22, train neg log prob: 23.1921, test neg log probability 24.9482, time: 4721.44 sec
-epoch 23, train neg log prob: 23.1359, test neg log probability 25.0152, time: 4825.55 sec
-epoch 24, train neg log prob: 23.1039, test neg log probability 24.9606, time: 4928.38 sec
-epoch 25, train neg log prob: 22.9608, test neg log probability 24.8423, time: 5039.46 sec
-epoch 26, train neg log prob: 22.9098, test neg log probability 24.9198, time: 5142.67 sec
-epoch 27, train neg log prob: 22.8984, test neg log probability 24.9746, time: 5250.47 sec
-epoch 28, train neg log prob: 22.8573, test neg log probability 24.9510, time: 5353.79 sec
-epoch 29, train neg log prob: 22.7894, test neg log probability 24.9222, time: 5458.42 sec
-epoch 30, train neg log prob: 22.7273, test neg log probability 24.8693, time: 5563.07 sec
-epoch 31, train neg log prob: 22.6758, test neg log probability 24.9123, time: 5670.49 sec
-epoch 32, train neg log prob: 22.6081, test neg log probability 24.9159, time: 5773.41 sec
-epoch 33, train neg log prob: 22.5831, test neg log probability 24.9557, time: 5882.39 sec
-epoch 34, train neg log prob: 22.5131, test neg log probability 24.9523, time: 5989.53 sec
-epoch 35, train neg log prob: 22.5083, test neg log probability 24.8659, time: 6090.85 sec
+epoch 1, train neg log prob: 250.0572, test neg log probability 49.8904, time: 99.95 sec
+epoch 2, train neg log prob: 41.2156, test neg log probability 36.4848, time: 193.94 sec
+epoch 3, train neg log prob: 33.6548, test neg log probability 32.2190, time: 295.23 sec
+epoch 4, train neg log prob: 30.2813, test neg log probability 29.7601, time: 388.35 sec
+epoch 5, train neg log prob: 28.3664, test neg log probability 28.2985, time: 480.25 sec
+epoch 6, train neg log prob: 27.1238, test neg log probability 27.5641, time: 582.95 sec
+epoch 7, train neg log prob: 26.2418, test neg log probability 26.8460, time: 680.62 sec
+epoch 8, train neg log prob: 25.6715, test neg log probability 26.4137, time: 768.86 sec
+epoch 9, train neg log prob: 25.2666, test neg log probability 26.0008, time: 864.15 sec
+epoch 10, train neg log prob: 24.8970, test neg log probability 25.7292, time: 957.05 sec
+epoch 11, train neg log prob: 24.5987, test neg log probability 25.6580, time: 1054.03 sec
+epoch 12, train neg log prob: 24.3738, test neg log probability 25.5584, time: 1148.64 sec
+epoch 13, train neg log prob: 24.1787, test neg log probability 25.2766, time: 1247.34 sec
+epoch 14, train neg log prob: 24.0461, test neg log probability 25.2331, time: 1338.52 sec
+epoch 15, train neg log prob: 23.8988, test neg log probability 25.2207, time: 1427.79 sec
+epoch 16, train neg log prob: 23.7812, test neg log probability 25.1084, time: 1518.60 sec
+epoch 17, train neg log prob: 23.6668, test neg log probability 25.0538, time: 1608.34 sec
+epoch 18, train neg log prob: 23.5778, test neg log probability 25.0640, time: 1698.24 sec
+epoch 19, train neg log prob: 23.4754, test neg log probability 24.9935, time: 1795.65 sec
+epoch 20, train neg log prob: 23.3838, test neg log probability 24.9527, time: 1968.74 sec
+epoch 21, train neg log prob: 23.2775, test neg log probability 25.0839, time: 2067.69 sec
+epoch 22, train neg log prob: 23.2330, test neg log probability 25.0455, time: 2200.77 sec
+epoch 23, train neg log prob: 23.1491, test neg log probability 25.0060, time: 2287.90 sec
+epoch 24, train neg log prob: 23.1070, test neg log probability 24.9410, time: 2415.32 sec
+epoch 25, train neg log prob: 22.9730, test neg log probability 24.9060, time: 2609.77 sec
+epoch 26, train neg log prob: 22.9801, test neg log probability 24.9702, time: 2785.69 sec
+epoch 27, train neg log prob: 22.9073, test neg log probability 24.8726, time: 2944.37 sec
+epoch 28, train neg log prob: 22.8233, test neg log probability 25.0546, time: 3100.99 sec
+epoch 29, train neg log prob: 22.7896, test neg log probability 24.8377, time: 3258.68 sec
+epoch 30, train neg log prob: 22.7386, test neg log probability 24.9327, time: 3410.34 sec
+epoch 31, train neg log prob: 22.6976, test neg log probability 24.9154, time: 3567.80 sec
+epoch 32, train neg log prob: 22.6509, test neg log probability 24.8651, time: 3717.32 sec
+epoch 33, train neg log prob: 22.5771, test neg log probability 24.9061, time: 3870.36 sec
+epoch 34, train neg log prob: 22.5254, test neg log probability 24.9856, time: 4054.24 sec
+epoch 35, train neg log prob: 22.4808, test neg log probability 25.0319, time: 4256.15 sec
+epoch 36, train neg log prob: 22.4933, test neg log probability 24.8936, time: 4457.41 sec
+epoch 37, train neg log prob: 22.4147, test neg log probability 24.9887, time: 4612.38 sec
+epoch 38, train neg log prob: 22.3658, test neg log probability 24.9512, time: 4759.64 sec
+epoch 39, train neg log prob: 22.3611, test neg log probability 24.9935, time: 4963.05 sec
 --------------------------------------------------
-early stopped at epoch 35
-loading model from epoch 25
+early stopped at epoch 39
+loading model from epoch 29
 --------------------------------------------------
 **************************************************
 evaluating model on test dataset:
-total loss: 25.3033
+total loss: 25.2522
+**************************************************
+average mismatches per sample: 24.3730
+**************************************************
+{'dataset': 'gfp', 'model_type': 'rnn', 'name': 'rnn_default_medium', 'exit_code': 0, 'train_score': 22.200333984375, 'valid_score': 24.837755859375, 'test_score': 25.252193359375, 'average_mismatches': 24.373, 'num_params': 330021, 'total_time': 5177.086042881012}

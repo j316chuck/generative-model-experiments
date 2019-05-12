@@ -109,9 +109,9 @@ def run_experiment(args):
             average_mismatches: float, the average number of mismatches from wild type.
             total_time: total time this experiment took.
     """
-
     exit_code = 0
     start_time = time.time()
+
     # creating paths for the models to be logged and saved
     model_path = os.path.join(args["base_log"], args["name"])
     if not os.path.exists(model_path):
@@ -119,24 +119,30 @@ def run_experiment(args):
     # logger = None
     path_name = os.path.join(args["base_log"], args["name"], args["name"])
     logger = open(path_name + "_log.txt", "w+")
+
     try:
-        # putting tensors on cpu or gpu
+        # early stopping
         if args["early_stopping"]:
             assert(args["patience"] >= 1)
             args["early_stopping"] = EarlyStopping(args["patience"], verbose=True) # change to False verbose
         else:
             args["early_stopping"] = None
+
+        # putting tensors on cpu or gpu
         if args["device"] == 'cpu':
             args["device"] = torch.device("cpu")
         else:
             args["device"] = torch.device("gpu")
+
         # loading data and model
         train_loader, valid_loader, test_loader = get_dataloader(args)
         model = get_model(args)
+
         # model and data checks
         assert(all(args["seq_length"] == len(base_sequence) for base_sequence in args["base_sequences"]))
         assert(model is not None and train_loader is not None)
-        print('training {0} model.\nnumber of parameters -- {1}.'.format(model.model_type, model.get_num_parameters()), file=logger)
+        num_params = model.get_num_parameters()
+        print('training {0} model.\nnumber of parameters -- {1}.'.format(model.model_type, num_params), file=logger)
         print('model args:\n' + '*' * 50, file=logger)
         for arg, value in model.__dict__.items():
             if len(str(value)) <= 100:
@@ -152,12 +158,18 @@ def run_experiment(args):
         model.plot_history(path_name + "_training_history.png")
         print("*" * 50 + "\nevaluating model on test dataset:", file=logger)
         test_score = model.evaluate(dataloader=test_loader, verbose=True, logger=logger)
+
         # sample from model and see if generated sequences are reasonable
         sampled_sequences = model.sample(num_samples=1000, length=args["seq_length"])
         mismatches = plot_mismatches_histogram(sampled_sequences, args["base_sequences"],
                                                save_fig_dir=path_name + "_mismatches.png", show=False)
         average_mismatches = sum(mismatches) / len(mismatches)
         print("*" * 50 + "\naverage mismatches per sample: {0:.4f}".format(average_mismatches), file=logger)
+        results = {'dataset': model.dataset, 'model_type': model.model_type, 'name': model.name, 'exit_code': exit_code,
+                   'train_score': train_score, 'valid_score': valid_score, 'test_score': test_score,
+                   'average_mismatches': average_mismatches, 'num_params': num_params, 'total_time': time.time() - start_time}
+        print("*" * 50, file=logger)
+        print(results, file=logger)
     except:
         exit_code = 1
         exc_type, exc_value, exc_traceback = sys.exc_info()
@@ -170,9 +182,8 @@ def run_experiment(args):
     finally:
         if logger:
             logger.close()
-        total_time = time.time() - start_time
         if exit_code == 0:  # exited successfuly
-            return (exit_code, train_score, valid_score, test_score, average_mismatches, total_time)
+            return results
         else:
             raise exc_value  # return (exit_code, -1, exc_type, exc_value, exc_traceback, total_time)
 
@@ -200,11 +211,5 @@ if __name__ == '__main__':
     parser.add_argument("-pa", "--patience", default=-1, required=False, help="patience in early stopping", type=int)
     args = vars(parser.parse_args())
     # main training and testing function
-    r0, r1, r2, r3, r4, r5 = run_experiment(args)
-    if r0 == 0:
-        results = {'exit_code': r0, 'train_score': r1, 'valid_score': r2, 'test_score': r3,
-                   'average_mismatches': r4, 'total_time': r5}
-    else:
-        results = {'exit_code': r0, 'error': r1, 'exc_type': r2, 'exc_value': r3,
-                   'exc_traceback': r4, 'total_time': r5}
+    results = run_experiment(args)
     print(results)
