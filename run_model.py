@@ -130,7 +130,7 @@ def run_experiment(args):
         if args["device"] == 'cpu':
             args["device"] = torch.device("cpu")
         else:
-            args["device"] = torch.device("gpu")
+            args["device"] = torch.device("cuda")
 
         # loading data and model
         train_loader, valid_loader, test_loader = get_dataloader(args)

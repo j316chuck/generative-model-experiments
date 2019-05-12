@@ -37,11 +37,14 @@ class RNN(nn.Module):
         output = self.decoder(output.view(batch_size, -1))
         return output, hidden
 
-    def init_hidden(self, batch_size):
+    def init_hidden(self, batch_size, device=torch.device("cpu")):
         if self.model == "lstm":
-            return (Variable(torch.zeros(self.n_layers, batch_size, self.hidden_size)),
-                    Variable(torch.zeros(self.n_layers, batch_size, self.hidden_size)))
-        return Variable(torch.zeros(self.n_layers, batch_size, self.hidden_size))
+            return (Variable(torch.zeros(self.n_layers, batch_size,
+                self.hidden_size).to(device)),
+                    Variable(torch.zeros(self.n_layers, batch_size,
+                        self.hidden_size).to(device)))
+        return Variable(torch.zeros(self.n_layers, batch_size,
+            self.hidden_size).to(device))
 
 
 class GenerativeRNN(Model):
@@ -51,6 +54,7 @@ class GenerativeRNN(Model):
         self.initial_probs_tensor = []
         self.initial_probs = dict(zip(self.indexes, np.ones(self.num_characters) * self.pseudo_count))
         self.model = RNN(self.num_characters, self.hidden_size, self.num_characters, "lstm", self.layers)
+        self.model.to(self.device)
         self.optimizer = torch.optim.Adam(self.model.parameters(), lr=self.learning_rate)
         self.criterion = nn.CrossEntropyLoss()
 
@@ -69,19 +73,21 @@ class GenerativeRNN(Model):
         for char_index in self.initial_probs.keys():
             self.initial_probs[char_index] = self.initial_probs[char_index] / (dataset_length + smoothing_count)
         # initial distribution to sample from
-        self.initial_probs_tensor = torch.Tensor(list(self.initial_probs.values()))
-
+        self.initial_probs_tensor = torch.Tensor(list(self.initial_probs.values())).to(self.device)
+    
         for epoch in range(1, self.epochs + 1):
             self.model.train()
             train_loss = 0
             for i, (inp, target) in enumerate(train_dataloader):
                 batch_size, seq_length = inp.shape[0], inp.shape[1]
-                hidden = self.model.init_hidden(batch_size)
+                hidden = self.model.init_hidden(batch_size, self.device)
                 self.model.zero_grad()
                 loss = 0
                 for c in range(seq_length):
-                    output, hidden = self.model(inp[:, c], hidden)
-                    loss += self.criterion(output.view(batch_size, -1), target[:, c])  # mean cross entropy loss
+                    output, hidden = self.model(inp[:, c].to(self.device), hidden)
+                    loss += self.criterion(output.view(batch_size, -1),
+                            target[:, c].to(self.device))  # mean cross entropy loss
+
                 loss.backward()
                 self.optimizer.step()
                 train_loss += loss.item() * batch_size
@@ -108,43 +114,50 @@ class GenerativeRNN(Model):
             batch_size, seq_length = inp.shape[0], inp.shape[1]
             for starting_char_index in inp[:, 0]:
                 total_loss += -np.log(self.initial_probs[starting_char_index.item()]) #neg log probability of starting character
-            hidden = self.model.init_hidden(batch_size)
+            hidden = self.model.init_hidden(batch_size, self.device)
             for c in range(seq_length):
-                output, hidden = self.model(inp[:, c], hidden)
-                total_loss += (self.criterion(output.view(batch_size, -1), target[:, c]) * batch_size)
+                output, hidden = self.model(inp[:, c].to(self.device), hidden)
+                total_loss += (self.criterion(output.view(batch_size, -1),
+                    target[:, c].to(self.device)) * batch_size)
         total_loss = total_loss.item() / len(dataloader.dataset)
         if verbose:
             print('total loss: {0:.4f}'.format(total_loss), file=logger)
         return total_loss
 
     def sample(self, num_samples, length, to_string=True, **kwargs):
-        hidden = self.model.init_hidden(num_samples)
-        input = torch.multinomial(input=self.initial_probs_tensor, num_samples=num_samples, replacement=True)
-        predicted_strings = input.reshape(1, num_samples).long()
+        hidden = self.model.init_hidden(num_samples, self.device)
+        input = torch.multinomial(input=self.initial_probs_tensor,
+                num_samples=num_samples, replacement=True)
+        predicted_strings = input.reshape(1,
+                num_samples).long()
         sampled_probabilities = torch.stack([self.initial_probs_tensor for _ in range(num_samples)])
         sampled_probabilities = sampled_probabilities.reshape(1, num_samples, self.num_characters)
-        for _ in range(1, length):
-            output, hidden = self.model(input.view(num_samples, 1), hidden)
+        for i in range(1, length):
+            output, hidden = self.model(input.view(num_samples,
+                1).to(self.device), hidden)
             output = F.softmax(output, dim=-1)
-            input = torch.Tensor([torch.multinomial(input=prob, num_samples=1, replacement=True)[0] for prob in output]).long()
+            input = torch.Tensor([torch.multinomial(input=prob, num_samples=1,
+                replacement=True)[0] for prob in
+                output]).long().to(self.device)
             sampled_probabilities = torch.cat([sampled_probabilities, output.reshape(1, num_samples, self.num_characters)])
             predicted_strings = torch.cat([predicted_strings, input.reshape(1, num_samples)])
         sampled_probabilities = sampled_probabilities.permute(1, 0, 2)
-        predicted_strings = predicted_strings.permute(1, 0).detach().numpy()
+        predicted_strings = predicted_strings.permute(1, 0).cpu().detach().numpy()
         if to_string:
             sampled_strings = []
             for string in predicted_strings:
                 sampled_strings.append("".join([self.int_to_character[index] for index in string]))
             return sampled_strings
         else:
-            return sampled_probabilities.detach().numpy()
+            return sampled_probabilities.cpu().detach().numpy()
 
     def show_model(self, logger=None, **kwargs):
         print(self.model, file=logger)
 
     def plot_model(self, save_fig_dir, show=False, **kwargs):
-        hidden = self.model.init_hidden(1)
-        out, _ = self.model(string_to_tensor("S", self.character_to_int), hidden)
+        hidden = self.model.init_hidden(1, self.device)
+        out, _ = self.model(string_to_tensor("S",
+            self.character_to_int).to(self.device), hidden)
         graph = make_dot(out)
         if save_fig_dir is not None:
             graph.format = "png"

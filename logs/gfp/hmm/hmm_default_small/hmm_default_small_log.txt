@@ -2,47 +2,47 @@ training hmm model.
 number of parameters -- 1530.0.
 model args:
 **************************************************
-base_log -- logs/gfp/hmm/
-train_loss -- []
-learning_rate -- 0.001
-device -- cpu
-model_type -- hmm
-epochs -- 10
-n_jobs -- 1
-latent_dim -- -1
-batch_size -- 10
 name -- hmm_default_small
-seq_length -- 238
-patience -- 10
-input -- 4998
-save_epochs -- 50
-layers -- 1
-valid_loss_history -- []
-hidden_size -- 30
-all_characters -- *ACDEFGHIKLMNPQRSTVWY
-indexes -- [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20]
-pseudo_count -- 1
-early_stopping -- <early_stopping.EarlyStopping object at 0x7f3484d54b70>
+latent_dim -- -1
 num_data -- 100
-train_loss_history -- []
+model_type -- hmm
+learning_rate -- 0.001
+hidden_size -- 30
+seq_length -- 238
+pseudo_count -- 1
+epochs -- 10
 dataset -- gfp
+base_log -- logs/gfp/hmm/
+layers -- 1
+early_stopping -- <early_stopping.EarlyStopping object at 0x7fda0b022d30>
+train_loss_history -- []
+input -- 4998
+device -- cuda
+valid_loss_history -- []
 num_characters -- 21
+indexes -- [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20]
+all_characters -- *ACDEFGHIKLMNPQRSTVWY
+train_loss -- []
+n_jobs -- 5
+patience -- 10
+batch_size -- 10
+save_epochs -- 50
 **************************************************
 training model on train and validation datasets...
-epoch 1, train neg log prob: 683.8432, test neg log probability 684.0343, time: 9.24 sec
-epoch 2, train neg log prob: 683.1609, test neg log probability 683.3559, time: 20.60 sec
-epoch 3, train neg log prob: 682.2578, test neg log probability 682.4584, time: 32.73 sec
-epoch 4, train neg log prob: 681.1903, test neg log probability 681.3990, time: 52.25 sec
-epoch 5, train neg log prob: 679.8699, test neg log probability 680.0910, time: 72.78 sec
-epoch 6, train neg log prob: 677.7661, test neg log probability 678.0114, time: 94.71 sec
-epoch 7, train neg log prob: 673.8096, test neg log probability 674.1101, time: 124.38 sec
-epoch 8, train neg log prob: 665.7877, test neg log probability 666.2254, time: 143.77 sec
-epoch 9, train neg log prob: 650.4164, test neg log probability 651.1551, time: 163.27 sec
-epoch 10, train neg log prob: 624.8033, test neg log probability 625.9516, time: 182.23 sec
+epoch 1, train neg log prob: 684.2117, test neg log probability 684.4014, time: 4.52 sec
+epoch 2, train neg log prob: 683.6997, test neg log probability 683.8936, time: 10.23 sec
+epoch 3, train neg log prob: 683.1288, test neg log probability 683.3265, time: 15.61 sec
+epoch 4, train neg log prob: 682.2734, test neg log probability 682.4767, time: 20.44 sec
+epoch 5, train neg log prob: 680.9708, test neg log probability 681.1840, time: 25.99 sec
+epoch 6, train neg log prob: 679.0850, test neg log probability 679.3140, time: 31.37 sec
+epoch 7, train neg log prob: 675.7240, test neg log probability 675.9794, time: 36.84 sec
+epoch 8, train neg log prob: 668.7281, test neg log probability 669.0290, time: 41.77 sec
+epoch 9, train neg log prob: 656.4502, test neg log probability 656.7999, time: 46.83 sec
+epoch 10, train neg log prob: 640.2083, test neg log probability 640.6198, time: 52.74 sec
 **************************************************
 evaluating model on test dataset:
-Average neg log prob: 626.2766
+Average neg log prob: 640.8826
 **************************************************
-average mismatches per sample: 222.8540
+average mismatches per sample: 222.9290
 **************************************************
-{'num_params': 1530.0, 'average_mismatches': 222.854, 'test_score': 626.2765546476498, 'name': 'hmm_default_small', 'train_score': 624.8032754143493, 'exit_code': 0, 'model_type': 'hmm', 'total_time': 209.18799710273743, 'dataset': 'gfp', 'valid_score': 625.9516447883128}
+{'name': 'hmm_default_small', 'num_params': 1530.0, 'train_score': 640.2083045127874, 'dataset': 'gfp', 'exit_code': 0, 'model_type': 'hmm', 'average_mismatches': 222.929, 'valid_score': 640.6198255704466, 'total_time': 66.23152542114258, 'test_score': 640.882632361469}
