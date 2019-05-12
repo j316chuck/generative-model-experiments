@@ -36,4 +36,4 @@
 	6. hmmm seems to be different results for vae the way you code it. Around 2 off of tf implementation in test loss and a little bit off of vae in kld loss, may just be difference in parameters tho
 	7. oky finally got it to converge
 	8. add in weights
-	9. make it more OOP by using kwargs  
+	9. make it more OOP by using kwargs  ƒ

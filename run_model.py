@@ -14,7 +14,8 @@ from utils import load_data, get_all_amino_acids, get_wild_type_amino_acid_seque
 from utils import one_hot_encode, plot_mismatches_histogram, string_to_tensor
 from utils import load_base_sequences
 from early_stopping import EarlyStopping
-
+import matplotlib
+matplotlib.use('agg')
 
 def get_dataloader(args):
     """

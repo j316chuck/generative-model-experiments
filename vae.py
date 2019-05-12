@@ -3,6 +3,8 @@ import torch.utils.data
 import numpy as np
 import time
 import os
+import matplotlib.pyplot as plt
+plt.switch_backend('agg')
 
 from torch import nn, optim
 from torch.nn import functional as F
