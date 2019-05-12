@@ -179,7 +179,7 @@ class GenerativeVAE(Model):
         if to_string:
             return [sample_tensor_to_string(prob, self.int_to_character) for prob in sampled_probabilities]
         else:
-            return sampled_probabilities.detach().numpy()
+            return sampled_probabilities.cpu().detach().numpy()
 
     def show_model(self, logger=None):
         print(self.model, file=logger)

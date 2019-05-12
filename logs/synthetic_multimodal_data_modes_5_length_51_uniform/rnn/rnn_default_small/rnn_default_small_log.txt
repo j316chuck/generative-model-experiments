@@ -1,4 +1,4 @@
-training rnn model.
+ctraining rnn model.
 number of parameters -- 22420.
 model args:
 **************************************************
