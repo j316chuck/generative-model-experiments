@@ -2,48 +2,48 @@ training rnn model.
 number of parameters -- 22420.
 model args:
 **************************************************
-save_epochs -- 50
-model_type -- rnn
 base_log -- logs/synthetic_multimodal_data_modes_2_length_51_uniform/rnn
 name -- rnn_default_small
-input -- 1020
-hidden_size -- 50
-latent_dim -- -1
-seq_length -- 51
-pseudo_count -- 1
-n_jobs -- 1
-device -- cpu
-learning_rate -- 0.001
-epochs -- 10
-batch_size -- 10
-layers -- 1
-dataset -- synthetic_multimodal_data_modes_2_length_51_uniform
-num_data -- 100
-all_characters -- ACDEFGHIKLMNPQRSTVWY
-early_stopping -- <early_stopping.EarlyStopping object at 0x11a113c18>
-patience -- 10
-num_characters -- 20
-indexes -- [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19]
-train_loss_history -- []
-valid_loss_history -- []
 initial_probs_tensor -- []
+input -- 1020
 criterion -- CrossEntropyLoss()
+pseudo_count -- 1
+all_characters -- ACDEFGHIKLMNPQRSTVWY
+indexes -- [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19]
+hidden_size -- 50
+num_characters -- 20
+seq_length -- 51
+dataset -- synthetic_multimodal_data_modes_2_length_51_uniform
+save_epochs -- 50
+train_loss_history -- []
+n_jobs -- 1
+early_stopping -- <early_stopping.EarlyStopping object at 0x7fd7d8b1ecf8>
+epochs -- 10
+device -- cpu
+batch_size -- 10
+model_type -- rnn
+valid_loss_history -- []
+learning_rate -- 0.001
+layers -- 1
+num_data -- 100
+latent_dim -- -1
+patience -- 10
 **************************************************
 training model on train and validation datasets...
-epoch 1, train neg log prob: 147.4023, test neg log probability 145.1060, time: 1.41 sec
-epoch 2, train neg log prob: 143.0337, test neg log probability 140.3406, time: 2.73 sec
-epoch 3, train neg log prob: 137.6401, test neg log probability 134.1495, time: 4.02 sec
-epoch 4, train neg log prob: 131.4170, test neg log probability 128.0746, time: 5.21 sec
-epoch 5, train neg log prob: 125.0841, test neg log probability 121.6636, time: 6.36 sec
-epoch 6, train neg log prob: 118.4880, test neg log probability 115.0699, time: 7.38 sec
-epoch 7, train neg log prob: 111.7796, test neg log probability 108.5207, time: 8.55 sec
-epoch 8, train neg log prob: 105.2798, test neg log probability 102.2628, time: 9.78 sec
-epoch 9, train neg log prob: 99.0651, test neg log probability 96.3521, time: 11.03 sec
-epoch 10, train neg log prob: 93.1907, test neg log probability 90.7762, time: 12.55 sec
+epoch 1, train neg log prob: 149.3560, test neg log probability 147.0704, time: 0.73 sec
+epoch 2, train neg log prob: 144.6057, test neg log probability 141.8879, time: 1.61 sec
+epoch 3, train neg log prob: 138.9838, test neg log probability 135.7933, time: 2.59 sec
+epoch 4, train neg log prob: 133.3848, test neg log probability 130.5166, time: 3.24 sec
+epoch 5, train neg log prob: 128.1735, test neg log probability 125.1058, time: 4.48 sec
+epoch 6, train neg log prob: 122.4258, test neg log probability 119.0675, time: 5.97 sec
+epoch 7, train neg log prob: 116.1064, test neg log probability 112.7803, time: 7.46 sec
+epoch 8, train neg log prob: 109.5766, test neg log probability 106.2767, time: 9.17 sec
+epoch 9, train neg log prob: 103.0171, test neg log probability 99.9025, time: 11.12 sec
+epoch 10, train neg log prob: 96.5608, test neg log probability 94.0723, time: 12.15 sec
 **************************************************
 evaluating model on test dataset:
-total loss: 90.3011
+total loss: 93.5333
 **************************************************
-average mismatches per sample: 45.0640
+average mismatches per sample: 45.0620
 **************************************************
-{'dataset': 'synthetic_multimodal_data_modes_2_length_51_uniform', 'model_type': 'rnn', 'name': 'rnn_default_small', 'exit_code': 0, 'train_score': 90.116337890625, 'valid_score': 90.77615234375, 'test_score': 90.30109375, 'average_mismatches': 45.064, 'num_params': 22420, 'total_time': 17.126405000686646}
+{'num_params': 22420, 'model_type': 'rnn', 'total_time': 14.314458847045898, 'dataset': 'synthetic_multimodal_data_modes_2_length_51_uniform', 'name': 'rnn_default_small', 'average_mismatches': 45.062, 'valid_score': 94.07228515625, 'test_score': 93.533349609375, 'exit_code': 0, 'train_score': 93.353505859375}

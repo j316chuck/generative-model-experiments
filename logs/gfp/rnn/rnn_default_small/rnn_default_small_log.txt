@@ -2,46 +2,48 @@ training rnn model.
 number of parameters -- 85021.
 model args:
 **************************************************
-save_epochs -- 50
-model_type -- rnn
-base_log -- logs/gfp/rnn/
-name -- rnn_default_small
-input -- 4998
-hidden_size -- 100
-latent_dim -- -1
-seq_length -- 238
-pseudo_count -- 1
-n_jobs -- 1
 device -- cpu
-learning_rate -- 0.001
-epochs -- 10
-batch_size -- 10
-layers -- 1
-dataset -- gfp
-num_data -- 100
-all_characters -- *ACDEFGHIKLMNPQRSTVWY
-early_stopping -- <early_stopping.EarlyStopping object at 0x11252ec88>
 patience -- 10
-num_characters -- 21
 indexes -- [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20]
+early_stopping -- <early_stopping.EarlyStopping object at 0x7fed25849cf8>
+num_characters -- 21
+save_epochs -- 50
+seq_length -- 238
+dataset -- gfp
+base_log -- logs/gfp/rnn/
 train_loss_history -- []
+num_data -- 100
+input -- 4998
+n_jobs -- 1
 valid_loss_history -- []
+batch_size -- 10
+all_characters -- *ACDEFGHIKLMNPQRSTVWY
 initial_probs_tensor -- []
+learning_rate -- 0.001
+name -- rnn_default_small
+model_type -- rnn
+epochs -- 10
+hidden_size -- 100
+layers -- 1
 criterion -- CrossEntropyLoss()
+latent_dim -- -1
+pseudo_count -- 1
 **************************************************
 training model on train and validation datasets...
-epoch 1, train neg log prob: 706.4557, test neg log probability 679.0202, time: 5.28 sec
-epoch 2, train neg log prob: 654.5800, test neg log probability 628.1002, time: 11.69 sec
-epoch 3, train neg log prob: 602.5707, test neg log probability 572.6846, time: 17.67 sec
-epoch 4, train neg log prob: 542.2824, test neg log probability 507.1862, time: 22.54 sec
-epoch 5, train neg log prob: 471.6714, test neg log probability 432.8421, time: 27.28 sec
-epoch 6, train neg log prob: 394.7960, test neg log probability 356.5202, time: 34.35 sec
-epoch 7, train neg log prob: 320.0316, test neg log probability 287.7817, time: 39.12 sec
-epoch 8, train neg log prob: 255.1532, test neg log probability 231.8019, time: 44.42 sec
-epoch 9, train neg log prob: 202.8004, test neg log probability 186.8733, time: 49.52 sec
-epoch 10, train neg log prob: 161.8922, test neg log probability 152.3359, time: 55.05 sec
+epoch 1, train neg log prob: 699.0223, test neg log probability 673.9277, time: 26.01 sec
+epoch 2, train neg log prob: 648.5200, test neg log probability 618.5504, time: 46.01 sec
+epoch 3, train neg log prob: 589.8723, test neg log probability 555.9060, time: 68.56 sec
+epoch 4, train neg log prob: 522.0820, test neg log probability 483.1026, time: 99.83 sec
+epoch 5, train neg log prob: 445.0794, test neg log probability 405.1379, time: 118.68 sec
+epoch 6, train neg log prob: 367.2286, test neg log probability 331.0873, time: 138.86 sec
+epoch 7, train neg log prob: 295.8916, test neg log probability 266.9338, time: 164.47 sec
+epoch 8, train neg log prob: 235.9220, test neg log probability 215.0434, time: 183.59 sec
+epoch 9, train neg log prob: 187.9034, test neg log probability 174.3260, time: 200.28 sec
+epoch 10, train neg log prob: 150.8789, test neg log probability 143.9672, time: 213.96 sec
 **************************************************
 evaluating model on test dataset:
-total loss: 152.7629
+total loss: 144.4462
 **************************************************
-average mismatches per sample: 221.6690
+average mismatches per sample: 221.8940
+**************************************************
+{'exit_code': 0, 'valid_score': 143.96728515625, 'test_score': 144.446162109375, 'total_time': 234.52737498283386, 'name': 'rnn_default_small', 'train_score': 134.2866015625, 'average_mismatches': 221.894, 'dataset': 'gfp', 'num_params': 85021, 'model_type': 'rnn'}

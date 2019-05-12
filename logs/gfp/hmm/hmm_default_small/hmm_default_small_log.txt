@@ -2,64 +2,47 @@ training hmm model.
 number of parameters -- 1530.0.
 model args:
 **************************************************
-epochs -- 10
-num_data -- 100
-patience -- 10
-num_characters -- 21
-all_characters -- *ACDEFGHIKLMNPQRSTVWY
-model_type -- hmm
-seq_length -- 238
-layers -- 1
-hidden_size -- 30
-early_stopping -- <early_stopping.EarlyStopping object at 0x7f761fb4cf28>
-valid_loss_history -- []
-latent_dim -- -1
-dataset -- gfp
-learning_rate -- 0.001
-indexes -- [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20]
-input -- 4998
-train_loss_history -- []
-pseudo_count -- 1
 base_log -- logs/gfp/hmm/
-name -- hmm_default_small
-save_epochs -- 50
-device -- cpu
-n_jobs -- 1
-batch_size -- 10
 train_loss -- []
+learning_rate -- 0.001
+device -- cpu
+model_type -- hmm
+epochs -- 10
+n_jobs -- 1
+latent_dim -- -1
+batch_size -- 10
+name -- hmm_default_small
+seq_length -- 238
+patience -- 10
+input -- 4998
+save_epochs -- 50
+layers -- 1
+valid_loss_history -- []
+hidden_size -- 30
+all_characters -- *ACDEFGHIKLMNPQRSTVWY
+indexes -- [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20]
+pseudo_count -- 1
+early_stopping -- <early_stopping.EarlyStopping object at 0x7f3484d54b70>
+num_data -- 100
+train_loss_history -- []
+dataset -- gfp
+num_characters -- 21
 **************************************************
 training model on train and validation datasets...
-epoch 1, train neg log prob: 683.7922, test neg log probability 683.9907, time: 9.14 sec
-epoch 2, train neg log prob: 683.1323, test neg log probability 683.3352, time: 18.30 sec
-epoch 3, train neg log prob: 682.0936, test neg log probability 682.3037, time: 27.43 sec
-epoch 4, train neg log prob: 680.5805, test neg log probability 680.8041, time: 36.58 sec
-epoch 5, train neg log prob: 678.5910, test neg log probability 678.8365, time: 45.72 sec
-epoch 6, train neg log prob: 675.0505, test neg log probability 675.3380, time: 54.84 sec
-epoch 7, train neg log prob: 667.7720, test neg log probability 668.1557, time: 63.97 sec
-epoch 8, train neg log prob: 654.4095, test neg log probability 654.9906, time: 73.09 sec
-epoch 9, train neg log prob: 634.5325, test neg log probability 635.3788, time: 82.17 sec
-epoch 10, train neg log prob: 607.4074, test neg log probability 608.5491, time: 91.19 sec
-==================================================
-Error in running experiment: hmm_default_small
-Traceback log: 
-==================================================
-Traceback (most recent call last):
-  File "run_model.py", line 151, in run_experiment
-    model.plot_history(path_name + "_training_history.png")
-  File "/data/home/j316chuck/notebooks/generative-model-experiments/hmm.py", line 82, in plot_history
-    super().plot_history(save_fig_dir=save_fig_dir, **kwargs)
-  File "/data/home/j316chuck/notebooks/generative-model-experiments/models.py", line 167, in plot_history
-    plt.figure()
-  File "/data/anaconda/envs/py35/lib/python3.5/site-packages/matplotlib/pyplot.py", line 548, in figure
-    **kwargs)
-  File "/data/anaconda/envs/py35/lib/python3.5/site-packages/matplotlib/backend_bases.py", line 161, in new_figure_manager
-    return cls.new_figure_manager_given_figure(num, fig)
-  File "/data/anaconda/envs/py35/lib/python3.5/site-packages/matplotlib/backend_bases.py", line 167, in new_figure_manager_given_figure
-    canvas = cls.FigureCanvas(figure)
-  File "/data/anaconda/envs/py35/lib/python3.5/site-packages/matplotlib/backends/backend_qt5agg.py", line 24, in __init__
-    super(FigureCanvasQTAgg, self).__init__(figure=figure)
-  File "/data/anaconda/envs/py35/lib/python3.5/site-packages/matplotlib/backends/backend_qt5.py", line 234, in __init__
-    _create_qApp()
-  File "/data/anaconda/envs/py35/lib/python3.5/site-packages/matplotlib/backends/backend_qt5.py", line 125, in _create_qApp
-    raise RuntimeError('Invalid DISPLAY variable')
-RuntimeError: Invalid DISPLAY variable
+epoch 1, train neg log prob: 683.8432, test neg log probability 684.0343, time: 9.24 sec
+epoch 2, train neg log prob: 683.1609, test neg log probability 683.3559, time: 20.60 sec
+epoch 3, train neg log prob: 682.2578, test neg log probability 682.4584, time: 32.73 sec
+epoch 4, train neg log prob: 681.1903, test neg log probability 681.3990, time: 52.25 sec
+epoch 5, train neg log prob: 679.8699, test neg log probability 680.0910, time: 72.78 sec
+epoch 6, train neg log prob: 677.7661, test neg log probability 678.0114, time: 94.71 sec
+epoch 7, train neg log prob: 673.8096, test neg log probability 674.1101, time: 124.38 sec
+epoch 8, train neg log prob: 665.7877, test neg log probability 666.2254, time: 143.77 sec
+epoch 9, train neg log prob: 650.4164, test neg log probability 651.1551, time: 163.27 sec
+epoch 10, train neg log prob: 624.8033, test neg log probability 625.9516, time: 182.23 sec
+**************************************************
+evaluating model on test dataset:
+Average neg log prob: 626.2766
+**************************************************
+average mismatches per sample: 222.8540
+**************************************************
+{'num_params': 1530.0, 'average_mismatches': 222.854, 'test_score': 626.2765546476498, 'name': 'hmm_default_small', 'train_score': 624.8032754143493, 'exit_code': 0, 'model_type': 'hmm', 'total_time': 209.18799710273743, 'dataset': 'gfp', 'valid_score': 625.9516447883128}

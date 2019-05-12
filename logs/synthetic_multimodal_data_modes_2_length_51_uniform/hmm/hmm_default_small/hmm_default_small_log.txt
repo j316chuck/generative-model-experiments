@@ -2,47 +2,47 @@ training hmm model.
 number of parameters -- 800.0.
 model args:
 **************************************************
-save_epochs -- 50
-model_type -- hmm
-base_log -- logs/synthetic_multimodal_data_modes_2_length_51_uniform/hmm
-name -- hmm_default_small
 input -- 1020
 hidden_size -- 20
-latent_dim -- -1
-seq_length -- 51
-pseudo_count -- 1
-n_jobs -- 1
-device -- cpu
-learning_rate -- 0.001
-epochs -- 10
-batch_size -- 10
 layers -- 1
-dataset -- synthetic_multimodal_data_modes_2_length_51_uniform
-num_data -- 100
-all_characters -- ACDEFGHIKLMNPQRSTVWY
-early_stopping -- <early_stopping.EarlyStopping object at 0x11511bc50>
-patience -- 10
+pseudo_count -- 1
 num_characters -- 20
-indexes -- [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19]
-train_loss_history -- []
-valid_loss_history -- []
+num_data -- 100
+seq_length -- 51
+early_stopping -- <early_stopping.EarlyStopping object at 0x7fb8117e8cf8>
 train_loss -- []
+save_epochs -- 50
+n_jobs -- 1
+name -- hmm_default_small
+learning_rate -- 0.001
+train_loss_history -- []
+patience -- 10
+all_characters -- ACDEFGHIKLMNPQRSTVWY
+device -- cpu
+epochs -- 10
+indexes -- [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19]
+model_type -- hmm
+valid_loss_history -- []
+batch_size -- 10
+dataset -- synthetic_multimodal_data_modes_2_length_51_uniform
+base_log -- logs/synthetic_multimodal_data_modes_2_length_51_uniform/hmm
+latent_dim -- -1
 **************************************************
 training model on train and validation datasets...
-epoch 1, train neg log prob: 144.1925, test neg log probability 144.0465, time: 0.95 sec
-epoch 2, train neg log prob: 142.9729, test neg log probability 142.8216, time: 1.90 sec
-epoch 3, train neg log prob: 141.8954, test neg log probability 141.7430, time: 2.77 sec
-epoch 4, train neg log prob: 141.3644, test neg log probability 141.2250, time: 3.63 sec
-epoch 5, train neg log prob: 140.8946, test neg log probability 140.7819, time: 4.55 sec
-epoch 6, train neg log prob: 140.4061, test neg log probability 140.3322, time: 5.39 sec
-epoch 7, train neg log prob: 140.0107, test neg log probability 139.9763, time: 6.22 sec
-epoch 8, train neg log prob: 139.7273, test neg log probability 139.7228, time: 7.06 sec
-epoch 9, train neg log prob: 139.4477, test neg log probability 139.4673, time: 7.87 sec
-epoch 10, train neg log prob: 139.0306, test neg log probability 139.0791, time: 8.72 sec
+epoch 1, train neg log prob: 144.0823, test neg log probability 143.9350, time: 1.40 sec
+epoch 2, train neg log prob: 143.2740, test neg log probability 143.1297, time: 2.30 sec
+epoch 3, train neg log prob: 142.5147, test neg log probability 142.3765, time: 3.18 sec
+epoch 4, train neg log prob: 141.6299, test neg log probability 141.5001, time: 4.05 sec
+epoch 5, train neg log prob: 141.0286, test neg log probability 140.9101, time: 4.93 sec
+epoch 6, train neg log prob: 140.5827, test neg log probability 140.4833, time: 5.80 sec
+epoch 7, train neg log prob: 140.0159, test neg log probability 139.9492, time: 6.68 sec
+epoch 8, train neg log prob: 139.1081, test neg log probability 139.0931, time: 7.56 sec
+epoch 9, train neg log prob: 137.5009, test neg log probability 137.5583, time: 8.43 sec
+epoch 10, train neg log prob: 134.5310, test neg log probability 134.6690, time: 9.31 sec
 **************************************************
 evaluating model on test dataset:
-Average neg log prob: 138.5969
+Average neg log prob: 134.3411
 **************************************************
-average mismatches per sample: 45.4520
+average mismatches per sample: 45.5420
 **************************************************
-{'dataset': 'synthetic_multimodal_data_modes_2_length_51_uniform', 'model_type': 'hmm', 'name': 'hmm_default_small', 'exit_code': 0, 'train_score': 139.0305703177286, 'valid_score': 139.07905199406315, 'test_score': 138.59686281265132, 'average_mismatches': 45.452, 'num_params': 800.0, 'total_time': 15.025747060775757}
+{'total_time': 11.757285833358765, 'valid_score': 134.66895613210568, 'average_mismatches': 45.542, 'model_type': 'hmm', 'train_score': 134.5310024934783, 'dataset': 'synthetic_multimodal_data_modes_2_length_51_uniform', 'test_score': 134.3410621769398, 'num_params': 800.0, 'name': 'hmm_default_small', 'exit_code': 0}
