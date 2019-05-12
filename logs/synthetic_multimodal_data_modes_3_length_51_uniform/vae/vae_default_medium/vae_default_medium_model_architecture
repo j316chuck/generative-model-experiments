@@ -1,0 +1,68 @@
+digraph {
+	graph [size="12,12"]
+	node [align=left fontsize=12 height=0.2 ranksep=0.1 shape=box style=filled]
+	4494100800 [label=ViewBackward fillcolor=darkolivegreen1]
+	4428690096 -> 4494100800
+	4428690096 [label=AddmmBackward]
+	4340997480 -> 4428690096
+	4340997480 [label="
+ (1020)" fillcolor=lightblue]
+	4319237456 -> 4428690096
+	4319237456 [label=EluBackward]
+	4568527984 -> 4319237456
+	4568527984 [label=AddmmBackward]
+	4568527480 -> 4568527984
+	4568527480 [label="
+ (200)" fillcolor=lightblue]
+	4568528264 -> 4568527984
+	4568528264 [label=AddBackward0]
+	4568528488 -> 4568528264
+	4568528488 [label=AddmmBackward]
+	4568528600 -> 4568528488
+	4568528600 [label="
+ (20)" fillcolor=lightblue]
+	4568528656 -> 4568528488
+	4568528656 [label=EluBackward]
+	4568528880 -> 4568528656
+	4568528880 [label=AddmmBackward]
+	4568528936 -> 4568528880
+	4568528936 [label="
+ (200)" fillcolor=lightblue]
+	4568528992 -> 4568528880
+	4568528992 [label=TBackward]
+	4568529160 -> 4568528992
+	4568529160 [label="
+ (200, 1020)" fillcolor=lightblue]
+	4568528712 -> 4568528488
+	4568528712 [label=TBackward]
+	4568528824 -> 4568528712
+	4568528824 [label="
+ (20, 200)" fillcolor=lightblue]
+	4568528432 -> 4568528264
+	4568528432 [label=MulBackward0]
+	4568528768 -> 4568528432
+	4568528768 [label=ExpBackward]
+	4568529104 -> 4568528768
+	4568529104 [label=MulBackward0]
+	4568529328 -> 4568529104
+	4568529328 [label=AddmmBackward]
+	4568529384 -> 4568529328
+	4568529384 [label="
+ (20)" fillcolor=lightblue]
+	4568528656 -> 4568529328
+	4568529440 -> 4568529328
+	4568529440 [label=TBackward]
+	4568529608 -> 4568529440
+	4568529608 [label="
+ (20, 200)" fillcolor=lightblue]
+	4568528320 -> 4568527984
+	4568528320 [label=TBackward]
+	4568528544 -> 4568528320
+	4568528544 [label="
+ (200, 20)" fillcolor=lightblue]
+	4341039288 -> 4428690096
+	4341039288 [label=TBackward]
+	4568527928 -> 4341039288
+	4568527928 [label="
+ (1020, 200)" fillcolor=lightblue]
+}
