@@ -1,0 +1,67 @@
+training rnn model.
+number of parameters -- 22420.
+model args:
+**************************************************
+save_epochs -- 50
+model_type -- rnn
+base_log -- logs/synthetic_unimodal_data_length_20_uniform/rnn
+name -- rnn_default_medium
+input -- 400
+hidden_size -- 50
+latent_dim -- -1
+seq_length -- 20
+pseudo_count -- 1
+n_jobs -- 1
+device -- cpu
+learning_rate -- 0.001
+epochs -- 100
+batch_size -- 10
+layers -- 1
+dataset -- synthetic_unimodal_data_length_20_uniform
+num_data -- 1000
+all_characters -- ACDEFGHIKLMNPQRSTVWY
+early_stopping -- <early_stopping.EarlyStopping object at 0x11a87ac18>
+patience -- 10
+num_characters -- 20
+indexes -- [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19]
+train_loss_history -- []
+valid_loss_history -- []
+initial_probs_tensor -- []
+criterion -- CrossEntropyLoss()
+**************************************************
+training model on train and validation datasets...
+epoch 1, train neg log prob: 44.5256, test neg log probability 35.9091, time: 9.47 sec
+epoch 2, train neg log prob: 33.1364, test neg log probability 31.0982, time: 17.54 sec
+epoch 3, train neg log prob: 29.8630, test neg log probability 29.2884, time: 26.82 sec
+epoch 4, train neg log prob: 28.7241, test neg log probability 28.6634, time: 35.63 sec
+epoch 5, train neg log prob: 28.2370, test neg log probability 28.3959, time: 43.22 sec
+epoch 6, train neg log prob: 27.9470, test neg log probability 28.2536, time: 51.31 sec
+epoch 7, train neg log prob: 27.7582, test neg log probability 28.1461, time: 59.64 sec
+epoch 8, train neg log prob: 27.6245, test neg log probability 28.0701, time: 67.55 sec
+epoch 9, train neg log prob: 27.4889, test neg log probability 28.0282, time: 75.41 sec
+epoch 10, train neg log prob: 27.3763, test neg log probability 28.0116, time: 83.63 sec
+epoch 11, train neg log prob: 27.2933, test neg log probability 27.9909, time: 91.53 sec
+epoch 12, train neg log prob: 27.2403, test neg log probability 27.9965, time: 99.33 sec
+epoch 13, train neg log prob: 27.1403, test neg log probability 28.0374, time: 106.13 sec
+epoch 14, train neg log prob: 27.0805, test neg log probability 27.9757, time: 112.62 sec
+epoch 15, train neg log prob: 26.9940, test neg log probability 28.0757, time: 119.52 sec
+epoch 16, train neg log prob: 26.9267, test neg log probability 28.0209, time: 125.87 sec
+epoch 17, train neg log prob: 26.8538, test neg log probability 28.0561, time: 132.95 sec
+epoch 18, train neg log prob: 26.7637, test neg log probability 28.0995, time: 139.80 sec
+epoch 19, train neg log prob: 26.6978, test neg log probability 28.1545, time: 146.59 sec
+epoch 20, train neg log prob: 26.6452, test neg log probability 28.1213, time: 153.75 sec
+epoch 21, train neg log prob: 26.5854, test neg log probability 28.1421, time: 160.17 sec
+epoch 22, train neg log prob: 26.5232, test neg log probability 28.2011, time: 167.69 sec
+epoch 23, train neg log prob: 26.4694, test neg log probability 28.1649, time: 175.32 sec
+epoch 24, train neg log prob: 26.3899, test neg log probability 28.2370, time: 181.96 sec
+--------------------------------------------------
+early stopped at epoch 24
+loading model from epoch 14
+--------------------------------------------------
+**************************************************
+evaluating model on test dataset:
+total loss: 27.7843
+**************************************************
+average mismatches per sample: 6.2390
+**************************************************
+{'dataset': 'synthetic_unimodal_data_length_20_uniform', 'model_type': 'rnn', 'name': 'rnn_default_medium', 'exit_code': 0, 'train_score': 26.88672265625, 'valid_score': 27.975775390625, 'test_score': 27.784279296875, 'average_mismatches': 6.239, 'num_params': 22420, 'total_time': 194.39127326011658}

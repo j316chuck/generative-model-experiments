@@ -1,0 +1,105 @@
+training rnn model.
+number of parameters -- 22420.
+model args:
+**************************************************
+save_epochs -- 50
+model_type -- rnn
+base_log -- logs/synthetic_unimodal_data_length_100_skewed_gaussian/rnn
+name -- rnn_default_medium
+input -- 2000
+hidden_size -- 50
+latent_dim -- -1
+seq_length -- 100
+pseudo_count -- 1
+n_jobs -- 1
+device -- cpu
+learning_rate -- 0.001
+epochs -- 100
+batch_size -- 10
+layers -- 1
+dataset -- synthetic_unimodal_data_length_100_skewed_gaussian
+num_data -- 1000
+all_characters -- ACDEFGHIKLMNPQRSTVWY
+early_stopping -- <early_stopping.EarlyStopping object at 0x113fcebe0>
+patience -- 10
+num_characters -- 20
+indexes -- [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19]
+train_loss_history -- []
+valid_loss_history -- []
+initial_probs_tensor -- []
+criterion -- CrossEntropyLoss()
+**************************************************
+training model on train and validation datasets...
+epoch 1, train neg log prob: 225.4461, test neg log probability 145.4804, time: 30.30 sec
+epoch 2, train neg log prob: 99.6191, test neg log probability 70.7615, time: 64.72 sec
+epoch 3, train neg log prob: 61.8229, test neg log probability 55.1787, time: 93.85 sec
+epoch 4, train neg log prob: 52.2688, test neg log probability 49.4053, time: 123.28 sec
+epoch 5, train neg log prob: 47.9037, test neg log probability 46.1971, time: 152.72 sec
+epoch 6, train neg log prob: 45.1851, test neg log probability 44.0722, time: 181.98 sec
+epoch 7, train neg log prob: 43.2491, test neg log probability 42.4764, time: 216.50 sec
+epoch 8, train neg log prob: 41.7982, test neg log probability 41.3137, time: 246.81 sec
+epoch 9, train neg log prob: 40.6873, test neg log probability 40.4098, time: 275.70 sec
+epoch 10, train neg log prob: 39.8193, test neg log probability 39.6524, time: 305.75 sec
+epoch 11, train neg log prob: 39.1251, test neg log probability 39.1447, time: 334.69 sec
+epoch 12, train neg log prob: 38.5766, test neg log probability 38.6542, time: 363.97 sec
+epoch 13, train neg log prob: 38.0915, test neg log probability 38.2676, time: 394.42 sec
+epoch 14, train neg log prob: 37.7104, test neg log probability 37.9679, time: 423.43 sec
+epoch 15, train neg log prob: 37.3684, test neg log probability 37.6618, time: 452.62 sec
+epoch 16, train neg log prob: 37.0788, test neg log probability 37.3977, time: 481.74 sec
+epoch 17, train neg log prob: 36.8346, test neg log probability 37.2609, time: 511.78 sec
+epoch 18, train neg log prob: 36.6241, test neg log probability 37.0781, time: 544.39 sec
+epoch 19, train neg log prob: 36.4263, test neg log probability 36.9435, time: 573.46 sec
+epoch 20, train neg log prob: 36.2654, test neg log probability 36.8571, time: 602.34 sec
+epoch 21, train neg log prob: 36.1110, test neg log probability 36.7064, time: 631.78 sec
+epoch 22, train neg log prob: 35.9717, test neg log probability 36.6803, time: 660.99 sec
+epoch 23, train neg log prob: 35.8421, test neg log probability 36.5652, time: 691.77 sec
+epoch 24, train neg log prob: 35.7461, test neg log probability 36.4960, time: 720.54 sec
+epoch 25, train neg log prob: 35.6484, test neg log probability 36.4397, time: 749.99 sec
+epoch 26, train neg log prob: 35.5435, test neg log probability 36.3965, time: 778.98 sec
+epoch 27, train neg log prob: 35.4872, test neg log probability 36.3187, time: 811.80 sec
+epoch 28, train neg log prob: 35.3509, test neg log probability 36.2808, time: 844.28 sec
+epoch 29, train neg log prob: 35.2892, test neg log probability 36.2180, time: 872.98 sec
+epoch 30, train neg log prob: 35.2127, test neg log probability 36.2417, time: 902.23 sec
+epoch 31, train neg log prob: 35.1542, test neg log probability 36.1683, time: 931.74 sec
+epoch 32, train neg log prob: 35.0620, test neg log probability 36.1979, time: 961.13 sec
+epoch 33, train neg log prob: 35.0113, test neg log probability 36.1366, time: 991.54 sec
+epoch 34, train neg log prob: 34.9557, test neg log probability 36.1302, time: 1020.98 sec
+epoch 35, train neg log prob: 34.9152, test neg log probability 36.0822, time: 1050.49 sec
+epoch 36, train neg log prob: 34.8129, test neg log probability 36.1215, time: 1080.20 sec
+epoch 37, train neg log prob: 34.7785, test neg log probability 36.0263, time: 1109.89 sec
+epoch 38, train neg log prob: 34.7186, test neg log probability 36.0249, time: 1140.36 sec
+epoch 39, train neg log prob: 34.6767, test neg log probability 36.0011, time: 1173.12 sec
+epoch 40, train neg log prob: 34.6228, test neg log probability 35.9851, time: 1204.36 sec
+epoch 41, train neg log prob: 34.5916, test neg log probability 36.0158, time: 1243.78 sec
+epoch 42, train neg log prob: 34.5760, test neg log probability 36.0822, time: 1278.48 sec
+epoch 43, train neg log prob: 34.5227, test neg log probability 35.9860, time: 1313.98 sec
+epoch 44, train neg log prob: 34.4692, test neg log probability 35.9857, time: 1353.30 sec
+epoch 45, train neg log prob: 34.4169, test neg log probability 36.0169, time: 1390.16 sec
+epoch 46, train neg log prob: 34.3805, test neg log probability 36.0132, time: 1427.33 sec
+epoch 47, train neg log prob: 34.3363, test neg log probability 36.0432, time: 1467.00 sec
+epoch 48, train neg log prob: 34.2923, test neg log probability 35.9901, time: 1503.74 sec
+epoch 49, train neg log prob: 34.2725, test neg log probability 35.9810, time: 1550.39 sec
+epoch 50, train neg log prob: 34.2451, test neg log probability 35.9884, time: 1598.40 sec
+epoch 51, train neg log prob: 34.1863, test neg log probability 36.0749, time: 1636.20 sec
+epoch 52, train neg log prob: 34.1888, test neg log probability 35.9695, time: 1670.72 sec
+epoch 53, train neg log prob: 34.1361, test neg log probability 36.0010, time: 1705.50 sec
+epoch 54, train neg log prob: 34.0723, test neg log probability 36.0701, time: 1743.28 sec
+epoch 55, train neg log prob: 34.0584, test neg log probability 36.0288, time: 1772.13 sec
+epoch 56, train neg log prob: 34.0385, test neg log probability 36.0258, time: 1801.11 sec
+epoch 57, train neg log prob: 34.7063, test neg log probability 36.1732, time: 1832.52 sec
+epoch 58, train neg log prob: 34.3009, test neg log probability 36.0536, time: 1865.54 sec
+epoch 59, train neg log prob: 34.1395, test neg log probability 35.9966, time: 1902.76 sec
+epoch 60, train neg log prob: 34.0346, test neg log probability 36.0287, time: 1927.50 sec
+epoch 61, train neg log prob: 33.9646, test neg log probability 35.9984, time: 1955.10 sec
+epoch 62, train neg log prob: 33.9095, test neg log probability 36.0319, time: 1980.05 sec
+--------------------------------------------------
+early stopped at epoch 62
+loading model from epoch 52
+--------------------------------------------------
+**************************************************
+evaluating model on test dataset:
+total loss: 36.3763
+**************************************************
+average mismatches per sample: 8.4960
+**************************************************
+{'dataset': 'synthetic_unimodal_data_length_100_skewed_gaussian', 'model_type': 'rnn', 'name': 'rnn_default_medium', 'exit_code': 0, 'train_score': 33.9008359375, 'valid_score': 35.9695234375, 'test_score': 36.37628125, 'average_mismatches': 8.496, 'num_params': 22420, 'total_time': 2028.4313950538635}
