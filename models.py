@@ -1,6 +1,7 @@
 import matplotlib.pyplot as plt
-from early_stopping import EarlyStopping
 import os
+plt.switch_backend('agg')
+from early_stopping import EarlyStopping
 
 class Model(object):
 

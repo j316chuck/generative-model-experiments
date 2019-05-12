@@ -4,7 +4,6 @@ from utils import *
 from models import Model
 import os
 
-
 class GenerativeHMM(Model):
 
     def __init__(self, args):
