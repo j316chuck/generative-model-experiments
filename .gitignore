@@ -1,7 +1,6 @@
 .idea/*
 models/*
 __pycache__/*
-./logs/*
 logs/
 .ipynb_checkpoints/*
 .DS_store
