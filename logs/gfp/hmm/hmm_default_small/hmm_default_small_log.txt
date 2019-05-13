@@ -1,48 +1,49 @@
+Device: cpu, Num of cpus: 5
 training hmm model.
-number of parameters -- 1530.0.
+number of parameters -- 1150.0.
 model args:
 **************************************************
-name -- hmm_default_small
-latent_dim -- -1
-num_data -- 100
-model_type -- hmm
-learning_rate -- 0.001
-hidden_size -- 30
-seq_length -- 238
-pseudo_count -- 1
-epochs -- 10
-dataset -- gfp
-base_log -- logs/gfp/hmm/
-layers -- 1
-early_stopping -- <early_stopping.EarlyStopping object at 0x7fda0b022d30>
 train_loss_history -- []
-input -- 4998
-device -- cuda
-valid_loss_history -- []
+layers -- 1
+dataset -- gfp
+model_type -- hmm
+epochs -- 10
+num_data -- 50
+hidden_size -- 25
 num_characters -- 21
-indexes -- [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20]
 all_characters -- *ACDEFGHIKLMNPQRSTVWY
-train_loss -- []
 n_jobs -- 5
-patience -- 10
-batch_size -- 10
+valid_loss_history -- []
+input -- 4998
+name -- hmm_default_small
+device -- cpu
 save_epochs -- 50
+seq_length -- 238
+indexes -- [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20]
+patience -- 10
+early_stopping -- <early_stopping.EarlyStopping object at 0x7f66de0aae10>
+train_loss -- []
+latent_dim -- -1
+base_log -- logs/gfp/hmm/
+batch_size -- 10
+pseudo_count -- 1
+learning_rate -- 0.001
 **************************************************
 training model on train and validation datasets...
-epoch 1, train neg log prob: 684.2117, test neg log probability 684.4014, time: 4.52 sec
-epoch 2, train neg log prob: 683.6997, test neg log probability 683.8936, time: 10.23 sec
-epoch 3, train neg log prob: 683.1288, test neg log probability 683.3265, time: 15.61 sec
-epoch 4, train neg log prob: 682.2734, test neg log probability 682.4767, time: 20.44 sec
-epoch 5, train neg log prob: 680.9708, test neg log probability 681.1840, time: 25.99 sec
-epoch 6, train neg log prob: 679.0850, test neg log probability 679.3140, time: 31.37 sec
-epoch 7, train neg log prob: 675.7240, test neg log probability 675.9794, time: 36.84 sec
-epoch 8, train neg log prob: 668.7281, test neg log probability 669.0290, time: 41.77 sec
-epoch 9, train neg log prob: 656.4502, test neg log probability 656.7999, time: 46.83 sec
-epoch 10, train neg log prob: 640.2083, test neg log probability 640.6198, time: 52.74 sec
+epoch 1, train neg log prob: 683.9784, test neg log probability 684.5127, time: 1.30 sec
+epoch 2, train neg log prob: 683.6375, test neg log probability 684.1738, time: 2.62 sec
+epoch 3, train neg log prob: 683.3452, test neg log probability 683.8830, time: 3.93 sec
+epoch 4, train neg log prob: 683.0354, test neg log probability 683.5745, time: 5.23 sec
+epoch 5, train neg log prob: 682.6350, test neg log probability 683.1752, time: 6.53 sec
+epoch 6, train neg log prob: 681.9963, test neg log probability 682.5373, time: 7.84 sec
+epoch 7, train neg log prob: 680.9324, test neg log probability 681.4740, time: 9.14 sec
+epoch 8, train neg log prob: 679.3854, test neg log probability 679.9292, time: 10.45 sec
+epoch 9, train neg log prob: 676.7521, test neg log probability 677.3048, time: 11.75 sec
+epoch 10, train neg log prob: 671.1471, test neg log probability 671.7282, time: 13.06 sec
 **************************************************
 evaluating model on test dataset:
-Average neg log prob: 640.8826
+Average neg log prob: 671.9686
 **************************************************
-average mismatches per sample: 222.9290
+average mismatches per sample: 223.1030
 **************************************************
-{'name': 'hmm_default_small', 'num_params': 1530.0, 'train_score': 640.2083045127874, 'dataset': 'gfp', 'exit_code': 0, 'model_type': 'hmm', 'average_mismatches': 222.929, 'valid_score': 640.6198255704466, 'total_time': 66.23152542114258, 'test_score': 640.882632361469}
+{'num_params': 1150.0, 'train_score': 671.1471270553875, 'total_time': 23.20765995979309, 'valid_score': 671.7281768727952, 'average_mismatches': 223.103, 'dataset': 'gfp', 'test_score': 671.9686239177244, 'model_type': 'hmm', 'name': 'hmm_default_small', 'exit_code': 0}

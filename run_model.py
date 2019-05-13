@@ -128,14 +128,19 @@ def run_experiment(args):
 
         # putting tensors on cpu or gpu
         if args["device"] == 'cpu':
-            args["device"] = torch.device("cpu")
+            args["device"] = torch.device(args["device"])
         else:
-            args["device"] = torch.device("cuda")
+            args["device"] = torch.device(args["device"])
 
         # loading data and model
         train_loader, valid_loader, test_loader = get_dataloader(args)
         model = get_model(args)
-
+        if model.model_type == "rnn" or model.model_type == "vae":
+            print("Device: {0}, Location: {1}".format(model.device, torch.cuda.device_of(torch.Tensor([0]).to(model.device))))
+            print("Device: {0}, Location: {1}".format(model.device, torch.cuda.device_of(torch.Tensor([0]).to(model.device))), file=logger)
+        else: 
+            print('Device: cpu, Num of cpus: {0}'.format(model.n_jobs))
+            print('Device: cpu, Num of cpus: {0}'.format(model.n_jobs), file=logger)
         # model and data checks
         assert(all(args["seq_length"] == len(base_sequence) for base_sequence in args["base_sequences"]))
         assert(model is not None and train_loader is not None)
